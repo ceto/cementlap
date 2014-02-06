@@ -1,0 +1,42 @@
+/* apply a natural box layout model to all elements */
+* {box-sizing: border-box;}
+
+html, body {
+  font: normal 16px/24px $sans-serif;
+  text-rendering: optimizeLegibility;
+  color: $gray;
+  background-color: $military;
+  height: 100%;
+  
+}
+
+a {
+  color: $military-light;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+p {
+  hyphens: auto;
+  font-feature-settings: "liga", "dlig", "onum";
+}
+
+html[data-useragent*='Chrome'][data-platform*='Mac'] p {
+  font-feature-settings: normal;
+}
+
+
+img {
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+  vertical-align: middle;
+}
+.main {
+@include clearfix();
+overflow:hidden;
+}
+
+

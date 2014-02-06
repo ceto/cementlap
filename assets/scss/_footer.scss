@@ -1,0 +1,107 @@
+.content-info {
+ a{
+  color:$orange;
+  font-weight: 700;
+ }
+}
+
+.duma{
+  color:$soldier;
+  display: block;
+  text-align: right;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+a.telcsi {
+  color:$soldier;
+  font-weight:700;
+  font-size: 4.5em;
+  line-height: 0.75em;
+  
+  letter-spacing: -0.025em;
+  
+}
+
+.footer-sidebar {
+  @include clearfix();
+  color:$military-light;
+  background-color: $military-light;
+  @include breakpoint($s2){
+    background: linear-gradient(to right, $military-light 0%,$military-light 33.333333333%,$brown 33.333333333%);
+  }
+
+  .callnow{
+    padding:3em 2em 3em 1em;
+    text-align: right;
+    @include breakpoint($s2){
+      width:33.333%;
+      float:left;
+      padding:2em 2em 4em 1em;
+    }
+    @include breakpoint($s3){
+      padding:3em 2em 4em 1em;
+    }
+  }
+
+  .widget{
+    @include clearfix();
+    padding:0 1em;
+    background-color: $brown;
+    @include breakpoint($s1){
+      padding:2em 1em;
+      width:33.333%;
+      float:left;
+      min-height:18em;
+      //background-color: transparent;
+    }
+    @include breakpoint($s2){
+      padding:2em 1em 2em 2em;
+      width:22.222%;
+      float:left;
+      background-color: transparent;
+    }
+    @include breakpoint($s3){
+      padding:3em 1em 3em 3em;
+    }
+    h3 {
+      margin-top:1em;
+      font-size: 1.5em;
+      line-height: 1.125em;
+      @include breakpoint($s1){
+        margin-top:0;  
+      }
+    }
+    p{
+      margin-top: 0;
+    }
+  }
+
+  
+}
+
+.footer-copy{
+  padding:1.25em;
+  position: relative;
+  font-size: 0.875em;
+  color:#000;
+  //background-color: $soldier;
+  &:before {
+    content:"";
+    position:absolute;
+    bottom:100%;
+    right:0;
+    width:0;
+    height:0;
+    background-color: $military;
+    border-left: 60px solid $military-light;
+    border-bottom: 60px solid $military;
+    @include breakpoint($s2){
+      right:66.666666%;
+    }
+  }
+
+  
+  
+}

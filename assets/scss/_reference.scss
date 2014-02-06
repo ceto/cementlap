@@ -1,0 +1,139 @@
+.reference-list {
+  @include clearfix();
+  background-color: $brown;
+  //max-width: $s5;
+  //word-break: break-all;
+  font-size: 0;
+  line-height: 0;
+  text-align: justify;
+  margin:0 auto;
+  padding:1px 0 0 0;
+  @include breakpoint($s1){
+    padding:1px 0 0 0;
+  }
+  @include breakpoint($s2){
+    //padding:1em 0.5em 1em 1em;
+  }
+  @include breakpoint($s3){
+     //padding:2em 1em 1em 2em;
+  }
+  @include breakpoint($s4){
+     //padding:2em 1em 1em 2em;
+  }
+  &:after{
+    content:"";
+    display:inline-block;
+    height:0;
+    width:100%;
+  }
+}
+.ref-mini {
+  font: normal 16px/24px $sans-serif;
+  display:inline-block;
+  overflow:hidden;
+  position:relative;
+  margin-bottom:1px;
+  &:hover, &:focus {
+    .ref-desc {
+      opacity:1;
+    }
+    .ref-thumb {
+      transform:scale(1.1)
+    }
+  }
+
+
+  @include breakpoint($s1){
+    width:calc(50% - 1px);
+  }
+  @include breakpoint($s2){
+    width:calc(33.3333333333% - 1px);
+  }
+  @include breakpoint($s3){
+    width:calc(25% - 1px);
+  }
+  @include breakpoint($s4){
+    width:calc(20% - 1px);
+  }
+  @include breakpoint($s5){
+    width:calc(16.66666666% - 1px);
+  }
+}
+.ref-thumb{
+  transition:transform .4s linear;
+  backface-visibility:hidden;
+  //position: absolute;
+  //width:100%;
+}
+.ref-desc{
+  transition:opacity .4s linear;
+  position: absolute;
+  top:0; bottom:0;
+  left:0; right:0;
+  background-color: rgba($butter,1);
+  opacity:0;
+  text-align: center;
+  padding:1em;
+}
+
+.ref-title{
+  color:$military-dark;
+  position:relative;
+  margin-top:50%;
+  transform:translateY(-50%);
+}
+
+
+/******* Single Reference Page *******/
+.single-reference .main{
+  max-width: $s5;
+}
+article.reference {
+  @include clearfix();
+  @include breakpoint($s4){
+  }
+}
+.reference-figure {
+  margin-bottom: 1em;
+  margin-top: 60px;
+  @include breakpoint($s2){
+    margin-bottom: 0;
+
+    text-align: right;
+    max-width: 55%;
+    float:left;
+  }
+  @include breakpoint($s3){
+    max-width: 66.666%;
+  }
+}
+article.reference header{
+
+  padding:0 1em;
+  @include breakpoint($s2){
+    margin-top: 60px;
+    width:45%;
+    float:right;
+  }
+  @include breakpoint($s3){
+    width:33.333%;
+  }
+}
+.reference-title {
+  margin-top:0;
+  line-height:1.125em;
+}
+
+.reference-addcont{
+  text-align: left;
+  padding:0 1em;
+  @include breakpoint($s2){
+    float:left;
+    clear:left;
+    padding:0 0 1em 0;
+    max-width:55%;
+  }
+  @include breakpoint($s3){
+    max-width:66.666%;
+  }
+}

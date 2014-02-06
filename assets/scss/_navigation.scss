@@ -1,0 +1,473 @@
+.banner {
+  background-color: $brown;
+  @include clearfix();
+  position: relative;
+  text-align: right;
+  line-height: 60px;
+  height: 60px;
+  overflow: hidden;
+  transition:height .4s;
+  @include breakpoint($s2) {
+    line-height: 120px;
+    height:120px;
+  }
+  &.active {
+    height:320px;
+  }
+
+}
+
+.navbar-toggle {
+  width:60px;
+  height:60px;
+  font-size:30px;
+  line-height:60px;
+  text-align: center;
+  background-color: $orange;
+  color:#fff;
+  border:none;
+  &:hover, &:focus {
+    background-color:$yellow;
+  }
+  @include breakpoint($s2) {
+    display:none;
+  }
+}
+  
+
+.brand{
+  @include text-hide();
+  display:inline-block;
+  float:left;
+  //background-color: gray;
+  width:200px;
+  height:60px;
+  background-image:url('../img/logo.png');
+  background-repeat:no-repeat;
+  background-position: left 40%;
+  background-size: auto 45px;
+  margin-left: 10px;
+  @include breakpoint($s2) {
+    height:120px;
+    background-size: auto 70px;
+    margin-left: 20px;
+  }
+
+  &:hover, &:focus {
+    //background-image:url('../img/logo_hover.png');
+    //background-size: auto 45px;
+    filter: invert(0.5);
+  }
+
+
+}
+
+.othere {
+  display: inline-block;
+  float:left;
+  margin-left:10px;
+  
+  text-align:center;
+  @include breakpoint($s2) {
+    display:block;
+    float:right;
+    margin-left: 60px;
+  }
+  a {
+    display: inline-block;
+    width:60px;
+    font-size:30px;
+    line-height:60px;
+    text-align: center;
+    background-color: $orange;
+    color:$butter;
+    &:hover, &:focus {
+      background-color:$yellow;
+    }
+    @include breakpoint($s2) {
+      display:block;
+      height: 60px;
+      line-height: 60px;
+      &:last-child {
+        border-top: 1px solid darken($orange,20%);
+      }
+    }
+  }
+
+}
+
+
+.nav-main {
+  text-align: left;
+  @include breakpoint($s2) {
+    display:inline-block;
+  }
+  ul.nav{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  
+  li{
+    padding:0 10px;
+    @include breakpoint($s2) {
+      display:inline-block;
+      padding:0 15px;
+    }
+  }
+
+  a {
+    color:#fff;
+    text-transform: uppercase;
+    font-family: $sans-serif;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    &:hover, &:focus {
+      border-bottom: 3px solid $orange;
+      text-decoration: none;
+    }
+  }
+  .active a {
+    border-bottom: 3px solid $orange;
+  }
+
+}
+
+
+.nav-sub {
+  .nav-title{
+    height:60px;
+    line-height: 60px;
+    margin:0;
+    text-transform: uppercase;
+    position:absolute;
+    left:60px;
+  }
+
+  .submenu-button2 {
+    display: block;
+    padding:0 0.75em;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: $butter;
+      color:$brown;
+    }
+  }
+
+
+  ul{
+    margin:0 0 0 0;
+    padding:0;
+    list-style:none;
+    margin-top:60px;
+    @include breakpoint($s2){
+
+    }
+  }
+  
+  li{
+   // margin-left: 60px;
+  }
+
+  li.active a{
+    background-color: $orange;
+    color:$butter;
+  }
+
+  li a {
+    color:$brown;
+    font-family: $sans-serif;
+    display: block;
+    //font-weight: 700;
+    //text-transform: uppercase;
+    font-size: 1.125em;
+    line-height: 1em;
+    padding:1em;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: $orange;
+      color:$butter;
+    }
+  }
+
+
+}
+article.reference {
+}
+
+
+/* Subnav Off Canvas Navigation */
+.off-canvas-subnavigation {
+  width: 100%;
+  //overflow: hidden;
+  display: block;
+
+  //margin-left:-60px;
+  position:absolute;
+  // top:0;
+  // bottom:0;
+  // width:60px;
+  // background-color: $butter;
+  z-index:0;
+
+}
+.bckbtn{
+  display: block;
+  width:60px;
+  height:60px;
+  //float:left;
+  background-color: $orange;
+  font-size: 30px;
+  line-height: 60px;
+  text-align: center;
+  color:#fff;
+  &:hover, &:focus {
+    background-color:$yellow;
+  }
+
+}
+.submenu-button {
+  width:60px;
+  height:60px;
+  padding: 0 0;
+  //font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 60px;
+  vertical-align: middle;
+  background-color: $military-light;
+  color:$gray;
+  //float:left;
+  
+  display: block;
+  display:none;
+  .ici {
+    font-size: 30px;
+    line-height: 60px;
+  }
+  .cat-name {
+    display:none;
+  }
+  @include breakpoint($s2) {
+    display: block; 
+    width:260px;
+    transform: translate(-100px, 100px) rotate(-90deg);
+    .ici {
+      display:none;
+    }
+    .cat-name{
+      display:inline;
+    }
+  }
+}
+.submenu-button.active-button {
+}
+a.submenu-button:hover{
+  text-decoration: none;  
+  background: $military-dark;
+  color: $butter;
+}
+
+
+/* Subnav Site Menu */
+.nav-sub, article.reference {
+  transition: .2s all ease;     
+  padding: 0;
+  width: calc(100% - 60px);
+
+}
+article.reference{
+  width:100%;
+  @include breakpoint($s2){
+    width: calc(100% - 60px);
+  }
+}
+
+.js .nav-sub { 
+  margin-left: -100%;
+  float: left;
+}
+.js article.reference {
+  margin-left: 0;
+  float: left;
+  @include breakpoint($s2){
+    margin-left: 60px;
+  }
+
+}
+
+.active-subnav .nav-sub { 
+  margin-left: 60px; 
+  width: 240px;
+}
+.active-subnav article.reference{
+  margin-right: -100%;
+  margin-left: 0;
+}
+
+
+@include breakpoint($s4) { 
+  .off-canvas-subnavigation {
+    //display:none;
+  }
+  .js .nav-sub {
+    width: calc(25% - 60px); 
+    margin-left: 60px;
+  }
+  .js article.reference {
+    width: 75%;
+    margin-left: 0;
+    float: left;
+  }
+}
+
+@include breakpoint($s5) { 
+  // .js .nav-sub {
+  //   width: 19%; 
+  //   margin-left: 0;
+  //   float: left;
+  //   padding: 3%
+  // }
+
+  // .js article.reference {
+  //   width: 44%;
+  //   padding: 3%;    
+  // }
+}
+
+/* Off Canvas Navigation */
+// .off-canvas-navigation {
+//   width: 100%;
+//   overflow: hidden;
+//   display: block;
+//   color: #fff;
+// }
+// .off-canvas-navigation ul li {
+//   width: 20%;
+//   display: block;
+//   float: left;
+// }
+// .off-canvas-navigation ul li.sidebar-item {
+//   float: right;
+// }
+// .menu-button,
+// .sidebar-button {
+//   padding: 1em 20%;
+//   font-size: 14px;
+//   display: block;
+//   background: #333;
+//   background: rgba(0,0,0,.3);
+//   color: #fff;
+//   border-top-right-radius: 1em;
+//   box-shadow: inset 0 20px 20px rgba(255,255,255,.1);   
+// }
+// .menu-button.active-button,
+// .sidebar-button.active-button {
+// }
+// a.menu-button:hover,
+// a.sidebar-button:hover {
+//   text-decoration: none;  
+//   background: rgba(0,0,0,.35);
+//   color: #ddd;
+// }
+// .sidebar-button {
+//   text-align: right;  
+//   border-top-left-radius: 1em;
+//   border-top-right-radius: 0; 
+//   background: rgba(0,0,0,.15);        
+// } 
+// /* Site Menu */
+// [role="navigation"],
+// [role="main"],
+// [role="complementary"] {
+//   transition: .2s all ease;     
+//   width: 90%;
+//   padding: 5%;
+// }
+
+// .js [role="navigation"] { 
+//   margin-left: -100%;
+//   float: left;
+// }
+// .js [role="main"] {
+//   margin-left: 0;
+//   float: left;
+// }
+// .js [role="complementary"] {  
+//   margin-right: -200%;
+//   float: left;    
+// }
+
+// .active-nav [role="navigation"] { 
+//   margin-left: 0; 
+//   width: 80%;
+// }
+// .active-nav [role="main"]{
+//   margin-right: -100%;
+// }
+// .active-nav [role="complementary"] {  
+//   margin-right: -100%;
+//   float: right;   
+// }
+
+// .active-sidebar [role="navigation"] { 
+//   margin-left: -100%;
+// }
+// .active-sidebar [role="main"] {
+//   margin-left: -90%;  
+// }
+// .active-sidebar [role="complementary"] {  
+//   margin-left: 0;
+//   width: 80%; 
+// }
+
+// @media all and (min-width: 600px) { 
+//   .js [role="navigation"] {
+//     width: 20%; 
+//     margin-left: 0;
+//   }
+//   .js [role="main"] {
+//     width: 60%;
+//     float: left;
+//   }
+//   .js [role="complementary"] {
+//     width: 20%;
+//   }       
+//   .active-sidebar [role="navigation"] { 
+//     margin-left: -100%;
+//   }
+//   .active-sidebar [role="main"] {
+//     margin-left: 0;
+//     width: 60%;
+//   }
+//   .active-sidebar [role="complementary"] {  
+//     margin-right: -80%;
+//     width: 20%;
+//   }       
+// }
+
+// @media all and (min-width: 800px) { 
+//   .js [role="navigation"] {
+//     width: 19%; 
+//     margin-left: 0;
+//     float: left;
+//     padding: 3%
+//   }
+
+//   .js [role="main"] {
+//     width: 44%;
+//     padding: 3%;    
+//   }
+
+//   .js [role="complementary"] {
+//     width: 19%; 
+//     padding: 3%;  
+//     margin-right: 0;
+//     float: right;
+//   }       
+// }

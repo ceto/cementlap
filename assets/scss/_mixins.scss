@@ -1,0 +1,27 @@
+@mixin breakpoint($breakpoint) {
+  @media only screen and (min-width: $breakpoint) { @content; }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hide-text() {
+  font: #{0/0} a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+// New mixin to use as of v3.0.1
+@mixin text-hide() {
+  @include hide-text();
+}
+
