@@ -7,23 +7,23 @@
 
 
 /**
- * Reference Custoom Post Type Definition
+ * Product Custoom Post Type Definition
 */
-function create_reference() {
+function create_product() {
   $labels = array(
-    'name' => 'References',
-    'singular_name' => 'Reference',
+    'name' => 'Products',
+    'singular_name' => 'Product',
     'add_new' => 'Add New',
-    'add_new_item' => 'Add New Reference',
-    'edit_item' => 'Edit Reference',
-    'new_item' => 'New Reference',
-    'all_items' => 'All References',
-    'view_item' => 'View Reference',
-    'search_items' => 'Search References',
-    'not_found' =>  'No References found',
-    'not_found_in_trash' => 'No References found in Trash', 
+    'add_new_item' => 'Add New Product',
+    'edit_item' => 'Edit Product',
+    'new_item' => 'New Product',
+    'all_items' => 'All Products',
+    'view_item' => 'View Product',
+    'search_items' => 'Search Products',
+    'not_found' =>  'No Products found',
+    'not_found_in_trash' => 'No Products found in Trash', 
     'parent_item_colon' => '',
-    'menu_name' => 'References'
+    'menu_name' => 'Products'
   );
 
   $args = array(
@@ -33,7 +33,7 @@ function create_reference() {
     'show_ui' => true, 
     'show_in_menu' => true, 
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'reference' ),
+    'rewrite' => array( 'slug' => 'product' ),
     'capability_type' => 'post',
     'has_archive' => true, 
     'hierarchical' => false,
@@ -41,9 +41,9 @@ function create_reference() {
     'supports' => array( 'title', 'editor', 'thumbnail' )
   ); 
 
-  register_post_type( 'reference', $args );
+  register_post_type( 'product', $args );
 }
-add_action( 'init', 'create_reference' ); 
+add_action( 'init', 'create_product' ); 
 
 /********* END OF Custom Post Types for Apartment Management ****************/
 
@@ -82,17 +82,17 @@ function cmb_reference( array $meta_boxes ) {
   return $meta_boxes;
 }
 
-/********* End of Custom MetaBoxes for Reference Management ****************/
+/********* End of Custom MetaBoxes for Product Management ****************/
 
-/************* Custom Taxonomies for Reference Management *********/
+/************* Custom Category for Product Management *********/
 
-add_action( 'init', 'create_reference_taxonomies', 0 );
+add_action( 'init', 'create_product_category', 0 );
 
-function create_reference_taxonomies() {
+function create_product_category() {
   $labels = array(
-    'name'              => 'Reference Groups',
-    'singular_name'     => 'Reference Group',
-    'menu_name'         => 'Reference Group',
+    'name'              => __('Product Category', 'root'),
+    'singular_name'     => __('Product Category', 'root'),
+    'menu_name'         => __('Product Category', 'root'),
   );
 
   $args = array(
@@ -101,12 +101,104 @@ function create_reference_taxonomies() {
     'show_ui'           => true,
     'show_admin_column' => true,
     'query_var'         => true,
-    'rewrite'           => array( 'slug' => 'reference-group' ),
+    'rewrite'           => array( 'slug' => 'product-category' ),
   );
 
-  register_taxonomy( 'reference-group', array( 'reference' ), $args );
+  register_taxonomy( 'product-category', array( 'product' ), $args );
 }
 
+
+/************* Custom Style for Product Management *********/
+
+add_action( 'init', 'create_style_category', 0 );
+
+function create_style_category() {
+  $labels = array(
+    'name'              => __('Product Style', 'root'),
+    'singular_name'     => __('Product Style', 'root'),
+    'menu_name'         => __('Product Style', 'root'),
+  );
+
+  $args = array(
+    'hierarchical'      => true,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'product-style' ),
+  );
+
+  register_taxonomy( 'product-style', array( 'product' ), $args );
+}
+
+/************* Custom Colors for Product Management *********/
+
+add_action( 'init', 'create_color_tag', 0 );
+
+function create_color_tag() {
+  $labels = array(
+    'name'              => __('Colors', 'root'),
+    'singular_name'     => __('Colors', 'root'),
+    'menu_name'         => __('Colors', 'root'),
+  );
+
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'product-color' ),
+  );
+
+  register_taxonomy( 'product-color', array( 'product' ), $args );
+}
+
+/************* Custom Design for Product Management *********/
+
+add_action( 'init', 'create_design_tag', 0 );
+
+function create_design_tag() {
+  $labels = array(
+    'name'              => __('Design', 'root'),
+    'singular_name'     => __('Design', 'root'),
+    'menu_name'         => __('Design', 'root'),
+  );
+
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'product-design' ),
+  );
+
+  register_taxonomy( 'product-design', array( 'product' ), $args );
+}
+
+/************* Custom Stock for Product Management *********/
+
+add_action( 'init', 'create_stock_tag', 0 );
+
+function create_stock_tag() {
+  $labels = array(
+    'name'              => __('Stock', 'root'),
+    'singular_name'     => __('Stock', 'root'),
+    'menu_name'         => __('Stock', 'root'),
+  );
+
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'product-stock' ),
+  );
+
+  register_taxonomy( 'product-stock', array( 'product' ), $args );
+}
 
 
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );

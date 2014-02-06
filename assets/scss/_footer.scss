@@ -1,12 +1,12 @@
 .content-info {
  a{
-  color:$orange;
+  color:$blue;
   font-weight: 700;
  }
 }
 
 .duma{
-  color:$soldier;
+  color:$white;
   display: block;
   text-align: right;
   font-size: 2em;
@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 a.telcsi {
-  color:$soldier;
+  color:$white;
   font-weight:700;
   font-size: 4.5em;
   line-height: 0.75em;
@@ -26,10 +26,10 @@ a.telcsi {
 
 .footer-sidebar {
   @include clearfix();
-  color:$military-light;
-  background-color: $military-light;
+  color:$white;
+  background-color: $gray-light;
   @include breakpoint($s2){
-    background: linear-gradient(to right, $military-light 0%,$military-light 33.333333333%,$brown 33.333333333%);
+    background: linear-gradient(to right, $gray-light 0%,$gray-light 33.333333333%,$gray 33.333333333%);
   }
 
   .callnow{
@@ -48,7 +48,7 @@ a.telcsi {
   .widget{
     @include clearfix();
     padding:0 1em;
-    background-color: $brown;
+    background-color: $gray;
     @include breakpoint($s1){
       padding:2em 1em;
       width:33.333%;
@@ -86,22 +86,4 @@ a.telcsi {
   position: relative;
   font-size: 0.875em;
   color:#000;
-  //background-color: $soldier;
-  &:before {
-    content:"";
-    position:absolute;
-    bottom:100%;
-    right:0;
-    width:0;
-    height:0;
-    background-color: $military;
-    border-left: 60px solid $military-light;
-    border-bottom: 60px solid $military;
-    @include breakpoint($s2){
-      right:66.666666%;
-    }
-  }
-
-  
-  
 }

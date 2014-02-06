@@ -11,6 +11,14 @@ function roots_setup() {
     'primary_navigation' => __('Primary Navigation', 'roots'),
   ));
 
+  register_nav_menus(array(
+    'secondary_navigation' => __('Secondary Navigation', 'roots'),
+  ));
+
+  register_nav_menus(array(
+    'tertiary_navigation' => __('Tertiary Navigation', 'roots'),
+  ));
+
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
