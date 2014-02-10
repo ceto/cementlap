@@ -171,6 +171,42 @@ table {
 
 /*============= color definition =================*/
 /****************** breakpoints definition ***********/
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-roman.eot");
+  src: url("../fonts/helveticaneueltstd-roman.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-roman.woff") format("woff"), url("../fonts/helveticaneueltstd-roman.ttf") format("truetype"), url("../fonts/helveticaneueltstd-roman.svg#HelveticaNeueLTStd55Roman") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-bd.eot");
+  src: url("../fonts/helveticaneueltstd-bd.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-bd.woff") format("woff"), url("../fonts/helveticaneueltstd-bd.ttf") format("truetype"), url("../fonts/helveticaneueltstd-bd.svg#HelveticaNeueLTStd75Bold") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-it.eot");
+  src: url("../fonts/helveticaneueltstd-it.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-it.woff") format("woff"), url("../fonts/helveticaneueltstd-it.ttf") format("truetype"), url("../fonts/helveticaneueltstd-it.svg#HelveticaNeueLTStd56Italic") format("svg");
+  font-weight: 400;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-lt.eot");
+  src: url("../fonts/helveticaneueltstd-lt.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-lt.woff") format("woff"), url("../fonts/helveticaneueltstd-lt.ttf") format("truetype"), url("../fonts/helveticaneueltstd-lt.svg#HelveticaNeueLTStd45Light") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-ultlt.eot");
+  src: url("../fonts/helveticaneueltstd-ultlt.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-ultlt.woff") format("woff"), url("../fonts/helveticaneueltstd-ultlt.ttf") format("truetype"), url("../fonts/helveticaneueltstd-ultlt.svg#HelveticaNeueLTStd25UltraLight") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url("../fonts/helveticaneueltstd-blkcn.eot");
+  src: url("../fonts/helveticaneueltstd-blkcn.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-blkcn.woff") format("woff"), url("../fonts/helveticaneueltstd-blkcn.ttf") format("truetype"), url("../fonts/helveticaneueltstd-blkcn.svg#HelveticaNeueLTStd97BlackCondensed") format("svg");
+  font-weight: 900;
+  font-style: normal; }
 /*!
   Ionicons, v1.4.0
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -2708,14 +2744,14 @@ img.mfp-img {
   box-sizing: border-box; }
 
 html, body {
-  font: normal 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 16px/24px "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   color: #2f2f2f;
   background-color: #fefeff;
   height: 100%; }
 
 a {
-  color: #e0e2d4;
+  color: #0066ff;
   text-decoration: none; }
 
 a:hover, a:focus {
@@ -2799,7 +2835,7 @@ img {
   line-height: 1.5em;
   font-weight: 300;
   text-transform: uppercase;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .nav-main:before, .nav-main:after {
     content: " ";
     display: table; }
@@ -2848,133 +2884,6 @@ img {
       right: 1.25em;
       top: 2em; } }
 
-.nav-sub .nav-title {
-  height: 60px;
-  line-height: 60px;
-  margin: 0;
-  text-transform: uppercase;
-  position: absolute;
-  left: 60px; }
-.nav-sub .submenu-button2 {
-  display: block;
-  padding: 0 0.75em; }
-  .nav-sub .submenu-button2:hover, .nav-sub .submenu-button2:focus {
-    text-decoration: none;
-    background-color: #fffeff;
-    color: #280004; }
-.nav-sub ul {
-  margin: 0 0 0 0;
-  padding: 0;
-  list-style: none;
-  margin-top: 60px; }
-.nav-sub li.active a {
-  background-color: #ff9900;
-  color: #fffeff; }
-.nav-sub li a {
-  color: #280004;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: block;
-  font-size: 1.125em;
-  line-height: 1em;
-  padding: 1em; }
-  .nav-sub li a:hover, .nav-sub li a:focus {
-    text-decoration: none;
-    background-color: #ff9900;
-    color: #fffeff; }
-
-/* Subnav Off Canvas Navigation */
-.off-canvas-subnavigation {
-  width: 100%;
-  display: block;
-  position: absolute;
-  z-index: 0; }
-
-.bckbtn {
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-color: #ff9900;
-  font-size: 30px;
-  line-height: 60px;
-  text-align: center;
-  color: #fff; }
-  .bckbtn:hover, .bckbtn:focus {
-    background-color: #f6ce3a; }
-
-.submenu-button {
-  width: 60px;
-  height: 60px;
-  padding: 0 0;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 60px;
-  vertical-align: middle;
-  background-color: #e0e2d4;
-  color: #49494a;
-  display: block;
-  display: none; }
-  .submenu-button .ici {
-    font-size: 30px;
-    line-height: 60px; }
-  .submenu-button .cat-name {
-    display: none; }
-  @media only screen and (min-width: 768px) {
-    .submenu-button {
-      display: block;
-      width: 260px;
-      transform: translate(-100px, 100px) rotate(-90deg); }
-      .submenu-button .ici {
-        display: none; }
-      .submenu-button .cat-name {
-        display: inline; } }
-
-a.submenu-button:hover {
-  text-decoration: none;
-  background: #353429;
-  color: #fffeff; }
-
-/* Subnav Site Menu */
-.nav-sub, article.reference {
-  transition: .2s all ease;
-  padding: 0;
-  width: calc(100% - 60px); }
-
-article.reference {
-  width: 100%; }
-  @media only screen and (min-width: 768px) {
-    article.reference {
-      width: calc(100% - 60px); } }
-
-.js .nav-sub {
-  margin-left: -100%;
-  float: left; }
-
-.js article.reference {
-  margin-left: 0;
-  float: left; }
-  @media only screen and (min-width: 768px) {
-    .js article.reference {
-      margin-left: 60px; } }
-
-.active-subnav .nav-sub {
-  margin-left: 60px;
-  width: 240px; }
-
-.active-subnav article.reference {
-  margin-right: -100%;
-  margin-left: 0; }
-
-@media only screen and (min-width: 1280px) {
-  .js .nav-sub {
-    width: calc(25% - 60px);
-    margin-left: 60px; }
-
-  .js article.reference {
-    width: 75%;
-    margin-left: 0;
-    float: left; } }
 /* Off Canvas Navigation */
 .content-info a {
   color: #0066ff;
@@ -3080,7 +2989,7 @@ a.telcsi {
 
 .hero-text {
   font-size: 5em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.25em;
   font-weight: 700;
   text-transform: uppercase;
@@ -3187,7 +3096,7 @@ a.telcsi {
     color: #49494a;
     font-size: 0.875em;
     line-height: 1.4em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .refstarter .illustration {
     position: absolute;
     top: 0;
@@ -3213,7 +3122,7 @@ a.telcsi {
     margin: 0;
     text-align: left;
     font-weight: 400;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0.25em;
     color: #fffeff;
     background-color: #280004;
@@ -3276,29 +3185,28 @@ a.telcsi {
     margin: 0 auto;
     max-width: 530px; }
 
-.reference-list {
-  background-color: #280004;
+.product-list {
   font-size: 0;
   line-height: 0;
   text-align: justify;
   margin: 0 auto;
   padding: 1px 0 0 0; }
-  .reference-list:before, .reference-list:after {
+  .product-list:before, .product-list:after {
     content: " ";
     display: table; }
-  .reference-list:after {
+  .product-list:after {
     clear: both; }
   @media only screen and (min-width: 480px) {
-    .reference-list {
+    .product-list {
       padding: 1px 0 0 0; } }
-  .reference-list:after {
+  .product-list:after {
     content: "";
     display: inline-block;
     height: 0;
     width: 100%; }
 
 .ref-mini {
-  font: normal 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 16px/24px "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
   overflow: hidden;
   position: relative;
@@ -3334,7 +3242,7 @@ a.telcsi {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fffeff;
+  background-color: rgba(255, 254, 255, 0.5);
   opacity: 0;
   text-align: center;
   padding: 1em; }
@@ -3345,55 +3253,49 @@ a.telcsi {
   margin-top: 50%;
   transform: translateY(-50%); }
 
-/******* Single Reference Page *******/
-.single-reference .main {
+/******* Single Product Page *******/
+.single-product .main {
   max-width: 1600px; }
 
-article.reference:before, article.reference:after {
-  content: " ";
-  display: table; }
-article.reference:after {
-  clear: both; }
+article.product {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+  article.product:before, article.product:after {
+    content: " ";
+    display: table; }
+  article.product:after {
+    clear: both; }
 
-.reference-figure {
-  margin-bottom: 1em;
-  margin-top: 60px; }
-  @media only screen and (min-width: 768px) {
-    .reference-figure {
-      margin-bottom: 0;
-      text-align: right;
-      max-width: 55%;
-      float: left; } }
-  @media only screen and (min-width: 1024px) {
-    .reference-figure {
-      max-width: 66.666%; } }
+.product-figure {
+  width: 25%; }
 
-article.reference header {
-  padding: 0 1em; }
+article.product header {
+  background-color: rgba(254, 254, 255, 0.75);
+  padding: 1em 1em; }
   @media only screen and (min-width: 768px) {
-    article.reference header {
-      margin-top: 60px;
-      width: 45%;
-      float: right; } }
+    article.product header {
+      margin: 60px 1em;
+      width: 45%; } }
   @media only screen and (min-width: 1024px) {
-    article.reference header {
+    article.product header {
       width: 33.333%; } }
 
-.reference-title {
+.product-title {
   margin-top: 0;
   line-height: 1.125em; }
 
-.reference-addcont {
+.product-addcont {
   text-align: left;
   padding: 0 1em; }
   @media only screen and (min-width: 768px) {
-    .reference-addcont {
+    .product-addcont {
       float: left;
       clear: left;
       padding: 0 0 1em 0;
       max-width: 55%; } }
   @media only screen and (min-width: 1024px) {
-    .reference-addcont {
+    .product-addcont {
       max-width: 66.666%; } }
 
 .contact-row {

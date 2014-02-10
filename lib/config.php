@@ -56,7 +56,9 @@ function roots_display_sidebar() {
     array(
       'is_404',
       'is_front_page',
-      'is_single'
+      'is_single',
+      'is_archive'
+      
       
     ),
     /**
@@ -65,7 +67,7 @@ function roots_display_sidebar() {
      */
     array(
       'template-custom.php',
-      'taxonomy-reference-group.php'
+      'taxonomy-product-category.php'
     )
   );
 

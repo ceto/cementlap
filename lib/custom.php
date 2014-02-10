@@ -3,11 +3,11 @@
  * Custom functions
  */
 
-/********* Custom Post Types for Apartment Management ****************/
+/********* Custom Post Types for Product Management ****************/
 
 
 /**
- * Product Custoom Post Type Definition
+ * Product Custom Post Type Definition
 */
 function create_product() {
   $labels = array(
@@ -45,38 +45,49 @@ function create_product() {
 }
 add_action( 'init', 'create_product' ); 
 
-/********* END OF Custom Post Types for Apartment Management ****************/
+/********* END OF Custom Post Types for Product Management ****************/
 
 
-/********* Custom MetaBoxes for Reference Management ****************/
+/********* Custom MetaBoxes for Product Management ****************/
 
 /**
- * Reference Metaboxes
+ * Product Metaboxes
 */
-add_filter( 'cmb_meta_boxes', 'cmb_reference' );
-function cmb_reference( array $meta_boxes ) {
+add_filter( 'cmb_meta_boxes', 'cmb_product' );
+function cmb_product( array $meta_boxes ) {
   $prefix = '_meta_';
 
   $meta_boxes[] = array(
     'id'         => 'rmeta',
-    'title'      => 'Additional details for this reference',
-    'pages'      => array( 'reference'), // Post type
+    'title'      => 'Additional product details',
+    'pages'      => array( 'product'), // Post type
     'context'    => 'normal',
     'priority'   => 'high',
     'show_names' => true, // Show field names on the left
     'fields'     => array(
       array(
-        'name' => 'Year',
-        'id'   => $prefix . 'year',
-        'type' => 'text_small',
+        'name' => __( 'Fullscreen wallpaper', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
+        'id'   => $prefix . 'wallimg',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
       array(
-        'name'    => __( 'Additional content', 'root' ),
-        'desc'    => __( 'Add your own gallery or additional content', 'root' ),
-        'id'      => $prefix . 'addcont',
-        'type'    => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
+        'name' => __( 'Single Cement Tile', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
+        'id'   => $prefix . 'singleimg',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
+      // array(
+      //   'name'    => __( 'Additional content', 'root' ),
+      //   'desc'    => __( 'Add your own gallery or additional content', 'root' ),
+      //   'id'      => $prefix . 'addcont',
+      //   'type'    => 'wysiwyg',
+      //   'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
+      // ),
     ),
   );
   return $meta_boxes;
