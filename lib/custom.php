@@ -74,6 +74,22 @@ function cmb_product( array $meta_boxes ) {
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
       array(
+        'name' => __( '2×2 Cement Tile', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
+        'id'   => $prefix . '22img',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+      array(
+        'name' => __( '3×3 Cement Tile', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
+        'id'   => $prefix . '33img',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+      array(
         'name' => __( 'Single Cement Tile', 'root' ),
         'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
         'id'   => $prefix . 'singleimg',
