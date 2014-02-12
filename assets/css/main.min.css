@@ -3265,13 +3265,10 @@ a.telcsi {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  margin-bottom: 1px; }
-  .ref-mini:hover .ref-desc, .ref-mini:focus .ref-desc {
-    opacity: 1; }
-  .ref-mini:hover .ref-thumb, .ref-mini:focus .ref-thumb {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1); }
+  margin-bottom: 1px;
+  padding: 2em; }
+  .ref-mini:hover, .ref-mini:focus {
+    text-decoration: none; }
   @media only screen and (min-width: 480px) {
     .ref-mini {
       width: -webkit-calc(50% - 1px);
@@ -3303,23 +3300,16 @@ a.telcsi {
 .ref-desc {
   -webkit-transition: opacity .4s linear;
   transition: opacity .4s linear;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 254, 255, 0.5);
-  opacity: 0;
+  color: #49494a;
   text-align: center;
   padding: 1em; }
 
 .ref-title {
-  color: #353429;
-  position: relative;
-  margin-top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1em; }
 
 /******* Single Product Page *******/
 .single-product .main {

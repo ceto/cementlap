@@ -33,12 +33,14 @@
   overflow:hidden;
   position:relative;
   margin-bottom:1px;
+  padding:2em;
   &:hover, &:focus {
+    text-decoration: none;
     .ref-desc {
-      opacity:1;
+      //opacity:1;
     }
     .ref-thumb {
-      transform:scale(1.1)
+      //transform:scale(1.1)
     }
   }
 
@@ -67,20 +69,21 @@
 }
 .ref-desc{
   transition:opacity .4s linear;
-  position: absolute;
-  top:0; bottom:0;
-  left:0; right:0;
-  background-color: rgba($butter,0.5);
-  opacity:0;
+  color:$gray;
   text-align: center;
   padding:1em;
 }
 
 .ref-title{
-  color:$military-dark;
-  position:relative;
-  margin-top:50%;
-  transform:translateY(-50%);
+  margin:0;
+  text-transform: uppercase;
+  font-weight:300;
+  font-size: 1em;
+  line-height: 1em;
+  //color:$military-dark;
+  //position:relative;
+  //margin-top:50%;
+  //transform:translateY(-50%);
 }
 
 
