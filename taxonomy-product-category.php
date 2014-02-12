@@ -16,6 +16,28 @@ Template Name: Product Category List
   //$term_children = get_term_children( $parent_term->term_id, 'object' );
 ?>
 
+
+<section class="product-control">
+  <h1>Cementlapok</h1>
+  
+  <nav class="nav-category">
+    <ul>
+      <li><a href="#" class="active">Mind</a></li>
+      <li><a href="#">Normál</a></li>
+      <li><a href="#">Kicsi</a></li>
+      <li><a href="#">Hatszög</a></li>
+    </ul>
+  </nav>
+  
+  <div class="filter-block">
+      <a href="#">Színek</a>
+      <a href="#">Design</a>
+      <a href="#">Készlet</a>
+    </ul>
+  </div>
+  
+</section>
+
 <?php 
   $the_product = new WP_Query( array(
     'post_type' => 'product',

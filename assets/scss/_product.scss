@@ -36,6 +36,7 @@
   padding:2em;
   &:hover, &:focus {
     text-decoration: none;
+    color:$gray-dark;
     .ref-desc {
       //opacity:1;
     }
@@ -71,19 +72,23 @@
   transition:opacity .4s linear;
   color:$gray;
   text-align: center;
-  padding:1em;
+  padding:1em 1em 0;
 }
 
 .ref-title{
   margin:0;
-  text-transform: uppercase;
   font-weight:300;
   font-size: 1em;
   line-height: 1em;
+  //text-transform: none;
   //color:$military-dark;
   //position:relative;
   //margin-top:50%;
   //transform:translateY(-50%);
+  &:first-letter{
+    text-transform: uppercase;
+  }
+
 }
 
 
