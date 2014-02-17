@@ -5,7 +5,7 @@
   //word-break: break-all;
   font-size: 0;
   line-height: 0;
-  text-align: justify;
+  text-align: center;
   margin:0 auto;
   padding:1px 0 0 0;
   @include breakpoint($s1){
@@ -33,7 +33,7 @@
   overflow:hidden;
   position:relative;
   margin-bottom:1px;
-  padding:2em;
+  padding:1em;
   &:hover, &:focus {
     text-decoration: none;
     color:$gray-dark;
@@ -46,27 +46,41 @@
   }
 
 
-  @include breakpoint($s1){
+  @include breakpoint(240px){
     width:calc(50% - 1px);
   }
-  @include breakpoint($s2){
+  @include breakpoint($s1){
     width:calc(33.3333333333% - 1px);
   }
-  @include breakpoint($s3){
+  @include breakpoint($s2){
     width:calc(25% - 1px);
   }
-  @include breakpoint($s4){
+  @include breakpoint($s3){
     width:calc(20% - 1px);
   }
-  @include breakpoint($s5){
+  @include breakpoint($s4){
     width:calc(16.66666666% - 1px);
+  }
+  @include breakpoint($s5){
+    width:calc(14.2857143% - 1px);
   }
 }
 .ref-thumb{
   transition:transform .4s linear;
   backface-visibility:hidden;
-  //position: absolute;
+  position: relative;
   //width:100%;
+}
+
+.ref-sthumb{
+  position: absolute;
+  bottom:-0.5em;
+  right:-0.5em;
+  width:55%;
+  height:55%;
+  display: block;
+  border:3px solid $white;
+  box-shadow: 0 0 5px 0 $gray-dark;
 }
 .ref-desc{
   transition:opacity .4s linear;

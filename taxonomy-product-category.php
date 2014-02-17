@@ -28,13 +28,61 @@ Template Name: Product Category List
       <li><a href="#">Hatszög</a></li>
     </ul>
   </nav>
+
+  <div id="filt-wrap">
+
+    <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name="filt-color">
+        <span class="filt-placeholder-text">Színek</span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul class="filt-item filt-color hide">
+        <?php $filtlist=get_terms('product-color' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+    
+    <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name="filt-design">
+        <span class="filt-placeholder-text">Design</span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul class="filt-item filt-design hide">
+        <?php $filtlist=get_terms('product-design' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name="filt-stock">
+        <span class="filt-placeholder-text">Készlet</span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul class="filt-item filt-stock hide">
+        <?php $filtlist=get_terms('product-stock' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+
+
+  </div><!-- /#filt-wrap -->
   
-  <div class="filter-block">
-      <a href="#">Színek</a>
-      <a href="#">Design</a>
-      <a href="#">Készlet</a>
-    </ul>
-  </div>
+
   
 </section>
 
@@ -46,13 +94,24 @@ Template Name: Product Category List
 ?>
 <div class="product-list">
   <?php while ($the_product->have_posts()) : $the_product->the_post(); ?>
-  <a id="reference-<?php echo $post->ID; ?>" <?php post_class('ref-mini'); ?>
+  <?php
+    $termik = array();
+    $termlist=get_the_terms( $post->ID, 'product-category' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-color' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-design' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termes = join(" ", $termik );
+  ?>
+  <a id="reference-<?php echo $post->ID; ?>" <?php post_class($termes.' ref-mini'); ?>
     href="<?php the_permalink(); ?>"
     data-url="<?php the_permalink(); ?>"
     data-name="<?php the_title(); ?>"
   >
     <figure class="ref-thumb">
       <?php the_post_thumbnail('small11');  ?>
+      <img src="<?php echo get_post_meta( $post->ID, '_meta_singleimg', true ); ?> " alt="" class="ref-sthumb">
     </figure>
     <div class="ref-desc">
       <h3 class="ref-title"><?php the_title(); ?></h3>

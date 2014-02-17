@@ -107,3 +107,18 @@ jQuery(document).ready(function($) {
 });
 
 
+
+/********** Product Control scripts *********/
+jQuery(document).ready(function($){
+  $('.filt-placeholder').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('selected');
+    $('.'+$(this).attr('data-filter-name')).toggleClass('hide');
+  });
+  // $('.filt-item-input').click(function(e){
+  //   $(this).parent().parent().toggleClass('hide');
+  // });
+});
+
+
+
