@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'HelveticaNeueLTStd55Roman';
+    src: url('helveticaneueltstd-roman.eot');
+    src: url('helveticaneueltstd-roman.eot') format('embedded-opentype'),
+         url('helveticaneueltstd-roman.woff') format('woff'),
+         url('helveticaneueltstd-roman.ttf') format('truetype'),
+         url('helveticaneueltstd-roman.svg#HelveticaNeueLTStd55Roman') format('svg');
+}

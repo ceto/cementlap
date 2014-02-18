@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'HelveticaNeueLTStd97BlackCondensed';
+    src: url('helveticaneueltstd-blkcn.eot');
+    src: url('helveticaneueltstd-blkcn.eot') format('embedded-opentype'),
+         url('helveticaneueltstd-blkcn.woff') format('woff'),
+         url('helveticaneueltstd-blkcn.ttf') format('truetype'),
+         url('helveticaneueltstd-blkcn.svg#HelveticaNeueLTStd97BlackCondensed') format('svg');
+}

@@ -93,14 +93,12 @@ jQuery(document).ready(function($) {
   });
 });
 
-
 var resizeHero = function() {
-  $('.hero').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+  $('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+  //$('.contact-row.open').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+  //$('.contact-row.open').css('min-height',($(window).height()-($('.banner').offset().top + $('.banner').height())));
 };
 
-$(window).resize(function(){
-  resizeHero();
-});
 
 jQuery(document).ready(function($) {
   resizeHero();
