@@ -66,25 +66,41 @@ function cmb_product( array $meta_boxes ) {
     'show_names' => true, // Show field names on the left
     'fields'     => array(
       array(
+        'name'   => __( 'Price', 'root' ),
+        'desc'   => __( 'Unit price. (only numbers allowed)', 'root' ),
+        'id'     => $prefix . 'price',
+        'type'   => 'text_money',
+        'before' => 'Ft', // override '$' symbol if needed
+        // 'repeatable' => true,
+      ),
+      array(
+        'name' => __( 'On Stock', 'root' ),
+        'desc' => __( 'Amount of unit on Törökbálint', 'root' ),
+        'id'   => $prefix . 'amount',
+        'type' => 'text_small',
+        // 'repeatable' => true,
+      ),
+      array(
+        'name'    => __( 'Unit', 'root' ),
+        'desc'    => __( 'Please select a unit', 'root' ),
+        'id'      => $prefix . 'unit',
+        'type'    => 'radio_inline',
+        'options' => array(
+          array( 'name' => __( 'm<sup>2</sup>', 'root' ), 'value' => 'm2', ),
+          array( 'name' => __( 'kg', 'root' ), 'value' => 'kg', ),
+          array( 'name' => __( 'db', 'root' ), 'value' => 'db', ),
+        ),
+      ),
+      array(
+        'name' => __( 'Next transport date', 'root' ),
+        'desc' => __( 'field description (optional)', 'root' ),
+        'id'   => $prefix . 'arrive',
+        'type' => 'text_date',
+      ),
+      array(
         'name' => __( 'Fullscreen wallpaper', 'root' ),
         'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
         'id'   => $prefix . 'wallimg',
-        'type' => 'file',
-        'save_id' => true, // save ID using true
-        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-      ),
-      array(
-        'name' => __( '2×2 Cement Tile', 'root' ),
-        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
-        'id'   => $prefix . '22img',
-        'type' => 'file',
-        'save_id' => true, // save ID using true
-        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-      ),
-      array(
-        'name' => __( '3×3 Cement Tile', 'root' ),
-        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
-        'id'   => $prefix . '33img',
         'type' => 'file',
         'save_id' => true, // save ID using true
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
@@ -97,6 +113,7 @@ function cmb_product( array $meta_boxes ) {
         'save_id' => true, // save ID using true
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
+
       // array(
       //   'name'    => __( 'Additional content', 'root' ),
       //   'desc'    => __( 'Add your own gallery or additional content', 'root' ),
