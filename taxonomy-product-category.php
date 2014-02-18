@@ -32,15 +32,15 @@ Template Name: Product Category List
   <div id="filt-wrap">
 
     <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name="filt-color">
+      <div class="filt-placeholder" data-filter-name=".filt-color">
         <span class="filt-placeholder-text">Színek</span>
         <i class="ion-chevron-down"></i>
       </div>
-      <ul class="filt-item filt-color hide">
+      <ul data-filter-group="color" class="filt-item filt-color hide">
         <?php $filtlist=get_terms('product-color' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
-          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
           <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
         </li>
         <?php } ?>
@@ -48,15 +48,15 @@ Template Name: Product Category List
     </div>
     
     <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name="filt-design">
+      <div class="filt-placeholder" data-filter-name=".filt-design">
         <span class="filt-placeholder-text">Design</span>
         <i class="ion-chevron-down"></i>
       </div>
-      <ul class="filt-item filt-design hide">
+      <ul data-filter-group="design" class="filt-item filt-design hide">
         <?php $filtlist=get_terms('product-design' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
-          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
           <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
         </li>
         <?php } ?>
@@ -64,15 +64,15 @@ Template Name: Product Category List
     </div>
 
     <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name="filt-stock">
+      <div class="filt-placeholder" data-filter-name=".filt-stock">
         <span class="filt-placeholder-text">Készlet</span>
         <i class="ion-chevron-down"></i>
       </div>
-      <ul class="filt-item filt-stock hide">
+      <ul data-filter-group="stock" class="filt-item filt-stock hide">
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
-          <input class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
           <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
         </li>
         <?php } ?>
@@ -101,6 +101,8 @@ Template Name: Product Category List
     $termlist=get_the_terms( $post->ID, 'product-color' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
     $termlist=get_the_terms( $post->ID, 'product-design' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-stock' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
     $termes = join(" ", $termik );
   ?>

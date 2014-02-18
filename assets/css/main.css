@@ -3251,7 +3251,11 @@ article.product {
     clear: both; }
 
 .product-figure {
-  width: 25%; }
+  border: 5px solid red;
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .product-figure {
+      display: none; } }
 
 .uszo {
   background-color: #fefeff;
@@ -3270,12 +3274,14 @@ article.product {
   color: #000;
   font-size: 0.875em;
   line-height: 1em; }
+  .product-back i {
+    margin-right: 0.25em; }
 
 .product-title {
   border-top: 1px solid #49494a;
   padding-top: 10px;
   margin: 0;
-  font-size: 3em;
+  font-size: 2.5em;
   line-height: 1em;
   font-weight: 100;
   text-transform: uppercase;
@@ -3284,7 +3290,7 @@ article.product {
 .product-price {
   font-weight: 900;
   color: #9a9a9b;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1em;
   border-bottom: 1px solid #49494a; }
 
@@ -3509,5 +3515,15 @@ input[type="text"], input[type="email"], textarea {
   float: left;
   padding-top: 3em;
   font-size: 0.75em; }
+
+.isotope,
+.isotope .isotope-item {
+  transition-duration: 0.8s; }
+
+.isotope {
+  transition-property: height, width; }
+
+.isotope .isotope-item {
+  transition-property: transform, opacity; }
 
 /*# sourceMappingURL=main.css.map */

@@ -16,9 +16,12 @@
   $imci = wp_get_attachment_image_src( $ima[id], 'banner169');
 ?>
   <article <?php post_class(); ?> style="background-image:url('<?php echo get_post_meta($post->ID, '_meta_wallimg', true); ?>');">
+    <figure class="product-figure">
+      <?php the_post_thumbnail('medium169'); ?>
+    </figure>
     <div class="uszo">
       <header>
-        <a class="product-back" href="javascript:history.back()"><i class="ion-ios7-undo"></i> Cementlapok</a>
+        <a class="product-back" href="javascript:history.back()"><i class="ion-ios7-undo"></i>Cementlapok</a>
         <h1 class="product-title"><?php the_title(); ?></h1>
         <div class="product-price">
           <?php echo get_post_meta($post->ID, '_meta_price', true); ?>

@@ -118,7 +118,11 @@ article.product {
 
 }
 .product-figure {
-  width:25%;
+  border:5px solid red;
+  display: none;
+  @include breakpoint($s2){
+    display:none;
+  }
 }
 .uszo{
   background-color: rgba($white,1);
@@ -137,12 +141,16 @@ article.product {
   color:#000;
   font-size: 0.875em;
   line-height: 1em;
+  i{
+    margin-right: 0.25em;
+    //display: inline-block;
+  }
 }
 .product-title {
   border-top: 1px solid $gray;
   padding-top:10px;
   margin:0;
-  font-size:3em;
+  font-size:2.5em;
   line-height:1em;
   font-weight: 100;
   text-transform: uppercase;
@@ -151,7 +159,7 @@ article.product {
 .product-price{
   font-weight: 900;
   color:$gray-light;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1em;
   border-bottom: 1px solid $gray;
 }
