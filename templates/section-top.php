@@ -2,7 +2,7 @@
 <section class="hero" role="banner">
   <div class="hero-content">
     <span class="hero-text">
-      A hasznot hozó design
+        <?php bloginfo('description' ); ?>
     </span>
   </div>
 </section> 
