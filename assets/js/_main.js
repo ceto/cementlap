@@ -122,11 +122,11 @@ jQuery(document).ready(function($){
     filters = {};
 
   $container.isotope({
-    itemSelector : '.ref-mini',
+    itemSelector : '.prod-mini',
     animationOptions: {
       duration: 750,
       easing: 'linear',
-      //queue: false
+      queue: false
     }
   });
 

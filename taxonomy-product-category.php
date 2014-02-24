@@ -106,17 +106,21 @@ Template Name: Product Category List
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
     $termes = join(" ", $termik );
   ?>
-  <a id="reference-<?php echo $post->ID; ?>" <?php post_class($termes.' ref-mini'); ?>
+  <a id="product-<?php echo $post->ID; ?>" <?php post_class($termes.' prod-mini'); ?>
     href="<?php the_permalink(); ?>"
     data-url="<?php the_permalink(); ?>"
     data-name="<?php the_title(); ?>"
   >
-    <figure class="ref-thumb">
+    <figure class="prod-thumb">
       <?php the_post_thumbnail('small11');  ?>
-      <img src="<?php echo get_post_meta( $post->ID, '_meta_singleimg', true ); ?> " alt="" class="ref-sthumb">
+      <img src="<?php echo get_post_meta( $post->ID, '_meta_singleimg', true ); ?> " alt="" class="prod-sthumb">
     </figure>
-    <div class="ref-desc">
-      <h3 class="ref-title"><?php the_title(); ?></h3>
+    <div class="prod-desc">
+      <h3 class="prod-title"><?php the_title(); ?></h3>
+      <div class="prod-price">
+        <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
+        <span class="prod-unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
+      </div>
     </div>
   </a>
   <!-- /#reference-## --><?php endwhile; ?>

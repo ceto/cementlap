@@ -2984,41 +2984,41 @@ img {
     height: 0;
     width: 100%; }
 
-.ref-mini {
+.prod-mini {
   font: normal 16px/24px "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
   overflow: hidden;
   position: relative;
   margin-bottom: 1px;
   padding: 1em; }
-  .ref-mini:hover, .ref-mini:focus {
+  .prod-mini:hover, .prod-mini:focus {
     text-decoration: none;
     color: #2f2f2f; }
   @media only screen and (min-width: 240px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(50% - 1px); } }
   @media only screen and (min-width: 480px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(33.3333333333% - 1px); } }
   @media only screen and (min-width: 768px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(25% - 1px); } }
   @media only screen and (min-width: 1024px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(20% - 1px); } }
   @media only screen and (min-width: 1280px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(16.66666666% - 1px); } }
   @media only screen and (min-width: 1600px) {
-    .ref-mini {
+    .prod-mini {
       width: calc(14.2857143% - 1px); } }
 
-.ref-thumb {
+.prod-thumb {
   transition: transform .4s linear;
   backface-visibility: hidden;
   position: relative; }
 
-.ref-sthumb {
+.prod-sthumb {
   position: absolute;
   bottom: -0.5em;
   right: -0.5em;
@@ -3028,18 +3028,18 @@ img {
   border: 3px solid #fefeff;
   box-shadow: 0 0 5px 0 #2f2f2f; }
 
-.ref-desc {
+.prod-desc {
   transition: opacity .4s linear;
   color: #49494a;
   text-align: center;
   padding: 1em 1em 0; }
 
-.ref-title {
+.prod-title {
   margin: 0;
   font-weight: 300;
   font-size: 1em;
   line-height: 1em; }
-  .ref-title:first-letter {
+  .prod-title:first-letter {
     text-transform: uppercase; }
 
 /******* Single Product Page *******/
@@ -3069,10 +3069,10 @@ article.product {
   @media only screen and (min-width: 768px) {
     .uszo {
       margin: 60px 1em;
-      width: 45%; } }
-  @media only screen and (min-width: 1024px) {
-    .uszo {
-      width: 33.333%; } }
+      max-width: 360px; } }
+
+.product-head {
+  margin-bottom: 4em; }
 
 .product-back {
   font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
@@ -3085,19 +3085,21 @@ article.product {
 
 .product-title {
   border-top: 1px solid #49494a;
-  padding-top: 10px;
+  padding-top: 14px;
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2.25em;
   line-height: 1em;
   font-weight: 100;
   text-transform: uppercase;
   color: #49494a; }
 
 .product-price {
+  margin-top: -0.125em;
   font-weight: 900;
   color: #9a9a9b;
-  font-size: 1.5em;
+  font-size: 1.666em;
   line-height: 1em;
+  padding-bottom: 6px;
   border-bottom: 1px solid #49494a; }
 
 .product-content {
@@ -3117,6 +3119,54 @@ article.product {
   @media only screen and (min-width: 1024px) {
     .product-addcont {
       max-width: 66.666%; } }
+
+.action-block .btn {
+  width: 100%; }
+
+.stock-block {
+  border-bottom: 1px solid #49494a;
+  border-top: 1px solid #49494a;
+  padding: 0.5em 0;
+  margin: 1em 0;
+  color: #49494a;
+  font-size: 1em;
+  line-height: 1.25em; }
+  .stock-block:before, .stock-block:after {
+    content: " ";
+    display: table; }
+  .stock-block:after {
+    clear: both; }
+  .stock-block h3 {
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.75em; }
+  .stock-block .stock-status {
+    text-transform: uppercase; }
+  .stock-block .stock-amount {
+    font-size: 0.875em;
+    font-weight: 300; }
+  .stock-block .date-status {
+    font-size: 0.875em;
+    font-weight: 300; }
+
+.gombsor {
+  font-size: 0; }
+  .gombsor a {
+    font-size: 16px;
+    width: 33.3333333%;
+    display: inline-block;
+    text-align: center;
+    color: #49494a; }
+    .gombsor a:hover, .gombsor a:focus {
+      text-decoration: none;
+      color: #2f2f2f; }
+    .gombsor a i {
+      font-size: 2.25em; }
+    .gombsor a span {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75em; }
 
 .product-control {
   text-align: center; }
@@ -3292,16 +3342,19 @@ input[type="text"], input[type="email"], textarea {
 .btn {
   border: 0;
   display: inline-block;
-  background-color: #280004;
+  background-color: #49494a;
+  border: 1px solid #9a9a9b;
   text-align: center;
-  color: #f6ce3a;
-  font-size: 1.5em;
+  color: #fff;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 300;
+  font-size: 1.25em;
   line-height: 1em;
-  padding: 0.5em 1em; }
+  padding: 0.666em 2em 0.333em; }
   .btn:hover, .btn:focus {
-    background-color: #231f06; }
+    background-color: #2f2f2f;
+    border: 1px solid #49494a;
+    text-decoration: none; }
 
 .actions {
   text-align: right;

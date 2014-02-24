@@ -70,16 +70,20 @@ input[type="text"], input[type="email"], textarea{
 .btn {
   border:0;
   display: inline-block;
-  background-color: $brown;
+  background-color: $gray;
+  border:1px solid $gray-light; 
   text-align: center;
-  color:$yellow;
-  font-size: 1.5em;
+  color:#fff;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 300;
+  font-size: 1.25em;
   line-height: 1em;
-  padding:0.5em 1em;
+  padding:0.666em 2em 0.333em;
+
   &:hover, &:focus {
-    background-color: $soldier;
+    background-color: $gray-dark;
+    border:1px solid $gray; 
+    text-decoration: none;
   }
 }
 

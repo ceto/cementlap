@@ -15,16 +15,28 @@
   $ima = get_post_meta( $post->ID, '_meta_wallimg', flase );
   $imci = wp_get_attachment_image_src( $ima[id], 'banner169');
 ?>
-  <article <?php post_class(); ?> style="background-image:url('<?php echo get_post_meta($post->ID, '_meta_wallimg', true); ?>');">
+  <?php
+    $termik = array();
+    $termlist=get_the_terms( $post->ID, 'product-category' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-color' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-design' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termlist=get_the_terms( $post->ID, 'product-stock' );
+    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    $termes = join(" ", $termik );
+  ?>
+  <article <?php post_class($termes); ?> style="background-image:url('<?php echo get_post_meta($post->ID, '_meta_wallimg', true); ?>');">
     <figure class="product-figure">
       <?php the_post_thumbnail('medium169'); ?>
     </figure>
     <div class="uszo">
-      <header>
+      <header class="product-head">
         <a class="product-back" href="javascript:history.back()"><i class="ion-ios7-undo"></i>Cementlapok</a>
         <h1 class="product-title"><?php the_title(); ?></h1>
         <div class="product-price">
-          <?php echo get_post_meta($post->ID, '_meta_price', true); ?>
+          <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
           <span class="unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
         </div>
         <div class="product-content">
@@ -33,8 +45,41 @@
         </div>
       </header>
       <footer class="product-footer">
+        <div class="action-block">
+          <a href="#" class="btn">
+            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+              <?php _e('Lefoglalom','root'); ?>
+            <?php else: ?>
+              <?php _e('Megrendelem','root') ?>
+            <?php endif; ?>
+          </a>
+        </div>
+        <div class="stock-block">
+          <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
+          <div class="stock-status">
+            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+              <?php _e('Azonnal szállítható','root') ?>
+            <?php else: ?>
+              <?php _e('Nincs raktáron - Csak rendelésre','root') ?>
+            <?php endif; ?>
+          </div>
+          <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+            <div class="stock-amount">
+              Raktáron van:
+              <?php echo get_post_meta($post->ID, '_meta_amount', true); ?>
+              <?php echo get_post_meta($post->ID, '_meta_unit', true); ?>
+            </div>
+          <?php else: ?>
+            <div class="date-status">Legkorábban érkezik: <?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></div>
+          <?php endif; ?>
+        </div>
+        <div class="gombsor">
+          <a href="#" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
+          <a href="#" class="share-pin"><i class="ion-social-pinterest"></i><br /><span>Pinterest</span></a>
+          <a href="#" class="share-like"><i class="ion-thumbsup"></i><br /><span>Ez csinos</span></a>
+        </div>
         <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
       </footer>
-    </div>
+    </div><!-- /.uszo -->
   </article>
 <?php endwhile; ?>
