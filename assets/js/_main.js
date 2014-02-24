@@ -118,38 +118,38 @@ jQuery(document).ready(function($){
   // });
 
 
-  var $container = $('.product-list'),
-    filters = {};
+  // var $container = $('.product-list'),
+  //   filters = {};
 
-  $container.isotope({
-    itemSelector : '.prod-mini',
-    animationOptions: {
-      duration: 750,
-      easing: 'linear',
-      queue: false
-    }
-  });
+  // $container.isotope({
+  //   itemSelector : '.prod-mini',
+  //   animationOptions: {
+  //     duration: 750,
+  //     easing: 'linear',
+  //     queue: false
+  //   }
+  // });
 
-  // filter buttons
-  $('.filt-item-input').click(function(){
-    var $this = $(this);
-    var $optionSet = $this.parents('.filt-item');
-    $this.toggleClass('selected');
+  // // filter buttons
+  // $('.filt-item-input').click(function(){
+  //   var $this = $(this);
+  //   var $optionSet = $this.parents('.filt-item');
+  //   $this.toggleClass('selected');
     
-    // store filter value in object
-    // i.e. filters.color = 'red'
-    var group = $optionSet.attr('data-filter-group');
-    filters[ group ] = $this.attr('data-filter-value');
-    // convert object into array
-    var isoFilters = [];
-    for ( var prop in filters ) {
-      isoFilters.push( filters[ prop ] );
-    }
-    var selector = isoFilters.join('');
-    $container.isotope({ filter: selector });
+  //   // store filter value in object
+  //   // i.e. filters.color = 'red'
+  //   var group = $optionSet.attr('data-filter-group');
+  //   filters[ group ] = $this.attr('data-filter-value');
+  //   // convert object into array
+  //   var isoFilters = [];
+  //   for ( var prop in filters ) {
+  //     isoFilters.push( filters[ prop ] );
+  //   }
+  //   var selector = isoFilters.join('');
+  //   $container.isotope({ filter: selector });
 
-    //return false;
-  });
+  //   //return false;
+  // });
 
   // // filter buttons
   // $('.filt-item-input').click(function(){

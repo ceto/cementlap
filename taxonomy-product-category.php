@@ -113,10 +113,22 @@ Template Name: Product Category List
   >
     <figure class="prod-thumb">
       <?php the_post_thumbnail('small11');  ?>
-      <img src="<?php echo get_post_meta( $post->ID, '_meta_singleimg', true ); ?> " alt="" class="prod-sthumb">
+      <?php
+        $ima = get_post_meta( $post->ID, '_meta_singleimg_id', true );
+        $imci = wp_get_attachment_image_src( $ima, 'petit11');
+      ?>
+    <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="" class="prod-sthumb">
     </figure>
     <div class="prod-desc">
       <h3 class="prod-title"><?php the_title(); ?></h3>
+      <div class="prod-stock-status">
+        <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+          <?php _e('Azonnal szállítható','root') ?>
+        <?php else: ?>
+         <?php _e('Csak rendelésre','root') ?>
+        <?php endif; ?>
+      </div>
+
       <div class="prod-price">
         <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
         <span class="prod-unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>

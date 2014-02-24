@@ -37,6 +37,9 @@ function roots_setup() {
   add_image_size('tiny169', 320, 180, true); 
   add_image_size('tiny43', 320, 240, true); 
   add_image_size('tiny11', 320, 320, true);
+  
+  add_image_size('petit11', 120, 120, true);
+
 
 
 

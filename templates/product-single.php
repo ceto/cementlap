@@ -12,7 +12,7 @@
   // $group=$group_terms[0];
 ?>
 <?php
-  $ima = get_post_meta( $post->ID, '_meta_wallimg', flase );
+  $ima = get_post_meta( $post->ID, '_meta_wallimg', false );
   $imci = wp_get_attachment_image_src( $ima[id], 'banner169');
 ?>
   <?php

@@ -3,7 +3,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 300px; 
+  min-height: 500px; 
   width:100%;
   padding:1em;
 
@@ -17,7 +17,7 @@
 .hero-content {
 
   text-align: left;
-  margin:10em 0;
+  margin:8em 0;
 }
 .hero-text{
   font-size: 3em;
@@ -54,7 +54,7 @@
     
     &:hover, &:focus{
       img {
-        //filter:brightness(0.5);
+        //filter:brightness(0.25);
       }
     }
   }
