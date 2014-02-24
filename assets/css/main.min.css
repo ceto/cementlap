@@ -3091,9 +3091,6 @@ img {
     text-transform: uppercase; }
 
 /******* Single Product Page *******/
-.single-product .main {
-  max-width: 1600px; }
-
 article.product {
   background-repeat: no-repeat;
   background-position: center center;
