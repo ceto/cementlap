@@ -40,3 +40,35 @@ overflow:hidden;
 }
 
 
+.btn {
+  border:0;
+  display: inline-block;
+  background-color: $gray;
+  border:1px solid $gray; 
+  text-align: center;
+  color:#fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1.25em;
+  line-height: 1em;
+  padding:0.666em 2em 0.333em;
+
+  &:hover, &:focus {
+    background-color: $gray-dark;
+    border:1px solid $gray; 
+    text-decoration: none;
+  }
+}
+.btn-light-line {
+  @extend .btn;
+  background-color: transparent;
+  border-color:rgba($white,0.5);
+  color:$white;
+  font-size: 0.875em;
+  line-height: 1em;
+  &:hover, &:focus {
+    background-color: transparent;
+    border-color:#fff;
+    color:#fff;
+  }
+}

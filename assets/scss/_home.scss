@@ -17,7 +17,7 @@
 .hero-content {
 
   text-align: left;
-  margin:8em 0;
+  margin:10em 0;
 }
 .hero-text{
   font-size: 3em;
@@ -29,3 +29,61 @@
   text-shadow: 1px 1px 3px $gray-dark; 
 }
 
+.fresh-posts {
+  @include clearfix();
+  max-width: $s5;
+  margin:0 auto;
+  padding:4em 3em;
+  .post {
+    position:relative;
+    @include breakpoint($s2){
+      width:calc(33.333333% - 1.333333em);
+      margin-right:2em;
+      float:left;
+      &:last-child {
+        margin-right:0;
+      }
+    }
+  }
+
+  .post-thumb a {
+    img {
+      //transition:filter .8s linear;
+      filter:brightness(0.5);
+    }
+    
+    &:hover, &:focus{
+      img {
+        //filter:brightness(0.5);
+      }
+    }
+  }
+
+  .post-desc {
+    @include clearfix();
+    position: absolute;
+    top:50%;
+    left:0;right:0;
+    padding:0 1em;
+    transform:translateY(-50%);
+    text-align: center;
+  
+
+  }
+
+  .post-title {
+    font-weight: 100;
+    font-size: 2.25em;
+    line-height: 1.125em;
+    text-transform:uppercase;
+    text-shadow:0 0 3px $gray;
+    a {
+      color:$white;
+      display: block;
+      &:hover, &:focus {
+        color:#fff;
+        text-decoration: none;
+      }
+    }
+  }
+}

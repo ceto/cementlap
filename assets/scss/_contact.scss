@@ -67,25 +67,7 @@ input[type="text"], input[type="email"], textarea{
   //display:block;
 }
 
-.btn {
-  border:0;
-  display: inline-block;
-  background-color: $gray;
-  border:1px solid $gray; 
-  text-align: center;
-  color:#fff;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 1.25em;
-  line-height: 1em;
-  padding:0.666em 2em 0.333em;
 
-  &:hover, &:focus {
-    background-color: $gray-dark;
-    border:1px solid $gray; 
-    text-decoration: none;
-  }
-}
 
 .actions {
   @include clearfix();
