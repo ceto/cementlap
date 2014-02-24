@@ -125,18 +125,23 @@ article.product {
   }
 }
 .uszo{
-  background-color: rgba($white,1);
+  background-color: rgba(#fff,0.92);
   padding:1.5em 1em;
   @include breakpoint($s2){
-    margin: 60px 1em;
+    box-shadow: 0 0 5px 0 $gray-dark;
+    margin: 2% 3%;
     max-width: 360px;
+    position:relative;
+    top:46%;
+    transform:translateY(-50%);
+    min-height: 80%;
   }
   @include breakpoint($s3){
 
   }
 }
 .product-head {
-  margin-bottom:4em;
+  margin-bottom:16em;
 }
 .product-back{
   font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
@@ -186,6 +191,14 @@ article.product {
   @include breakpoint($s3){
     max-width:66.666%;
   }
+}
+
+.product-footer{
+  @include clearfix();
+  position:absolute;
+  bottom:0;
+  left:0;right:0;
+  padding:1em;
 }
 
 .action-block {
