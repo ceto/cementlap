@@ -137,11 +137,11 @@ article.product {
 .uszo{
   background-color: rgba(#fff,0.92);
   padding:1.5em 1em;
+  position:relative;
   @include breakpoint($s2){
     box-shadow: 0 0 5px 0 $gray-dark;
     margin: 2% 3%;
     max-width: 360px;
-    position:relative;
     top:46%;
     transform:translateY(-50%);
     min-height: 80%;
@@ -240,11 +240,19 @@ article.product {
   .stock-amount {
     font-size: 0.875em;
     font-weight: 300;
+    span {
+      font-weight:900;
+      color:$gray-light;
+    }
   }
 
   .date-status {
     font-size: 0.875em;
     font-weight: 300;
+    span {
+      font-weight:900;
+      color:$gray-light;
+    }
   }
 
 }

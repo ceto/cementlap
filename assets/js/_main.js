@@ -51,53 +51,53 @@ var UTIL = {
 $(document).ready(UTIL.loadEvents);
 
 
-var showMenu = function() {
-  $('body').toggleClass("active-subnav");
-  $('.submenu-button, .submenu-button2').toggleClass("active-button");
-};
-var showMainMenu = function() {
-  $('.banner').toggleClass('active');
-  $('.navbar-toggle').toggleClass('active');
-};
-
-
-// add/remove classes everytime the window resize event fires
-jQuery(window).resize(function(){
-  var off_canvas_subnav_display = $('.off-canvas-subnavigation').css('display');
-  var submenu_button_display = $('.submenu-button').css('display');
-  if (off_canvas_subnav_display === 'block') {
-    $("body").removeClass("three-column").addClass("small-screen");
-  }
-  if (off_canvas_subnav_display === 'none') {
-    $("body").removeClass("active-subnav small-screen").addClass("three-column");
-  }
-
-  //Main navigation toggle
-  var header_height = $('.banner').css('height');
-  if (header_height === '320px') {
-    $('.banner').removeClass('active');
-    $('.navbar-toggle').removeClass('active');
-  }
-
-});
-
-jQuery(document).ready(function($) {
-  // Toggle for nav menu
-  $('.submenu-button, .submenu-button2').click(function(e) {
-    e.preventDefault();
-    showMenu();
-  });
-  $('.navbar-toggle').click(function(e) {
-    e.preventDefault();
-    showMainMenu();
-  });
-});
 
 var resizeHero = function() {
-  $('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+  var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
+  if (off_canvas_nav_display === 'block') {
+      $('.single-product .main .product').height($(window).height()-($('.off-canvas-navigation').offset().top + $('.off-canvas-navigation').height()));
+  } else {
+    $('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+  }
   //$('.contact-row.open').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
   //$('.contact-row.open').css('min-height',($(window).height()-($('.banner').offset().top + $('.banner').height())));
 };
+
+
+var showMenu = function() {
+  $('body').toggleClass("active-nav");
+  $('.menu-button').toggleClass("active-button");
+};
+
+// add/remove classes everytime the window resize event fires
+jQuery(window).resize(function(){
+  var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
+  var menu_button_display = $('.menu-button').css('display');
+  if (off_canvas_nav_display === 'block') {
+    $("body").removeClass("two-column").addClass("small-screen");
+  }
+  if (off_canvas_nav_display === 'none') {
+    $("body").removeClass("active-nav small-screen").addClass("two-column");
+  }
+  resizeHero();
+});
+
+jQuery(document).ready(function($) {
+  $('.menu-button').click(function(e) {
+    e.preventDefault();
+    showMenu();
+  });
+});
+
+
+
+
+
+
+
+
+
+
 
 
 jQuery(document).ready(function($) {
@@ -118,66 +118,66 @@ jQuery(document).ready(function($){
   // });
 
 
-  // var $container = $('.product-list'),
-  //   filters = {};
+  var $container = $('.product-list'),
+    filters = {};
 
-  // $container.isotope({
-  //   itemSelector : '.prod-mini',
-  //   animationOptions: {
-  //     duration: 750,
-  //     easing: 'linear',
-  //     queue: false
-  //   }
-  // });
+  $container.isotope({
+    itemSelector : '.prod-mini',
+    animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    }
+  });
 
-  // // filter buttons
-  // $('.filt-item-input').click(function(){
-  //   var $this = $(this);
-  //   var $optionSet = $this.parents('.filt-item');
-  //   $this.toggleClass('selected');
+  // filter buttons
+  $('.filt-item-input').click(function(){
+    var $this = $(this);
+    var $optionSet = $this.parents('.filt-item');
+    $this.toggleClass('selected');
     
-  //   // store filter value in object
-  //   // i.e. filters.color = 'red'
-  //   var group = $optionSet.attr('data-filter-group');
-  //   filters[ group ] = $this.attr('data-filter-value');
-  //   // convert object into array
-  //   var isoFilters = [];
-  //   for ( var prop in filters ) {
-  //     isoFilters.push( filters[ prop ] );
-  //   }
-  //   var selector = isoFilters.join('');
-  //   $container.isotope({ filter: selector });
+    // store filter value in object
+    // i.e. filters.color = 'red'
+    var group = $optionSet.attr('data-filter-group');
+    filters[ group ] = $this.attr('data-filter-value');
+    // convert object into array
+    var isoFilters = [];
+    for ( var prop in filters ) {
+      isoFilters.push( filters[ prop ] );
+    }
+    var selector = isoFilters.join('');
+    $container.isotope({ filter: selector });
 
-  //   //return false;
-  // });
+    //return false;
+  });
 
-  // // filter buttons
-  // $('.filt-item-input').click(function(){
-  //   var $this = $(this);
-  //   // don't proceed if already selected
-  //   if ( $this.hasClass('selected') ) {
-  //     return;
-  //   }
+  // filter buttons
+  $('.filt-item-input').click(function(){
+    var $this = $(this);
+    // don't proceed if already selected
+    if ( $this.hasClass('selected') ) {
+      return;
+    }
     
-  //   var $optionSet = $this.parents('.filt-item');
-  //   // change selected class
-  //   $optionSet.find('.selected').removeClass('selected');
-  //   $this.addClass('selected');
+    var $optionSet = $this.parents('.filt-item');
+    // change selected class
+    $optionSet.find('.selected').removeClass('selected');
+    $this.addClass('selected');
     
-  //   // store filter value in object
-  //   // i.e. filters.color = 'red'
-  //   var group = $optionSet.attr('data-filter-group');
-  //   filters[ group ] = $this.attr('data-filter-value');
-  //   // convert object into array
-  //   var isoFilters = [];
-  //   for ( var prop in filters ) {
-  //     isoFilters.push( filters[ prop ] );
-  //   }
-  //   var selector = isoFilters.join('');
-  //   $container.isotope({ filter: selector });
+    // store filter value in object
+    // i.e. filters.color = 'red'
+    var group = $optionSet.attr('data-filter-group');
+    filters[ group ] = $this.attr('data-filter-value');
+    // convert object into array
+    var isoFilters = [];
+    for ( var prop in filters ) {
+      isoFilters.push( filters[ prop ] );
+    }
+    var selector = isoFilters.join('');
+    $container.isotope({ filter: selector });
 
-  //   return false;
-  // });
+    return false;
+  });
 
 });
 

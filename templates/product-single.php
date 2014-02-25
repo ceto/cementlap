@@ -12,6 +12,7 @@
   // $group=$group_terms[0];
 ?>
 <?php
+  $copt=get_option('cementlap_option_name');
   $ima = get_post_meta( $post->ID, '_meta_wallimg', false );
   $imci = wp_get_attachment_image_src( $ima[id], 'banner169');
 ?>
@@ -48,9 +49,9 @@
         <div class="action-block">
           <a href="#" class="btn">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <?php _e('Lefoglalom','root'); ?>
+              <?php _e('Készlet és szállítás<small>Érdeklődjön: +36 70 770 5653</small>','root'); ?>
             <?php else: ?>
-              <?php _e('Megrendelem','root') ?>
+              <?php _e('Foglald le most<small>Hívj telefonon: +36 70 770 5653</small>','root') ?>
             <?php endif; ?>
           </a>
         </div>
@@ -58,19 +59,18 @@
           <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
           <div class="stock-status">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <?php _e('Azonnal szállítható','root') ?>
+              <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
             <?php else: ?>
-              <?php _e('Nincs raktáron - Csak rendelésre','root') ?>
+              <i class="ion-android-hand"></i> <?php _e('Csak rendelésre','root') ?>
             <?php endif; ?>
           </div>
           <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
             <div class="stock-amount">
-              Raktáron van:
-              <?php echo get_post_meta($post->ID, '_meta_amount', true); ?>
-              <?php echo get_post_meta($post->ID, '_meta_unit', true); ?>
+              <i class="ion-ios7-cart"></i> Raktáron van:
+              <span><?php echo get_post_meta($post->ID, '_meta_amount', true); ?><?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
             </div>
           <?php else: ?>
-            <div class="date-status">Legkorábban érkezik: <?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></div>
+            <div class="date-status"><i class="ion-clock"></i> Legkorábban érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
           <?php endif; ?>
         </div>
         <div class="gombsor">

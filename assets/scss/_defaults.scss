@@ -52,6 +52,12 @@ overflow:hidden;
   font-size: 1.25em;
   line-height: 1em;
   padding:0.666em 2em 0.333em;
+  small {
+    display:block;
+    font-size: 0.75em;
+    text-transform: none;
+    font-weight: 400;
+  }
 
   &:hover, &:focus {
     background-color: $gray-dark;

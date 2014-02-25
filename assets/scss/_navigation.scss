@@ -3,34 +3,14 @@
   background-color: $white;
   position: relative;
   overflow: hidden;
-  transition:height .4s;
   border-bottom:1px solid $gray-light;
   @include breakpoint($s2) {
-    height:100px;
   }
   &.active {
-    height:320px;
+
   }
 
 }
-
-.navbar-toggle {
-  width:60px;
-  height:60px;
-  font-size:30px;
-  line-height:60px;
-  text-align: center;
-  background-color: $orange;
-  color:#fff;
-  border:none;
-  &:hover, &:focus {
-    background-color:$yellow;
-  }
-  @include breakpoint($s2) {
-    display:none;
-  }
-}
-  
 
 .brand{
   @include text-hide();
@@ -126,133 +106,75 @@
 
 
 /* Off Canvas Navigation */
-// .off-canvas-navigation {
-//   width: 100%;
-//   overflow: hidden;
-//   display: block;
-//   color: #fff;
-// }
-// .off-canvas-navigation ul li {
-//   width: 20%;
-//   display: block;
-//   float: left;
-// }
-// .off-canvas-navigation ul li.sidebar-item {
-//   float: right;
-// }
-// .menu-button,
-// .sidebar-button {
-//   padding: 1em 20%;
-//   font-size: 14px;
-//   display: block;
-//   background: #333;
-//   background: rgba(0,0,0,.3);
-//   color: #fff;
-//   border-top-right-radius: 1em;
-//   box-shadow: inset 0 20px 20px rgba(255,255,255,.1);   
-// }
-// .menu-button.active-button,
-// .sidebar-button.active-button {
-// }
-// a.menu-button:hover,
-// a.sidebar-button:hover {
-//   text-decoration: none;  
-//   background: rgba(0,0,0,.35);
-//   color: #ddd;
-// }
-// .sidebar-button {
-//   text-align: right;  
-//   border-top-left-radius: 1em;
-//   border-top-right-radius: 0; 
-//   background: rgba(0,0,0,.15);        
-// } 
-// /* Site Menu */
-// [role="navigation"],
-// [role="main"],
-// [role="complementary"] {
-//   transition: .2s all ease;     
-//   width: 90%;
-//   padding: 5%;
-// }
+.off-canvas-navigation {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  color: $gray-dark;
+  .brand {
+    margin-left:75px;
+  }
+}
 
-// .js [role="navigation"] { 
-//   margin-left: -100%;
-//   float: left;
-// }
-// .js [role="main"] {
-//   margin-left: 0;
-//   float: left;
-// }
-// .js [role="complementary"] {  
-//   margin-right: -200%;
-//   float: left;    
-// }
+.menu-button{
+  padding: 0.25em 0.25em;
+  width:60px;height:60px;
+  text-align: center;
+  float:left;
+  font-size: 2em;
+  display: block;
+  background: $white;
+  background: rgba($white,.3);
+  color: $gray-dark;
+  box-shadow: inset 0 20px 20px rgba(255,255,255,.1);
 
-// .active-nav [role="navigation"] { 
-//   margin-left: 0; 
-//   width: 80%;
-// }
-// .active-nav [role="main"]{
-//   margin-right: -100%;
-// }
-// .active-nav [role="complementary"] {  
-//   margin-right: -100%;
-//   float: right;   
-// }
+}
+.menu-button.active-button {
+}
+a.menu-button:hover {
+  text-decoration: none;  
+  background: $gray-dark,;
+  color: #fff;
+}
 
-// .active-sidebar [role="navigation"] { 
-//   margin-left: -100%;
-// }
-// .active-sidebar [role="main"] {
-//   margin-left: -90%;  
-// }
-// .active-sidebar [role="complementary"] {  
-//   margin-left: 0;
-//   width: 80%; 
-// }
+/* Site Menu */
+.banner,
+.mindenmas {
+  transition: .2s all ease;     
+  width: 100%;
+}
 
-// @media all and (min-width: 600px) { 
-//   .js [role="navigation"] {
-//     width: 20%; 
-//     margin-left: 0;
-//   }
-//   .js [role="main"] {
-//     width: 60%;
-//     float: left;
-//   }
-//   .js [role="complementary"] {
-//     width: 20%;
-//   }       
-//   .active-sidebar [role="navigation"] { 
-//     margin-left: -100%;
-//   }
-//   .active-sidebar [role="main"] {
-//     margin-left: 0;
-//     width: 60%;
-//   }
-//   .active-sidebar [role="complementary"] {  
-//     margin-right: -80%;
-//     width: 20%;
-//   }       
-// }
+.js .banner { 
+  margin-left: -100%;
+  float: left;
+}
+.js .mindenmas {
+  margin-left: 0;
+  float: left;
+}
 
-// @media all and (min-width: 800px) { 
-//   .js [role="navigation"] {
-//     width: 19%; 
-//     margin-left: 0;
-//     float: left;
-//     padding: 3%
-//   }
 
-//   .js [role="main"] {
-//     width: 44%;
-//     padding: 3%;    
-//   }
+.active-nav .banner { 
+  margin-left: 0; 
+  width: 80%;
+}
+.active-nav .mindenmas{
+  margin-right: -100%;
+}
 
-//   .js [role="complementary"] {
-//     width: 19%; 
-//     padding: 3%;  
-//     margin-right: 0;
-//     float: right;
-//   }       
-// }
+
+@media all and (min-width: $s2) { 
+  .off-canvas-navigation {
+    display:none;
+  }
+  .js .banner {
+    width: 100%; 
+    margin-left: 0;
+    float: none;
+  }
+
+  .js .main {
+    width: 100%;
+    float:none;    
+  }
+}

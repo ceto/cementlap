@@ -1,5 +1,4 @@
 <header class="banner" role="banner">
-  <button type="button" class="navbar-toggle"><span class="ion-navicon"></span></button>  
   <a class="brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
   <nav class="nav-main" role="navigation">
     <?php
