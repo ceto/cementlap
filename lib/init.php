@@ -19,6 +19,17 @@ function roots_setup() {
     'tertiary_navigation' => __('Tertiary Navigation', 'roots'),
   ));
 
+  register_nav_menus(array(
+    'vasinfo_navigation' => __('Vásárlási információk', 'roots'),
+  ));
+
+  register_nav_menus(array(
+    'lerakinfo_navigation' => __('Lerakási információk', 'roots'),
+  ));
+
+  register_nav_menus(array(
+    'kapcsinfo_navigation' => __('Kapcsolati adatok', 'roots'),
+  ));
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
