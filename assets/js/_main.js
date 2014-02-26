@@ -87,21 +87,8 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     showMenu();
   });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-jQuery(document).ready(function($) {
   resizeHero();
+  $(".main").fitVids();
 });
 
 

@@ -34,9 +34,25 @@ img {
   height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
   vertical-align: middle;
 }
+
+.document{
+  max-width: $s5;
+  margin:0 auto;
+  .single-product &{
+    max-width: 100%;
+  }
+}
 .main {
-@include clearfix();
-overflow:hidden;
+  @include clearfix();
+  overflow:hidden;
+  padding:1em;
+  font-size: 0.875em;
+  line-height: 1.4em;
+  .single-product &{
+    padding:0;
+    font-size: 1em;
+    line-height: 1.4em;
+  }
 }
 
 

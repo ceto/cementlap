@@ -1,42 +1,45 @@
 .content-info {
+  clear:both;
+  @include clearfix();
+
  a{
-  color:$blue;
-  font-weight: 700;
+  color:$gray;
  }
 }
 
 .footer-sidebar {
   @include clearfix();
-  color:$white;
-  background-color: $gray-light;
-  @include breakpoint($s2){
-    background: linear-gradient(to right, $gray-light 0%,$gray-light 33.333333333%,$gray 33.333333333%);
-  }
+  max-width: $s5;
+  margin: auto;
+  padding:2em 1em;
+  font-size: 0.666em;
+  line-height: 1.25em;
+  font-weight: 300;
+  color:$gray;
 
   .widget{
     @include clearfix();
-    padding:0 1em;
-    background-color: $gray;
+    padding:1em 1em;
     @include breakpoint($s1){
       padding:2em 1em;
       width:33.333%;
       float:left;
-      min-height:18em;
-      //background-color: transparent;
     }
     @include breakpoint($s2){
       padding:2em 1em 2em 2em;
       width:22.222%;
       float:left;
-      background-color: transparent;
     }
     @include breakpoint($s3){
       padding:3em 1em 3em 3em;
     }
     h3 {
-      margin-top:1em;
-      font-size: 1.5em;
-      line-height: 1.125em;
+      margin:1em 0 1.5em;
+      font-size: 1.125em;
+      line-height: 1em;
+      font-weight: 400;
+      text-transform: uppercase;
+
       @include breakpoint($s1){
         margin-top:0;  
       }
@@ -46,12 +49,27 @@
     }
   }
 
+  .widget {
+    ul {
+      margin:0;
+      padding:0;
+      li {
+        list-style: none;
+        padding:0.75em 0;
+        a {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
   
 }
 
 .footer-copy{
+  font-size: 0.666em;
+  line-height: 1.25em;
+  font-weight: 300;
   padding:1.25em;
   position: relative;
-  font-size: 0.875em;
-  color:#000;
+  background-color:lighten($gray-light,33%);
 }
