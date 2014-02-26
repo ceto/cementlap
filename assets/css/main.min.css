@@ -2887,23 +2887,23 @@ img {
   .nav-main:after {
     clear: both; }
 
-.nav {
+.nav-main .nav {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .nav li {
+  .nav-main .nav li {
     padding: 0 0.25em; }
     @media only screen and (min-width: 768px) {
-      .nav li {
+      .nav-main .nav li {
         display: inline-block;
         padding: 0 0.25em; } }
-  .nav a {
+  .nav-main .nav a {
     color: #9a9a9b;
     display: inline-block; }
-    .nav a:hover, .nav a:focus {
+    .nav-main .nav a:hover, .nav-main .nav a:focus {
       color: #49494a;
       text-decoration: none; }
-  .nav .active a {
+  .nav-main .nav .active a {
     color: #49494a; }
 
 @media only screen and (min-width: 768px) {
@@ -2988,9 +2988,44 @@ a.menu-button:hover {
     margin-left: 0;
     float: none; }
 
-  .js .main {
+  .js .mindenmas {
     width: 100%;
     float: none; } }
+/********* Subnavigation **********/
+.nav-sub {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .nav-sub:before, .nav-sub:after {
+    content: " ";
+    display: table; }
+  .nav-sub:after {
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .nav-sub {
+      float: left;
+      width: 300px;
+      margin-right: 40px; } }
+  .nav-sub h3 {
+    text-transform: none;
+    font-weight: 300;
+    font-size: 1em;
+    margin: 0; }
+
+.nav-sub .nav {
+  margin: 0 0 3em;
+  padding: 0;
+  list-style: none; }
+  .nav-sub .nav a {
+    color: #49494a;
+    display: inline-block;
+    padding: 0.25em 0; }
+    .nav-sub .nav a:hover, .nav-sub .nav a:focus {
+      color: #9a9a9b;
+      text-decoration: none; }
+  .nav-sub .nav .active a {
+    color: #0066ff; }
+
 .content-info a {
   color: #0066ff;
   font-weight: 700; }
@@ -3484,6 +3519,20 @@ article.product {
     color: #0066ff; }
     .filt-item input:checked ~ label i {
       display: inline; }
+
+@media only screen and (min-width: 768px) {
+  .page .nav-sub + .main {
+    float: left;
+    width: -webkit-calc(100% - 340px);
+    width: calc(100% - 340px); } }
+
+.sidebar {
+  clear: both; }
+  .sidebar:before, .sidebar:after {
+    content: " ";
+    display: table; }
+  .sidebar:after {
+    clear: both; }
 
 .contact-row {
   background-color: #f6ce3a;
