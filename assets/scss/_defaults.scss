@@ -24,6 +24,41 @@ p {
   font-feature-settings: "liga", "dlig", "onum";
 }
 
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.25em;
+  line-height: 1.125em;
+  margin-top:2em;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.125em;
+  line-height: 1.125em;
+  margin-top:2em;
+      font-variant: small-caps;
+
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.125em;
+    margin-top:2em;
+    font-variant: small-caps;
+
+}
+
+ul {
+  padding:0 0 0 3em;
+  li {
+    margin:0.75em 0;
+  }
+}
 html[data-useragent*='Chrome'][data-platform*='Mac'] p {
   font-feature-settings: normal;
 }
@@ -93,4 +128,39 @@ img {
     border-color:#fff;
     color:#fff;
   }
+}
+
+blockquote{
+  @include clearfix();
+  position: relative;
+  font-size: 1.75em;
+  line-height: 1.25em;
+  font-weight: 100;
+  text-transform: uppercase;
+  background-color: lighten($gray-light,33%);
+  color:$gray;
+  padding:0.75em 0.75em 0.75em 2.75em;
+  margin:1em 0;
+  @include breakpoint($s2) {
+
+  }
+
+  > * {
+    margin:0;
+  }
+
+  &:before {
+    position: absolute;
+    display: block;
+    content:'';
+    left:0;top:0;
+    height:100%;
+    width:2em;
+
+    background-color: $gray-dark;
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
 }
