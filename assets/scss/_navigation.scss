@@ -11,6 +11,7 @@
     background-color: $white;
     padding:0.75em 1em 0.5em;
     min-height:0;
+    //filter:invert(1);
   }
   &.active {
 
@@ -248,7 +249,7 @@ a.menu-button:hover {
 .nav-sub{
   @include clearfix();
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 300;
   font-family: $sans-serif;
   padding:1em;
   @include breakpoint($s2){
@@ -258,10 +259,12 @@ a.menu-button:hover {
   }
 
   h3{
+    color:$gray;
     text-transform: none;
-    font-weight: 300;
+    font-variant:small-caps;
+    font-weight: 400;
     font-size: 1em;
-    margin:0;
+    margin:2em 0 1em;
   }
 }
 
@@ -282,6 +285,8 @@ a.menu-button:hover {
     color:$gray;
     display: inline-block;
     padding:0.25em 0;
+    font-size:0.875em;
+    line-height:1.125em;
     &:hover, &:focus {
       color:$gray-light;
       text-decoration: none;

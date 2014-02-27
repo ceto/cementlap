@@ -14,6 +14,7 @@ Template Name: Product Category List
   //$actual_term = get_term( $term_id, 'object' );
   //$parent_term = get_term( $actual_term->parent, 'object' );
   //$term_children = get_term_children( $parent_term->term_id, 'object' );
+  $copt=get_option('cementlap_option_name');
 ?>
 
 
@@ -23,9 +24,9 @@ Template Name: Product Category List
   <nav class="nav-category">
     <ul>
       <li><a href="#" class="active">Mind</a></li>
-      <li><a href="#">Normál</a></li>
+      <li><a href="<?php get_term_link( 'normal', 'product-group' ); ?>">Normál</a></li>
       <li><a href="#">Kicsi</a></li>
-      <li><a href="#">Hatszög</a></li>
+      <li><a href="<?php get_term_link( 'hexa', 'product-group' ); ?>">Hatszög</a></li>
     </ul>
   </nav>
 
@@ -123,16 +124,25 @@ Template Name: Product Category List
       <h3 class="prod-title"><?php the_title(); ?></h3>
       <div class="prod-stock-status">
         <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-          <?php _e('Azonnal szállítható','root') ?>
-        <?php else: ?>
-         <?php _e('Csak rendelésre','root') ?>
+          <i class="ion-ios7-cart"></i>
+          <?php _e('Raktáron van:','root') ?>
+          <span class="prod-amount">
+            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><?php echo get_post_meta($post->ID, '_meta_unit', true); ?>
+          </span>
+        <?php elseif ( has_term('hamarosan-erkezik','product-stock'))  : ?>
+          <i class="ion-clock"></i>
+          <?php _e('Érkezik:','root') ?>
+          <span class="prod-ntd"><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span>
+          <?php else : ?>
+          <i class="ion-android-hand"></i>
+          <?php _e('Csak rendelésre','root') ?>
         <?php endif; ?>
       </div>
 
-      <div class="prod-price">
+      <span class="prod-price">
         <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
         <span class="prod-unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
-      </div>
+      </span>
     </div>
   </a>
   <!-- /#reference-## --><?php endwhile; ?>

@@ -2802,16 +2802,14 @@ h2 {
   font-weight: 400;
   font-size: 1.125em;
   line-height: 1.125em;
-  margin-top: 2em;
-  font-variant: small-caps; }
+  margin-top: 2em; }
 
 h3 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 1em;
   line-height: 1.125em;
-  margin-top: 2em;
-  font-variant: small-caps; }
+  margin-top: 2em; }
 
 ul {
   padding: 0 0 0 3em; }
@@ -3121,7 +3119,7 @@ a.menu-button:hover {
 
 .nav-sub {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 300;
   font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 1em; }
   .nav-sub:before, .nav-sub:after {
@@ -3135,10 +3133,12 @@ a.menu-button:hover {
       width: 300px;
       margin-right: 20px; } }
   .nav-sub h3 {
+    color: #49494a;
     text-transform: none;
-    font-weight: 300;
+    font-variant: small-caps;
+    font-weight: 400;
     font-size: 1em;
-    margin: 0; }
+    margin: 2em 0 1em; }
 
 .nav-sub .nav {
   margin: 0 0 3em;
@@ -3149,7 +3149,9 @@ a.menu-button:hover {
   .nav-sub .nav a {
     color: #49494a;
     display: inline-block;
-    padding: 0.25em 0; }
+    padding: 0.25em 0;
+    font-size: 0.875em;
+    line-height: 1.125em; }
     .nav-sub .nav a:hover, .nav-sub .nav a:focus {
       color: #9a9a9b;
       text-decoration: none; }
@@ -3201,10 +3203,11 @@ a.menu-button:hover {
         padding: 3em 1em 3em 3em; } }
     .footer-sidebar .widget h3 {
       margin: 1em 0 1.5em;
-      font-size: 1.125em;
+      font-size: 1.25em;
       line-height: 1em;
       font-weight: 400;
-      text-transform: uppercase; }
+      text-transform: none;
+      font-variant: small-caps; }
       @media only screen and (min-width: 480px) {
         .footer-sidebar .widget h3 {
           margin-top: 0; } }
@@ -3256,15 +3259,22 @@ a.menu-button:hover {
 
 .fresh-posts {
   max-width: 1600px;
-  margin: 0 auto;
-  padding: 4em 3em; }
+  margin: 0 auto; }
   .fresh-posts:before, .fresh-posts:after {
     content: " ";
     display: table; }
   .fresh-posts:after {
     clear: both; }
+  @media only screen and (min-width: 768px) {
+    .fresh-posts {
+      padding: 1em 0; } }
+  @media only screen and (min-width: 1024px) {
+    .fresh-posts {
+      padding: 2em 3em; } }
   .fresh-posts .post {
-    position: relative; }
+    position: relative;
+    max-width: 480px;
+    margin: 1em auto; }
     @media only screen and (min-width: 768px) {
       .fresh-posts .post {
         width: -webkit-calc(33.333333% - 1.333333em);
@@ -3398,9 +3408,14 @@ a.menu-button:hover {
   font-weight: 300;
   line-height: 1em; }
 
+.prod-amount, .prod-ntd {
+  font-size: 0.875em;
+  font-weight: 900;
+  color: #9a9a9b; }
+
 .prod-price {
   font-size: 0.875em;
-  font-weight: 300;
+  font-weight: 900;
   line-height: 1em; }
 
 /******* Single Product Page *******/

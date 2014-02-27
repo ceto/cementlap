@@ -19,10 +19,12 @@ $blue:#0066FF;
 
 $white:#FEFEFF;
 
+
 $gray-light:#9A9A9B;
 $gray:#49494A;
 $gray-dark:#2F2F2F;
 
+$gray-superlight:lighten($gray-light,33%);
 
 
 $sans-serif:'HelveticaNeueLTStd', 'Helvetica Neue', Helvetica, Arial, sans-serif;

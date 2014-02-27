@@ -33,9 +33,17 @@
   @include clearfix();
   max-width: $s5;
   margin:0 auto;
-  padding:4em 3em;
+  
+  @include breakpoint($s2){
+    padding:1em 0;
+  }
+  @include breakpoint($s3){
+    padding:2em 3em;
+  }
   .post {
     position:relative;
+    max-width:480px;
+    margin:1em auto;
     @include breakpoint($s2){
       width:calc(33.333333% - 1.333333em);
       margin-right:2em;

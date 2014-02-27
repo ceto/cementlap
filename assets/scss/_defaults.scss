@@ -31,6 +31,7 @@ h1 {
   font-size: 1.25em;
   line-height: 1.125em;
   margin-top:2em;
+  //font-variant: small-caps;
 }
 
 h2 {
@@ -39,7 +40,7 @@ h2 {
   font-size: 1.125em;
   line-height: 1.125em;
   margin-top:2em;
-      font-variant: small-caps;
+  //font-variant: small-caps;
 
 }
 
@@ -48,8 +49,8 @@ h3 {
   font-weight: 400;
   font-size: 1em;
   line-height: 1.125em;
-    margin-top:2em;
-    font-variant: small-caps;
+  margin-top:2em;
+  //font-variant: small-caps;
 
 }
 
@@ -137,7 +138,7 @@ blockquote{
   line-height: 1.25em;
   font-weight: 100;
   text-transform: uppercase;
-  background-color: lighten($gray-light,33%);
+  background-color: $gray-superlight;
   color:$gray;
   padding:0.75em 0.75em 0.75em 2.75em;
   margin:1em 0;

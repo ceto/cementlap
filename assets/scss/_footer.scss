@@ -35,10 +35,11 @@
     }
     h3 {
       margin:1em 0 1.5em;
-      font-size: 1.125em;
+      font-size: 1.25em;
       line-height: 1em;
       font-weight: 400;
-      text-transform: uppercase;
+      text-transform: none;
+      font-variant:small-caps;
 
       @include breakpoint($s1){
         margin-top:0;  
@@ -72,5 +73,5 @@
   font-weight: 300;
   padding:1.25em;
   position: relative;
-  background-color:lighten($gray-light,33%);
+  background-color:$gray-superlight;
 }

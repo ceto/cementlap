@@ -109,9 +109,14 @@
   font-weight: 300;
   line-height: 1em;
 }
+.prod-amount, .prod-ntd,  {
+  font-size: 0.875em;
+  font-weight: 900;
+  color:$gray-light;
+}
 .prod-price {
   font-size: 0.875em;
-  font-weight: 300;
+  font-weight: 900;
   line-height: 1em;
 }
 
@@ -135,6 +140,7 @@ article.product {
   }
 }
 .uszo{
+  //filter:invert(1);
   background-color: rgba(#fff,0.92);
   padding:1.5em 1em;
   position:relative;
