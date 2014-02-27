@@ -35,7 +35,7 @@
   ?>
 <style type="text/css">
   article.product {
-    background-image:url('<?php echo $imcismall['0']; ?>');
+    background-image:none;
   }
   @media only screen and (min-width: 768px) {
     article.product {
@@ -54,7 +54,7 @@
   }
 </style>
   <article <?php post_class($termes); ?> >
-    <figure class="product-figure">
+    <figure class="product-figure" style="background-image:url('<?php echo $imcismall['0']; ?>');">
       <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
     </figure>
     <div class="uszo">

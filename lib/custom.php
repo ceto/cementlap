@@ -38,6 +38,7 @@ function create_product() {
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => null,
+    'yarpp_support' => true,
     'supports' => array( 'title', 'editor', 'thumbnail' )
   ); 
 

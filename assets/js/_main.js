@@ -51,13 +51,15 @@ var UTIL = {
 $(document).ready(UTIL.loadEvents);
 
 
-
 var resizeHero = function() {
   var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
   if (off_canvas_nav_display === 'block') {
-      $('.single-product .main .product').height($(window).height()-($('.off-canvas-navigation').offset().top + $('.off-canvas-navigation').height()));
+      //$('.single-product .main .product').height($(window).height()-($('.off-canvas-navigation').offset().top + $('.off-canvas-navigation').height()));
+  
   } else {
-    $('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+    //$('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
+
+    $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
   }
   //$('.contact-row.open').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
   //$('.contact-row.open').css('min-height',($(window).height()-($('.banner').offset().top + $('.banner').height())));

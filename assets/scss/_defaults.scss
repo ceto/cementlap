@@ -72,6 +72,7 @@ img {
 }
 
 .document{
+  @include clearfix();
   max-width: $s5;
   margin:0 auto;
   .single-product &{

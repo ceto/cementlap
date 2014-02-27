@@ -4,6 +4,7 @@
     <span class="hero-text">
         <?php bloginfo('description' ); ?>
     </span>
+    <a href="?product-category=cementlap" class="btn btn-light-line">Lapok megtekintése</a>
   </div>
 </section> 
 <?php endif ?>

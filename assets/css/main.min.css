@@ -2829,6 +2829,11 @@ img {
 .document {
   max-width: 1600px;
   margin: 0 auto; }
+  .document:before, .document:after {
+    content: " ";
+    display: table; }
+  .document:after {
+    clear: both; }
   .single-product .document {
     max-width: 100%; }
 
@@ -2911,9 +2916,8 @@ blockquote {
     background-position: left center; }
 
 .banner {
+  position: relative;
   overflow: hidden;
-  max-width: 1600px;
-  margin: 0 auto;
   padding: 0;
   min-height: 100%;
   background-color: #2f2f2f; }
@@ -2926,7 +2930,9 @@ blockquote {
     .banner {
       background-color: #fefeff;
       padding: 0.75em 1em 0.5em;
-      min-height: 0; } }
+      min-height: 0;
+      max-width: 1600px;
+      margin: 0 auto; } }
 
 .brand {
   font: 0/0 a;
@@ -3104,7 +3110,7 @@ a.menu-button:hover {
 
   .js .banner {
     width: 100%;
-    margin-left: 0;
+    margin-left: auto;
     float: none; }
 
   .js .mindenmas {
@@ -3114,8 +3120,8 @@ a.menu-button:hover {
 @media only screen and (min-width: 768px) {
   .nav-sub + .main {
     float: left;
-    width: -webkit-calc(100% - 320px);
-    width: calc(100% - 320px); } }
+    width: -webkit-calc(100% - 300px);
+    width: calc(100% - 300px); } }
 
 .nav-sub {
   text-transform: uppercase;
@@ -3130,7 +3136,7 @@ a.menu-button:hover {
   @media only screen and (min-width: 768px) {
     .nav-sub {
       float: left;
-      width: 300px;
+      width: 280px;
       margin-right: 20px; } }
   .nav-sub h3 {
     color: #49494a;
@@ -3237,25 +3243,51 @@ a.menu-button:hover {
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
-  min-height: 500px;
-  width: 100%;
-  padding: 1em; }
+  width: 100%; }
+  .hero:before, .hero:after {
+    content: " ";
+    display: table; }
+  .hero:after {
+    clear: both; }
   @media only screen and (min-width: 1024px) {
     .hero {
-      padding: 1em 33% 1em 10%; } }
+      min-height: 500px; } }
 
 .hero-content {
   text-align: left;
-  margin: 8em 0; }
+  max-width: 1600px;
+  margin: 2em auto;
+  padding: 2em 1em; }
+  @media only screen and (min-width: 768px) {
+    .hero-content {
+      padding: 2em 1em 2em 1em;
+      margin: 4em auto; } }
+  @media only screen and (min-width: 1024px) {
+    .hero-content {
+      padding: 2em 20% 2em 3em;
+      margin: 6em auto; } }
+  @media only screen and (min-width: 1280px) {
+    .hero-content {
+      padding: 2em 33% 2em 3em; } }
+  .hero-content .btn, .hero-content .btn-light-line {
+    font-size: 1.5em;
+    line-height: 1.125em; }
 
 .hero-text {
-  font-size: 3em;
-  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.25em;
-  font-weight: 700;
+  font-size: 2em;
+  line-height: 1.125em;
+  font-weight: 100;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 1px 1px 3px #2f2f2f; }
+  @media only screen and (min-width: 480px) {
+    .hero-text {
+      font-size: 3em;
+      line-height: 1.125em; } }
+  @media only screen and (min-width: 768px) {
+    .hero-text {
+      font-size: 4em;
+      line-height: 1em; } }
 
 .fresh-posts {
   max-width: 1600px;
@@ -3303,10 +3335,26 @@ a.menu-button:hover {
       clear: both; }
   .fresh-posts .post-title {
     font-weight: 100;
-    font-size: 2.25em;
+    font-size: 1.75em;
     line-height: 1.125em;
     text-transform: uppercase;
     text-shadow: 0 0 3px #49494a; }
+    @media only screen and (min-width: 480px) {
+      .fresh-posts .post-title {
+        font-size: 2.25em;
+        line-height: 1.125em; } }
+    @media only screen and (min-width: 768px) {
+      .fresh-posts .post-title {
+        font-size: 1.75em;
+        line-height: 1.125em; } }
+    @media only screen and (min-width: 1024px) {
+      .fresh-posts .post-title {
+        font-size: 2em;
+        line-height: 1.125em; } }
+    @media only screen and (min-width: 1280px) {
+      .fresh-posts .post-title {
+        font-size: 2.75em;
+        line-height: 1.125em; } }
     .fresh-posts .post-title a {
       color: #fefeff;
       display: block; }
@@ -3423,7 +3471,8 @@ article.product {
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  position: relative; }
   article.product:before, article.product:after {
     content: " ";
     display: table; }
@@ -3431,11 +3480,19 @@ article.product {
     clear: both; }
 
 .product-figure {
-  border: 5px solid red;
-  display: none; }
+  height: 240px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover; }
+  @media only screen and (min-width: 480px) {
+    .product-figure {
+      height: 380px; } }
   @media only screen and (min-width: 768px) {
     .product-figure {
       display: none; } }
+  .product-figure img {
+    display: none; }
 
 .uszo {
   background-color: rgba(255, 255, 255, 0.92);
@@ -3443,11 +3500,12 @@ article.product {
   position: relative; }
   @media only screen and (min-width: 768px) {
     .uszo {
+      position: absolute;
       -webkit-box-shadow: 0 0 5px 0 #2f2f2f;
       box-shadow: 0 0 5px 0 #2f2f2f;
-      margin: 2% 3%;
+      margin: 2.5% 3%;
       max-width: 360px;
-      top: 46%;
+      top: 46.5%;
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
@@ -3567,6 +3625,18 @@ article.product {
       font-weight: 700;
       text-transform: uppercase;
       font-size: 0.75em; }
+
+/*********** Related an Similar products section *********/
+.related-products {
+  margin: 2em auto;
+  max-width: 1600px; }
+  .related-products:before, .related-products:after {
+    content: " ";
+    display: table; }
+  .related-products:after {
+    clear: both; }
+  .related-products h3 {
+    text-align: center; }
 
 .product-control {
   text-align: center; }
