@@ -34,20 +34,19 @@ function roots_setup() {
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
   // add_image_size('category-thumb', 300, 9999); // 300px wide (and unlimited height)
+  
+  add_image_size('wallfree', 1920, 9999);
+  add_image_size('wallgreat', 1600, 9999);
+  add_image_size('wallmedium', 1280, 9999);
+  add_image_size('wallsmall', 768, 9999);
 
-  add_image_size('mediumfree', 800, 9999);
 
   add_image_size('medium169', 768, 432, true);
 
 
   add_image_size('small34', 480, 740, true);  
-  add_image_size('small169', 480, 270, true); 
-  add_image_size('small43', 480, 360, true); 
-  add_image_size('small11', 480, 480, true);
-
-  add_image_size('tiny169', 320, 180, true); 
-  add_image_size('tiny43', 320, 240, true); 
-  add_image_size('tiny11', 320, 320, true);
+  
+  add_image_size('tiny11', 200, 200, true);
   
   add_image_size('petit11', 120, 120, true);
 

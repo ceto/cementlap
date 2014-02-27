@@ -13,8 +13,13 @@
 ?>
 <?php
   $copt=get_option('cementlap_option_name');
-  $ima = get_post_meta( $post->ID, '_meta_wallimg', false );
-  $imci = wp_get_attachment_image_src( $ima[id], 'banner169');
+  $ima = get_post_meta( $post->ID, '_meta_wallimg_id', true );
+
+  $imci = wp_get_attachment_image_src( $ima, 'wallimg');
+  $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
+  $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
+  $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
+  
 ?>
   <?php
     $termik = array();
@@ -28,9 +33,29 @@
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
     $termes = join(" ", $termik );
   ?>
-  <article <?php post_class($termes); ?> style="background-image:url('<?php echo get_post_meta($post->ID, '_meta_wallimg', true); ?>');">
+<style type="text/css">
+  article.product {
+    background-image:url('<?php echo $imcismall['0']; ?>');
+  }
+  @media only screen and (min-width: 768px) {
+    article.product {
+      background-image:url('<?php echo $imcimedium['0']; ?>');
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    article.product {
+      background-image:url('<?php echo $imcigreat['0']; ?>');
+    }
+  }
+  @media only screen and (min-width: 1600px) {
+    article.product {
+      background-image:url('<?php echo $imci['0']; ?>');
+    }
+  }
+</style>
+  <article <?php post_class($termes); ?> >
     <figure class="product-figure">
-      <?php the_post_thumbnail('medium169'); ?>
+      <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
     </figure>
     <div class="uszo">
       <header class="product-head">

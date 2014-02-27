@@ -113,7 +113,7 @@ Template Name: Product Category List
     data-name="<?php the_title(); ?>"
   >
     <figure class="prod-thumb">
-      <?php the_post_thumbnail('small11');  ?>
+      <?php the_post_thumbnail('tiny11');  ?>
       <?php
         $ima = get_post_meta( $post->ID, '_meta_singleimg_id', true );
         $imci = wp_get_attachment_image_src( $ima, 'petit11');
