@@ -155,7 +155,7 @@
   font-size: 0.75em;
   line-height: 1.75em;
   @include breakpoint($s2) {
-    display:inline-block;
+    display:block;
     position:absolute;
     right:1.25em;
     top:1.75em;

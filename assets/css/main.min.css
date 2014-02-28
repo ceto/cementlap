@@ -174,6 +174,25 @@ table {
 
 /*============= color definition =================*/
 /****************** breakpoints definition ***********/
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear; }
+  .fade.in {
+    opacity: 1; }
+
+.collapse {
+  display: none; }
+  .collapse.in {
+    display: block; }
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height .35s ease;
+  transition: height .35s ease; }
+
 @font-face {
   font-family: 'HelveticaNeueLTStd';
   src: url("../fonts/helveticaneueltstd-roman.eot");
@@ -3051,7 +3070,7 @@ blockquote {
   line-height: 1.75em; }
   @media only screen and (min-width: 768px) {
     .nav3 {
-      display: inline-block;
+      display: block;
       position: absolute;
       right: 1.25em;
       top: 1.75em; } }
@@ -3367,7 +3386,7 @@ a.menu-button:hover {
   line-height: 0;
   text-align: left;
   margin: 0 auto;
-  padding: 1px 0 0 0; }
+  padding: 0 0 0 0; }
   .product-list:before, .product-list:after {
     content: " ";
     display: table; }
@@ -3375,7 +3394,7 @@ a.menu-button:hover {
     clear: both; }
   @media only screen and (min-width: 480px) {
     .product-list {
-      padding: 1px 0 0 0; } }
+      padding: 0 0 0 0; } }
   .product-list:after {
     content: "";
     display: inline-block;
@@ -3629,14 +3648,14 @@ article.product {
 /*********** Related an Similar products section *********/
 .related-products {
   margin: 2em auto;
-  max-width: 1600px; }
+  max-width: 1600px;
+  text-align: center;
+  padding: 1em; }
   .related-products:before, .related-products:after {
     content: " ";
     display: table; }
   .related-products:after {
     clear: both; }
-  .related-products h3 {
-    text-align: center; }
 
 .product-control {
   text-align: center; }
@@ -3689,7 +3708,8 @@ article.product {
   white-space: nowrap;
   text-overflow: ellipsis;
   border: 1px solid #9a9a9b;
-  line-height: 30px; }
+  line-height: 30px;
+  cursor: pointer; }
   .filt-placeholder.selected {
     background-color: #9a9a9b;
     color: #fff; }
@@ -3851,5 +3871,39 @@ input[type="text"], input[type="email"], textarea {
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   transition-property: transform, opacity; }
+
+.nav-tabs {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #9a9a9b;
+  counter-reset: aco; }
+  .nav-tabs li {
+    counter-increment: aco;
+    list-style: none;
+    display: inline-block; }
+    .nav-tabs li:before {
+      content: counter(aco) ". "; }
+    .nav-tabs li:after {
+      content: '|';
+      padding: 0 0.5em;
+      display: inline-block; }
+    .nav-tabs li:last-child:after {
+      content: '';
+      display: none; }
+    .nav-tabs li > a {
+      text-transform: uppercase;
+      font-weight: 300;
+      color: #9a9a9b; }
+      .nav-tabs li > a:hover, .nav-tabs li > a:focus {
+        color: #49494a; }
+    .nav-tabs li.active {
+      color: #49494a; }
+      .nav-tabs li.active > a {
+        color: #49494a; }
+
+.tab-content > .tab-pane {
+  display: none; }
+.tab-content > .active {
+  display: block; }
 
 /*# sourceMappingURL=main.min.css.map */

@@ -1,0 +1,57 @@
+// Tabbable tabs
+// -------------------------
+
+.nav-tabs {
+  text-transform: uppercase;
+  font-weight: 300;
+  color:$gray-light;
+  counter-reset: aco;
+
+  li {
+   counter-increment: aco;
+   list-style: none;
+   display: inline-block;
+   &:before {
+    content: counter(aco)'. ';
+   }
+   &:after {
+    content:'|';
+    padding:0 0.5em;
+    display: inline-block;
+   }
+   &:last-child {
+    &:after {
+      content:'';
+      display: none;
+    }
+   }
+   > a {
+    text-transform: uppercase;
+    font-weight: 300;
+    color:$gray-light;
+    &:hover, &:focus {
+      color:$gray;
+    }
+
+   }
+   &.active {
+    color:$gray;
+    > a {
+      color:$gray;
+    }
+   }
+    
+  }
+}
+
+// Hide tabbable panes to start, show them when `.active`
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+

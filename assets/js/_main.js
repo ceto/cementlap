@@ -107,7 +107,7 @@ jQuery(document).ready(function($){
   // });
 
 
-  var $container = $('.product-list'),
+  var $container = $('.main .product-list'),
     filters = {};
 
   $container.isotope({
