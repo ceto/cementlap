@@ -85,6 +85,9 @@ img {
   padding:1em;
   font-size: 0.875em;
   line-height: 1.4em;
+  @include breakpoint($s3){
+    padding: 1em 2em;
+  }
   .single-product &{
     padding:0;
     font-size: 1em;

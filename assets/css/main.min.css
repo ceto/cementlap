@@ -2866,6 +2866,9 @@ img {
     display: table; }
   .main:after {
     clear: both; }
+  @media only screen and (min-width: 1024px) {
+    .main {
+      padding: 1em 2em; } }
   .single-product .main {
     padding: 0;
     font-size: 1em;
@@ -2952,6 +2955,9 @@ blockquote {
       min-height: 0;
       max-width: 1600px;
       margin: 0 auto; } }
+  @media only screen and (min-width: 1024px) {
+    .banner {
+      padding: 0.75em 2em 0.5em; } }
 
 .brand {
   font: 0/0 a;
@@ -3074,6 +3080,9 @@ blockquote {
       position: absolute;
       right: 1.25em;
       top: 1.75em; } }
+  @media only screen and (min-width: 1024px) {
+    .nav3 {
+      right: 2.25em; } }
 
 /* Off Canvas Navigation */
 .off-canvas-navigation {
@@ -3139,8 +3148,8 @@ a.menu-button:hover {
 @media only screen and (min-width: 768px) {
   .nav-sub + .main {
     float: left;
-    width: -webkit-calc(100% - 300px);
-    width: calc(100% - 300px); } }
+    width: -webkit-calc(100% - 290px);
+    width: calc(100% - 290px); } }
 
 .nav-sub {
   text-transform: uppercase;
@@ -3155,8 +3164,11 @@ a.menu-button:hover {
   @media only screen and (min-width: 768px) {
     .nav-sub {
       float: left;
-      width: 280px;
+      width: 270px;
       margin-right: 20px; } }
+  @media only screen and (min-width: 1024px) {
+    .nav-sub {
+      padding: 1em 1em 1em 2em; } }
   .nav-sub h3 {
     color: #49494a;
     text-transform: none;
@@ -3196,7 +3208,7 @@ a.menu-button:hover {
 .footer-sidebar {
   max-width: 1600px;
   margin: auto;
-  padding: 2em 1em;
+  padding: 2em 0;
   font-size: 0.666em;
   line-height: 1.25em;
   font-weight: 300;
@@ -3206,6 +3218,9 @@ a.menu-button:hover {
     display: table; }
   .footer-sidebar:after {
     clear: both; }
+  @media only screen and (min-width: 1024px) {
+    .footer-sidebar {
+      padding: 2em 0; } }
   .footer-sidebar .widget {
     padding: 1em 1em; }
     .footer-sidebar .widget:before, .footer-sidebar .widget:after {
@@ -3220,12 +3235,12 @@ a.menu-button:hover {
         float: left; } }
     @media only screen and (min-width: 768px) {
       .footer-sidebar .widget {
-        padding: 2em 1em 2em 2em;
+        padding: 2em 2em 2em 2em;
         width: 22.222%;
         float: left; } }
     @media only screen and (min-width: 1024px) {
       .footer-sidebar .widget {
-        padding: 3em 1em 3em 3em; } }
+        padding: 3em 3em 3em 3em; } }
     .footer-sidebar .widget h3 {
       margin: 1em 0 1.5em;
       font-size: 1.25em;
@@ -3255,6 +3270,9 @@ a.menu-button:hover {
   padding: 1.25em;
   position: relative;
   background-color: #efefef; }
+  @media only screen and (min-width: 1024px) {
+    .footer-copy {
+      padding: 1.25em 3em; } }
 
 .hero {
   background-image: url("../img/hero.jpg");
@@ -3307,79 +3325,6 @@ a.menu-button:hover {
     .hero-text {
       font-size: 4em;
       line-height: 1em; } }
-
-.fresh-posts {
-  max-width: 1600px;
-  margin: 0 auto; }
-  .fresh-posts:before, .fresh-posts:after {
-    content: " ";
-    display: table; }
-  .fresh-posts:after {
-    clear: both; }
-  @media only screen and (min-width: 768px) {
-    .fresh-posts {
-      padding: 1em 0; } }
-  @media only screen and (min-width: 1024px) {
-    .fresh-posts {
-      padding: 2em 3em; } }
-  .fresh-posts .post {
-    position: relative;
-    max-width: 480px;
-    margin: 1em auto; }
-    @media only screen and (min-width: 768px) {
-      .fresh-posts .post {
-        width: -webkit-calc(33.333333% - 1.333333em);
-        width: calc(33.333333% - 1.333333em);
-        margin-right: 2em;
-        float: left; }
-        .fresh-posts .post:last-child {
-          margin-right: 0; } }
-  .fresh-posts .post-thumb a img {
-    -webkit-filter: brightness(0.5);
-    filter: brightness(0.5); }
-  .fresh-posts .post-desc {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    padding: 0 1em;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    text-align: center; }
-    .fresh-posts .post-desc:before, .fresh-posts .post-desc:after {
-      content: " ";
-      display: table; }
-    .fresh-posts .post-desc:after {
-      clear: both; }
-  .fresh-posts .post-title {
-    font-weight: 100;
-    font-size: 1.75em;
-    line-height: 1.125em;
-    text-transform: uppercase;
-    text-shadow: 0 0 3px #49494a; }
-    @media only screen and (min-width: 480px) {
-      .fresh-posts .post-title {
-        font-size: 2.25em;
-        line-height: 1.125em; } }
-    @media only screen and (min-width: 768px) {
-      .fresh-posts .post-title {
-        font-size: 1.75em;
-        line-height: 1.125em; } }
-    @media only screen and (min-width: 1024px) {
-      .fresh-posts .post-title {
-        font-size: 2em;
-        line-height: 1.125em; } }
-    @media only screen and (min-width: 1280px) {
-      .fresh-posts .post-title {
-        font-size: 2.75em;
-        line-height: 1.125em; } }
-    .fresh-posts .post-title a {
-      color: #fefeff;
-      display: block; }
-      .fresh-posts .post-title a:hover, .fresh-posts .post-title a:focus {
-        color: #fff;
-        text-decoration: none; }
 
 .product-list {
   font-size: 0;
@@ -3446,10 +3391,10 @@ a.menu-button:hover {
 
 .prod-sthumb {
   position: absolute;
-  bottom: -0.5em;
-  right: -0.5em;
-  width: 55%;
-  height: 55%;
+  bottom: -0.666em;
+  right: -0.666em;
+  width: 45%;
+  height: 45%;
   display: block;
   border: 3px solid #fefeff;
   -webkit-box-shadow: 0 0 5px 0 #2f2f2f;
@@ -3770,6 +3715,109 @@ article.product {
     color: #0066ff; }
     .filt-item input:checked ~ label i {
       display: inline; }
+
+.post {
+  position: relative;
+  margin: 1em auto; }
+
+.post-thumb a img {
+  -webkit-filter: brightness(0.5);
+  filter: brightness(0.5); }
+
+.post-desc {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: 0 1em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center; }
+  .post-desc:before, .post-desc:after {
+    content: " ";
+    display: table; }
+  .post-desc:after {
+    clear: both; }
+
+.post-title {
+  font-weight: 100;
+  font-size: 1.75em;
+  line-height: 1.125em;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px #49494a; }
+  @media only screen and (min-width: 768px) {
+    .post-title {
+      font-size: 1.75em;
+      line-height: 1.125em; } }
+  @media only screen and (min-width: 1024px) {
+    .post-title {
+      font-size: 2em;
+      line-height: 1.125em; } }
+  @media only screen and (min-width: 1280px) {
+    .post-title {
+      font-size: 2.75em;
+      line-height: 1.125em; } }
+  .post-title a {
+    color: #fefeff;
+    display: block; }
+    .post-title a:hover, .post-title a:focus {
+      color: #fff;
+      text-decoration: none; }
+
+.archive.category .main, .blog .main {
+  text-align: center; }
+  @media only screen and (min-width: 1024px) {
+    .archive.category .main, .blog .main {
+      padding: 1em 6em; } }
+.archive.category .post, .blog .post {
+  max-width: 480px; }
+  @media only screen and (min-width: 480px) {
+    .archive.category .post, .blog .post {
+      float: left;
+      width: -webkit-calc(50% - 1em);
+      width: calc(50% - 1em);
+      margin: 0.5em 0.5em; } }
+  @media only screen and (min-width: 768px) {
+    .archive.category .post, .blog .post {
+      float: left;
+      width: -webkit-calc(33.333333% - 1em);
+      width: calc(33.333333% - 1em);
+      margin: 0.5em 0.5em; } }
+  @media only screen and (min-width: 1600px) {
+    .archive.category .post, .blog .post {
+      width: -webkit-calc(25% - 1em);
+      width: calc(25% - 1em);
+      margin: 0.5em 0.5em; } }
+
+.fresh-posts {
+  max-width: 1600px;
+  margin: 0 auto; }
+  .fresh-posts:before, .fresh-posts:after {
+    content: " ";
+    display: table; }
+  .fresh-posts:after {
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .fresh-posts {
+      padding: 1em 0; } }
+  @media only screen and (min-width: 1024px) {
+    .fresh-posts {
+      padding: 2em 3em; } }
+  .fresh-posts .post {
+    max-width: 480px; }
+    @media only screen and (min-width: 480px) {
+      .fresh-posts .post {
+        float: left;
+        width: -webkit-calc(50% - 1em);
+        width: calc(50% - 1em);
+        margin: 0.5em 0.5em; } }
+    @media only screen and (min-width: 768px) {
+      .fresh-posts .post {
+        float: left;
+        width: -webkit-calc(33.333333% - 1em);
+        width: calc(33.333333% - 1em);
+        margin: 0.5em 0.5em; } }
 
 .sidebar {
   clear: both; }

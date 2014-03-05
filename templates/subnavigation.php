@@ -1,4 +1,4 @@
-<?php if (is_page() && !is_front_page()): ?>
+<?php if (is_page() && !is_front_page() && ($post->post_parent!=0) ): ?>
 <nav class="nav-sub" role="navigation">
   <?php if (has_nav_menu('vasinfo_navigation')) : ?>
     <h3><?php _e('Vásárlási információk','root') ?></h3>    

@@ -246,6 +246,47 @@ function create_stock_tag() {
 }
 
 
+
+/********* Custom MetaBoxes for Product Management ****************/
+
+/**
+ * Product Metaboxes
+*/
+add_filter( 'cmb_meta_boxes', 'cmb_ppp' );
+function cmb_ppp( array $meta_boxes ) {
+  $prefix = '_meta_';
+
+  $meta_boxes[] = array(
+    'id'         => 'pppmeta',
+    'title'      => 'Additional details',
+    'pages'      => array( 'post'), // Post type
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'show_names' => true, // Show field names on the left
+    'fields'     => array(
+      array(
+        'name' => __( 'Fullscreen wallpaper', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
+        'id'   => $prefix . 'wallimg',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+      array(
+        'name'    => __( 'Additional content', 'root' ),
+        'desc'    => __( 'Add your own gallery or additional content', 'root' ),
+        'id'      => $prefix . 'addcont',
+        'type'    => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
+      ),
+    ),
+  );
+  return $meta_boxes;
+}
+
+/********* End of Custom MetaBoxes for Product Management ****************/
+
+
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 /**
  * Initialize the metabox class.
