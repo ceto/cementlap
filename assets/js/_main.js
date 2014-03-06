@@ -60,8 +60,11 @@ var resizeHero = function() {
     //$('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
 
     $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
+    
     $('.single-post .main .post').css('min-height', $(window).height() - $('.main').offset().top );
     $('.single-post .main .post .repulo').css('min-height', $(window).height() - $('.main').offset().top );
+    $('.single-post .main .post .addcont').css('min-height', $(window).height() - $('.main').offset().top );
+    $('.slide-item img').css('min-height', $(window).height() - $('.main').offset().top );
   }
   //$('.contact-row.open').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
   //$('.contact-row.open').css('min-height',($(window).height()-($('.banner').offset().top + $('.banner').height())));

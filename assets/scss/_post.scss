@@ -167,5 +167,19 @@
       font-weight: 100;
     }
 
+    .addcont{
+       @include breakpoint($s2){
+        float:left;
+        width:calc(100% - 280px);
+      }
+      @include breakpoint($s3){
+        width:calc(100% - 320px);
+      }
+      @include breakpoint($s4){
+        width:calc(100% - 360px);
+      }
+    }
   }
+
+
 }

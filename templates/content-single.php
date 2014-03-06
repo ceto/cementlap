@@ -43,5 +43,8 @@
       </footer>
       <?php // comments_template('/templates/comments.php'); ?>
     </div>
+    <section class="addcont">
+      <?php echo do_shortcode(get_post_meta( $post->ID, '_meta_addcont', true )); ?>
+    </aside>
   </article>
 <?php endwhile; ?>
