@@ -3169,6 +3169,12 @@ a.menu-button:hover {
   @media only screen and (min-width: 1024px) {
     .nav-sub {
       padding: 1em 1em 1em 2em; } }
+  .nav-sub .subnav-title {
+    font-weight: 900;
+    font-size: 1.5em;
+    line-height: 1em;
+    margin: 1em 0;
+    color: #9a9a9b; }
   .nav-sub h3 {
     color: #49494a;
     text-transform: none;
