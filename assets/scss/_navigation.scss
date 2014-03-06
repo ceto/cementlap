@@ -253,6 +253,7 @@ a.menu-button:hover {
   @include breakpoint($s2){
     float:left;
     width: calc(100% - 290px);
+    padding-top:4.666em;
   }
 }
 .nav-sub{

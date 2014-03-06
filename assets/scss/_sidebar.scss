@@ -1,4 +1,38 @@
 .sidebar {
   @include clearfix();
-  clear:both;
+  max-width: $s5;
+  margin:0 auto;
+  padding:1em 2em;
+}
+
+.sidebar-topad {
+  background-image: url(../img/hero.jpg);
+  background-color: $gray-light;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color:#fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  line-height:1.25em;
+  
+  .widget {
+    @include breakpoint($s2) {
+      float:left;
+      max-width: 66.666%;
+      &:last-child{
+        float:right;
+        max-width: 33.333%;
+      }
+    } 
+  }
+  
+  h3{
+    font-size: 1.5em;
+    line-height:1.25em;
+    margin:0;
+    font-weight: 100;
+  }
+
 }

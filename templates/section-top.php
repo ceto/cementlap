@@ -8,3 +8,9 @@
   </div>
 </section> 
 <?php endif ?>
+
+<?php if (is_archive()) : ?>
+  <aside class="sidebar sidebar-topad" role="complementary">
+    <?php dynamic_sidebar('sidebar-topad'); ?>
+  </aside><!-- /.sidebar -->
+<?php endif; ?>

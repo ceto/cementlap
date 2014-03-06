@@ -3111,7 +3111,8 @@ a.menu-button:hover {
 @media only screen and (min-width: 768px) {
   .nav-sub + .main {
     float: left;
-    width: calc(100% - 290px); } }
+    width: calc(100% - 290px);
+    padding-top: 4.666em; } }
 
 .nav-sub {
   text-transform: uppercase;
@@ -3763,12 +3764,38 @@ article.product {
         margin: 0.5em 0.5em; } }
 
 .sidebar {
-  clear: both; }
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1em 1em; }
   .sidebar:before, .sidebar:after {
     content: " ";
     display: table; }
   .sidebar:after {
     clear: both; }
+
+.sidebar-topad {
+  background-image: url(../img/hero.jpg);
+  background-color: #9a9a9b;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  line-height: 1.25em; }
+  @media only screen and (min-width: 768px) {
+    .sidebar-topad .widget {
+      float: left;
+      max-width: 66.666%; }
+      .sidebar-topad .widget:last-child {
+        float: right;
+        max-width: 33.333%; } }
+  .sidebar-topad h3 {
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin: 0;
+    font-weight: 100; }
 
 .contact-row {
   background-color: #f6ce3a;
