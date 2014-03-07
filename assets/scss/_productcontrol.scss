@@ -20,6 +20,11 @@
   li {
     list-style-type: none;
     display: inline-block;
+    &.active {
+      a {
+        color:$gray;
+      }
+    }
   }
   a{
     display: inline-block;
@@ -30,9 +35,6 @@
     font-weight: 700;
     font-size: 0.75em;
     line-height: 1em;
-    &.active {
-      color:$gray;
-    }
   }
   
 

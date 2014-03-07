@@ -3629,6 +3629,8 @@ article.product {
 .nav-category li {
   list-style-type: none;
   display: inline-block; }
+  .nav-category li.active a {
+    color: #49494a; }
 .nav-category a {
   display: inline-block;
   padding: 0.25em 0.5em;
@@ -3638,8 +3640,6 @@ article.product {
   font-weight: 700;
   font-size: 0.75em;
   line-height: 1em; }
-  .nav-category a.active {
-    color: #49494a; }
 
 .filt-select-con {
   display: inline-block;

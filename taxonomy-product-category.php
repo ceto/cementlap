@@ -7,26 +7,37 @@ Template Name: Product Category List
 <?php
   //global $query_string;
   //query_posts( $query_string . '&orderby=date&order=ASC&posts_per_page=-1' );
-  //$term_id = term_exists( get_query_var( 'term' ) );
-  //$term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+  $aktermterm_id = term_exists( get_query_var( 'term' ) );
+  $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
   //$ima = get_tax_meta( $term_id ,'_meta_image');
   //$imci = wp_get_attachment_image_src( $ima[id], 'banner169');
   //$actual_term = get_term( $term_id, 'object' );
-  //$parent_term = get_term( $actual_term->parent, 'object' );
+  $parent_term = ($term->parent==0)?$term:get_term($term->parent, get_query_var('taxonomy') );
+  $child_terms = get_term_children( $parent_term->term_id, 'product-category' );
   //$term_children = get_term_children( $parent_term->term_id, 'object' );
   $copt=get_option('cementlap_option_name');
 ?>
 
 
 <section class="product-control">
-  <h1>Cementlapok</h1>
-  
+  <h1><?php echo $parent_term->name; ?></h1>
   <nav class="nav-category">
     <ul>
-      <li><a href="#" class="active">Mind</a></li>
-      <li><a href="<?php get_term_link( 'normal', 'product-group' ); ?>">Normál</a></li>
-      <li><a href="#">Kicsi</a></li>
-      <li><a href="<?php get_term_link( 'hexa', 'product-group' ); ?>">Hatszög</a></li>
+      <li class="<?php echo ($parent_term->term_id==$aktermterm_id)?'active':''; ?>">
+        <a href="<?php echo get_term_link( $parent_term, 'product-category' ); ?>">
+          Mind
+        </a>
+      </li>
+      <?php foreach ( $child_terms as $child ) { ?>
+        <li class="<?php echo ($child==$aktermterm_id)?'active':''; ?>">
+          <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">
+            <?php
+              $teri = get_term($child, 'product-category' );
+              echo $teri->name;
+            ?>
+          </a>
+        </li>
+      <?php } ?>
     </ul>
   </nav>
 
