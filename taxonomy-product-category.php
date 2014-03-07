@@ -20,7 +20,7 @@ Template Name: Product Category List
 
 
 <section class="product-control">
-  <h1><?php echo $parent_term->name; ?></h1>
+  <h1><?php echo $parent_term->name; ?>ok</h1>
   <nav class="nav-category">
     <ul>
       <li class="<?php echo ($parent_term->term_id==$aktermterm_id)?'active':''; ?>">
