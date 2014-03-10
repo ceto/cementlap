@@ -1,16 +1,14 @@
 <?php
     $termik = array();
-    $termlist=get_the_terms( $post->ID, 'product-category' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    $termlist=get_the_terms( $post->ID, 'product-color' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    $termlist=get_the_terms( $post->ID, 'product-design' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    $termlist=get_the_terms( $post->ID, 'product-stock' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    $termes = join(" ", $termik );
+    $nagytermlist=array_merge(
+      get_the_terms( $post->ID, 'product-category' ),
+      get_the_terms( $post->ID, 'product-color' ),
+      get_the_terms( $post->ID, 'product-design' ),
+      get_the_terms( $post->ID, 'product-stock' )
+    );
+    foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
   ?>
-  <a id="product-<?php echo $post->ID; ?>" <?php post_class($termes.' prod-mini'); ?>
+  <a id="product-<?php echo $post->ID; ?>" <?php post_class( join(" ", $termik ).' prod-mini' ); ?>
     href="<?php the_permalink(); ?>"
     data-url="<?php the_permalink(); ?>"
     data-name="<?php the_title(); ?>"

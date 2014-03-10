@@ -129,6 +129,7 @@
     opacity: 0;
     background-color: red;
     position: absolute;
+    z-index: 100;
     top:0;
     right:0;
     bottom:0;
@@ -138,7 +139,7 @@
     height:100%;
     cursor: pointer;
   }
-  input:checked ~ label {
+  input.selected ~ label {
     color:$blue;
     i{
       display: inline;

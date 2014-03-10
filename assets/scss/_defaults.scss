@@ -72,6 +72,7 @@ img {
 }
 .wp-caption {
   max-width: 100%;
+  
   .caption{
     font-size: 0.75em;
     line-height: 1.125em;
@@ -79,6 +80,21 @@ img {
     text-align: center;
     margin:10px auto 0;
     color:$gray-light;
+  }
+  img {
+    &.kicsit-tulfut{
+      @include breakpoint($s3){
+        max-width: 140%;
+        margin-left: -20%;
+      }
+    }
+    &.tulfut{
+      @include breakpoint($s3){
+        max-width: 160%;
+        margin-left: -30%;
+      }
+    }
+
   }
 }
 
@@ -92,14 +108,14 @@ img {
 }
 .main {
   @include clearfix();
-  overflow:hidden;
+  //overflow:hidden;
   padding:1em;
   font-size: 0.875em;
   line-height: 1.4em;
   @include breakpoint($s3){
     padding: 1em 2em;
   }
-  .single-product &, .single-post & {
+  .single-product &, .single & {
     padding:0;
     font-size: 1em;
     line-height: 1.4em;

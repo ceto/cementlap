@@ -101,17 +101,7 @@ jQuery(document).ready(function($) {
 
 
 /********** Product Control scripts *********/
-jQuery(document).ready(function($){
-  $('.filt-placeholder').click(function(e){
-    e.preventDefault();
-    $(this).toggleClass('selected');
-    $($(this).attr('data-filter-name')).toggleClass('hide');
-  });
-  // $('.filt-item-input').click(function(e){
-  //   $(this).parent().parent().toggleClass('hide');
-  // });
-
-
+$(window).load(function(){
   var $container = $('.main .product-list'),
     filters = {};
 
@@ -126,42 +116,30 @@ jQuery(document).ready(function($){
 
   // filter buttons
   $('.filt-item-input').click(function(){
-    var $this = $(this);
-    var $optionSet = $this.parents('.filt-item');
-    $this.toggleClass('selected');
-    
-    // store filter value in object
-    // i.e. filters.color = 'red'
-    var group = $optionSet.attr('data-filter-group');
-    filters[ group ] = $this.attr('data-filter-value');
-    // convert object into array
-    var isoFilters = [];
-    for ( var prop in filters ) {
-      isoFilters.push( filters[ prop ] );
-    }
-    var selector = isoFilters.join('');
-    $container.isotope({ filter: selector });
+    $(this).parent().parent().toggleClass('hide');
+    var $optionSet = $(this).parents('.filt-item');
 
-    //return false;
-  });
 
-  // filter buttons
-  $('.filt-item-input').click(function(){
-    var $this = $(this);
     // don't proceed if already selected
-    if ( $this.hasClass('selected') ) {
-      return;
+    // if ( $this.hasClass('selected') ) {
+    //   return;
+    // }
+    
+    var group = $optionSet.attr('data-filter-group');
+    
+    $optionSet.find('.selected').each(function(){
+      //filters[ group ] = $(this).attr('data-filter-value');
+      $(this).removeClass('selected');
+      //window.alert($(this).attr('data-filter-value'));
+    });
+
+    $(this).toggleClass('selected');
+    if ( $(this).hasClass('selected') ) {
+      filters[ group ] = $(this).attr('data-filter-value');
     }
     
-    var $optionSet = $this.parents('.filt-item');
-    // change selected class
-    $optionSet.find('.selected').removeClass('selected');
-    $this.addClass('selected');
-    
-    // store filter value in object
-    // i.e. filters.color = 'red'
-    var group = $optionSet.attr('data-filter-group');
-    filters[ group ] = $this.attr('data-filter-value');
+ 
+
     // convert object into array
     var isoFilters = [];
     for ( var prop in filters ) {
@@ -169,10 +147,18 @@ jQuery(document).ready(function($){
     }
     var selector = isoFilters.join('');
     $container.isotope({ filter: selector });
-
     return false;
   });
 
+});
+
+
+jQuery(document).ready(function($){
+  $('.filt-placeholder').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('selected');
+    $($(this).attr('data-filter-name')).toggleClass('hide');
+  });
 });
 
 

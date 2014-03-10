@@ -125,7 +125,7 @@
 }
 
 
-.single-post {
+.single-format-gallery {
 
   
   .post {
@@ -178,6 +178,23 @@
       @include breakpoint($s4){
         width:calc(100% - 360px);
       }
+    }
+  }
+}
+
+.single-format-standard {
+
+  
+  .post {
+    header, .entry-content, .entry-footer, .addcont{
+      @include clearfix();
+      margin:0 auto;
+      max-width: $s2;
+      padding:0 1em;
+      @include breakpoint($s3){
+        padding:0 0;
+      }
+
     }
   }
 
