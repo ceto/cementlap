@@ -2873,6 +2873,12 @@ img {
     padding: 0;
     font-size: 1em;
     line-height: 1.4em; }
+  .page .main {
+    font-size: 1em;
+    line-height: 1.4em; }
+    @media only screen and (min-width: 768px) {
+      .page .main {
+        padding: 1em 1em; } }
 
 .btn, .btn-light-line {
   border: 0;
@@ -3150,6 +3156,10 @@ a.menu-button:hover {
     float: left;
     width: -webkit-calc(100% - 290px);
     width: calc(100% - 290px); } }
+@media only screen and (min-width: 1024px) {
+  .nav-sub + .main {
+    width: -webkit-calc(100% - 580px);
+    width: calc(100% - 580px); } }
 
 .nav-sub {
   text-transform: uppercase;
@@ -3281,6 +3291,7 @@ a.menu-button:hover {
       padding: 1.25em 3em; } }
 
 .hero {
+  background-color: #2f2f2f;
   background-image: url("../img/hero.jpg");
   background-position: center center;
   background-repeat: no-repeat;

@@ -93,6 +93,13 @@ img {
     font-size: 1em;
     line-height: 1.4em;
   }
+  .page & {
+    font-size: 1em;
+    line-height: 1.4em;
+    @include breakpoint($s2){
+      padding: 1em 1em;
+    }
+  }
 }
 
 
