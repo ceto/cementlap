@@ -2812,6 +2812,16 @@ img {
   height: auto;
   vertical-align: middle; }
 
+.wp-caption {
+  max-width: 100%; }
+  .wp-caption .caption {
+    font-size: 0.75em;
+    line-height: 1.125em;
+    font-style: italic;
+    text-align: center;
+    margin: 10px auto 0;
+    color: #9a9a9b; }
+
 .document {
   max-width: 1600px;
   margin: 0 auto; }

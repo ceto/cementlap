@@ -70,6 +70,17 @@ img {
   height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
   vertical-align: middle;
 }
+.wp-caption {
+  max-width: 100%;
+  .caption{
+    font-size: 0.75em;
+    line-height: 1.125em;
+    font-style: italic;
+    text-align: center;
+    margin:10px auto 0;
+    color:$gray-light;
+  }
+}
 
 .document{
   @include clearfix();
