@@ -2830,9 +2830,9 @@ h3 {
   line-height: 1.125em;
   margin-top: 2em; }
 
-ul {
+ul, ol {
   padding: 0 0 0 3em; }
-  ul li {
+  ul li, ol li {
     margin: 0.75em 0; }
 
 html[data-useragent*='Chrome'][data-platform*='Mac'] p {
@@ -3149,8 +3149,7 @@ a.menu-button:hover {
   .nav-sub + .main {
     float: left;
     width: -webkit-calc(100% - 290px);
-    width: calc(100% - 290px);
-    padding-top: 4.666em; } }
+    width: calc(100% - 290px); } }
 
 .nav-sub {
   text-transform: uppercase;
