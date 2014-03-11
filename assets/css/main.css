@@ -3044,6 +3044,19 @@ blockquote {
     @media only screen and (min-width: 768px) {
       .nav-main .nav .active a {
         color: #49494a; } }
+  .nav-main .nav li.telcsi a {
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+    .nav-main .nav li.telcsi a:before {
+      content: "\f2d2"; }
 
 @media only screen and (min-width: 768px) {
   .nav1 {
@@ -3617,6 +3630,16 @@ article.product {
   font-weight: 700;
   font-size: 0.75em;
   line-height: 1em; }
+
+.filt-wrap {
+  background-color: #fefeff;
+  padding-top: 10px; }
+  .filt-wrap.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
 
 .filt-select-con {
   display: inline-block;

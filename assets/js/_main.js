@@ -96,6 +96,17 @@ jQuery(document).ready(function($) {
   });
   resizeHero();
   $(".main").fitVids();
+
+  var top = $('#filt-wrap').offset().top - parseFloat($('#filt-wrap').css('marginTop').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    var y = $(this).scrollTop();
+    if (y >= top) {
+      $('#filt-wrap').addClass('fixed');
+    } else {
+      $('#filt-wrap').removeClass('fixed');
+    }
+  });
+
 });
 
 

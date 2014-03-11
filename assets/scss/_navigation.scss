@@ -134,6 +134,25 @@
       color:$gray;
     }
   }
+
+  li.telcsi{
+    a {
+      //display: inline-block;
+      font-family: "Ionicons";
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      text-rendering: auto;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      &:before {
+        content: "\f2d2";
+      }
+    }
+  }
 }
 
 

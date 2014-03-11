@@ -41,7 +41,7 @@ Template Name: Product Category List
     </ul>
   </nav>
 
-  <div id="filt-wrap">
+  <div id="filt-wrap" class="filt-wrap">
 
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-color">
