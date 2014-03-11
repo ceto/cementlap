@@ -28,21 +28,21 @@
           <i class="ion-ios7-cart"></i>
           <?php _e('Raktáron van:','root') ?>
           <span class="prod-amount">
-            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><?php echo get_post_meta($post->ID, '_meta_unit', true); ?>
+            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
           </span>
         <?php elseif ( has_term('hamarosan-erkezik','product-stock'))  : ?>
-          <i class="ion-clock"></i>
+          <i class="ion-plane"></i>
           <?php _e('Érkezik:','root') ?>
           <span class="prod-ntd"><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span>
           <?php else : ?>
-          <i class="ion-android-hand"></i>
-          <?php _e('Csak rendelésre','root') ?>
+          <i class="ion-alert-circled"></i>
+          <?php _e('Rendelésre gyártjuk','root') ?>
         <?php endif; ?>
       </div>
 
       <span class="prod-price">
         <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
-        <span class="prod-unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
+        <span class="prod-unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
       </span>
     </div>
   </a><!-- /#product-## -->

@@ -85,17 +85,24 @@
           <div class="stock-status">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
               <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
+            <?php elseif ( has_term('hamarosan-erkezik','product-stock') ): ?>
+               <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
             <?php else: ?>
-              <i class="ion-android-hand"></i> <?php _e('Csak rendelésre','root') ?>
+              <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
             <?php endif; ?>
           </div>
+          
           <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
             <div class="stock-amount">
               <i class="ion-ios7-cart"></i> Raktáron van:
-              <span><?php echo get_post_meta($post->ID, '_meta_amount', true); ?><?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
+              <span>
+                <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+              </span>
             </div>
+          <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
+            <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span></div>
           <?php else: ?>
-            <div class="date-status"><i class="ion-clock"></i> Legkorábban érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
+            <div class="date-status"><i class="ion-clock"></i> Rendelés esetén érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
           <?php endif; ?>
         </div>
         <div class="gombsor">

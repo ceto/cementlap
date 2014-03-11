@@ -75,6 +75,15 @@ function cmb_product( array $meta_boxes ) {
         // 'repeatable' => true,
       ),
       array(
+        'name'   => __( 'Original Price', 'root' ),
+        'desc'   => __( 'Original price. (if special)', 'root' ),
+        'id'     => $prefix . 'origprice',
+        'type'   => 'text_money',
+        'before' => 'Ft', // override '$' symbol if needed
+        // 'repeatable' => true,
+      ),
+
+      array(
         'name' => __( 'On Stock', 'root' ),
         'desc' => __( 'Amount of unit on Törökbálint', 'root' ),
         'id'   => $prefix . 'amount',
