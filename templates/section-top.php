@@ -44,11 +44,11 @@
     }
   </style>  
   <section class="hero" role="banner">
-    <div class="hero-content">
+    <!--div class="hero-content">
       <h1 class="hero-text">
           <?php the_title();  ?>
       </h1>
-    </div>
+    </div-->
   </section> 
 <?php elseif ( ( is_page()  )   ) :?>
   <?php
