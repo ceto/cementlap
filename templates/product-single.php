@@ -74,12 +74,15 @@
         <div class="action-block">
           <a href="#" class="btn">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <?php _e('Készlet és szállítás<small>Érdeklődjön: +36 70 770 5653</small>','root'); ?>
+              <?php _e('Pontos részletekért<small>Hívj: +36.20.973.4344</small>','root'); ?>
             <?php else: ?>
-              <?php _e('Foglald le most<small>Hívj telefonon: +36 70 770 5653</small>','root') ?>
+              <?php _e('Részletekért hívj<small> Telefonon: +36.20.973.4344</small>','root') ?>
             <?php endif; ?>
           </a>
         </div>
+
+
+        
         <div class="stock-block">
           <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
           <div class="stock-status">
@@ -104,6 +107,17 @@
           <?php else: ?>
             <div class="date-status"><i class="ion-clock"></i> Rendelés esetén érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
           <?php endif; ?>
+
+          <div class="product-more">
+              <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
+                További információk a rendeléshez ... <i class="ion-help-circled"></i>
+              </a>
+              <div id="morepanel" class="panel-collapse morepanel collapse">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Nobis, saepe, magnam, expedita, dolorem aperiam libero eius possimus.
+              </div>
+          </div>
+
         </div>
         <div class="gombsor">
           <a href="#" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>

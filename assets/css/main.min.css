@@ -3597,7 +3597,7 @@ article.product {
 .stock-block {
   border-bottom: 1px solid #49494a;
   border-top: 1px solid #49494a;
-  padding: 0.5em 0;
+  padding: 0.5em 0 0;
   margin: 1em 0;
   color: #49494a;
   font-size: 1em;
@@ -3626,6 +3626,22 @@ article.product {
     .stock-block .date-status span {
       font-weight: 900;
       color: #9a9a9b; }
+
+.product-more {
+  font-size: 0.875em; }
+  .product-more .show-more {
+    display: inline-block;
+    line-height: 1em;
+    padding: 0.25em 0.25em 0.125em;
+    text-align: center;
+    color: #fff;
+    background-color: #9a9a9b;
+    margin-bottom: 0.5em; }
+    .product-more .show-more:hover, .product-more .show-more:focus {
+      text-decoration: none;
+      background-color: #49494a; }
+    .product-more .show-more i {
+      display: none; }
 
 .gombsor {
   font-size: 0; }

@@ -242,7 +242,7 @@ article.product {
   @include clearfix();
   border-bottom: 1px solid $gray;
   border-top: 1px solid $gray;
-  padding:0.5em 0;
+  padding:0.5em 0 0;
   margin:1em 0;
   color:$gray;
   font-size: 1em;
@@ -276,8 +276,32 @@ article.product {
       color:$gray-light;
     }
   }
-
 }
+.product-more {
+  font-size: 0.875em;
+
+  .show-more {
+    display: inline-block;
+    line-height: 1em;
+    padding:0.25em 0.25em 0.125em;
+    text-align: center;
+    color:#fff;
+    background-color: $gray-light;
+    margin-bottom: 0.5em;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color:$gray;
+    }
+    i {
+      //float:right;
+      display: none;
+    }
+  }
+  .morepanel{
+   
+  }
+}
+
 .gombsor{
   font-size: 0;
   a {
