@@ -74,9 +74,9 @@
         <div class="action-block">
           <a href="#" class="btn">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <?php _e('Pontos részletekért<small>Hívj: +36.20.973.4344</small>','root'); ?>
+              <?php _e('Foglald le telefonon<small>Hívj: +36.20.973.4344</small>','root'); ?>
             <?php else: ?>
-              <?php _e('Részletekért hívj<small> Telefonon: +36.20.973.4344</small>','root') ?>
+              <?php _e('Részletekért hívj<small>Telefonon: +36.20.973.4344</small>','root') ?>
             <?php endif; ?>
           </a>
         </div>
