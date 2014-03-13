@@ -3966,6 +3966,8 @@ article.product {
         width: 360px; }
         .single-format-gallery .post .repulo.hide {
           margin-left: -360px; } }
+    .single-format-gallery .post .repulo a {
+      color: #ff9900; }
   .single-format-gallery .post header, .single-format-gallery .post .entry-content {
     font-size: 0.875em;
     line-height: 1.4em; }
@@ -4276,11 +4278,10 @@ input[type="text"], input[type="email"], textarea {
       background-color: rgba(47, 47, 47, 0.75);
       padding: 0 0.5em;
       text-align: center;
-      color: #fefeff;
-      text-shadow: 0 0 5px #000; }
+      color: #fefeff; }
       .slidegallery .slidecontroll a:hover, .slidegallery .slidecontroll a:focus {
         color: #fff;
-        background-color: rgba(47, 47, 47, 0.95); }
+        background-color: rgba(255, 153, 0, 0.75); }
       .slidegallery .slidecontroll a.prev {
         float: left; }
       .slidegallery .slidecontroll a.next {

@@ -155,7 +155,7 @@ function roots_slidegallery($attr) {
     'icontag'    => '',
     'captiontag' => '',
     'columns'    => 4,
-    'size'       => 'small34',
+    'size'       => 'slidefree',
     'include'    => '',
     'exclude'    => '',
     'link'       => 'file'

@@ -60,10 +60,10 @@
       padding:0 0.5em;
       text-align: center;
       color:$white;
-      text-shadow: 0 0 5px #000;
+      //text-shadow: 0 0 5px #000;
       &:hover, &:focus{
         color:#fff;
-        background-color: rgba($gray-dark,0.95);
+        background-color: rgba($orange,0.75);
       }
 
       &.prev{
