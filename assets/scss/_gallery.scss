@@ -1,8 +1,10 @@
 .slidegallery {
   overflow:hidden;
+  position: relative;
   > ul {
     margin:0;padding:0;
     white-space: nowrap; 
+    transition: margin .4s ease;
     > li {
       margin:0;
       padding:0;
@@ -13,6 +15,13 @@
 
   .slide-item {
     position: relative;
+    transition:filter .4s linear;
+    .js &{
+      filter: brightness(0.25);
+    }
+    &.active {
+      filter: brightness(1);
+    }
     a{
       
       img {
@@ -23,19 +32,46 @@
     .caption {
       white-space: wrap;
       position: absolute;
-      padding:1em;
-      top:1em;
-      left:1em;right:1em;
+      padding:00.25em;
+      display: inline-block;
+      bottom:2em;
+      left:2em;
+      padding:0.25em 0.25em 0.125em;
       background-color: rgba($gray-dark,0.75);
       color:#fff;
-      font-size: 1.25em;
-      line-height: 1.125em;
-      font-weight: 300;
-      text-transform: uppercase;
+      font-size: 0.75em;
+      line-height: 1em;
+      font-weight: 400;
+      font-style: italic;
       text-align: center;
     }
 
 
   }
+  .slidecontroll{
+    position: absolute;
+    left:0;right:0;
+    top:calc(50% - 2em);
+    a{
+      font-size: 3em;
+      line-height: 0.25em;
+      display: block;
+      background-color: rgba($gray-dark,0.75);
+      padding:0 0.5em;
+      text-align: center;
+      color:$white;
+      text-shadow: 0 0 5px #000;
+      &:hover, &:focus{
+        color:#fff;
+        background-color: rgba($gray-dark,0.95);
+      }
 
+      &.prev{
+        float:left;
+      }
+      &.next{
+        float:right;
+      }
+    }
+  }
 }

@@ -3851,11 +3851,33 @@ article.product {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative; }
+  .single-format-gallery .post .repulotoggle {
+    position: absolute;
+    right: 0;
+    top: 1em;
+    z-index: 1;
+    display: block;
+    background-color: #49494a;
+    color: #fefeff;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1em; }
+    .single-format-gallery .post .repulotoggle:hover, .single-format-gallery .post .repulotoggle:focus {
+      background-color: #ff9900;
+      color: #fff; }
+    .single-format-gallery .post .repulotoggle.hidden i:before {
+      content: "\f1c9"; }
+    @media only screen and (min-width: 768px) {
+      .single-format-gallery .post .repulotoggle.hidden {
+        right: -1em; } }
   .single-format-gallery .post .repulo {
-    overflow: hidden;
+    position: relative;
     background-color: #2f2f2f;
     color: #fff;
-    padding: 1em; }
+    padding: 1em;
+    transition: margin 1s easein; }
     .single-format-gallery .post .repulo:before, .single-format-gallery .post .repulo:after {
       content: " ";
       display: table; }
@@ -3864,14 +3886,20 @@ article.product {
     @media only screen and (min-width: 768px) {
       .single-format-gallery .post .repulo {
         float: left;
-        width: 280px; } }
+        width: 280px; }
+        .single-format-gallery .post .repulo.hide {
+          margin-left: -280px; } }
     @media only screen and (min-width: 1024px) {
       .single-format-gallery .post .repulo {
         width: 320px;
-        padding: 2em; } }
+        padding: 2em; }
+        .single-format-gallery .post .repulo.hide {
+          margin-left: -320px; } }
     @media only screen and (min-width: 1280px) {
       .single-format-gallery .post .repulo {
-        width: 360px; } }
+        width: 360px; }
+        .single-format-gallery .post .repulo.hide {
+          margin-left: -360px; } }
   .single-format-gallery .post header, .single-format-gallery .post .entry-content {
     font-size: 0.875em;
     line-height: 1.4em; }
@@ -3889,6 +3917,8 @@ article.product {
   @media only screen and (min-width: 1280px) {
     .single-format-gallery .post .addcont {
       width: calc(100% - 360px); } }
+  .single-format-gallery .post .addcont.full {
+    width: calc(100%); }
 
 .single-format-standard .post header, .single-format-standard .post .entry-content, .single-format-standard .post .entry-footer, .single-format-standard .post .addcont {
   margin: 0 auto;
@@ -4115,34 +4145,63 @@ input[type="text"], input[type="email"], textarea {
   display: block; }
 
 .slidegallery {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .slidegallery > ul {
     margin: 0;
     padding: 0;
-    white-space: nowrap; }
+    white-space: nowrap;
+    transition: margin .4s ease; }
     .slidegallery > ul > li {
       margin: 0;
       padding: 0;
       list-style-type: none;
       display: inline-block; }
   .slidegallery .slide-item {
-    position: relative; }
+    position: relative;
+    transition: filter .4s linear; }
+    .js .slidegallery .slide-item {
+      filter: brightness(0.25); }
+    .slidegallery .slide-item.active {
+      filter: brightness(1); }
     .slidegallery .slide-item a img {
       max-height: 100%;
       width: auto; }
     .slidegallery .slide-item .caption {
       white-space: wrap;
       position: absolute;
-      padding: 1em;
-      top: 1em;
-      left: 1em;
-      right: 1em;
+      padding: 00.25em;
+      display: inline-block;
+      bottom: 2em;
+      left: 2em;
+      padding: 0.25em 0.25em 0.125em;
       background-color: rgba(47, 47, 47, 0.75);
       color: #fff;
-      font-size: 1.25em;
-      line-height: 1.125em;
-      font-weight: 300;
-      text-transform: uppercase;
+      font-size: 0.75em;
+      line-height: 1em;
+      font-weight: 400;
+      font-style: italic;
       text-align: center; }
+  .slidegallery .slidecontroll {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 2em); }
+    .slidegallery .slidecontroll a {
+      font-size: 3em;
+      line-height: 0.25em;
+      display: block;
+      background-color: rgba(47, 47, 47, 0.75);
+      padding: 0 0.5em;
+      text-align: center;
+      color: #fefeff;
+      text-shadow: 0 0 5px #000; }
+      .slidegallery .slidecontroll a:hover, .slidegallery .slidecontroll a:focus {
+        color: #fff;
+        background-color: rgba(47, 47, 47, 0.95); }
+      .slidegallery .slidecontroll a.prev {
+        float: left; }
+      .slidegallery .slidecontroll a.next {
+        float: right; }
 
 /*# sourceMappingURL=main.css.map */

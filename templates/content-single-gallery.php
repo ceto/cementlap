@@ -30,7 +30,9 @@
   }
 </style>
   <article <?php post_class(); ?>>
+
     <div class="repulo">
+      <a href="#" class="repulotoggle"><i class="ion-ios7-close-empty"></i></a>
       <header>
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php get_template_part('templates/entry-meta'); ?>

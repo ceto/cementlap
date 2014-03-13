@@ -219,7 +219,9 @@ function roots_slidegallery($attr) {
     $output .= '</li>';
     $i++;
   }
-  $output .= '</ul></div>';
+  $output .= '</ul>';
+  $output .= '<nav class="slidecontroll"><a href="#" class="prev"><i class="ion-ios7-arrow-thin-left"></i></a><a href="#" class="next"><i class="ion-ios7-arrow-thin-right"></i></a></nav>';
+  $output .= '</div>';
 
   return $output;
 }

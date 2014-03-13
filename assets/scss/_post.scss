@@ -136,24 +136,65 @@
     position: relative;
 
     
-  
+    .repulotoggle{
+     
+      position:absolute;
+      right:0;
+      top:1em;
+      z-index: 1;
+      display: block;
+      background-color: $gray;
+      color:$white;
+      height:1em;
+      width:1em;
+      text-align: center;
+      font-size: 2em;
+      line-height: 1em;
+      &:hover, &:focus{
+        background-color: $orange;
+        color:#fff;
+
+
+      }
+      &.hidden{
+        i:before{
+          content:"\f1c9";
+        }
+        @include breakpoint($s2){
+          right:-1em;
+        }
+      } 
+    }
     .repulo{
       @include clearfix();
-      overflow: hidden;
+      position: relative;
+      //overflow: hidden;
       background-color: rgba($gray-dark,1);
       color:#fff;
       padding:1em;
+      transition: margin 1s easein;
+
       @include breakpoint($s2){
         float:left;
         width:280px;
+        &.hide{
+          margin-left: -280px;
+        }
       }
       @include breakpoint($s3){
         width:320px;
         padding:2em;
+        &.hide{
+          margin-left: -320px;
+        }
       }
       @include breakpoint($s4){
         width:360px;
+        &.hide{
+          margin-left: -360px;
+        }
       }
+    
     }
     
     header, .entry-content{
@@ -168,7 +209,8 @@
     }
 
     .addcont{
-       @include breakpoint($s2){
+      
+      @include breakpoint($s2){
         float:left;
         width:calc(100% - 280px);
       }
@@ -178,6 +220,10 @@
       @include breakpoint($s4){
         width:calc(100% - 360px);
       }
+      &.full{
+        width:calc(100%);
+      }
+
     }
   }
 }
