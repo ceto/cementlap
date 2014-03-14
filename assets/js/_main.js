@@ -121,22 +121,28 @@ jQuery(document).ready(function($) {
   
   var $aktslide=0;
   $('.slide-item').eq($aktslide).toggleClass('active');
+
   $('.slidecontroll .prev').click(function(e){
-    $('.slidegallery ul').css({marginLeft: function(index, value) {
-      return parseFloat(value) + $('.slide-item').eq($aktslide).width();
-    }});
-    $('.slide-item').eq($aktslide).toggleClass('active');
-    $aktslide--;
-    $('.slide-item').eq($aktslide).toggleClass('active');
+    if ($aktslide > 0) {
+      $('.slidegallery ul').css({marginLeft: function(index, value) {
+        return parseFloat(value) + $('.slide-item').eq($aktslide).width();
+      }});
+      $('.slide-item').eq($aktslide).toggleClass('active');
+      $aktslide--;
+      $('.slide-item').eq($aktslide).toggleClass('active');
+    }
     return false;
   });
+
   $('.slidecontroll .next').click(function(e){
-    $('.slidegallery ul').css({marginLeft: function(index, value) {
-      return parseFloat(value) - $('.slide-item').eq($aktslide).width();
-    }});
-    $('.slide-item').eq($aktslide).toggleClass('active');
-    $aktslide++;
-    $('.slide-item').eq($aktslide).toggleClass('active');
+    if ($aktslide < ($('.slide-item').length -1) ) {
+      $('.slidegallery ul').css({marginLeft: function(index, value) {
+        return parseFloat(value) - $('.slide-item').eq($aktslide).width();
+      }});
+      $('.slide-item').eq($aktslide).toggleClass('active');
+      $aktslide++;
+      $('.slide-item').eq($aktslide).toggleClass('active');
+    }
     return false;
   });
 

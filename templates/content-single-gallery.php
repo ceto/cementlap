@@ -9,7 +9,7 @@
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
   
 ?>
-<style type="text/css">
+<!--style type="text/css">
   article.post {
     background-image:none;
   }
@@ -28,7 +28,7 @@
       background-image:url('<?php echo $imci['0']; ?>');
     }
   }
-</style>
+</style-->
   <article <?php post_class(); ?>>
 
     <div class="repulo">

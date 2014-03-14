@@ -22,13 +22,13 @@
     &.active {
       filter: brightness(1);
     }
-    a{
-      
-      img {
-        max-height:100%;
-        width: auto;
-      }
+    
+    img {
+      max-height:100%;
+      width: auto;
+      max-width: none;
     }
+    
     .caption {
       white-space: wrap;
       position: absolute;

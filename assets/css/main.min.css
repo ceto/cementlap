@@ -2872,7 +2872,7 @@ img {
     display: table; }
   .document:after {
     clear: both; }
-  .single-product .document {
+  .single-product .document, .single-format-gallery .document {
     max-width: 100%; }
 
 .main {
@@ -3411,6 +3411,8 @@ a.menu-button:hover {
   .prod-mini:hover, .prod-mini:focus {
     text-decoration: none;
     color: #2f2f2f; }
+    .prod-mini:hover .prod-thumb, .prod-mini:focus .prod-thumb {
+      border: 1px solid #9a9a9b; }
   @media only screen and (min-width: 240px) {
     .prod-mini {
       width: -webkit-calc(50% - 1px);
@@ -3437,12 +3439,13 @@ a.menu-button:hover {
       width: calc(14.2857143% - 1px); } }
 
 .prod-thumb {
-  -webkit-transition: -webkit-transform .4s linear;
-  transition: transform .4s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
-  position: relative; }
+  position: relative;
+  border: 1px solid transparent; }
 
 .prod-sthumb {
   position: absolute;
@@ -3910,7 +3913,7 @@ article.product {
         margin: 0.5em 0.5em; } }
 
 .single-format-gallery .post {
-  background-color: #9a9a9b;
+  background-color: #2f2f2f;
   background-position: center center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -4247,9 +4250,10 @@ input[type="text"], input[type="email"], textarea {
     .slidegallery .slide-item.active {
       -webkit-filter: brightness(1);
       filter: brightness(1); }
-    .slidegallery .slide-item a img {
+    .slidegallery .slide-item img {
       max-height: 100%;
-      width: auto; }
+      width: auto;
+      max-width: none; }
     .slidegallery .slide-item .caption {
       white-space: wrap;
       position: absolute;

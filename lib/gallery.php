@@ -158,7 +158,7 @@ function roots_slidegallery($attr) {
     'size'       => 'slidefree',
     'include'    => '',
     'exclude'    => '',
-    'link'       => 'file'
+    'link'       => 'none'
   ), $attr));
 
   $id = intval($id);
@@ -198,6 +198,7 @@ function roots_slidegallery($attr) {
   $output = '<div class="slidegallery slidegallery-' . $id . '-' . $unique . '"><ul>';
 
   $i = 0;
+  $link='none';
   foreach ($attachments as $id => $attachment) {
     switch($link) {
       case 'file':
