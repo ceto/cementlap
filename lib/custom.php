@@ -102,6 +102,12 @@ function cmb_product( array $meta_boxes ) {
         ),
       ),
       array(
+        'name' => __( 'On Stock in Marrakesh', 'root' ),
+        'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
+        'id'   => $prefix . 'amountmarr',
+        'type' => 'text_small',
+      ),
+      array(
         'name' => __( 'Next transport date', 'root' ),
         'desc' => __( 'field description (optional)', 'root' ),
         'id'   => $prefix . 'arrive',

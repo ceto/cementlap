@@ -134,6 +134,7 @@
     background-repeat: no-repeat;
     background-size:cover;
     position: relative;
+    overflow:hidden;
 
     
     .repulotoggle{
@@ -143,7 +144,7 @@
       top:1em;
       z-index: 1;
       display: block;
-      background-color: $gray;
+      background-color: rgba($gray,0.75);
       color:$white;
       height:1em;
       width:1em;
@@ -151,7 +152,7 @@
       font-size: 2em;
       line-height: 1em;
       &:hover, &:focus{
-        background-color: $orange;
+        background-color: rgba($orange,0.75);
         color:#fff;
 
 
@@ -168,11 +169,12 @@
     .repulo{
       @include clearfix();
       position: relative;
+      z-index:1;
       //overflow: hidden;
-      background-color: rgba($gray-dark,1);
+      //background-color: rgba($gray-dark,0.75);
       color:#fff;
       padding:1em;
-      transition: margin 1s easein;
+      transition: margin .4s linear;
 
       @include breakpoint($s2){
         float:left;
@@ -213,7 +215,7 @@
     }
 
     .addcont{
-      
+      transition: width .4s linear;
       @include breakpoint($s2){
         float:left;
         width:calc(100% - 280px);

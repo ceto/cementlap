@@ -1,10 +1,13 @@
 .slidegallery {
-  overflow:hidden;
+  //overflow:hidden;
+  width:100%;
   position: relative;
   > ul {
     margin:0;padding:0;
     white-space: nowrap; 
-    transition: margin .4s ease;
+    transition: margin .2s ease;
+    position: relative;
+    //margin-left: 10%;
     > li {
       margin:0;
       padding:0;
@@ -15,12 +18,18 @@
 
   .slide-item {
     position: relative;
-    transition:filter .4s linear;
+    transition: filter .2s ease;
+    -webkit-transition: -webkit-filter .2s ease;
+    -moz-transition: -moz-filter .2s ease;
+    -ms-transition: -ms-filter .2s ease;
+    max-width: 100%;
+
     .js &{
-      filter: brightness(0.25);
+      filter: brightness(0.125) blur(3px);
     }
     &.active {
-      filter: brightness(1);
+      filter: brightness(1) blur(0);
+
     }
     
     img {
