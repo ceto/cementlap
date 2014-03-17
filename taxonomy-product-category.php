@@ -29,6 +29,7 @@ Template Name: Product Category List
         </a>
       </li>
       <?php foreach ( $child_terms as $child ) { ?>
+        <?php if (!in_array($child, array('9')  ) ): ?>
         <li class="<?php echo ($child==$aktermterm_id)?'active':''; ?>">
           <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">
             <?php
@@ -37,6 +38,9 @@ Template Name: Product Category List
             ?>
           </a>
         </li>
+
+        <?php endif ?>
+
       <?php } ?>
     </ul>
   </nav>

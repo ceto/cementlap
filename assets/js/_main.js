@@ -199,8 +199,7 @@ $(window).load(function(){
     if ( $(this).hasClass('selected') ) {
       filters[ group ] = $(this).attr('data-filter-value');
     }
-    
- 
+     
 
     // convert object into array
     var isoFilters = [];
@@ -228,6 +227,3 @@ jQuery(document).ready(function($){
     $($(this).attr('data-filter-name')).toggleClass('hide');
   });
 });
-
-
-
