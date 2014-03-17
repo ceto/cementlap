@@ -428,3 +428,53 @@ a.menu-button:hover {
     }
   }
 }
+
+
+.product-pn {
+
+  clear:both;
+  position:relative;
+  z-index: 1;
+  @include clearfix();
+  padding:0.5em 0.5em;
+  text-align:center;
+  font-size: 0.875em;
+  line-height: 1em;
+  font-weight: 400;
+  @include breakpoint($s2){
+    position: absolute;
+    top:42%;
+    left:0;right:0;
+  }
+
+  ul {
+    margin:0;
+    padding:0;
+  }
+  li {
+    list-style-type: none;
+    margin:0.5em auto;
+    &:first-child{
+      float:left;
+    }
+    &:last-child{
+      float:right;
+    }
+    //display: inline;
+    a {
+      //background-color: rgba($orange,0.75);
+      display: block;
+      color:#fff;
+      text-shadow: 0 0 5px $gray-dark;
+      //max-width: 160px;
+      &:hover, &:focus {
+        color:$gray-dark;
+        text-decoration: none;
+      }
+      i{
+        font-size: 8em;
+
+      }
+    }
+  }
+}

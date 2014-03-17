@@ -127,5 +127,11 @@
         <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
       </footer>
     </div><!-- /.uszo -->
+     <nav class="product-pn">
+          <ul>
+            <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
+            <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
+          </ul>
+      </nav> 
   </article>
 <?php endwhile; ?>

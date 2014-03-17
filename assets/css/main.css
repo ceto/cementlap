@@ -3275,6 +3275,46 @@ a.menu-button:hover {
       .post-pn li a i {
         font-size: 1.5em; }
 
+.product-pn {
+  clear: both;
+  position: relative;
+  z-index: 1;
+  padding: 0.5em 0.5em;
+  text-align: center;
+  font-size: 0.875em;
+  line-height: 1em;
+  font-weight: 400; }
+  .product-pn:before, .product-pn:after {
+    content: " ";
+    display: table; }
+  .product-pn:after {
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .product-pn {
+      position: absolute;
+      top: 42%;
+      left: 0;
+      right: 0; } }
+  .product-pn ul {
+    margin: 0;
+    padding: 0; }
+  .product-pn li {
+    list-style-type: none;
+    margin: 0.5em auto; }
+    .product-pn li:first-child {
+      float: left; }
+    .product-pn li:last-child {
+      float: right; }
+    .product-pn li a {
+      display: block;
+      color: #fff;
+      text-shadow: 0 0 5px #2f2f2f; }
+      .product-pn li a:hover, .product-pn li a:focus {
+        color: #2f2f2f;
+        text-decoration: none; }
+      .product-pn li a i {
+        font-size: 8em; }
+
 .content-info {
   clear: both; }
   .content-info:before, .content-info:after {
@@ -3516,7 +3556,8 @@ article.product {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  position: relative; }
+  position: relative;
+  min-height: 800px; }
   article.product:before, article.product:after {
     content: " ";
     display: table; }
@@ -3545,7 +3586,7 @@ article.product {
     .uszo {
       position: absolute;
       box-shadow: 0 0 5px 0 #2f2f2f;
-      margin: 2.5% 3%;
+      margin: 2.5% 4em;
       max-width: 360px;
       top: 46.5%;
       transform: translateY(-50%);
@@ -3583,7 +3624,7 @@ article.product {
 
 .product-content {
   color: #2f2f2f;
-  font-size: 0.875em;
+  font-size: 1em;
   line-height: 1.4em; }
 
 .product-addcont {
@@ -3620,7 +3661,7 @@ article.product {
   padding: 0.5em 0 0;
   margin: 1em 0;
   color: #49494a;
-  font-size: 1em;
+  font-size: 1.125em;
   line-height: 1.25em; }
   .stock-block:before, .stock-block:after {
     content: " ";
