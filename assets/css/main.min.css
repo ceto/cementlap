@@ -220,8 +220,8 @@ table {
   font-style: normal; }
 @font-face {
   font-family: 'HelveticaNeueLTStd';
-  src: url("../fonts/HelveticaNeue-UltraLight.eot");
-  src: url("../fonts/HelveticaNeue-UltraLight.eot") format("embedded-opentype"), url("../fonts/HelveticaNeue-UltraLight.woff") format("woff"), url("../fonts/HelveticaNeue-UltraLight.ttf") format("truetype"), url("../fonts/HelveticaNeue-UltraLight.svg#HelveticaNeue-UltraLight") format("svg");
+  src: url("../fonts/helveticaneueltstd-ultlt.eot");
+  src: url("../fonts/helveticaneueltstd-ultlt.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-ultlt.woff") format("woff"), url("../fonts/helveticaneueltstd-ultlt.ttf") format("truetype"), url("../fonts/helveticaneueltstd-ultlt.svg#HelveticaNeueLTStd25UltraLight") format("svg");
   font-weight: 100;
   font-style: normal; }
 @font-face {
@@ -2788,7 +2788,7 @@ img.mfp-img {
   box-sizing: border-box; }
 
 html, body {
-  font: normal 16px/24px "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 16px/24px "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   color: #2f2f2f;
   background-color: #fefeff;
@@ -2898,7 +2898,7 @@ img {
       .page .main {
         padding: 1em 1em; } }
 
-.btn, .btn-light-line {
+.btn, .btn-light-line, .button {
   border: 0;
   display: inline-block;
   background-color: #49494a;
@@ -2909,13 +2909,13 @@ img {
   font-weight: 300;
   font-size: 1.25em;
   line-height: 1em;
-  padding: 0.666em 2em 0.333em; }
-  .btn small, .btn-light-line small {
+  padding: 0.5em 2em 0.5em; }
+  .btn small, .btn-light-line small, .button small {
     display: block;
     font-size: 0.75em;
     text-transform: none;
     font-weight: 400; }
-  .btn:hover, .btn-light-line:hover, .btn:focus, .btn-light-line:focus {
+  .btn:hover, .btn-light-line:hover, .btn:focus, .btn-light-line:focus, .button:hover, .button:focus {
     background-color: #2f2f2f;
     border: 1px solid #49494a;
     text-decoration: none; }
@@ -3030,7 +3030,7 @@ blockquote {
   line-height: 1.5em;
   font-weight: 300;
   text-transform: uppercase;
-  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .nav-main:before, .nav-main:after {
     content: " ";
     display: table; }
@@ -3195,7 +3195,7 @@ a.menu-button:hover {
 .nav-sub {
   text-transform: uppercase;
   font-weight: 300;
-  font-family: "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 1em; }
   .nav-sub:before, .nav-sub:after {
     content: " ";
@@ -3242,6 +3242,78 @@ a.menu-button:hover {
   .nav-sub .nav .active a {
     color: #0066ff; }
 
+.post-nav {
+  clear: both;
+  text-align: center; }
+  .post-nav:before, .post-nav:after {
+    content: " ";
+    display: table; }
+  .post-nav:after {
+    clear: both; }
+  .post-nav ul {
+    margin: 0;
+    padding: 0; }
+  .post-nav li {
+    list-style-type: none;
+    display: inline; }
+    .post-nav li a {
+      display: inline-block;
+      max-width: 50%;
+      background-color: #efefef;
+      color: #0066ff;
+      border: 1px solid #9a9a9b;
+      padding: 0.333em 1em; }
+      .post-nav li a:hover, .post-nav li a:focus {
+        background-color: #9a9a9b;
+        border: 1px solid #49494a;
+        color: #fff;
+        text-decoration: none; }
+
+.post-pn {
+  clear: both;
+  position: relative;
+  z-index: 1;
+  padding: 1em 1em 2em;
+  text-align: center;
+  font-size: 0.875em;
+  line-height: 1em;
+  font-weight: 400; }
+  .post-pn:before, .post-pn:after {
+    content: " ";
+    display: table; }
+  .post-pn:after {
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .post-pn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0; } }
+  .post-pn:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    height: 2px;
+    left: 2.5em;
+    right: 2.5em;
+    border-top: 1px solid #49494a; }
+  .post-pn ul {
+    margin: 0;
+    padding: 0; }
+  .post-pn li {
+    list-style-type: none;
+    margin: 0.5em auto; }
+    .post-pn li a {
+      background-color: transparent;
+      display: block;
+      color: #9a9a9b !important; }
+      .post-pn li a:hover, .post-pn li a:focus {
+        color: #ff9900 !important;
+        text-decoration: none; }
+      .post-pn li a i {
+        font-size: 1.5em; }
+
 .content-info {
   clear: both; }
   .content-info:before, .content-info:after {
@@ -3251,12 +3323,14 @@ a.menu-button:hover {
     clear: both; }
   .content-info a {
     color: #49494a; }
+    .content-info a:hover, .content-info a:focus {
+      colro: #9a9a9b; }
 
 .footer-sidebar {
   max-width: 1600px;
   margin: auto;
   padding: 2em 0;
-  font-size: 0.666em;
+  font-size: 0.875em;
   line-height: 1.25em;
   font-weight: 300;
   color: #49494a; }
@@ -3306,7 +3380,7 @@ a.menu-button:hover {
     .footer-sidebar .widget ul li {
       list-style: none;
       margin: 0;
-      padding: 0.75em 0; }
+      padding: 0.5em 0; }
       .footer-sidebar .widget ul li a {
         text-transform: uppercase; }
 
@@ -3402,7 +3476,7 @@ a.menu-button:hover {
     width: 100%; }
 
 .prod-mini {
-  font: normal 16px/24px "HelveticaNeueLTStd", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 16px/24px "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
   overflow: hidden;
   position: relative;
@@ -3547,9 +3621,8 @@ article.product {
 
 .product-title {
   border-top: 1px solid #49494a;
-  padding-top: 14px;
   margin: 0;
-  font-size: 2.25em;
+  font-size: 3em;
   line-height: 1em;
   font-weight: 100;
   text-transform: uppercase;
@@ -3705,7 +3778,7 @@ article.product {
   text-transform: uppercase;
   color: #9a9a9b;
   font-weight: 700;
-  font-size: 0.75em;
+  font-size: 0.875em;
   line-height: 1em; }
 
 .filt-wrap {
@@ -3766,8 +3839,8 @@ article.product {
     padding: 0 13px;
     height: 30px;
     list-style: none;
-    font-weight: 300;
-    font-size: 0.875em;
+    font-weight: 400;
+    font-size: 1em;
     line-height: 30px;
     color: #49494a;
     background-color: rgba(255, 255, 255, 0); }
@@ -3973,8 +4046,9 @@ article.product {
     .single-format-gallery .post .repulo a {
       color: #ff9900; }
   .single-format-gallery .post header, .single-format-gallery .post .entry-content {
-    font-size: 0.875em;
-    line-height: 1.4em; }
+    font-size: 1em;
+    line-height: 1.4em;
+    font-weight: 300; }
   .single-format-gallery .post h1 {
     font-size: 2.5em;
     line-height: 1.125em;
@@ -4151,7 +4225,7 @@ article.product {
     color: #231f06; }
 
 input[type="text"], input[type="email"], textarea {
-  border: none;
+  border: 1px solid #9a9a9b;
   font-size: 1.5em;
   color: #231f06;
   line-height: 1.25em;
@@ -4161,7 +4235,7 @@ input[type="text"], input[type="email"], textarea {
   max-width: 100%;
   outline: 0 solid #fff; }
   input[type="text"]:hover, input[type="text"]:focus, input[type="email"]:hover, input[type="email"]:focus, textarea:hover, textarea:focus {
-    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid #0066ff;
     outline-color: #ff9900; }
 
 .actions {

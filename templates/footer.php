@@ -9,7 +9,7 @@
       <form action="http://marrakeshcementlap.us5.list-manage1.com/subscribe/post?u=f75f449c913cf58fb513b4418&amp;id=7fa0ff2925" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div class="mc-field-group">
         <label for="mce-EMAIL">Email cím </label>
-        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+        <input type="email" value="" placeholder="Email címed" name="EMAIL" class="required email" id="mce-EMAIL">
       </div>
         <div id="mce-responses" class="clear">
           <div class="response" id="mce-error-response" style="display:none"></div>

@@ -41,7 +41,16 @@
         <?php the_content(); ?>
       </div>
       <footer>
+        <nav class="post-pn">
+          <ul>
+            <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i><br>%title', TRUE, ' ', 'post_format' ); ?> </li>
+            <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i><br>%title', TRUE, ' ', 'post_format' ); ?></li>
+          </ul>
+        </nav> 
+
         <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
+      
+        
       </footer>
       <?php // comments_template('/templates/comments.php'); ?>
     </div>

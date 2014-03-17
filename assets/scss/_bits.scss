@@ -26,9 +26,9 @@ $gray-dark:#2F2F2F;
 
 $gray-superlight:lighten($gray-light,33%);
 
-
-//$sans-serif:'Lato', 'Source Sans Pro', 'HelveticaNeueLTStd', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$sans-serif:'HelveticaNeueLTStd', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sc-sans:'Alegreya Sans SC', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sans-serif:'Alegreya Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//$sans-serif:'HelveticaNeueLTStd', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $serif: 'Times New Roman', serif;
 
 /****************** breakpoints definition ***********/

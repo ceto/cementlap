@@ -27,6 +27,7 @@ p {
 
 h1 {
   text-transform: uppercase;
+  //font-family:$sc-sans;
   font-weight: 400;
   font-size: 1.25em;
   line-height: 1.125em;
@@ -36,6 +37,7 @@ h1 {
 
 h2 {
   text-transform: uppercase;
+  //font-family:$sc-sans;
   font-weight: 400;
   font-size: 1.125em;
   line-height: 1.125em;
@@ -46,6 +48,7 @@ h2 {
 
 h3 {
   text-transform: uppercase;
+  //font-family:$sc-sans;
   font-weight: 400;
   font-size: 1em;
   line-height: 1.125em;
@@ -130,7 +133,7 @@ img {
 }
 
 
-.btn {
+.btn, .button{
   border:0;
   display: inline-block;
   background-color: $gray;
@@ -141,7 +144,7 @@ img {
   font-weight: 300;
   font-size: 1.25em;
   line-height: 1em;
-  padding:0.666em 2em 0.333em;
+  padding:0.5em 2em 0.5em;
   small {
     display:block;
     font-size: 0.75em;
