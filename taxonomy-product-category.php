@@ -44,8 +44,24 @@ Template Name: Product Category List
   <div id="filt-wrap" class="filt-wrap">
 
     <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name=".filt-stock">
+        <span class="filt-placeholder-text"><?php _e('Készlet','root') ?></span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul data-filter-group="stock" class="filt-item filt-stock hide">
+        <?php $filtlist=get_terms('product-stock' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-color">
-        <span class="filt-placeholder-text">Színek</span>
+        <span class="filt-placeholder-text"><?php _e('Színek','root') ?></span>
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="color" class="filt-item filt-color hide">
@@ -61,7 +77,7 @@ Template Name: Product Category List
     
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-design">
-        <span class="filt-placeholder-text">Design</span>
+        <span class="filt-placeholder-text"><?php _e('Stílus','root') ?></span>
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="design" class="filt-item filt-design hide">
@@ -76,12 +92,12 @@ Template Name: Product Category List
     </div>
 
     <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name=".filt-stock">
-        <span class="filt-placeholder-text">Készlet</span>
+      <div class="filt-placeholder" data-filter-name=".filt-minta">
+        <span class="filt-placeholder-text"><?php _e('Design','root') ?></span>
         <i class="ion-chevron-down"></i>
       </div>
-      <ul data-filter-group="stock" class="filt-item filt-stock hide">
-        <?php $filtlist=get_terms('product-stock' ); ?>
+      <ul data-filter-group="minta" class="filt-item filt-minta hide">
+        <?php $filtlist=get_terms('product-style' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
           <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
@@ -90,6 +106,10 @@ Template Name: Product Category List
         <?php } ?>
       </ul>
     </div>
+
+
+
+
 
 
   </div><!-- /#filt-wrap -->

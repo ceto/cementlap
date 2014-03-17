@@ -212,6 +212,12 @@ $(window).load(function(){
     return false;
   });
 
+  $('.filt-item li input').each(function(){
+    if ( $('.product-list '+$(this).attr('data-filter-value')).length < 1)  {
+     $(this).parent().remove();
+    }
+  });
+
 });
 
 

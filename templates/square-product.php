@@ -4,7 +4,8 @@
       get_the_terms( $post->ID, 'product-category' ),
       get_the_terms( $post->ID, 'product-color' ),
       get_the_terms( $post->ID, 'product-design' ),
-      get_the_terms( $post->ID, 'product-stock' )
+      get_the_terms( $post->ID, 'product-stock' ),
+      get_the_terms( $post->ID, 'product-style' )
     );
     foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
   ?>
