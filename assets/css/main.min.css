@@ -3712,10 +3712,10 @@ article.product {
   width: 100%; }
 
 .stock-block {
-  background-color: #2f2f2f;
+  background-color: #efefef;
   padding: 0.875em 0.875em;
-  margin: 1em -0.875em 1em -0.875em;
-  color: #fefeff;
+  margin: 1em 0 1em 0;
+  color: #49494a;
   font-size: 1.125em;
   line-height: 1.25em; }
   .stock-block:before, .stock-block:after {
@@ -3774,11 +3774,11 @@ article.product {
     padding: 0.25em 0.25em 0.125em;
     text-align: center;
     color: #fff;
-    background-color: #000;
-    margin-top: 1em; }
+    background-color: #49494a;
+    margin-top: 0.5em; }
     .product-more .show-more:hover, .product-more .show-more:focus {
       text-decoration: none;
-      background-color: #49494a; }
+      background-color: #9a9a9b; }
     .product-more .show-more i {
       display: none; }
 
