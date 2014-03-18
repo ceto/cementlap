@@ -3652,7 +3652,7 @@ article.product {
       -webkit-box-shadow: 0 0 5px 0 #2f2f2f;
       box-shadow: 0 0 5px 0 #2f2f2f;
       margin: 2.5% 4em;
-      max-width: 360px;
+      width: 360px;
       top: 46.5%;
       z-index: 1;
       -webkit-transform: translateY(-50%);

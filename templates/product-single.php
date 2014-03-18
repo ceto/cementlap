@@ -80,15 +80,21 @@
         
         
         <div class="data-block">
-          <div class="data-size">
-              <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span>20 × 20 × 1,6 cm</span>
-          </div>
-          <div class="data-weight">
-              <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span>34 kg/m<sup>2</sup> | 1,35 kg / lap</span>
-          </div>
-          <div class="data-kiszer">
-              <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span>dobozban (13 lap ≈ 0,52 m<sup>2</sup>)</span>
-          </div>
+          <?php if ( get_post_meta($post->ID, '_meta_size', true) !='') : ?>
+            <div class="data-size">
+                <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span>20 × 20 × 1,6 cm</span>
+            </div>
+          <?php endif; ?>
+          <?php if (get_post_meta($post->ID, '_meta_weight', true)!='') : ?>
+            <div class="data-weight">
+                <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span>34 kg/m<sup>2</sup> | 1,35 kg / lap</span>
+            </div>
+          <?php endif; ?>
+          <?php if (get_post_meta($post->ID, '_meta_kit', true)!='') : ?>
+            <div class="data-kiszer">
+                <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span>dobozban (13 lap ≈ 0,52 m<sup>2</sup>)</span>
+            </div>
+          <?php endif; ?>
         </div><!-- /.data-block -->
         
         <div class="product-content">
