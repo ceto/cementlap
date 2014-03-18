@@ -65,13 +65,31 @@
           <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
           <span class="unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
         </div>
+        
+        <div class="data-block">
+          <div class="data-size">
+              <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span>20 × 20 × 1,6 cm</span>
+          </div>
+          <div class="data-weight">
+              <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span>34 kg/m<sup>2</sup> | 1,35 kg / lap</span>
+          </div>
+          <div class="data-kiszer">
+              <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span>dobozban (13 lap ≈ 0,52 m<sup>2</sup>)</span>
+          </div>
+        </div><!-- /.data-block -->
+        
         <div class="product-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, voluptate, quod, ullam facilis id earum veritatis quis nesciunt culpa unde maxime quo quibusdam blanditiis dolores sit iure eveniet commodi tempora.
           </p>
         </div>
       </header>
       <footer class="product-footer">
-        <div class="action-block">
+
+
+
+
+
+        <!--div class="action-block">
           <a href="#" class="btn">
             <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
               <?php _e('Foglald le telefonon<small>Hívj: +36.20.973.4344</small>','root'); ?>
@@ -79,10 +97,8 @@
               <?php _e('Részletekért hívj<small>Telefonon: +36.20.973.4344</small>','root') ?>
             <?php endif; ?>
           </a>
-        </div>
+        </div-->
 
-
-        
         <div class="stock-block">
           <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
           <div class="stock-status">
@@ -110,7 +126,7 @@
 
           <div class="product-more">
               <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                További információk a rendeléshez ... <i class="ion-help-circled"></i>
+                Ha nincs raktáron, vagy kevés ...
               </a>
               <div id="morepanel" class="panel-collapse morepanel collapse">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -118,7 +134,8 @@
               </div>
           </div>
 
-        </div>
+        </div><!-- /.stock-block -->
+
         <div class="gombsor">
           <a href="#" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
           <a href="#" class="share-pin"><i class="ion-social-pinterest"></i><br /><span>Pinterest</span></a>
