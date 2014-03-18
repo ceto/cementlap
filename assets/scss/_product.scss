@@ -30,13 +30,14 @@
 .prod-mini {
   font: normal 16px/24px $sans-serif;
   display:inline-block;
-  overflow:hidden;
+  //overflow:hidden;
   position:relative;
   margin-bottom:1px;
   padding:1em;
   &:hover, &:focus {
-    text-decoration: none;
+    text-decoration: underline;
     color:$gray-dark;
+    //overflow: show;
     .prod-desc {
       //opacity:1;
     }
@@ -45,7 +46,7 @@
     }
     .prod-thumb {
       border:1px solid $gray-light;
-      //transform:scale(1.0125);
+      transform:scale(1.025);
 
     }
   }
@@ -124,6 +125,17 @@
   font-weight: 900;
   line-height: 1em;
 }
+.origprice {
+  display: block;
+  font-size: 0.666em;
+  line-height: 1em;
+
+  font-weight: 700;
+  .szam{
+    text-decoration: line-through;
+    font-weight: 700;
+  }
+}
 
 
 /******* Single Product Page *******/
@@ -169,6 +181,7 @@ article.product {
     margin: 2.5% 4em;
     max-width: 360px;
     top:46.5%;
+    z-index:1;
     transform:translateY(-50%);
     min-height: 80%;
   }
@@ -246,6 +259,7 @@ article.product {
   @include clearfix();
   //border-bottom: 1px solid $gray;
   //border-top: 1px solid $gray;
+  border:1px solid $gray-light;
   background-color: $gray-superlight;
   padding:0.875em 0.875em;
   margin:1em 0 1em 0;
@@ -347,6 +361,9 @@ article.product {
     &:hover, &:focus {
       text-decoration: none;
       color:$gray-dark;
+    }
+    &.call-phone {
+      //font-feature-settings: "lnum", "tnum";
     }
 
     i{

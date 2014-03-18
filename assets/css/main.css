@@ -3278,7 +3278,7 @@ a.menu-button:hover {
 .product-pn {
   clear: both;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   padding: 0.5em 0.5em;
   text-align: center;
   font-size: 0.875em;
@@ -3478,15 +3478,15 @@ a.menu-button:hover {
 .prod-mini {
   font: normal 16px/24px "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
-  overflow: hidden;
   position: relative;
   margin-bottom: 1px;
   padding: 1em; }
   .prod-mini:hover, .prod-mini:focus {
-    text-decoration: none;
+    text-decoration: underline;
     color: #2f2f2f; }
     .prod-mini:hover .prod-thumb, .prod-mini:focus .prod-thumb {
-      border: 1px solid #9a9a9b; }
+      border: 1px solid #9a9a9b;
+      transform: scale(1.025); }
   @media only screen and (min-width: 240px) {
     .prod-mini {
       width: calc(50% - 1px); } }
@@ -3551,6 +3551,15 @@ a.menu-button:hover {
   font-weight: 900;
   line-height: 1em; }
 
+.origprice {
+  display: block;
+  font-size: 0.666em;
+  line-height: 1em;
+  font-weight: 700; }
+  .origprice .szam {
+    text-decoration: line-through;
+    font-weight: 700; }
+
 /******* Single Product Page *******/
 article.product {
   background-repeat: no-repeat;
@@ -3589,6 +3598,7 @@ article.product {
       margin: 2.5% 4em;
       max-width: 360px;
       top: 46.5%;
+      z-index: 1;
       transform: translateY(-50%);
       min-height: 80%; } }
 
@@ -3656,6 +3666,7 @@ article.product {
   width: 100%; }
 
 .stock-block {
+  border: 1px solid #9a9a9b;
   background-color: #efefef;
   padding: 0.875em 0.875em;
   margin: 1em 0 1em 0;

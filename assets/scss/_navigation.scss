@@ -434,7 +434,7 @@ a.menu-button:hover {
 
   clear:both;
   position:relative;
-  z-index: 1;
+  z-index: 0;
   @include clearfix();
   padding:0.5em 0.5em;
   text-align:center;

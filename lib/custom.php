@@ -114,6 +114,24 @@ function cmb_product( array $meta_boxes ) {
         'type' => 'text_date',
       ),
       array(
+        'name' => __( 'Size', 'root' ),
+        'desc' => __( 'eg:  20 × 20 × 1,6 cm', 'root' ),
+        'id'   => $prefix . 'size',
+        'type' => 'text_small',
+      ),
+      array(
+        'name' => __( 'Weight', 'root' ),
+        'desc' => __( 'eg:  34 kg/m<sup>2</sup> | 1,35 kg / lap', 'root' ),
+        'id'   => $prefix . 'weight',
+        'type' => 'text_small',
+      ),
+      array(
+        'name' => __( 'Kit', 'root' ),
+        'desc' => __( 'eg:  dobozban (13 lap ≈ 0,52 m<sup>2</sup>)', 'root' ),
+        'id'   => $prefix . 'kit',
+        'type' => 'text_small',
+      ),
+      array(
         'name' => __( 'Fullscreen wallpaper', 'root' ),
         'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
         'id'   => $prefix . 'wallimg',

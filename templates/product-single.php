@@ -62,9 +62,22 @@
         <a class="product-back" href="javascript:history.back()"><i class="ion-ios7-undo"></i>Cementlapok</a>
         <h1 class="product-title"><?php the_title(); ?></h1>
         <div class="product-price">
+          <?php if (has_term('akcios','product-stock')) : ?>
+            <div class="origprice">
+              Eredeti ár: 
+              <span class="szam"><?php echo number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' '); ?>
+              <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+              </span>
+            </div>
+          <?php endif; ?>
+
           <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
-          <span class="unit">Ft/<?php echo get_post_meta($post->ID, '_meta_unit', true); ?></span>
+          <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+          
+          
+
         </div>
+        
         
         <div class="data-block">
           <div class="data-size">
@@ -79,8 +92,7 @@
         </div><!-- /.data-block -->
         
         <div class="product-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, voluptate, quod, ullam facilis id earum veritatis quis nesciunt culpa unde maxime quo quibusdam blanditiis dolores sit iure eveniet commodi tempora.
-          </p>
+          <?php the_content(); ?>  
         </div>
       </header>
       <footer class="product-footer">
@@ -138,7 +150,7 @@
 
         <div class="gombsor">
           <a href="#" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
-          <a href="#" class="share-pin"><i class="ion-social-pinterest"></i><br /><span>Pinterest</span></a>
+          <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
           <a href="#" class="share-like"><i class="ion-thumbsup"></i><br /><span>Ez csinos</span></a>
         </div>
         <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
