@@ -179,6 +179,8 @@ $(window).load(function(){
   // filter buttons
   $('.filt-item-input').click(function(){
     $(this).parent().parent().toggleClass('hide');
+    $(this).parent().parent().parent().find('.filt-placeholder').toggleClass('selected');
+
     var $optionSet = $(this).parents('.filt-item');
 
 
@@ -197,6 +199,9 @@ $(window).load(function(){
 
     $(this).toggleClass('selected');
     if ( $(this).hasClass('selected') ) {
+      $(this).parent().parent().parent().addClass('active');
+      $(this).parent().parent().parent().find('.filt-placeholder em').remove();
+      $(this).parent().parent().parent().find('.filt-placeholder').append('<em>'+$(this).parent().find('label').html()+'</em>');
       filters[ group ] = $(this).attr('data-filter-value');
     }
      

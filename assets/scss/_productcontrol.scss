@@ -88,7 +88,21 @@
     top:0.666em;
     color:$gray-light;
   }
+
+  em {
+    text-transform: none;
+    font-style: normal;
+  }
+  
+  .active &{
+    span {
+      display:none;
+    }
+  }
+
 }
+
+
 
 .filt-item {
   position: absolute;

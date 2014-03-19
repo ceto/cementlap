@@ -144,11 +144,13 @@
 
           <div class="product-more">
               <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                Ha nincs raktáron, vagy kevés ...
+                Hogyan foglaljam/rendeljem meg
               </a>
               <div id="morepanel" class="panel-collapse morepanel collapse">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nobis, saepe, magnam, expedita, dolorem aperiam libero eius possimus.
+                <p><strong>Ha van raktáron:</strong> Eljön törökbálintra és máris vihet </p>
+                <p><strong>Ha kevés, vagy nincs raktáron:</strong> Lefoglalja/megrendeli a hiányzó mennyiséget a fent jelzett időpontban várható</p>
+                <p><strong>Ha csak rendelésre gyártjuk</strong> Hivjon fel minket és egyeztetünk </p>
+                <p><em>Raktárkészletene nem szereplő lapokat 20% előleg befizetésével, foglalhatja le<em><p>
               </div>
           </div>
 
