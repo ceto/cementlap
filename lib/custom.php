@@ -147,6 +147,13 @@ function cmb_product( array $meta_boxes ) {
         'save_id' => true, // save ID using true
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
+      array(
+        'name'    => __( 'Additional content', 'root' ),
+        'desc'    => __( 'Add your own gallery or additional content', 'root' ),
+        'id'      => $prefix . 'addcont',
+        'type'    => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
+      ),
 
       // array(
       //   'name'    => __( 'Additional content', 'root' ),
