@@ -53,11 +53,15 @@ Template Name: Product Category List
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="stock" class="filt-item filt-stock hide">
+        <li id="filter-stockall">
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="Mutasd mindet">
+          <label class="filt-item-label" for="stock-all">Mutasd mindet <i class="ion-checkmark"></i></label>
+        </li>
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
           <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php } ?>
       </ul>
@@ -69,11 +73,15 @@ Template Name: Product Category List
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="color" class="filt-item filt-color hide">
+        <li id="filter-colorall">
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="color-all" value="Mutasd mindet">
+          <label class="filt-item-label" for="color-all">Mutasd mindet <i class="ion-checkmark"></i></label>
+        </li>
         <?php $filtlist=get_terms('product-color' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
           <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php } ?>
       </ul>
@@ -85,11 +93,15 @@ Template Name: Product Category List
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="design" class="filt-item filt-design hide">
+        <li id="filter-designall">
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="design-all" value="Mutasd mindet">
+          <label class="filt-item-label" for="design-all">Mutasd mindet <i class="ion-checkmark"></i></label>
+        </li>
         <?php $filtlist=get_terms('product-design' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
           <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php } ?>
       </ul>
@@ -101,11 +113,15 @@ Template Name: Product Category List
         <i class="ion-chevron-down"></i>
       </div>
       <ul data-filter-group="minta" class="filt-item filt-minta hide">
+        <li id="filter-stylerall">
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="style-all" value="Mutasd mindet">
+          <label class="filt-item-label" for="style-all">Mutasd mindet <i class="ion-checkmark"></i></label>
+        </li>
         <?php $filtlist=get_terms('product-style' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
         <li id="filter-<?php echo $term->slug; ?>">
           <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-close-round"></i></label>
+          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php } ?>
       </ul>

@@ -3845,6 +3845,8 @@ article.product {
   .filt-placeholder em {
     text-transform: none;
     font-style: normal; }
+    .filt-placeholder em i {
+      display: none; }
   .active .filt-placeholder span {
     display: none; }
 
@@ -4151,7 +4153,6 @@ article.product {
     content: '   —   '; }
 
 .sidebar {
-  max-width: 1600px;
   margin: 0 auto;
   padding: 1em 2.5em; }
   .sidebar:before, .sidebar:after {

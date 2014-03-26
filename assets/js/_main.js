@@ -164,6 +164,10 @@ jQuery(document).ready(function($) {
 
 /********** Product Control scripts *********/
 $(window).load(function(){
+
+
+
+
   var $container = $('.main .product-list'),
     filters = {};
 
@@ -199,10 +203,17 @@ $(window).load(function(){
 
     $(this).toggleClass('selected');
     if ( $(this).hasClass('selected') ) {
-      $(this).parent().parent().parent().addClass('active');
+
       $(this).parent().parent().parent().find('.filt-placeholder em').remove();
-      $(this).parent().parent().parent().find('.filt-placeholder').append('<em>'+$(this).parent().find('label').html()+'</em>');
-      filters[ group ] = $(this).attr('data-filter-value');
+      if ( $(this).attr('data-filter-value')!=='*') {
+        $(this).parent().parent().parent().addClass('active');
+        $(this).parent().parent().parent().find('.filt-placeholder').append('<em>'+$(this).parent().find('label').html()+'</em>');
+        filters[ group ] = $(this).attr('data-filter-value');
+      } else {
+        $(this).parent().parent().parent().removeClass('active');
+        filters[ group ] = [];
+      }
+      
     }
      
 
@@ -215,6 +226,7 @@ $(window).load(function(){
     $container.isotope({ filter: selector });
     return false;
   });
+
 
   $('.filt-item li input').each(function(){
     if ( $('.product-list '+$(this).attr('data-filter-value')).length < 1)  {
