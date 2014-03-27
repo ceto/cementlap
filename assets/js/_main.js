@@ -162,14 +162,10 @@ jQuery(document).ready(function($) {
 
 
 
-/********** Product Control scripts *********/
-$(window).load(function(){
-
-
-
+  
 
   var $container = $('.main .product-list'),
-    filters = {};
+  filters = {};
 
   $container.isotope({
     itemSelector : '.prod-mini',
@@ -178,32 +174,39 @@ $(window).load(function(){
       easing: 'linear',
       queue: false
     }
-  });
+   });
+
+  if ($.bbq.getState('filter')!==''){
+    $container.isotope({ filter: $.bbq.getState('filter') });
+    $('.filt-item-input[data-filter-value="'+$.bbq.getState('filter')+'"]').trigger('click');
+  }
+
+
+/********** Product Control scripts *********/
+$(window).load(function(){
+
+  
+
+
+  
+
 
   // filter buttons
-  $('.filt-item-input').click(function(){
+  $('.filt-item-input').on('click',function(){
     $(this).parent().parent().toggleClass('hide');
     $(this).parent().parent().parent().find('.filt-placeholder').toggleClass('selected');
 
     var $optionSet = $(this).parents('.filt-item');
-
-
-    // don't proceed if already selected
-    // if ( $this.hasClass('selected') ) {
-    //   return;
-    // }
-    
+ 
     var group = $optionSet.attr('data-filter-group');
     
     $optionSet.find('.selected').each(function(){
-      //filters[ group ] = $(this).attr('data-filter-value');
       $(this).removeClass('selected');
-      //window.alert($(this).attr('data-filter-value'));
     });
 
     $(this).toggleClass('selected');
+    
     if ( $(this).hasClass('selected') ) {
-
       $(this).parent().parent().parent().find('.filt-placeholder em').remove();
       if ( $(this).attr('data-filter-value')!=='*') {
         $(this).parent().parent().parent().addClass('active');
@@ -213,10 +216,8 @@ $(window).load(function(){
         $(this).parent().parent().parent().removeClass('active');
         filters[ group ] = [];
       }
-      
     }
      
-
     // convert object into array
     var isoFilters = [];
     for ( var prop in filters ) {
@@ -234,7 +235,37 @@ $(window).load(function(){
     }
   });
 
+
+
+  
+  //window.alert('Pina'+$.bbq.getState('filter'));
+
+  /*********------------- Hashing -----------********/
+
+  // $('.filt-item-input').click(function(){
+  //   var href = $(this).attr('href').replace( /^#/, '' ),
+  //   option = $.deparam( href, true );
+  //   //option.filter+=' '+$.bbq.getState('filter');
+  //   //window.alert('Pina'+$.bbq.getState('filter'));
+  //   //window.alert(option);
+  //   $.bbq.pushState( option );
+  //   return false;
+  // });
+
+
 });
+
+
+/******* BBQ *******/
+$(window).bind( 'hashchange', function( event ){
+  // get options object from hash
+  var hashOptions = $.deparam.fragment();
+  // apply options from hash
+  $container.isotope( hashOptions );
+});
+  // trigger hashchange to capture any hash data on init
+  //.trigger('hashchange');
+
 
 
 jQuery(document).ready(function($){
@@ -243,4 +274,8 @@ jQuery(document).ready(function($){
     $(this).toggleClass('selected');
     $($(this).attr('data-filter-name')).toggleClass('hide');
   });
+  
+  $('.product-list').removeClass('loading');
+  $('.loader').removeClass('loading');
+
 });

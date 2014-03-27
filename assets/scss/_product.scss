@@ -26,6 +26,25 @@
     height:0;
     width:100%;
   }
+  
+  opacity:1;
+  transform:scale(1);
+  
+  &.loading {
+    opacity:0;
+    transform:scale(0.9);
+  }
+}
+.loader{
+  position: absolute;
+  left:50%;
+  margin-top:2em;
+  display:none;
+  font-size: 2em;
+  &.loading {
+    opacity:1;
+    display: block;
+  }
 }
 .prod-mini {
   font: normal 16px/24px $sans-serif;

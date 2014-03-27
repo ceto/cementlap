@@ -2812,6 +2812,10 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle; }
+  img.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+    display: block; }
 
 .wp-caption {
   max-width: 100%; }
@@ -3460,7 +3464,9 @@ a.menu-button:hover {
   line-height: 0;
   text-align: left;
   margin: 0 auto;
-  padding: 0 0 0 0; }
+  padding: 0 0 0 0;
+  opacity: 1;
+  transform: scale(1); }
   .product-list:before, .product-list:after {
     content: " ";
     display: table; }
@@ -3474,6 +3480,19 @@ a.menu-button:hover {
     display: inline-block;
     height: 0;
     width: 100%; }
+  .product-list.loading {
+    opacity: 0;
+    transform: scale(0.9); }
+
+.loader {
+  position: absolute;
+  left: 50%;
+  margin-top: 2em;
+  display: none;
+  font-size: 2em; }
+  .loader.loading {
+    opacity: 1;
+    display: block; }
 
 .prod-mini {
   font: normal 16px/24px "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3849,6 +3868,11 @@ article.product {
       display: none; }
   .active .filt-placeholder span {
     display: none; }
+
+.filt-item.filt-minta {
+  width: 260px; }
+  .filt-item.filt-minta > li {
+    float: left; }
 
 .filt-item {
   position: absolute;
@@ -4267,7 +4291,7 @@ input[type="text"], input[type="email"], textarea {
   transition-duration: 0.8s; }
 
 .isotope {
-  transition-property: height, width; }
+  transition-property: height, width, opacity, transform; }
 
 .isotope .isotope-item {
   transition-property: transform, opacity; }

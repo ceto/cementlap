@@ -67,6 +67,44 @@ Template Name: Product Category List
       </ul>
     </div>
 
+
+<!--     <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name=".filt-stock">
+        <span class="filt-placeholder-text"><?php _e('Készlet','root') ?></span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul data-filter-group="stock" class="filt-item filt-stock hide">
+        <li id="filter-stockall">
+          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="stock-all">Mutasd mindet <i class="ion-checkmark"></i></a>
+        </li>
+        <?php $filtlist=get_terms('product-stock' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <a href="#filter=.<?php echo $term->slug; ?>" class="filt-item-input" id="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></a>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <div class="filt-select-con">
+      <div class="filt-placeholder" data-filter-name=".filt-color">
+        <span class="filt-placeholder-text"><?php _e('Színek','root') ?></span>
+        <i class="ion-chevron-down"></i>
+      </div>
+      <ul data-filter-group="color" class="filt-item filt-color hide">
+        <li id="filter-colorall">
+          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="color-all">Mutasd mindet <i class="ion-checkmark"></i></a>
+        </li>
+        <?php $filtlist=get_terms('product-color' ); ?>
+        <?php foreach ( $filtlist as $term ) {  ?>
+        <li id="filter-<?php echo $term->slug; ?>">
+          <a href="#filter=.<?php echo $term->slug; ?>" class="filt-item-input" id="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></a>
+        </li>
+        <?php } ?>
+      </ul>
+    </div>
+ -->
+
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-color">
         <span class="filt-placeholder-text"><?php _e('Színek','root') ?></span>
@@ -137,7 +175,8 @@ Template Name: Product Category List
 
   
 </section>
-<div class="product-list">
+<div class="loader loading"><i class="ion-loading-a"></i></div>
+<div class="product-list loading">
   <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('templates/square','product' ); ?>
   <?php endwhile; ?>

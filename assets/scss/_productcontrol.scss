@@ -106,7 +106,15 @@
 }
 
 
+.filt-item.filt-minta{
+  width:260px;
+  
+  > li{
+    //display: inline-block;
+    float:left;
+  }
 
+}
 .filt-item {
   position: absolute;
   margin:0;
@@ -119,7 +127,7 @@
     display:none;
   }
 
-  &>li {
+  >li {
     position: relative;
     padding: 0 13px;
     height: 30px;

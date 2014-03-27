@@ -150,7 +150,7 @@
                 <p><strong>Ha van raktáron:</strong> Eljön törökbálintra és máris vihet </p>
                 <p><strong>Ha kevés, vagy nincs raktáron:</strong> Lefoglalja/megrendeli a hiányzó mennyiséget a fent jelzett időpontban várható</p>
                 <p><strong>Ha csak rendelésre gyártjuk</strong> Hivjon fel minket és egyeztetünk </p>
-                <p><em>Raktárkészletene nem szereplő lapokat 20% előleg befizetésével, foglalhatja le<em><p>
+                <p><em>Raktárkészletene nem szereplő lapokat 20% előleg befizetésével, foglalhatja le</em><p>
               </div>
           </div>
 
