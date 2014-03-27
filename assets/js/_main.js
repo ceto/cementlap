@@ -164,6 +164,14 @@ jQuery(document).ready(function($) {
 
   
 
+
+
+
+
+
+/********** Product Control scripts *********/
+$(window).load(function(){
+
   var $container = $('.main .product-list'),
   filters = {};
 
@@ -175,19 +183,13 @@ jQuery(document).ready(function($) {
       queue: false
     }
    });
-
-  if ($.bbq.getState('filter')!==''){
-    $container.isotope({ filter: $.bbq.getState('filter') });
-    $('.filt-item-input[data-filter-value="'+$.bbq.getState('filter')+'"]').trigger('click');
-  }
-
-
-/********** Product Control scripts *********/
-$(window).load(function(){
-
   
-
-
+  if ($.bbq.getState('filter')!==''){
+    //$container.isotope({ filter: $.bbq.getState('filter') });
+    $('.filt-item-input[data-filter-value="'+$.bbq.getState('filter')+'"]').trigger('click');
+  } else {
+    $('.filt-item-input[data-filter-value=".*"]').trigger('click');
+  }
   
 
 
