@@ -165,15 +165,15 @@ jQuery(document).ready(function($) {
   
 
 
-
+  var $container = $('.main .product-list'),
+  filters = {};
 
 
 /********** Product Control scripts *********/
 $(window).load(function(){
 
 
-  var $container = $('.main .product-list'),
-  filters = {};
+
 
   $container.isotope({
     itemSelector : '.prod-mini',
