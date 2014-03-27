@@ -1,11 +1,12 @@
 <?php
     $termik = array();
+    $ures = array();
     $nagytermlist=array_merge(
-      get_the_terms( $post->ID, 'product-category' ),
-      get_the_terms( $post->ID, 'product-color' ),
-      get_the_terms( $post->ID, 'product-design' ),
-      get_the_terms( $post->ID, 'product-stock' ),
-      get_the_terms( $post->ID, 'product-style' )
+      get_the_terms( $post->ID, 'product-category' )?get_the_terms( $post->ID, 'product-category' ):$ures,
+      get_the_terms( $post->ID, 'product-color' )?get_the_terms( $post->ID, 'product-color' ):$ures,
+      get_the_terms( $post->ID, 'product-design' )?get_the_terms( $post->ID, 'product-design' ):$ures,
+      get_the_terms( $post->ID, 'product-stock' )?get_the_terms( $post->ID, 'product-stock' ):$ures,
+      get_the_terms( $post->ID, 'product-style' )?get_the_terms( $post->ID, 'product-style' ):$ures
     );
     foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
   ?>
