@@ -191,13 +191,14 @@ article.product {
 }
 .uszo{
   //filter:invert(1);
+  @include clearfix();
   background-color: rgba(#fff,0.92);
   padding:1.5em 1em;
   position:relative;
   @include breakpoint($s2){
     position: absolute;
     box-shadow: 0 0 5px 0 $gray-dark;
-    margin: 2.5% 4em;
+    margin: 1em 7%;
     width: 360px;
     top:46.5%;
     z-index:1;

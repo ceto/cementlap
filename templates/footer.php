@@ -16,7 +16,7 @@
           <div class="response" id="mce-success-response" style="display:none"></div>
         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; left: -5000px;"><input type="text" name="b_f75f449c913cf58fb513b4418_7fa0ff2925" value=""></div>
-        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        <div class="clear"><input type="submit" value="Feliratkozás" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
       </form>
         </div>
       </section>

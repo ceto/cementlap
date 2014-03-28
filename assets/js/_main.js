@@ -59,7 +59,11 @@ var resizeHero = function() {
   } else {
     //$('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
 
-    $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
+    if ( ($(window).height() - $('.main').offset().top) > $('.uszo').height() ) {
+      $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
+    } else {
+      $('.single-product .main .product').css('min-height', $('.uszo').height()*1.25 );
+    }
     
     $('.single-post .main .post').css('min-height', $(window).height() - $('.main').offset().top );
     $('.single-post .main .post .repulo').css('min-height', $(window).height() - $('.main').offset().top );
@@ -251,7 +255,7 @@ $(window).load(function(){
   //   //option.filter+=' '+$.bbq.getState('filter');
   //   //window.alert('Pina'+$.bbq.getState('filter'));
   //   //window.alert(option);
-  //   $.bbq.pushState( option );
+  //   $.bbq.pushhState( option );
   //   return false;
   // });
 

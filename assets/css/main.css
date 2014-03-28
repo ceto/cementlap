@@ -3390,7 +3390,7 @@ a.menu-button:hover {
         text-transform: uppercase; }
 
 .footer-copy {
-  font-size: 0.666em;
+  font-size: 0.875em;
   line-height: 1.25em;
   font-weight: 300;
   padding: 1.25em;
@@ -3610,11 +3610,16 @@ article.product {
   background-color: rgba(255, 255, 255, 0.92);
   padding: 1.5em 1em;
   position: relative; }
+  .uszo:before, .uszo:after {
+    content: " ";
+    display: table; }
+  .uszo:after {
+    clear: both; }
   @media only screen and (min-width: 768px) {
     .uszo {
       position: absolute;
       box-shadow: 0 0 5px 0 #2f2f2f;
-      margin: 2.5% 4em;
+      margin: 1em 7%;
       width: 360px;
       top: 46.5%;
       z-index: 1;
@@ -3931,6 +3936,14 @@ article.product {
   .post:after {
     clear: both; }
 
+.post-thumb {
+  background-color: #000; }
+
+.no-cssreflections .post-thumb {
+  background-color: #000; }
+  .no-cssreflections .post-thumb img {
+    opacity: 0.5; }
+
 .post-thumb a img {
   filter: brightness(0.5); }
 
@@ -4165,10 +4178,12 @@ article.product {
   font-variant: small-caps;
   padding: 0;
   margin: 0;
-  font-weight: 300; }
+  font-weight: 300;
+  display: none; }
 
 .byline {
   display: inline;
+  display: none;
   font-variant: small-caps;
   padding: 0;
   margin: 0;

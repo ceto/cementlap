@@ -48,7 +48,7 @@ function roots_setup() {
   add_image_size('slidefree', 9999, 1000, false);
     
   
-  add_image_size('tiny11', 200, 200, true);
+  add_image_size('tiny11', 220, 220, true);
   
   add_image_size('petit11', 120, 120, true);
 

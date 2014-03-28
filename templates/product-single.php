@@ -15,7 +15,7 @@
   $copt=get_option('cementlap_option_name');
   $ima = get_post_meta( $post->ID, '_meta_wallimg_id', true );
 
-  $imci = wp_get_attachment_image_src( $ima, 'wallimg');
+  $imci = wp_get_attachment_image_src( $ima, 'wallfree');
   $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
   $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
@@ -59,7 +59,7 @@
     </figure>
     <div class="uszo">
       <header class="product-head">
-        <a class="product-back" href="javascript:history.back()"><i class="ion-ios7-undo"></i>Cementlapok</a>
+        <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i>Cementlapok</a>
         <h1 class="product-title"><?php the_title(); ?></h1>
         <div class="product-price">
           <?php if (has_term('akcios','product-stock')) : ?>
@@ -147,10 +147,15 @@
                 Hogyan foglaljam/rendeljem meg
               </a>
               <div id="morepanel" class="panel-collapse morepanel collapse">
-                <p><strong>Ha van raktáron:</strong> Eljön törökbálintra és máris vihet </p>
-                <p><strong>Ha kevés, vagy nincs raktáron:</strong> Lefoglalja/megrendeli a hiányzó mennyiséget a fent jelzett időpontban várható</p>
-                <p><strong>Ha csak rendelésre gyártjuk</strong> Hivjon fel minket és egyeztetünk </p>
-                <p><em>Raktárkészletene nem szereplő lapokat 20% előleg befizetésével, foglalhatja le</em><p>
+                <p><strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető.
+                  Ha nem tudsz eljönni érte, érdemes lefoglalni.</p>
+                <p><strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk
+                 és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. 
+                 A érkező mennyiséggel kapcsolatban hívj fel bennünket.</p>
+                <p><strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási
+                  idővel érdemes számolni, hívj fel minket és egyeztetünk.
+                </p>
+                <p><em>Minden rendelés és foglalás 30% előleg befizetésével érvényes!</em><p>
               </div>
           </div>
 
