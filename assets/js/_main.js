@@ -275,10 +275,11 @@ $(window).bind( 'hashchange', function( event ){
 
 
 //Fixes the issue where fonts are not loading with Google Chrome & websites using Google Webfonts
-var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-if(is_chrome) {
-  jQuery(window).load(function(){jQuery('body').width(jQuery('body').width()+1).width('auto');});
-}
+// var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+// if(is_chrome) {
+//   jQuery(window).load(function(){jQuery('body').width(jQuery('body').width()+1).width('auto');});
+// }
+
 
 jQuery(document).ready(function($){
 
@@ -290,5 +291,4 @@ jQuery(document).ready(function($){
   
   $('.product-list').removeClass('loading');
   $('.loader').removeClass('loading');
-
 });

@@ -2762,19 +2762,6 @@ img.mfp-img {
   box-sizing: border-box; }
 
 /******* Chrome Font Bug Fix *******/
-body {
-  -webkit-animation-duration: 0.1s;
-  -webkit-animation-name: fontfix;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 0.1s; }
-
-@-webkit-keyframes fontfix {
-  from {
-    opacity: 1; }
-
-  to {
-    opacity: 1; } }
 /******* End Chrome Font Bug Fix *******/
 html, body {
   font: normal 16px/24px "Alegreya Sans", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3462,7 +3449,8 @@ a.menu-button:hover {
   font-weight: 100;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: 1px 1px 3px #2f2f2f; }
+  text-shadow: 1px 1px 3px #2f2f2f;
+  display: block; }
   @media only screen and (min-width: 480px) {
     .hero-text {
       font-size: 3em;
