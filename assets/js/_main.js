@@ -274,9 +274,9 @@ $(window).bind( 'hashchange', function( event ){
   //.trigger('hashchange');
 
 
-// jQuery(window).load(function(){
-//   jQuery('body').width(jQuery('body').width()+1).width('auto');
-// });
+jQuery(window).load(function(){
+  jQuery('body').width(jQuery('body').width()+1).width('auto');
+});
 
 jQuery(document).ready(function($){
 
