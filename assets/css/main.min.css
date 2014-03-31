@@ -4282,8 +4282,8 @@ article.product {
   background-color: #9a9a9b;
   background-position: center center;
   background-repeat: no-repeat;
-  -webkit-background-size: 100% auto;
-  background-size: 100% auto;
+  -webkit-background-size: cover;
+  background-size: cover;
   color: #fff;
   font-weight: 100;
   text-transform: uppercase;

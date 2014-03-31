@@ -274,8 +274,12 @@ $(window).bind( 'hashchange', function( event ){
   //.trigger('hashchange');
 
 
+jQuery(window).load(function(){
+  jQuery('body').width(jQuery('body').width()+1).width('auto');
+});
 
 jQuery(document).ready(function($){
+
   $('.filt-placeholder').click(function(e){
     e.preventDefault();
     $(this).toggleClass('selected');
