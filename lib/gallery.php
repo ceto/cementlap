@@ -168,7 +168,7 @@ function roots_slidegallery($attr) {
   if ($order === 'RAND') {
     $orderby = 'none';
   }
-
+ 
   if (!empty($include)) {
     $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
 

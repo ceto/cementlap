@@ -3019,15 +3019,13 @@ blockquote {
   background-color: transparent;
   border: 0;
   display: block;
-  width: 260px;
-  height: 26px;
+  width: 100%;
+  height: 50px;
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
-  background-position: left center;
-  -webkit-background-size: 100% auto;
-  background-size: 100% auto;
-  margin-top: 10px;
-  margin-left: 60px; }
+  background-position: 90% center;
+  -webkit-background-size: auto 66%;
+  background-size: auto 66%; }
   .brandi:hover, .brandi:focus {
     opacity: 0.85; }
 
