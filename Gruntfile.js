@@ -39,9 +39,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-         style: 'nested',
-         /*noCache: true,*/
-         sourcemap: true
+         outputStyle: 'nested',
+         sourceComments: 'map'
         },
         files: {
           'assets/css/main.css': 'assets/scss/styles.scss'
@@ -71,8 +70,6 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'uglify', 'version']
       },
       livereload: {
-        // Browser live reloading
-        // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
         options: {
           livereload: true
         },
@@ -99,7 +96,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wp-version');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
 

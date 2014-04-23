@@ -41,10 +41,10 @@ function roots_gallery($attr) {
     'icontag'    => '',
     'captiontag' => '',
     'columns'    => 4,
-    'size'       => 'mediumfree',
+    'size'       => 'thumbnail',
     'include'    => '',
     'exclude'    => '',
-    'link'       => 'file'
+    'link'       => ''
   ), $attr));
 
   $id = intval($id);
@@ -149,7 +149,7 @@ function roots_slidegallery($attr) {
 
   extract(shortcode_atts(array(
     'order'      => 'ASC',
-    'orderby'    => 'menu_order ID',
+    'orderby'    => 'menu_order',
     'id'         => $post->ID,
     'itemtag'    => '',
     'icontag'    => '',
@@ -162,22 +162,20 @@ function roots_slidegallery($attr) {
   ), $attr));
 
   $id = intval($id);
-  $columns = (12 % $columns == 0) ? $columns: 4;
-  $grid = sprintf('col-sm-%1$s col-lg-%1$s', 12/$columns);
 
   if ($order === 'RAND') {
     $orderby = 'none';
   }
- 
+  $orderby='menu_order';
   if (!empty($include)) {
+
     $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
 
     $attachments = array();
     foreach ($_attachments as $key => $val) {
       $attachments[$val->ID] = $_attachments[$key];
+      //print_r($val->ID); echo '<hr>';
     }
-  } elseif (!empty($exclude)) {
-    $attachments = get_children(array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
   } else {
     $attachments = get_children(array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
   }
@@ -197,28 +195,17 @@ function roots_slidegallery($attr) {
   $unique = (get_query_var('page')) ? $instance . '-p' . get_query_var('page'): $instance;
   $output = '<div class="slidegallery slidegallery-' . $id . '-' . $unique . '"><ul>';
 
-  $i = 0;
-  $link='none';
   foreach ($attachments as $id => $attachment) {
-    switch($link) {
-      case 'file':
-        $image = wp_get_attachment_link($id, $size, false, false);
-        break;
-      case 'none':
-        $image = wp_get_attachment_image($id, $size, false, array('class' => 'thumbnail img-thumbnail'));
-        break;
-      default:
-        $image = wp_get_attachment_link($id, $size, true, false);
-        break;
-    }
+
+    $image = wp_get_attachment_image($id, $size, false, array('class' => 'thumbnail img-thumbnail'));
+
     $output .= '<li class="slide-item">' . $image;
 
     if (trim($attachment->post_excerpt)) {
-      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
+      $output .= '<div class="caption">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
 
     $output .= '</li>';
-    $i++;
   }
   $output .= '</ul>';
   $output .= '<nav class="slidecontroll"><a href="#" class="prev"><i class="ion-ios7-arrow-thin-left"></i></a><a href="#" class="next"><i class="ion-ios7-arrow-thin-right"></i></a></nav>';
