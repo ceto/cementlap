@@ -210,7 +210,10 @@ article.product {
   }
 }
 .product-head {
-  margin-bottom:16em;
+
+}
+.product-content{
+   margin-bottom:15em;
 }
 .product-back{
   font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
@@ -264,10 +267,14 @@ article.product {
 
 .product-footer{
   @include clearfix();
-  position:absolute;
+  //position:absolute;
   bottom:0;
   left:0;right:0;
-  padding:1em;
+
+  @include breakpoint($s2){
+      padding:1em;
+      position:absolute;
+  }
 }
 
 .action-block {
@@ -398,6 +405,51 @@ article.product {
 }
 
 
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  //.flip-container:hover .flipper,
+  .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+.flip-container {
+
+}
+.front, .back {
+  width: 100%;
+  //min-height: 370px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+  min-height: 280px;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
 
 /*********** Related an Similar products section *********/
 .related-products {

@@ -2327,6 +2327,14 @@ img {
     @media only screen and (min-width: 768px) {
       .page .main {
         padding: 1em 1em; } }
+  .tax-product-category .main {
+    padding: 1em 0; }
+    @media only screen and (min-width: 480px) {
+      .tax-product-category .main {
+        padding: 1em 1em; } }
+    @media only screen and (min-width: 1024px) {
+      .tax-product-category .main {
+        padding: 1em 2em; } }
 
 .btn, .btn-light-line, .button {
   border: 0;
@@ -2445,7 +2453,7 @@ blockquote {
   border: 0;
   display: block;
   float: right;
-  width: 280px;
+  width: 258px;
   height: 50px;
   margin-right: 12px;
   background-image: url('../img/logo.png');
@@ -3120,8 +3128,9 @@ article.product {
       min-height: 80%; } }
   @media only screen and (min-width: 1024px) { }
 
-.product-head {
-  margin-bottom: 16em; }
+
+.product-content {
+  margin-bottom: 15em; }
 
 .product-back {
   font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
@@ -3169,16 +3178,18 @@ article.product {
       max-width: 66.666%; } }
 
 .product-footer {
-  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 1em; }
+  right: 0; }
   .product-footer:before, .product-footer:after {
     content: " ";
     display: table; }
   .product-footer:after {
     clear: both; }
+  @media only screen and (min-width: 768px) {
+    .product-footer {
+      padding: 1em;
+      position: absolute; } }
 
 .action-block .btn, .action-block .btn-light-line {
   width: 100%; }
@@ -3273,6 +3284,51 @@ article.product {
       text-transform: uppercase;
       font-size: 0.75em; }
 
+/* entire container, keeps perspective */
+.flip-container {
+  -webkit-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000; }
+
+/* flip the pane when hovered */
+.flip-container.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+
+.front, .back {
+  width: 100%; }
+
+/* flip speed goes here */
+.flipper {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  min-height: 280px; }
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/* front pane, placed above back */
+.front {
+  z-index: 2; }
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
 /*********** Related an Similar products section *********/
 .related-products {
   margin: 2em auto;
@@ -3330,12 +3386,15 @@ article.product {
 .filt-select-con {
   display: inline-block;
   margin: 0 5px 0 0;
-  width: 167px;
+  width: 150px;
   text-align: left;
   color: #49494A;
   font-weight: 300;
   font-size: 0.875em;
   line-height: 1em; }
+  @media only screen and (min-width: 768px) {
+    .filt-select-con {
+      width: 167px; } }
 
 .filt-placeholder {
   display: block;
@@ -3369,7 +3428,10 @@ article.product {
     display: none; }
 
 .filt-item.filt-minta {
-  width: 260px; }
+  width: 160px; }
+  @media only screen and (min-width: 768px) {
+    .filt-item.filt-minta {
+      width: 260px; } }
   .filt-item.filt-minta > li {
     float: left; }
 
@@ -3377,9 +3439,12 @@ article.product {
   position: absolute;
   margin: 0;
   padding: 10px 0 0 0;
-  width: 167px;
+  width: 150px;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.95); }
+  @media only screen and (min-width: 768px) {
+    .filt-item {
+      width: 167px; } }
   .filt-item.hide {
     display: none; }
   .filt-item > li {

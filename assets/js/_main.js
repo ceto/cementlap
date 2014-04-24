@@ -280,6 +280,23 @@ $(window).bind( 'hashchange', function( event ){
 //   jQuery(window).load(function(){jQuery('body').width(jQuery('body').width()+1).width('auto');});
 // }
 
+function share_click(mi, width, height) {
+    var leftPosition, topPosition;
+    //Allow for borders.
+    leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+    //Allow for title and status bars.
+    topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+    var windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
+    var u=location.href;
+    var t=document.title;
+    if (mi==='fb') {
+      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
+    } else {
+      window.open('https://plus.google.com/share?url='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
+    }
+    return false;
+}
+
 
 jQuery(document).ready(function($){
 
@@ -291,4 +308,8 @@ jQuery(document).ready(function($){
   
   $('.product-list').removeClass('loading');
   $('.loader').removeClass('loading');
+  $('.share-info').click(function(){
+    $('.flip-container').toggleClass('hover');
+    return false;
+  });
 });

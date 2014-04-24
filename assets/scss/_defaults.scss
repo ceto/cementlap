@@ -152,6 +152,17 @@ img {
       padding: 1em 1em;
     }
   }
+  .tax-product-category & {
+    padding:1em 0;
+    @include breakpoint($s1){
+      padding: 1em 1em;
+    }
+    @include breakpoint($s3){
+      padding: 1em 2em;
+    }
+  }
+
+
 }
 
 

@@ -52,12 +52,15 @@
 .filt-select-con {
   display: inline-block;
   margin: 0 5px 0 0;
-  width: 167px;
+  width: 150px;
   text-align: left;
   color:$gray;
   font-weight: 300;
   font-size: 0.875em;
   line-height: 1em;
+  @include breakpoint($s2){
+    width:167px;
+  }
 }
 
 .filt-placeholder {
@@ -107,7 +110,10 @@
 
 
 .filt-item.filt-minta{
-  width:260px;
+  width:160px;
+  @include breakpoint($s2){
+    width:260px;
+  }
   
   > li{
     //display: inline-block;
@@ -119,9 +125,12 @@
   position: absolute;
   margin:0;
   padding: 10px 0 0 0;
-  width: 167px;
+  width: 150px;
   z-index: 2;
   background-color: rgba(255,255,255,.95);
+  @include breakpoint($s2){
+    width:167px;
+  }
 
   &.hide {
     display:none;

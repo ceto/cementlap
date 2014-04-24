@@ -58,116 +58,109 @@
       <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
     </figure>
     <div class="uszo">
-      <header class="product-head">
-        <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i>Cementlapok</a>
-        <h1 class="product-title"><?php the_title(); ?></h1>
-        <div class="product-price">
-          <?php if (has_term('akcios','product-stock')) : ?>
-            <div class="origprice">
-              Eredeti ár: 
-              <span class="szam"><?php echo number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' '); ?>
-              <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
-              </span>
-            </div>
-          <?php endif; ?>
-
-          <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
-          <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
-          
-          
-
-        </div>
-        
-        
-        <div class="data-block">
-          <?php if ( get_post_meta($post->ID, '_meta_size', true) !='') : ?>
-            <div class="data-size">
-                <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span>20 × 20 × 1,6 cm</span>
-            </div>
-          <?php endif; ?>
-          <?php if (get_post_meta($post->ID, '_meta_weight', true)!='') : ?>
-            <div class="data-weight">
-                <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span>34 kg/m<sup>2</sup> | 1,35 kg / lap</span>
-            </div>
-          <?php endif; ?>
-          <?php if (get_post_meta($post->ID, '_meta_kit', true)!='') : ?>
-            <div class="data-kiszer">
-                <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span>dobozban (13 lap ≈ 0,52 m<sup>2</sup>)</span>
-            </div>
-          <?php endif; ?>
-        </div><!-- /.data-block -->
-        
-        <div class="product-content">
-          <?php the_content(); ?>  
-        </div>
-      </header>
-      <footer class="product-footer">
-
-
-
-
-
-        <!--div class="action-block">
-          <a href="#" class="btn">
-            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <?php _e('Foglald le telefonon<small>Hívj: +36.20.973.4344</small>','root'); ?>
-            <?php else: ?>
-              <?php _e('Részletekért hívj<small>Telefonon: +36.20.973.4344</small>','root') ?>
-            <?php endif; ?>
-          </a>
-        </div-->
-
-        <div class="stock-block">
-          <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
-          <div class="stock-status">
-            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-              <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
-            <?php elseif ( has_term('hamarosan-erkezik','product-stock') ): ?>
-               <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
-            <?php else: ?>
-              <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
-            <?php endif; ?>
-          </div>
-          
-          <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
-            <div class="stock-amount">
-              <i class="ion-ios7-cart"></i> Raktáron van:
-              <span>
-                <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
-              </span>
-            </div>
-          <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
-            <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span></div>
-          <?php else: ?>
-            <div class="date-status"><i class="ion-clock"></i> Rendelés esetén érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
-          <?php endif; ?>
-
-          <div class="product-more">
-              <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                Hogyan foglaljam/rendeljem meg
-              </a>
-              <div id="morepanel" class="panel-collapse morepanel collapse">
-                <p><strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető.
-                  Ha nem tudsz eljönni érte, érdemes lefoglalni.</p>
-                <p><strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk
-                 és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. 
-                 A érkező mennyiséggel kapcsolatban hívj fel bennünket.</p>
-                <p><strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási
-                  idővel érdemes számolni, hívj fel minket és egyeztetünk.
-                </p>
-                <p><em>Minden rendelés és foglalás 30% előleg befizetésével érvényes!</em><p>
+        <header class="product-head">
+          <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i>Cementlapok</a>
+          <h1 class="product-title"><?php the_title(); ?></h1>
+          <div class="product-price">
+            <?php if (has_term('akcios','product-stock')) : ?>
+              <div class="origprice">
+                Eredeti ár: 
+                <span class="szam"><?php echo number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' '); ?>
+                <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+                </span>
               </div>
+            <?php endif; ?>
+
+            <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
+            <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
           </div>
-
-        </div><!-- /.stock-block -->
-
-        <div class="gombsor">
-          <a href="#" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
-          <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
-          <a href="#" class="share-like"><i class="ion-thumbsup"></i><br /><span>Ez csinos</span></a>
+        </header>
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+        <div class="front">
+            <div class="data-block">
+              <?php if ( get_post_meta($post->ID, '_meta_size', true) !='') : ?>
+                <div class="data-size">
+                    <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span>20 × 20 × 1,6 cm</span>
+                </div>
+              <?php endif; ?>
+              <?php if (get_post_meta($post->ID, '_meta_weight', true)!='') : ?>
+                <div class="data-weight">
+                    <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span>34 kg/m<sup>2</sup> | 1,35 kg / lap</span>
+                </div>
+              <?php endif; ?>
+              <?php if (get_post_meta($post->ID, '_meta_kit', true)!='') : ?>
+                <div class="data-kiszer">
+                    <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span>dobozban (13 lap ≈ 0,52 m<sup>2</sup>)</span>
+                </div>
+              <?php endif; ?>
+              </div><!-- /.data-block -->
+            <div class="product-content">
+              <?php the_content(); ?>  
+            </div>
         </div>
-        <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
-      </footer>
+        <div class="back">
+           <div class="product-content">
+            <p>Egyszínű vagy bordűr lapokkal kombinálva izgalmas egyedi kombinációk is megvalósíthatóak.
+              Modern lakások vagy klasszikus polgári otthonok hidegburkolataként egyaránt remekül felhasználható.</p>
+            <p>Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.</p>
+            <p>Vásárlás előtt feltétlenül tájékozódj a <a href="<?php echo get_permalink(1097); ?>">lerakásról</a> és a <a href="#">technikai paraméterekről.</a></p>
+        </div>
+        </div><!-- /.back -->
+        </div>
+        </div>
+        <footer class="product-footer">
+          <div class="stock-block">
+            <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
+            <div class="stock-status">
+              <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+                <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
+              <?php elseif ( has_term('hamarosan-erkezik','product-stock') ): ?>
+                 <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
+              <?php else: ?>
+                <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
+              <?php endif; ?>
+            </div>
+            
+            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+              <div class="stock-amount">
+                <i class="ion-ios7-cart"></i> Raktáron van:
+                <span>
+                  <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+                </span>
+              </div>
+            <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span></div>
+            <?php else: ?>
+              <div class="date-status"><i class="ion-clock"></i> Rendelés esetén érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
+            <?php endif; ?>
+
+            <div class="product-more">
+                <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
+                  Hogyan foglaljam/rendeljem meg
+                </a>
+                <div id="morepanel" class="panel-collapse morepanel collapse">
+                  <p><strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető.
+                    Ha nem tudsz eljönni érte, érdemes lefoglalni.</p>
+                  <p><strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk
+                   és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. 
+                   A érkező mennyiséggel kapcsolatban hívj fel bennünket.</p>
+                  <p><strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási
+                    idővel érdemes számolni, hívj fel minket és egyeztetünk.
+                  </p>
+                  <p><em>Minden rendelés és foglalás 30% előleg befizetésével érvényes!</em></p>
+                </div>
+            </div>
+
+          </div><!-- /.stock-block -->
+
+          <div class="gombsor">
+            <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
+            <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
+            <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span>Felhasználás</span></a>
+          </div>
+          <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
+        </footer>
     </div><!-- /.uszo -->
      <nav class="product-pn">
           <ul>
