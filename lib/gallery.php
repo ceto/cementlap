@@ -149,7 +149,7 @@ function roots_slidegallery($attr) {
 
   extract(shortcode_atts(array(
     'order'      => 'ASC',
-    'orderby'    => 'menu_order',
+    'orderby'    => 'menu_order ID',
     'id'         => $post->ID,
     'itemtag'    => '',
     'icontag'    => '',
@@ -166,16 +166,15 @@ function roots_slidegallery($attr) {
   if ($order === 'RAND') {
     $orderby = 'none';
   }
-  $orderby='menu_order';
   if (!empty($include)) {
-
     $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
 
     $attachments = array();
     foreach ($_attachments as $key => $val) {
       $attachments[$val->ID] = $_attachments[$key];
-      //print_r($val->ID); echo '<hr>';
     }
+  } elseif (!empty($exclude)) {
+    $attachments = get_children(array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
   } else {
     $attachments = get_children(array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
   }

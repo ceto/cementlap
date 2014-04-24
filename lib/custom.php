@@ -535,10 +535,11 @@ if( is_admin() )
 
 function cementlap_modify_num_products($query)
 {
-    if ($query->is_main_query() && ($query->is_tax('product-category') || $query->is_category() ) && !is_admin())
+    if ( ($query->is_main_query()) && ($query->is_tax('product-category') || $query->is_category() ) && (!is_admin()) ) {
       $query->set('posts_per_page', -1);
       $query->set('orderby', 'title');
       $query->set('order', 'ASC');
+    }
 
 }
  
