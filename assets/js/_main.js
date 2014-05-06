@@ -181,6 +181,7 @@ $(window).load(function(){
 
   $container.isotope({
     itemSelector : '.prod-mini',
+    layoutMode: 'cellsByRow',
     animationOptions: {
       duration: 750,
       easing: 'linear',
