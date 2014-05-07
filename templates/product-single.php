@@ -164,8 +164,12 @@
     </div><!-- /.uszo -->
      <nav class="product-pn">
           <ul>
-            <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
-            <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
+            <!-- 
+              <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
+              <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
+            -->
+            <li><?php previous_post_link_plus( array('format' => '%link', 'link' => '<i class="ion-ios7-arrow-back"></i>', 'order_by' => 'post_title' )); ?></li>
+            <li><?php next_post_link_plus( array('format' => '%link', 'link' => '<i class="ion-ios7-arrow-forward"></i>', 'order_by' => 'post_title' )); ?></li>
           </ul>
       </nav> 
   </article>
