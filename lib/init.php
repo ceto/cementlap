@@ -30,6 +30,7 @@ function roots_setup() {
   register_nav_menus(array(
     'kapcsinfo_navigation' => __('Kapcsolati adatok', 'roots'),
   ));
+
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
