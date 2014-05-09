@@ -3591,24 +3591,27 @@ article.product {
     clear: both; }
   @media only screen and (min-width: 768px) {
     .fresh-posts {
-      padding: 1em 0; } }
+      padding: 1em 5em; } }
   @media only screen and (min-width: 1024px) {
     .fresh-posts {
-      padding: 2em 3em; } }
+      padding: 2em 2em; } }
+  @media only screen and (min-width: 1280px) {
+    .fresh-posts {
+      padding: 2em 2em; } }
   .fresh-posts .post {
     max-width: 480px;
-    margin: 1em auto; }
+    margin: 1em auto;
+    overflow: hidden; }
     @media only screen and (min-width: 480px) {
       .fresh-posts .post {
         float: left;
         width: -webkit-calc(50% - 1em);
         width: calc(50% - 1em);
         margin: 0.5em 0.5em; } }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       .fresh-posts .post {
-        float: left;
-        width: -webkit-calc(33.333333% - 1em);
-        width: calc(33.333333% - 1em);
+        width: -webkit-calc(25% - 1em);
+        width: calc(25% - 1em);
         margin: 0.5em 0.5em; } }
 
 .single-format-gallery .post {

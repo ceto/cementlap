@@ -7,10 +7,11 @@ Template Name: Home Template
   <?php 
     $the_posts = new WP_Query(array(
       'post_type' => 'post',
-      'posts_per_page' => 3
+      'posts_per_page' => 4
     ));
+    $icipici=0;
   ?>
-  <?php while ($the_posts->have_posts()) : $the_posts->the_post(); ?>
+  <?php while ($the_posts->have_posts() && $icipici++<4) : $the_posts->the_post(); ?>
   <article id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
     <figure class="post-thumb">
       <a href="<?php the_permalink(); ?>">

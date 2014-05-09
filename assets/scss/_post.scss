@@ -114,25 +114,45 @@
   margin:0 auto;
   
   @include breakpoint($s2){
-    padding:1em 0;
+    padding:1em 5em;
   }
   @include breakpoint($s3){
-    padding:2em 3em;
+    padding:2em 2em;
+  }
+  @include breakpoint($s4){
+    padding:2em 2em;
   }
 
   .post {
     max-width: 480px;
     margin:1em auto;
+    overflow: hidden;
+    // @include breakpoint($s1){
+    //   float:left;
+    //   width:calc(50% - 1em);
+    //   margin:0.5em 0.5em;
+    // }
+    // @include breakpoint($s2){
+    //   float:left;
+    //   width:calc(33.333333% - 1em);
+    //   margin:0.5em 0.5em;
+    // }
     @include breakpoint($s1){
       float:left;
       width:calc(50% - 1em);
       margin:0.5em 0.5em;
     }
-    @include breakpoint($s2){
-      float:left;
-      width:calc(33.333333% - 1em);
+    // @include breakpoint($s2){
+    //   float:left;
+    //   width:calc(33.333333% - 1em);
+    //   margin:0.5em 0.5em;
+    // }
+
+    @include breakpoint($s3){
+      width:calc(25% - 1em);
       margin:0.5em 0.5em;
     }
+
 
   }
 }
