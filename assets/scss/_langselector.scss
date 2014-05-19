@@ -1,0 +1,30 @@
+#lang_sel_list, #lang_sel {
+  position: absolute;
+  left:363px;
+  top:33px;
+  font-size: 0.875em;
+  line-height: 1;
+  text-transform: uppercase;
+  @include breakpoint($s3){
+    left:380px;
+  }
+  ul {
+    margin:0;
+    padding:0;
+  }
+  li {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    display: inline-block;
+    a{
+      color:$gray;
+      &:hover,&:focus {
+        color:$gray-dark;
+      }
+
+    }
+  }
+
+
+}

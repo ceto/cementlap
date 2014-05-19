@@ -1,6 +1,7 @@
 <header class="banner" role="banner">
   <div class="hbg"></div>
   <a class="brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
+  <?php do_action('icl_language_selector'); ?>
   <nav class="nav-main" role="navigation">
     <?php
       if (has_nav_menu('primary_navigation')) :

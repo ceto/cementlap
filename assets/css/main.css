@@ -3908,4 +3908,27 @@ input[type="text"], input[type="email"], textarea {
       .slidegallery .slidecontroll a.next {
         float: right; }
 
+#lang_sel_list, #lang_sel {
+  position: absolute;
+  left: 363px;
+  top: 33px;
+  font-size: 0.875em;
+  line-height: 1;
+  text-transform: uppercase; }
+  @media only screen and (min-width: 1024px) {
+    #lang_sel_list, #lang_sel {
+      left: 380px; } }
+  #lang_sel_list ul, #lang_sel ul {
+    margin: 0;
+    padding: 0; }
+  #lang_sel_list li, #lang_sel li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block; }
+    #lang_sel_list li a, #lang_sel li a {
+      color: #49494A; }
+      #lang_sel_list li a:hover, #lang_sel_list li a:focus, #lang_sel li a:hover, #lang_sel li a:focus {
+        color: #2F2F2F; }
+
 /*# sourceMappingURL=main.css.map */

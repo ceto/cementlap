@@ -3,8 +3,9 @@
  * Custom functions
  */
 
-/********* Custom Post Types for Product Management ****************/
-
+define('ICL_DONT_LOAD_NAVIGATION_CSS', TRUE);
+define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', TRUE);
+define('ICL_DONT_LOAD_LANGUAGES_JS', TRUE);
 
 /**
  * Product Custom Post Type Definition
@@ -527,8 +528,9 @@ class CementlapSettingsPage
     }
 }
 
-if( is_admin() )
-    $cementlap_settings_page = new CementlapSettingsPage();
+if( is_admin() ) {
+  $cementlap_settings_page = new CementlapSettingsPage();
+}
 
 
 
@@ -544,3 +546,32 @@ function cementlap_modify_num_products($query)
 }
  
 add_action('pre_get_posts', 'cementlap_modify_num_products');
+
+
+
+# Deregister style files
+function cement_DequeueYarppStyle()
+{
+  wp_dequeue_style('yarppRelatedCss');
+  wp_deregister_style('yarppRelatedCss');
+}
+add_action('wp_footer', cement_DequeueYarppStyle);
+
+# WPSS Styles Remove
+function cement_remove_wpss_styles() {
+  if(!is_admin()){ 
+    //wp_deregister_style( 'wpss-style' );
+    //wp_deregister_style( 'wpss-custom-db-style' );
+  }
+}
+add_action( 'wp_print_styles', 'cement_remove_wpss_styles', 100 );
+
+# Deregister scripts file
+function cement_remove_scripts () {
+  if(!is_admin()){ 
+    //wp_deregister_script('bootstrap-shortcodes-tooltip');
+    //wp_deregister_script('bootstrap-shortcodes-popover');
+
+  }
+}
+add_action('wp_print_scripts', 'cement_remove_scripts', 11);
