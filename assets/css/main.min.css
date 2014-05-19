@@ -2803,9 +2803,9 @@ a.menu-button:hover {
   .content-info:after {
     clear: both; }
   .content-info a {
-    color: #49494A; }
+    color: #9A9A9B; }
     .content-info a:hover, .content-info a:focus {
-      colro: #9A9A9B; }
+      color: #FEFEFF; }
 
 .footer-sidebar {
   max-width: 1600px;
@@ -2814,7 +2814,8 @@ a.menu-button:hover {
   font-size: 0.875em;
   line-height: 1.25em;
   font-weight: 300;
-  color: #49494A; }
+  color: #FEFEFF;
+  background-color: #2F2F2F; }
   .footer-sidebar:before, .footer-sidebar:after {
     content: " ";
     display: table; }
@@ -2871,7 +2872,8 @@ a.menu-button:hover {
   font-weight: 300;
   padding: 1.25em;
   position: relative;
-  background-color: #efefef; }
+  background-color: #49494A;
+  color: #efefef; }
   @media only screen and (min-width: 1024px) {
     .footer-copy {
       padding: 1.25em 3em; } }
@@ -3862,7 +3864,7 @@ input[type="text"], input[type="email"], textarea {
   color: #231F06;
   line-height: 1.25em;
   padding: 0.25em;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #efefef;
   width: 20em;
   max-width: 100%;
   outline: 0 solid #fff; }

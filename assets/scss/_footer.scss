@@ -3,9 +3,9 @@
   @include clearfix();
 
  a{
-  color:$gray;
+  color:$gray-light;
   &:hover, &:focus{
-      colro:$gray-light;
+      color:$white;
   }
  }
 }
@@ -18,7 +18,8 @@
   font-size: 0.875em;
   line-height: 1.25em;
   font-weight: 300;
-  color:$gray;
+  color:$white;
+  background-color:$gray-dark;
   @include breakpoint($s3){
     padding:2em 0;
   }
@@ -79,7 +80,8 @@
   font-weight: 300;
   padding:1.25em;
   position: relative;
-  background-color:$gray-superlight;
+  background-color:$gray;
+  color:$gray-superlight;
   @include breakpoint($s3){
     padding:1.25em 3em;
   }
