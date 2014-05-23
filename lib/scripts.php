@@ -26,6 +26,11 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
+  if (is_page(941) ) {
+     wp_register_script('gmap_v3', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', false, 'null', false);
+     wp_enqueue_script('gmap_v3');
+  }
+
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', array(), null, false);
   wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), '2156b864ce1979e863937cd995963259', true);
   wp_enqueue_script('modernizr');

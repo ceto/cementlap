@@ -87,3 +87,56 @@
       </div>
   </aside>
 <?php endif; ?>
+
+
+
+
+<?php if (is_page(941)): ?>
+
+    <script type="text/javascript">
+
+      var map;
+        function initialize() {
+          var latlng = new google.maps.LatLng(47.44266,18.93981);
+        var centerlatlng = new google.maps.LatLng(47.44266,18.93981);
+        var myOptions = {
+          zoom: 12,
+          center: centerlatlng,
+          disableDefaultUI: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles:[
+          {
+          stylers: [
+            { "saturation": -92 },
+                { "gamma": 0.34 },
+                { "lightness": 25 }
+          ]
+          }
+        ]
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'),  myOptions);
+        
+        var image = new google.maps.MarkerImage('../../wp-content/themes/cementlap/assets/img/map_zaszlo.png',
+        new google.maps.Size(69, 73), new google.maps.Point(0,0), new google.maps.Point(1, 73));
+        var shadow = new google.maps.MarkerImage('../../wp-content/themes/cementlap/assets/img/map_zaszlo_shadow.png',
+        new google.maps.Size(95, 49), new google.maps.Point(0,0), new google.maps.Point(1, 49));
+        
+        var marker = new google.maps.Marker({
+          position: latlng, 
+          map: map, 
+          title:"Marrakesh Cementlap",
+          icon:image,
+          shadow:shadow 
+        });
+         }
+
+         google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <style>
+    .gmap {
+      min-height: 320px;
+      width:100%;
+    } 
+    </style>
+  <section id="map_canvas" class="gmap"></section> 
+<?php endif; ?>
