@@ -2796,7 +2796,8 @@ a.menu-button:hover {
         font-size: 8em; }
 
 .content-info {
-  clear: both; }
+  clear: both;
+  background-color: #2F2F2F; }
   .content-info:before, .content-info:after {
     content: " ";
     display: table; }
@@ -2814,8 +2815,7 @@ a.menu-button:hover {
   font-size: 0.875em;
   line-height: 1.25em;
   font-weight: 300;
-  color: #FEFEFF;
-  background-color: #2F2F2F; }
+  color: #FEFEFF; }
   .footer-sidebar:before, .footer-sidebar:after {
     content: " ";
     display: table; }
@@ -3531,11 +3531,14 @@ article.product {
 
 .post-title {
   font-weight: 100;
-  font-size: 1.75em;
+  font-size: 3em;
   line-height: 1.125em;
   text-transform: uppercase;
   text-shadow: 0 0 3px #49494A; }
-  @media only screen and (min-width: 480px) { }
+  @media only screen and (min-width: 480px) {
+    .post-title {
+      font-size: 1.75em;
+      line-height: 1.125em; } }
   @media only screen and (min-width: 768px) {
     .post-title {
       font-size: 1.75em;
@@ -3544,7 +3547,7 @@ article.product {
     .post-title {
       font-size: 2em;
       line-height: 1.125em; } }
-  @media only screen and (min-width: 1280px) {
+  @media only screen and (min-width: 1600px) {
     .post-title {
       font-size: 2.75em;
       line-height: 1.125em; } }
@@ -3577,7 +3580,7 @@ article.product {
       width: -webkit-calc(33.333333% - 1em);
       width: calc(33.333333% - 1em);
       margin: 0.5em 0.5em; } }
-  @media only screen and (min-width: 1600px) {
+  @media only screen and (min-width: 1280px) {
     .archive.category .post, .blog .post {
       width: -webkit-calc(25% - 1em);
       width: calc(25% - 1em);
@@ -3680,6 +3683,8 @@ article.product {
     font-size: 1em;
     line-height: 1.4em;
     font-weight: 300; }
+  .single-format-gallery .post footer {
+    min-height: 133px; }
   .single-format-gallery .post h1 {
     font-size: 2.5em;
     line-height: 1.125em;
@@ -3974,14 +3979,14 @@ input[type="text"], input[type="email"], textarea {
     .slidegallery .slide-item .caption {
       white-space: wrap;
       position: absolute;
-      padding: 0.25em;
+      padding: 0 0.25em;
       display: inline-block;
-      bottom: 2em;
-      left: 2em;
-      padding: 0.25em 0.25em 0.125em;
+      top: 1em;
+      left: 1em;
+      padding: 0.25em 0.25em 0.25em;
       background-color: rgba(47, 47, 47, 0.75);
       color: #fff;
-      font-size: 0.75em;
+      font-size: 1.25em;
       line-height: 1em;
       font-weight: 400;
       font-style: italic;

@@ -1,6 +1,7 @@
 .content-info {
-  clear:both;
   @include clearfix();
+  clear:both;
+  background-color:$gray-dark;
 
  a{
   color:$gray-light;
@@ -19,7 +20,6 @@
   line-height: 1.25em;
   font-weight: 300;
   color:$white;
-  background-color:$gray-dark;
   @include breakpoint($s3){
     padding:2em 0;
   }

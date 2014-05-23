@@ -104,7 +104,7 @@
             <p>Egyszínű vagy bordűr lapokkal kombinálva izgalmas egyedi kombinációk is megvalósíthatóak.
               Modern lakások vagy klasszikus polgári otthonok hidegburkolataként egyaránt remekül felhasználható.</p>
             <p>Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.</p>
-            <p>Vásárlás előtt feltétlenül tájékozódj a <a href="<?php echo get_permalink(1097); ?>">lerakásról</a> és a <a href="#">technikai paraméterekről.</a></p>
+            <p>Vásárlás előtt feltétlenül tájékozódj a <a href="<?php echo get_permalink(1097); ?>">lerakásról</a> és a <a href="<?php echo get_permalink(2786); ?>">technikai paraméterekről.</a></p>
         </div>
         </div><!-- /.back -->
         </div>

@@ -66,9 +66,14 @@ var resizeHero = function() {
     }
     
     $('.single-post .main .post').css('min-height', $(window).height() - $('.main').offset().top );
-    $('.single-post .main .post .repulo').css('min-height', $(window).height() - $('.main').offset().top );
-    $('.single-post .main .post .addcont').css('min-height', $(window).height() - $('.main').offset().top );
-    $('.slide-item img').css('min-height', $(window).height() - $('.main').offset().top );
+
+    
+    if ($(window).height() > 700) {
+      $('.single-post .main .post .repulo').css('min-height', $(window).height() - $('.main').offset().top );
+      $('.single-post .main .post .addcont').css('min-height', $(window).height() - $('.main').offset().top );
+      $('.slide-item img').css('max-height', $(window).height() - $('.main').offset().top );
+      $('.slide-item img').css('min-height', $(window).height() - $('.main').offset().top );
+    }
   }
   //$('.contact-row.open').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
   //$('.contact-row.open').css('min-height',($(window).height()-($('.banner').offset().top + $('.banner').height())));
