@@ -3935,5 +3935,9 @@ input[type="text"], input[type="email"], textarea {
       color: #49494A; }
       #lang_sel_list li a:hover, #lang_sel_list li a:focus, #lang_sel li a:hover, #lang_sel li a:focus {
         color: #2F2F2F; }
+    #lang_sel_list li:after, #lang_sel li:after {
+      content: " | "; }
+    #lang_sel_list li:last-child:after, #lang_sel li:last-child:after {
+      content: ""; }
 
 /*# sourceMappingURL=main.css.map */
