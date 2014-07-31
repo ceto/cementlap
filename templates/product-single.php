@@ -131,16 +131,16 @@
           <div class="stock-block">
             <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
             <div class="stock-status">
-              <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+              <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
                 <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
-              <?php elseif ( has_term('hamarosan-erkezik','product-stock') ): ?>
+              <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
                  <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
               <?php else: ?>
                 <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
               <?php endif; ?>
             </div>
             
-            <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+            <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
               <div class="stock-amount">
                 <i class="ion-ios7-cart"></i> Raktáron van:
                 <span>

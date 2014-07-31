@@ -40,13 +40,13 @@
     <div class="prod-desc">
       <h3 class="prod-title"><?php the_title(); ?></h3>
       <div class="prod-stock-status">
-        <?php if (has_term('raktarrol-azonnal','product-stock')) : ?>
+        <?php if ( has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') ) : ?>
           <i class="ion-ios7-cart"></i>
           <?php _e('Raktáron van:','root') ?>
           <span class="prod-amount">
             <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
           </span>
-        <?php elseif ( has_term('hamarosan-erkezik','product-stock'))  : ?>
+        <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
           <i class="ion-plane"></i>
           <?php _e('Érkezik:','root') ?>
           <span class="prod-ntd"><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span>
