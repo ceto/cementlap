@@ -133,15 +133,24 @@
   font-size: 0.875em;
   font-weight: 300;
   line-height: 1em;
+  //color:$gray-light;
+  i{
+    color:$gray-light;
+  }
 }
-.prod-amount, .prod-ntd,  {
+.prod-ntd  {
   font-size: 0.875em;
+  font-weight: 300;
+  //color:$gray-light;
+}
+.prod-amount  {
+  font-size: 1.125em;
   font-weight: 900;
-  color:$gray-light;
+  //color:$gray-light;
 }
 .prod-price {
   font-size: 0.875em;
-  font-weight: 900;
+  font-weight: 300;
   line-height: 1em;
 }
 .origprice {
@@ -228,10 +237,10 @@ article.product {
 }
 .product-title {
   border-top: 1px solid $gray;
-  //padding-top:14px;
+  padding:0.25em 0 0.125em;
   margin:0;
   font-size:3em;
-  line-height:1em;
+  line-height:0.75em;
   font-weight: 100;
   text-transform: uppercase;
   color:$gray;
@@ -310,7 +319,7 @@ article.product {
     font-weight: 300;
     span {
       font-weight:900;
-      color:$gray-light;
+      //color:$gray-light;
     }
   }
 
@@ -319,7 +328,7 @@ article.product {
     font-weight: 300;
     span {
       font-weight:900;
-      color:$gray-light;
+      //color:$gray-light;
     }
   }
 }

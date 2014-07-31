@@ -7,6 +7,13 @@ define('ICL_DONT_LOAD_NAVIGATION_CSS', TRUE);
 define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', TRUE);
 define('ICL_DONT_LOAD_LANGUAGES_JS', TRUE);
 
+
+// function icl_load_jquery_dialog() {
+//         wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery'), false, true );
+// }
+  
+// add_action( 'admin_enqueue_scripts', 'icl_load_jquery_dialog' );
+
 /**
  * Product Custom Post Type Definition
 */

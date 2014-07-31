@@ -3059,15 +3059,20 @@ a.menu-button:hover {
   font-size: 0.875em;
   font-weight: 300;
   line-height: 1em; }
+  .prod-stock-status i {
+    color: #9A9A9B; }
 
-.prod-amount, .prod-ntd {
+.prod-ntd {
   font-size: 0.875em;
-  font-weight: 900;
-  color: #9A9A9B; }
+  font-weight: 300; }
+
+.prod-amount {
+  font-size: 1.125em;
+  font-weight: 900; }
 
 .prod-price {
   font-size: 0.875em;
-  font-weight: 900;
+  font-weight: 300;
   line-height: 1em; }
 
 .origprice {
@@ -3148,9 +3153,10 @@ article.product {
 
 .product-title {
   border-top: 1px solid #49494A;
+  padding: 0.25em 0 0.125em;
   margin: 0;
   font-size: 3em;
-  line-height: 1em;
+  line-height: 0.75em;
   font-weight: 100;
   text-transform: uppercase;
   color: #49494A; }
@@ -3223,14 +3229,12 @@ article.product {
     font-size: 0.875em;
     font-weight: 300; }
     .stock-block .stock-amount span {
-      font-weight: 900;
-      color: #9A9A9B; }
+      font-weight: 900; }
   .stock-block .date-status {
     font-size: 0.875em;
     font-weight: 300; }
     .stock-block .date-status span {
-      font-weight: 900;
-      color: #9A9A9B; }
+      font-weight: 900; }
 
 .data-block {
   padding: 0.5em 0 0.5em 0;
@@ -3799,22 +3803,24 @@ article.product {
   -webkit-background-size: cover;
   background-size: cover;
   color: #fff;
-  font-weight: 100;
+  font-weight: 300;
   text-transform: uppercase;
   font-size: 1.5em;
   line-height: 1.25em; }
-  @media only screen and (min-width: 768px) {
-    .sidebar-topad .widget {
-      float: left;
-      max-width: 66.666%; }
-      .sidebar-topad .widget:last-child {
-        float: right;
-        max-width: 33.333%; } }
+  .sidebar-topad .widget {
+    text-shadow: 1px 1px 1px #000, 2px 2px 1px #2F2F2F, 3px 3px 3px #49494A; }
+    @media only screen and (min-width: 768px) {
+      .sidebar-topad .widget {
+        float: left;
+        max-width: 66.666%; }
+        .sidebar-topad .widget:last-child {
+          float: right;
+          max-width: 33.333%; } }
   .sidebar-topad h3 {
     font-size: 1.5em;
     line-height: 1.25em;
     margin: 0;
-    font-weight: 100; }
+    font-weight: 300; }
 
 .contact-row {
   background-color: #F6CE3A;

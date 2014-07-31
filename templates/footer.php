@@ -9,7 +9,7 @@
       <form action="http://marrakeshcementlap.us5.list-manage1.com/subscribe/post?u=f75f449c913cf58fb513b4418&amp;id=7fa0ff2925" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div class="mc-field-group">
         <label for="mce-EMAIL"><?php _e('Email cím','root') ?></label>
-        <input type="email" value="" placeholder="xy@example.com" name="EMAIL" class="required email" id="mce-EMAIL">
+        <input type="email" value="" placeholder="johndoe@example.com" name="EMAIL" class="required email" id="mce-EMAIL">
       </div>
         <div id="mce-responses" class="clear">
           <div class="response" id="mce-error-response" style="display:none"></div>
@@ -22,7 +22,7 @@
       </section>
   </div>
   <div class="footer-copy">
-    © 2014 Marrakesh Bt. | Site by <a href="http://hydrogene.hu">HYDROGENE</a>
+    © 2014 Marrakesh Bt. | Design & Site by <a href="http://hydrogene.hu">HYDROGENE</a>
   </div>
 </footer>
 <?php wp_footer(); ?>
