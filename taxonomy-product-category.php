@@ -174,7 +174,7 @@ Template Name: Product Category List
   
 
   
-</section>aaa
+</section>
 <div class="loader loading"><i class="ion-loading-a"></i></div>
 <div class="product-list loading">
   <?php while (have_posts()) : the_post(); ?>
