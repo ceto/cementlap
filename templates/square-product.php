@@ -1,4 +1,18 @@
 <?php
+  $copt=get_option('cementlap_option_name'); 
+  
+  $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
+  $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
+  $univaluta='Ft';
+
+  if (ICL_LANGUAGE_CODE!='hu') {
+    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
+    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
+    $univaluta='EUR';
+  }
+?>
+
+<?php
     $termik = array();
     $ures = array();
     $nagytermlist=array_merge(
@@ -43,8 +57,8 @@
       </div>
 
       <span class="prod-price">
-        <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
-        <span class="prod-unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+        <?php echo $uniprice; ?>
+        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
       </span>
     </div>
   </a><!-- /#product-## -->

@@ -53,26 +53,41 @@
     }
   }
 </style>
+
+<?php 
+  $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
+  $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
+  $univaluta='Ft';
+
+  if (ICL_LANGUAGE_CODE!='hu') {
+    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
+    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
+    $univaluta='EUR';
+  }
+?>
+
+
+
   <article <?php post_class($termes); ?> >
     <figure class="product-figure" style="background-image:url('<?php echo $imcismall['0']; ?>');">
       <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
     </figure>
     <div class="uszo">
         <header class="product-head">
-          <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i>Cementlapok</a>
+          <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i><?php _e('Cementlapok','root'); ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
               <div class="origprice">
-                Eredeti ár: 
-                <span class="szam"><?php echo number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' '); ?>
-                <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+                <?php _e('Eredeti ár','root'); ?>: 
+                <span class="szam"><?php echo $uniorigprice; ?>
+                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
                 </span>
               </div>
             <?php endif; ?>
 
-            <?php echo number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' '); ?>
-            <span class="unit">Ft/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+            <?php echo $uniprice; ?>
+            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -101,9 +116,12 @@
         </div>
         <div class="back">
            <div class="product-content">
-            <p>Egyszínű vagy bordűr lapokkal kombinálva izgalmas egyedi kombinációk is megvalósíthatóak.
-              Modern lakások vagy klasszikus polgári otthonok hidegburkolataként egyaránt remekül felhasználható.</p>
-            <p>Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.</p>
+            <p>
+              <?php _e('Egyszínű vagy bordűr lapokkal kombinálva izgalmas egyedi kombinációk is megvalósíthatóak. Modern lakások vagy klasszikus polgári otthonok hidegburkolataként egyaránt remekül felhasználható.','root'); ?>
+            </p>
+            <p>
+              <?php _e('Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.','root'); ?>
+            </p>
             <p>Vásárlás előtt feltétlenül tájékozódj a <a href="<?php echo get_permalink(1097); ?>">lerakásról</a> és a <a href="<?php echo get_permalink(2786); ?>">technikai paraméterekről.</a></p>
         </div>
         </div><!-- /.back -->
@@ -132,14 +150,15 @@
             <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
               <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span></div>
             <?php else: ?>
-              <div class="date-status"><i class="ion-clock"></i> Rendelés esetén érkezik: <span><?php echo $copt['ntd']; ?></span>  </div>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?php echo $copt['ntd']; ?></span>  </div>
             <?php endif; ?>
 
             <div class="product-more">
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                  Hogyan foglaljam/rendeljem meg
+                  <?php _e('Hogyan foglaljam/rendeljem meg','root'); ?>
                 </a>
                 <div id="morepanel" class="panel-collapse morepanel collapse">
+                  <?php _e('
                   <p><strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető.
                     Ha nem tudsz eljönni érte, érdemes lefoglalni.</p>
                   <p><strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk
@@ -149,6 +168,7 @@
                     idővel érdemes számolni, hívj fel minket és egyeztetünk.
                   </p>
                   <p><em>Minden rendelés és foglalás 30% előleg befizetésével érvényes!</em></p>
+                  ','root'); ?>
                 </div>
             </div>
 
@@ -157,7 +177,7 @@
           <div class="gombsor">
             <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
             <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
-            <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span>Felhasználás</span></a>
+            <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span><?php _e('Felhasználás','roots'); ?></span></a>
           </div>
           <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
         </footer>

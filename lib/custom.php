@@ -462,6 +462,14 @@ class CementlapSettingsPage
             array( $this, 'button_url_callback' ), // Callback
             'cementlap-setting-admin', // Page
             'setting_section_id' // Section           
+        );
+
+        add_settings_field(
+            'change', // ID
+            'Euro arfolyam', // Title 
+            array( $this, 'change_callback' ), // Callback
+            'cementlap-setting-admin', // Page
+            'setting_section_id' // Section           
         );       
 
    
@@ -487,6 +495,9 @@ class CementlapSettingsPage
 
         if( isset( $input['button_url'] ) )
             $new_input['button_url'] = sanitize_text_field( $input['button_url'] );
+
+        if( isset( $input['change'] ) )
+            $new_input['change'] = sanitize_text_field( $input['change'] );
 
         return $new_input;
     }
@@ -531,6 +542,14 @@ class CementlapSettingsPage
         printf(
             '<input type="text" id="button_url" name="cementlap_option_name[button_url]" value="%s" />',
             isset( $this->options['button_url'] ) ? esc_attr( $this->options['button_url']) : ''
+        );
+    }
+
+    public function change_callback()
+    {
+        printf(
+            '<input type="text" id="change" name="cementlap_option_name[change]" value="%s" />',
+            isset( $this->options['change'] ) ? esc_attr( $this->options['change']) : ''
         );
     }
 }
