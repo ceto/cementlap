@@ -54,8 +54,8 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="stock" class="filt-item filt-stock hide">
         <li id="filter-stockall">
-          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="<?php _e('Mutasd mindet','root'; ?>">
-          <label class="filt-item-label" for="stock-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></label>
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="<?php _e('Mutasd mindet','root'); ?>">
+          <label class="filt-item-label" for="stock-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -75,7 +75,7 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="stock" class="filt-item filt-stock hide">
         <li id="filter-stockall">
-          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="stock-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></a>
+          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="stock-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></a>
         </li>
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -93,7 +93,7 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="color" class="filt-item filt-color hide">
         <li id="filter-colorall">
-          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="color-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></a>
+          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="color-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></a>
         </li>
         <?php $filtlist=get_terms('product-color' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -112,8 +112,8 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="color" class="filt-item filt-color hide">
         <li id="filter-colorall">
-          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="color-all" value="<?php _e('Mutasd mindet','root'; ?>">
-          <label class="filt-item-label" for="color-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></label>
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="color-all" value="<?php _e('Mutasd mindet','root'); ?>">
+          <label class="filt-item-label" for="color-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php $filtlist=get_terms('product-color' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -132,8 +132,8 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="design" class="filt-item filt-design hide">
         <li id="filter-designall">
-          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="design-all" value="<?php _e('Mutasd mindet','root'; ?>">
-          <label class="filt-item-label" for="design-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></label>
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="design-all" value="<?php _e('Mutasd mindet','root'); ?>">
+          <label class="filt-item-label" for="design-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php $filtlist=get_terms('product-design' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -152,8 +152,8 @@ Template Name: Product Category List
       </div>
       <ul data-filter-group="minta" class="filt-item filt-minta hide">
         <li id="filter-stylerall">
-          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="style-all" value="<?php _e('Mutasd mindet','root'; ?>">
-          <label class="filt-item-label" for="style-all"><?php _e('Mutasd mindet','root'; ?> <i class="ion-checkmark"></i></label>
+          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="style-all" value="<?php _e('Mutasd mindet','root'); ?>">
+          <label class="filt-item-label" for="style-all"><?php _e('Mutasd mindet','root'); ?> <i class="ion-checkmark"></i></label>
         </li>
         <?php $filtlist=get_terms('product-style' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
@@ -174,7 +174,7 @@ Template Name: Product Category List
   
 
   
-</section>
+</section>aaa
 <div class="loader loading"><i class="ion-loading-a"></i></div>
 <div class="product-list loading">
   <?php while (have_posts()) : the_post(); ?>
