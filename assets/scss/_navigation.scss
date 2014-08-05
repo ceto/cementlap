@@ -46,6 +46,11 @@
   &:hover, &:focus {
     opacity: 0.85;
   }
+
+  html[lang="en-US"] & {
+    //background-image:url('../img/logo_en.png');
+    //width:362px;
+  }
 }
 
 .brandi{
