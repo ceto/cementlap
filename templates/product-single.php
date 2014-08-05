@@ -175,7 +175,7 @@
           </div><!-- /.stock-block -->
 
           <div class="gombsor">
-            <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span>Megosztom</span></a>
+            <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span><?php _e('Megosztom','root'); ?></span></a>
             <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
             <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span><?php _e('Felhasználás','roots'); ?></span></a>
           </div>

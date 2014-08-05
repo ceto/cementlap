@@ -91,7 +91,7 @@
 
 
 
-<?php if (is_page(941)): ?>
+<?php if (is_page(941) || is_page(3186)): ?>
 
     <script type="text/javascript">
 
@@ -116,9 +116,9 @@
         };
         var map = new google.maps.Map(document.getElementById('map_canvas'),  myOptions);
         
-        var image = new google.maps.MarkerImage('../../wp-content/themes/cementlap/assets/img/map_zaszlo.png',
+        var image = new google.maps.MarkerImage('<?php echo get_stylesheet_directory_uri(); ?>/assets/img/map_zaszlo.png',
         new google.maps.Size(69, 73), new google.maps.Point(0,0), new google.maps.Point(1, 73));
-        var shadow = new google.maps.MarkerImage('../../wp-content/themes/cementlap/assets/img/map_zaszlo_shadow.png',
+        var shadow = new google.maps.MarkerImage('<?php echo get_stylesheet_directory_uri(); ?>/assets/img/map_zaszlo_shadow.png',
         new google.maps.Size(95, 49), new google.maps.Point(0,0), new google.maps.Point(1, 49));
         
         var marker = new google.maps.Marker({

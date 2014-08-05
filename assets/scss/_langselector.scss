@@ -1,12 +1,20 @@
 #lang_sel_list, #lang_sel {
   position: absolute;
-  left:363px;
-  top:33px;
+  // left:363px;
+  // top:30px;
+  right:1.5em;
+  top:0;
+
   font-size: 0.875em;
   line-height: 1;
   text-transform: uppercase;
+  background-color: $orange;
+  //background-image: linear-gradient(to right, $orange 0, $orange 50%, $gray-dark 50%);
+  color:$white;
+  padding:2px 4px;
   @include breakpoint($s3){
-    left:380px;
+    //left:380px;
+    right:2.5em;
   }
   ul {
     margin:0;
@@ -18,9 +26,9 @@
     list-style-type: none;
     display: inline-block;
     a{
-      color:$gray;
+      color:$white;
       &:hover,&:focus {
-        color:$gray-dark;
+        color:$gray-superlight;
       }
 
     }

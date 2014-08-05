@@ -5,7 +5,7 @@
     <span class="hero-text">
         <?php bloginfo('description' ); ?>
     </span>
-    <a href="?product-category=cementlap" class="btn btn-light-line">Lapok megtekintése</a>
+    <a href="?product-category=cementlap" class="btn btn-light-line"><?php _e('Lapok megtekintése','root'); ?></a>
   </div>
 </section>
 <?php elseif ( ( is_singular('post') &&  (get_post_format( $post->ID ) != 'gallery') )   ) :?>

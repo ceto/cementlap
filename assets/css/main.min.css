@@ -4021,14 +4021,17 @@ input[type="text"], input[type="email"], textarea {
 
 #lang_sel_list, #lang_sel {
   position: absolute;
-  left: 363px;
-  top: 33px;
+  right: 1.5em;
+  top: 0;
   font-size: 0.875em;
   line-height: 1;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  background-color: #FF9900;
+  color: #FEFEFF;
+  padding: 2px 4px; }
   @media only screen and (min-width: 1024px) {
     #lang_sel_list, #lang_sel {
-      left: 380px; } }
+      right: 2.5em; } }
   #lang_sel_list ul, #lang_sel ul {
     margin: 0;
     padding: 0; }
@@ -4038,9 +4041,9 @@ input[type="text"], input[type="email"], textarea {
     list-style-type: none;
     display: inline-block; }
     #lang_sel_list li a, #lang_sel li a {
-      color: #49494A; }
+      color: #FEFEFF; }
       #lang_sel_list li a:hover, #lang_sel_list li a:focus, #lang_sel li a:hover, #lang_sel li a:focus {
-        color: #2F2F2F; }
+        color: #efefef; }
     #lang_sel_list li:after, #lang_sel li:after {
       content: " | "; }
     #lang_sel_list li:last-child:after, #lang_sel li:last-child:after {

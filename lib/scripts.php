@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '0bafdaba86f83eaf50cfde9f530a0f25');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'cfee4ecb6e928a3486a1547ff92ee825');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -26,7 +26,7 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  if (is_page(941) ) {
+  if (is_page(941) || is_page(3186) ) {
      wp_register_script('gmap_v3', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', false, 'null', false);
      wp_enqueue_script('gmap_v3');
   }

@@ -25,7 +25,7 @@ Template Name: Product Category List
     <ul>
       <li class="<?php echo ($parent_term->term_id==$aktermterm_id)?'active':''; ?>">
         <a href="<?php echo get_term_link( $parent_term, 'product-category' ); ?>">
-          Mind
+          <?php _e('Mind','root') ?>
         </a>
       </li>
       <?php foreach ( $child_terms as $child ) { ?>
