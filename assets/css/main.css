@@ -2757,6 +2757,7 @@ a.menu-button:hover {
         font-size: 8em; }
 
 .content-info {
+  position: relative;
   clear: both;
   background-color: #2F2F2F; }
   .content-info:before, .content-info:after {
@@ -2768,6 +2769,22 @@ a.menu-button:hover {
     color: #9A9A9B; }
     .content-info a:hover, .content-info a:focus {
       color: #FEFEFF; }
+  .content-info a.tothetop {
+    position: absolute;
+    right: 0.5em;
+    bottom: 1em;
+    display: block;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: #2F2F2F;
+    color: #FEFEFF;
+    font-size: 2em;
+    line-height: 1.4em;
+    text-align: center;
+    border: 1px solid #49494A; }
+    .content-info a.tothetop:hover, .content-info a.tothetop:focus {
+      color: #FF9900;
+      border-color: #9A9A9B; }
 
 .footer-sidebar {
   max-width: 1600px;
@@ -2785,6 +2802,8 @@ a.menu-button:hover {
   @media only screen and (min-width: 1024px) {
     .footer-sidebar {
       padding: 2em 0; } }
+  .footer-sidebar .widget-mc label {
+    display: none; }
   .footer-sidebar .widget {
     padding: 1em 1em; }
     .footer-sidebar .widget:before, .footer-sidebar .widget:after {

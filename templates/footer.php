@@ -19,10 +19,12 @@
         <div class="clear"><input type="submit" value="<?php _e('Feliratkozás','root'); ?>" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
       </form>
         </div>
+
       </section>
   </div>
   <div class="footer-copy">
     © 2014 Marrakesh Bt. | Design & Site by <a href="http://hydrogene.hu">HYDROGENE</a>
   </div>
+  <a href="#" class="tothetop"><i class="ion-ios7-arrow-thin-up"></i></a>
 </footer>
 <?php wp_footer(); ?>
