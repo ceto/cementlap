@@ -31,7 +31,7 @@
   @include text-hide();
   display:block;
   //background-color: gray;
-  width:341px;
+  width:342px;
   max-width: calc(100% - 75px);
   height:34px;
   background-image:url('../img/logo.png');
@@ -48,8 +48,8 @@
   }
 
   html[lang="en-US"] & {
-    //background-image:url('../img/logo_en.png');
-    //width:362px;
+    background-image:url('../img/logo_en.png');
+    width:352px;
   }
 }
 
@@ -68,6 +68,10 @@
   //margin-top:8px;
   //margin-left:30%;
   //margin-right: 1em;
+  html[lang="en-US"] & {
+    background-image:url('../img/logo_en.png');
+    width:264px;
+  }
 
   &:hover, &:focus {
     opacity: 0.85;

@@ -2396,7 +2396,7 @@ blockquote {
   background-color: transparent;
   border: 0;
   display: block;
-  width: 341px;
+  width: 342px;
   max-width: calc(100% - 75px);
   height: 34px;
   background-image: url('../img/logo.png');
@@ -2409,6 +2409,9 @@ blockquote {
       display: block; } }
   .brand:hover, .brand:focus {
     opacity: 0.85; }
+  html[lang="en-US"] .brand {
+    background-image: url('../img/logo_en.png');
+    width: 352px; }
 
 .brandi {
   font: 0/0 a;
@@ -2425,6 +2428,9 @@ blockquote {
   background-repeat: no-repeat;
   background-position: right 9px;
   background-size: auto 25px; }
+  html[lang="en-US"] .brandi {
+    background-image: url('../img/logo_en.png');
+    width: 264px; }
   .brandi:hover, .brandi:focus {
     opacity: 0.85; }
 
