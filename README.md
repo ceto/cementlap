@@ -1,10 +1,8 @@
 # [Marrakesh Cementlap - Wordpress Theme](http:/marrakeshcementlap.hu/)
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-
 Marrakesh Cementlap is Unique WordPress theme made for [Marrakesh Cementlap](http://marrakeshcementlap.hu) by [HYDROGENEDESIGN](http://hydrogene.hu/)
 
-[Built with Grunt](http://gruntjs.com/)
+Built with [Grunt](http://gruntjs.com/)
 
 ## Links
 
