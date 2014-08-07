@@ -23,14 +23,19 @@
 ?>
   <?php
     $termik = array();
+    
     $termlist=get_the_terms( $post->ID, 'product-category' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    
     $termlist=get_the_terms( $post->ID, 'product-color' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    
     $termlist=get_the_terms( $post->ID, 'product-design' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    
     $termlist=get_the_terms( $post->ID, 'product-stock' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    
     $termes = join(" ", $termik );
   ?>
 <style type="text/css">
