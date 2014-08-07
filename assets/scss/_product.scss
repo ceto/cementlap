@@ -208,13 +208,14 @@ article.product {
     position: absolute;
     box-shadow: 0 0 5px 0 $gray-dark;
     margin: 1em 7%;
-    width: 360px;
+    width: 380px;
     top:46.5%;
     z-index:1;
     transform:translateY(-50%);
     min-height: 80%;
   }
-  @include breakpoint($s3){
+  @include breakpoint($s4){
+    width: 400px;
     
   }
 }
@@ -381,7 +382,30 @@ article.product {
       display: none;
     }
   }
+
+
+
   .morepanel{
+    position: relative;
+
+    .show-less{
+      position: absolute;
+      top:-3.75em;
+      right:0;
+      font-size: 2em;
+      color:$gray-dark;
+      display: none;
+      &:hover, &:focus {
+        text-decoration: none;
+        color:$orange;
+      }
+    }
+
+    &.in{
+      .show-less{
+        display: inline-block;
+      }
+    }
    
   }
 }

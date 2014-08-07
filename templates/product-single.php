@@ -63,11 +63,13 @@
   $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
   $univaluta='Ft';
+  $uniunit=get_post_meta($post->ID, '_meta_unit', true);
 
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
     $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
     $univaluta='EUR';
+    $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
   }
 ?>
 
@@ -79,20 +81,20 @@
     </figure>
     <div class="uszo">
         <header class="product-head">
-          <a class="product-back" href="../../product-category/cementlap/"><i class="ion-ios7-undo"></i><?php _e('Cementlapok','root'); ?></a>
+          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', icl_object_id(5,'product-category',true),'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php _e('Cementlapok','root'); ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
               <div class="origprice">
                 <?php _e('Eredeti ár','root'); ?>: 
                 <span class="szam"><?php echo $uniorigprice; ?>
-                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                 </span>
               </div>
             <?php endif; ?>
 
             <?php echo $uniprice; ?>
-            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -127,7 +129,9 @@
             <p>
               <?php _e('Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.','root'); ?>
             </p>
-            <p>Vásárlás előtt feltétlenül tájékozódj a <a href="<?php echo get_permalink(1097); ?>">lerakásról</a> és a <a href="<?php echo get_permalink(2786); ?>">technikai paraméterekről.</a></p>
+            <p>
+              <?php _e('Vásárlás előtt feltétlenül tájékozódj a <a href="http://marrakeshcementlap.hu/cementlapok-lerakasa/">lerakásról</a> és a <a href="http://marrakeshcementlap.hu/vasarlasi-informaciok/technikai-parameterek/">technikai paraméterekről.</a>','root'); ?>
+            </p>
         </div>
         </div><!-- /.back -->
         </div>
@@ -147,9 +151,9 @@
             
             <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
               <div class="stock-amount">
-                <i class="ion-ios7-cart"></i> Raktáron van:
+                <i class="ion-ios7-cart"></i> <?php _e('Raktáron van','root') ?>:
                 <span>
-                  <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+                  <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                 </span>
               </div>
             <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
@@ -163,18 +167,15 @@
                   <?php _e('Hogyan foglaljam/rendeljem meg','root'); ?>
                 </a>
                 <div id="morepanel" class="panel-collapse morepanel collapse">
-                  <?php _e('
-                  <p><strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető.
-                    Ha nem tudsz eljönni érte, érdemes lefoglalni.</p>
-                  <p><strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk
-                   és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. 
-                   A érkező mennyiséggel kapcsolatban hívj fel bennünket.</p>
-                  <p><strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási
-                    idővel érdemes számolni, hívj fel minket és egyeztetünk.
-                  </p>
-                  <p><em>Minden rendelés és foglalás 30% előleg befizetésével érvényes!</em></p>
-                  ','root'); ?>
+                  <p><?php _e('<strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető. Ha nem tudsz eljönni érte, érdemes lefoglalni.','root'); ?></p>
+                  <p><?php _e('<strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. A érkező mennyiséggel kapcsolatban hívj fel bennünket. ','root'); ?></p>
+                  <p><?php _e('<strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási idővel érdemes számolni, hívj fel minket és egyeztetünk. ','root'); ?></p>
+                  <p><em><?php _e('Minden rendelés és foglalás 30% előleg befizetésével érvényes! ','root'); ?></em></p>
+                  <a class="show-less" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
+                    <i class="ion-ios7-close-empty"></i>
+                  </a>
                 </div>
+
             </div>
 
           </div><!-- /.stock-block -->

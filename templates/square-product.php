@@ -4,11 +4,13 @@
   $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
   $univaluta='Ft';
+  $uniunit=get_post_meta($post->ID, '_meta_unit', true);
 
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
     $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
     $univaluta='EUR';
+    $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
   }
 ?>
 
@@ -42,9 +44,9 @@
       <div class="prod-stock-status">
         <?php if ( has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') ) : ?>
           <i class="ion-ios7-cart"></i>
-          <?php _e('Raktáron van:','root') ?>
+          <?php _e('Raktáron van','root') ?>:
           <span class="prod-amount">
-            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
           </span>
         <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
           <i class="ion-plane"></i>
@@ -58,7 +60,7 @@
 
       <span class="prod-price">
         <?php echo $uniprice; ?>
-        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':get_post_meta($post->ID, '_meta_unit', true); ?></span>
+        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
       </span>
     </div>
   </a><!-- /#product-## -->
