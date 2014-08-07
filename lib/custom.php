@@ -581,7 +581,7 @@ function cement_DequeueYarppStyle()
   wp_dequeue_style('yarppRelatedCss');
   wp_deregister_style('yarppRelatedCss');
 }
-add_action('wp_footer', cement_DequeueYarppStyle);
+add_action('wp_footer', 'cement_DequeueYarppStyle');
 
 # WPSS Styles Remove
 function cement_remove_wpss_styles() {
@@ -601,3 +601,22 @@ function cement_remove_scripts () {
   }
 }
 add_action('wp_print_scripts', 'cement_remove_scripts', 11);
+
+
+
+
+
+
+/******** WPML Helper Functions ********/
+function lang_object_ids($ids_array, $type) {
+ if(function_exists('icl_object_id')) {
+  $res = array();
+  foreach ($ids_array as $id) {
+   $xlat = icl_object_id($id,$type,false);
+   if(!is_null($xlat)) $res[] = $xlat;
+  }
+  return $res;
+ } else {
+  return $ids_array;
+ }
+}

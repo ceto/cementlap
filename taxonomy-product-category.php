@@ -5,17 +5,16 @@ Template Name: Product Category List
 ?>
 
 <?php
-  //global $query_string;
-  //query_posts( $query_string . '&orderby=date&order=ASC&posts_per_page=-1' );
   $aktermterm_id = term_exists( get_query_var( 'term' ) );
   $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
-  //$ima = get_tax_meta( $term_id ,'_meta_image');
-  //$imci = wp_get_attachment_image_src( $ima[id], 'banner169');
-  //$actual_term = get_term( $term_id, 'object' );
   $parent_term = ($term->parent==0)?$term:get_term($term->parent, get_query_var('taxonomy') );
-  $child_terms = get_term_children( $parent_term->term_id, 'product-category' );
-  //$term_children = get_term_children( $parent_term->term_id, 'object' );
+  
+  //$child_terms = get_term_children( $parent_term->term_id, 'product-category' );
+  
+  $child_terms = get_terms( 'product-category', array( 'child_of' => $parent_term->term_id ) );
   $copt=get_option('cementlap_option_name');
+
+  //print_r( get_terms( 'product-category', array( 'child_of' => $parent_term->term_id ) ) );
 ?>
 
 
@@ -31,7 +30,7 @@ Template Name: Product Category List
       <?php foreach ( $child_terms as $child ) { ?>
         <?php if (!in_array($child, array('9')  ) ): ?>
         <li class="<?php echo ($child==$aktermterm_id)?'active':''; ?>">
-          <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">
+          <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">          
             <?php
               $teri = get_term($child, 'product-category' );
               echo $teri->name;
