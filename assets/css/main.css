@@ -2190,6 +2190,7 @@ img.mfp-img {
 html, body {
   font: normal 16px/24px 'Alegreya Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   color: #2F2F2F;
   background-color: #FEFEFF;
   height: 100%; }

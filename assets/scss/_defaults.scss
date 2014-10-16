@@ -21,6 +21,7 @@
 html, body {
   font: normal 16px/24px $sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   color: $gray-dark;
   background-color: $white;
   height: 100%;

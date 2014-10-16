@@ -121,19 +121,12 @@ jQuery(document).ready(function($) {
 
 
   /************* Slide Gallery Controls ***********/
-  $('.repulotoggle').click(function(e){
-    $(this).toggleClass('hidden');
-    $('.repulo').toggleClass('hide');
-    $('.addcont').toggleClass('full');
-    return false;
-  });
+
   
-  var $aktslide=0;
-  $('.slide-item').eq($aktslide).toggleClass('active');
-  var $margit=0;
-  
-  $('.slidecontroll .prev').click(function(e){
-   
+
+  function prevclick(){
+    $('.slidecontroll .prev').off('click', prevclick);
+
     if ($aktslide > 0) {
       $('.slidegallery ul').css({marginLeft: function(index, value) {
         $margit=parseFloat(value) + $('.slide-item').eq($aktslide-1).width();
@@ -146,10 +139,16 @@ jQuery(document).ready(function($) {
       $aktslide--;
       $('.slide-item').eq($aktslide).toggleClass('active');
     }
+    setTimeout(function(){
+      $('.slidecontroll .prev').on('click',prevclick);
+    },400);
     return false;
-  });
+  }
 
-  $('.slidecontroll .next').click(function(e){
+  function nextclick(){
+    
+    $('.slidecontroll .next').off('click', nextclick);
+    
     if ($aktslide < ($('.slide-item').length -1) ) {
       $('.slidegallery ul').css({marginLeft: function(index, value) {
         $margit=parseFloat(value) - $('.slide-item').eq($aktslide).width();
@@ -162,6 +161,36 @@ jQuery(document).ready(function($) {
       $aktslide++;
       $('.slide-item').eq($aktslide).toggleClass('active');
     }
+    setTimeout(function(){
+      $('.slidecontroll .next').on('click',nextclick);
+    },400);
+    return false;
+  }
+
+
+
+
+
+  var $aktslide=0;
+  $('.slide-item').eq($aktslide).toggleClass('active');
+  var $margit=0;
+  
+  $('.slidecontroll .prev').on('click',prevclick);
+  $('.slidecontroll .next').on('click',nextclick);
+
+
+  $('.repulotoggle').click(function(e){
+    $(this).toggleClass('hidden');
+    $('.repulo').toggleClass('hide');
+    $('.addcont').toggleClass('full');
+    
+    $('.slidegallery ul').css({marginLeft: '0'});
+    $('.slidegallery ul').css({marginRight: '0'});
+    $('.slide-item').eq($aktslide).removeClass('active');
+    $aktslide=0;
+    $('.slide-item').eq($aktslide).addClass('active');
+    $margit=0;
+      
     return false;
   });
 
