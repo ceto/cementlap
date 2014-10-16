@@ -141,7 +141,7 @@ jQuery(document).ready(function($) {
     }
     setTimeout(function(){
       $('.slidecontroll .prev').on('click',prevclick);
-    },400);
+    },750);
     return false;
   }
 
@@ -163,7 +163,7 @@ jQuery(document).ready(function($) {
     }
     setTimeout(function(){
       $('.slidecontroll .next').on('click',nextclick);
-    },400);
+    },750);
     return false;
   }
 
