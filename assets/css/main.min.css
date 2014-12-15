@@ -2403,7 +2403,6 @@ blockquote {
 
 .banner {
   position: relative;
-  overflow: hidden;
   padding: 0;
   min-height: 100%;
   background-color: #2F2F2F; }
@@ -2493,17 +2492,55 @@ blockquote {
   @media only screen and (min-width: 768px) {
     .nav-main .nav {
       margin: 0 0; } }
-  .nav-main .nav li {
+  .nav-main .nav > li {
     padding: 0 0;
-    margin: 0 0; }
+    margin: 0 0;
+    list-style-type: none; }
     @media only screen and (min-width: 768px) {
-      .nav-main .nav li {
+      .nav-main .nav > li {
         display: inline-block;
         padding: 0 0.25em; }
-        .nav-main .nav li:first-child {
+        .nav-main .nav > li:first-child {
           padding-left: 0; }
-        .nav-main .nav li:last-child {
+        .nav-main .nav > li:last-child {
           padding-right: 0; } }
+    @media only screen and (min-width: 768px) {
+      .nav-main .nav > li.dropdown:hover ul {
+        height: auto;
+        padding: 20px 0;
+        opacity: 1; } }
+    .nav-main .nav > li ul {
+      margin: 0;
+      padding: 0 0 12px;
+      font-size: 0.75em;
+      line-height: 1;
+      -webkit-transition: opacity 0.4s ease;
+      transition: opacity 0.4s ease; }
+      @media only screen and (min-width: 768px) {
+        .nav-main .nav > li ul {
+          opacity: 0;
+          overflow: hidden;
+          height: 0;
+          padding: 0 0;
+          margin: 0 -20px;
+          background-color: rgba(255, 255, 255, 0.95);
+          position: absolute;
+          z-index: 1; } }
+      .nav-main .nav > li ul li {
+        display: block;
+        list-style-type: none;
+        padding: 0 0;
+        margin: 0; }
+        .nav-main .nav > li ul li a {
+          padding: 10px 20px 10px 32px;
+          text-transform: none; }
+          @media only screen and (min-width: 768px) {
+            .nav-main .nav > li ul li a {
+              padding: 6px 20px;
+              min-width: 12em;
+              color: #49494A !important; }
+              .nav-main .nav > li ul li a:hover, .nav-main .nav > li ul li a:focus {
+                color: #0066FF !important; } }
   .nav-main .nav a {
     color: #FEFEFF;
     display: block;
@@ -2566,6 +2603,37 @@ blockquote {
   @media only screen and (min-width: 1024px) {
     .nav3 {
       right: 2.25em; } }
+
+.headcontact {
+  padding: 2em 0;
+  text-align: center; }
+  .headcontact ul {
+    margin: 0;
+    padding: 0 0; }
+    .headcontact ul li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      font-size: 1em;
+      line-height: 1.333; }
+    .headcontact ul a {
+      color: #9A9A9B; }
+      .headcontact ul a .ion {
+        display: none; }
+      .headcontact ul a:hover, .headcontact ul a:focus {
+        text-decoration: none;
+        color: #0066FF; }
+  @media only screen and (min-width: 768px) {
+    .headcontact {
+      padding: 0 0;
+      text-align: right;
+      display: block;
+      position: absolute;
+      right: 1em;
+      top: 1.333em; } }
+  @media only screen and (min-width: 1024px) {
+    .headcontact {
+      right: 1.75em; } }
 
 /* Off Canvas Navigation */
 .off-canvas-navigation {
@@ -2641,7 +2709,8 @@ a.menu-button:hover {
   text-transform: uppercase;
   font-weight: 300;
   font-family: 'Alegreya Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 1em; }
+  padding: 1em;
+  overflow: hidden; }
   .nav-sub:before, .nav-sub:after {
     content: " ";
     display: table; }
@@ -2676,6 +2745,7 @@ a.menu-button:hover {
   .nav-sub .nav li {
     margin: 0; }
   .nav-sub .nav a {
+    position: relative;
     color: #49494A;
     display: inline-block;
     padding: 0.25em 0;
@@ -2684,8 +2754,26 @@ a.menu-button:hover {
     .nav-sub .nav a:hover, .nav-sub .nav a:focus {
       color: #9A9A9B;
       text-decoration: none; }
+      .nav-sub .nav a:hover:before, .nav-sub .nav a:focus:before {
+        content: '';
+        position: absolute;
+        display: block;
+        left: -1.5em;
+        top: 0.333em;
+        width: 0.875em;
+        height: 0.875em;
+        background-color: #FF9900; }
   .nav-sub .nav .active a {
     color: #0066FF; }
+    .nav-sub .nav .active a:before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: -1.5em;
+      top: 0.333em;
+      width: 0.875em;
+      height: 0.875em;
+      background-color: #0066FF; }
 
 .post-nav {
   clear: both;

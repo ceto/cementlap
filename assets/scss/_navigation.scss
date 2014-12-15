@@ -1,7 +1,7 @@
 .banner {
   @include clearfix();
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
 
 
   padding:0;
@@ -103,9 +103,10 @@
   }
 
 
-  li{
+  > li{
     padding:0 0;
     margin:0 0;
+    list-style-type: none;
     @include breakpoint($s2) {
       display:inline-block;
       padding:0 0.25em;
@@ -116,8 +117,60 @@
         padding-right:0;
       }
     }
+    &.dropdown {
+      &:hover {
+        ul {
+          @include breakpoint($s2) {
+            height:auto;
+            padding: 20px 0;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    ul {
+      margin:0;
+      padding:0 0 12px;
+
+      
+
+      font-size: 0.75em;
+      line-height: 1;
+      transition:opacity .4s ease;
+      @include breakpoint($s2) {
+        opacity: 0;
+        overflow: hidden;
+        height:0;
+        padding:0 0;
+        margin:0 -20px;
+        background-color: rgba(white,0.95);
+        position: absolute;
+        z-index:1;
+      }
+
+      li {
+        display: block;
+        list-style-type: none;
+        padding:0 0;
+        margin:0;
+        a {
+          padding:10px 20px 10px 32px;
+          text-transform: none;
+          
+          @include breakpoint($s2) {
+            padding:6px 20px;
+            min-width: 12em;
+            color:$gray !important;
+            &:hover, &:focus {
+              color:$blue !important;
+            }
+          }
+        }
+      }
+    }
     
   }
+
 
   a {
     color:$white;
@@ -198,6 +251,45 @@
   }
 }
 
+.headcontact {
+  padding:2em 0;
+  text-align: center;
+  ul {
+    margin:0;
+    padding: 0 0;
+    
+    li {
+      list-style-type: none;
+      margin:0;
+      padding:0;
+      font-size: 1em;
+      line-height: 1.333;
+    }
+    a {
+      color:$gray-light;
+      .ion {
+        //color:$orange;
+        display: none;
+      } 
+      &:hover, &:focus {
+        text-decoration: none;
+        color:$blue;
+      }
+      
+    }
+  }
+  @include breakpoint($s2) {
+    padding:0 0;
+    text-align: right;
+    display:block;
+    position:absolute;
+    right:1em;
+    top:1.333em;
+  }
+  @include breakpoint($s3) {
+    right:1.75em;
+  }
+}
 
 
 
@@ -294,6 +386,7 @@ a.menu-button:hover {
   font-weight: 300;
   font-family: $sans-serif;
   padding:1em;
+    overflow: hidden;
   @include breakpoint($s2){
     float:left;
     width:270px;
@@ -330,11 +423,13 @@ a.menu-button:hover {
   list-style:none;
 
 
+
   li{
     margin:0;
   }
 
   a {
+    position: relative;
     color:$gray;
     display: inline-block;
     padding:0.25em 0;
@@ -343,10 +438,34 @@ a.menu-button:hover {
     &:hover, &:focus {
       color:$gray-light;
       text-decoration: none;
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        left:-1.5em;
+        top:0.333em;
+        width:0.875em;
+        height:0.875em;
+        background-color: $orange;
+      }
+
     }
+
+
   }
   .active a {
     color:$blue;
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      left:-1.5em;
+      top:0.333em;
+      width:0.875em;
+      height:0.875em;
+      background-color: $blue;
+
+    }
   }
 }
 
