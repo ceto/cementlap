@@ -2488,7 +2488,8 @@ blockquote {
           margin: 0 -20px;
           background-color: rgba(255, 255, 255, 0.95);
           position: absolute;
-          z-index: 1; } }
+          z-index: 4;
+          box-shadow: 0 1px 2px -1px #9A9A9B; } }
       .nav-main .nav > li ul li {
         display: block;
         list-style-type: none;
@@ -2569,7 +2570,8 @@ blockquote {
 
 .headcontact {
   padding: 2em 0;
-  text-align: center; }
+  text-align: center;
+  text-transform: none; }
   .headcontact ul {
     margin: 0;
     padding: 0 0; }
@@ -3146,13 +3148,16 @@ article.product {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  position: relative;
-  min-height: 800px; }
+  position: relative; }
   article.product:before, article.product:after {
     content: " ";
     display: table; }
   article.product:after {
     clear: both; }
+  @media only screen and (min-width: 768px) {
+    article.product {
+      min-height: calc(100vh - 90px);
+      max-height: 1000px; } }
 
 .product-figure {
   height: 240px;
@@ -3179,14 +3184,11 @@ article.product {
     clear: both; }
   @media only screen and (min-width: 768px) {
     .uszo {
-      position: absolute;
       box-shadow: 0 0 5px 0 #2F2F2F;
-      margin: 1em 7%;
+      margin: 6em 7% 6em;
       width: 380px;
-      top: 46.5%;
       z-index: 1;
-      transform: translateY(-50%);
-      min-height: 80%; } }
+      min-height: 610px; } }
   @media only screen and (min-width: 1280px) {
     .uszo {
       width: 400px; } }
@@ -3242,9 +3244,11 @@ article.product {
       max-width: 66.666%; } }
 
 .product-footer {
+  position: relative;
   bottom: 0;
   left: 0;
-  right: 0; }
+  right: 0;
+  z-index: 3; }
   .product-footer:before, .product-footer:after {
     content: " ";
     display: table; }
@@ -3331,11 +3335,16 @@ article.product {
     position: relative; }
     .product-more .morepanel .show-less {
       position: absolute;
-      top: -3.75em;
-      right: 0;
+      bottom: -25px;
+      right: 46%;
       font-size: 2em;
-      color: #2F2F2F;
-      display: none; }
+      line-height: 1;
+      color: #FEFEFF;
+      display: none;
+      background-color: #49494A;
+      width: 1em;
+      height: 1em;
+      text-align: center; }
       .product-more .morepanel .show-less:hover, .product-more .morepanel .show-less:focus {
         text-decoration: none;
         color: #FF9900; }

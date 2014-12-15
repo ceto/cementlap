@@ -176,7 +176,10 @@ article.product {
   background-position: center center;
   background-size: cover;
   position: relative;
-  min-height: 800px;
+  @include breakpoint($s2){
+    min-height: calc(100vh - 90px);
+    max-height: 1000px;
+  }
   
 }
 .product-figure {
@@ -205,14 +208,14 @@ article.product {
   padding:1.5em 1em;
   position:relative;
   @include breakpoint($s2){
-    position: absolute;
+    //position: absolute;
     box-shadow: 0 0 5px 0 $gray-dark;
-    margin: 1em 7%;
+    margin: 6em 7% 6em;
     width: 380px;
-    top:46.5%;
     z-index:1;
-    transform:translateY(-50%);
-    min-height: 80%;
+    //top:50%;
+    //transform:translateY(-50%);
+    min-height: 610px;
   }
   @include breakpoint($s4){
     width: 400px;
@@ -277,13 +280,15 @@ article.product {
 
 .product-footer{
   @include clearfix();
-  //position:absolute;
+  position:relative;
   bottom:0;
   left:0;right:0;
+  z-index: 3;
 
   @include breakpoint($s2){
       padding:1em;
       position:absolute;
+     //z-index: 1;
   }
 }
 
@@ -390,11 +395,16 @@ article.product {
 
     .show-less{
       position: absolute;
-      top:-3.75em;
-      right:0;
+      bottom:-25px;
+      right:46%;
       font-size: 2em;
-      color:$gray-dark;
+      line-height: 1;
+      color:$white;
       display: none;
+      background-color: $gray;
+      width:1em;
+      height:1em;
+      text-align: center;
       &:hover, &:focus {
         text-decoration: none;
         color:$orange;
@@ -462,6 +472,7 @@ article.product {
   transform-style: preserve-3d;
 
   position: relative;
+
   min-height: 280px;
 }
 

@@ -59,11 +59,11 @@ var resizeHero = function() {
   } else {
     //$('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
 
-    if ( ($(window).height() - $('.main').offset().top) > $('.uszo').height() ) {
-      $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
-    } else {
-      $('.single-product .main .product').css('min-height', $('.uszo').height()*1.25 );
-    }
+    // if ( ($(window).height() - $('.main').offset().top) > $('.uszo').height() ) {
+    //   $('.single-product .main .product').css('min-height', $(window).height() - $('.main').offset().top );
+    // } else {
+    //   $('.single-product .main .product').css('min-height', $('.uszo').height()*1.25 );
+    // }
     
     $('.single-post .main .post').css('min-height', $(window).height() - $('.main').offset().top );
 
