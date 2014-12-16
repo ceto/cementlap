@@ -1,13 +1,50 @@
 
 <?php if (is_page_template('tmpl-home.php')): ?>
-<section class="hero" role="banner">
+<!-- <section class="hero" role="banner">
   <div class="hero-content">
     <span class="hero-text">
         <?php bloginfo('description' ); ?>
     </span>
     <a href="?product-category=cementlap" class="btn btn-light-line"><?php _e('Lapok megtekintése','root'); ?></a>
   </div>
-</section>
+</section> -->
+
+  <?php 
+    $sl_args = array(
+      'post_type'   => array('slide'),
+      'ignore_sticky_posts' => true,
+      'posts_per_page'         => -1,
+      'orderby' => 'menu_order',
+      'order' => 'ASC'
+    );
+    $the_slides = new WP_Query( $sl_args );
+  ?>
+  <section id="home--bilderblock" class="home--bilderblock is_light">
+    <div class="wrapper wrapper-fullwidth">
+        <div class="master-slider ms-skin-default" id="masterslider">
+          <?php while ( $the_slides->have_posts() ) : $the_slides->the_post(); ?>
+            <?php 
+              if (has_post_thumbnail() ) {
+                $image_id = get_post_thumbnail_id();
+                $thumb_url_array = wp_get_attachment_image_src($image_id, 'slidethumb21', true);
+                $image_url_array = wp_get_attachment_image_src($image_id, 'slide21', true);
+                $thumb_url = $thumb_url_array[0];
+                $image_url = $image_url_array[0];
+            ?>
+            <div class="ms-slide">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/vendor/masterslider/blank.gif" data-src="<?php echo $image_url; ?>" alt="<?php the_title(); ?>"/>
+                <img src="<?php echo $thumb_url; ?>" width="160" height="80" alt="<?php the_title(); ?>" class="ms-thumb"/>
+                <div class="ms-info">
+                  <span class="bazi"><?php the_title(); ?></span> 
+                  <a href="<?php echo get_post_meta($post->ID,'_meta_btnurl',true); ?>" class="btn btn-light-line"><?php echo get_post_meta($post->ID,'_meta_btntxt',true); ?></a>
+                </div>
+            </div>
+          <?php  } endwhile; ?> 
+        </div>
+    </div>
+  </section>
+
+
 <?php elseif ( ( is_singular('post') &&  (get_post_format( $post->ID ) != 'gallery') )   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');

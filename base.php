@@ -29,5 +29,38 @@
     <?php get_template_part('templates/section','bottom'); ?>
     <?php get_template_part('templates/footer'); ?>
   </div><!-- /.mindenmas -->
+
+
+    <?php if ( is_front_page() ) : ?>
+    <!-- Master Slider -->
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/vendor/masterslider/masterslider.min.js"></script>
+    <script>
+
+      var slider = new MasterSlider();
+      slider.setup('masterslider' , {
+        width:1600,    // slider standard width
+        height:800,   // slider standard height
+        space:0,
+        preload:3,
+        autoplay:true,
+        fullwidth:true,
+        autoHeight:true,
+        view:"fade"
+        
+        // more slider options goes here...
+      });
+      // adds Arrows navigation control to the slider.
+      slider.control('bullets');
+      slider.control('thumblist', { 
+        autohide:false,
+        inset:false,
+        width:160,
+        height:80,
+        space:20
+
+      });
+
+    </script>
+  <?php endif; ?>
 </body>
 </html>

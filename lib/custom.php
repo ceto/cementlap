@@ -332,6 +332,86 @@ function cmb_ppp( array $meta_boxes ) {
   return $meta_boxes;
 }
 
+
+/**
+ * Home Slider Post Type Definition
+*/
+function create_slider() {
+  $labels = array(
+    'name' => 'Slides',
+    'singular_name' => 'Slide',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Slide',
+    'edit_item' => 'Edit Slide',
+    'new_item' => 'New Slide',
+    'all_items' => 'All Slides',
+    'view_item' => 'View Slide',
+    'search_items' => 'Search Slides',
+    'not_found' =>  'No Slides found',
+    'not_found_in_trash' => 'No Slides found in Trash', 
+    'parent_item_colon' => '',
+    'menu_name' => 'Slider'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true, 
+    'show_in_menu' => true, 
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'slides' ),
+    'capability_type' => 'post',
+    'has_archive' => false, 
+    'hierarchical' => false,
+    'menu_position' => null,
+    'yarpp_support' => true,
+    'supports' => array( 'title', 'thumbnail' )
+  ); 
+
+  register_post_type( 'slide', $args );
+}
+add_action( 'init', 'create_slider' ); 
+
+/********* END OF Slider Post Types ****************/
+
+
+/********* Custom MetaBoxes for Slider Management ****************/
+
+/**
+ * Slider Metaboxes
+*/
+add_filter( 'cmb_meta_boxes', 'cmb_slide' );
+function cmb_slide( array $meta_boxes ) {
+  $prefix = '_meta_';
+
+  $meta_boxes[] = array(
+    'id'         => 'slidemeta',
+    'title'      => 'Slide details',
+    'pages'      => array( 'slide'), // Post type
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'show_names' => true, // Show field names on the left
+    'fields'     => array(
+      array(
+        'name' => __( 'Button text', 'root' ),
+        'desc' => __( 'Add button for this slide', 'root' ),
+        'id'   => $prefix . 'btntxt',
+        'type' => 'text',
+        // 'repeatable' => true,
+      ),
+      array(
+        'name' => __( 'Button Url', 'root' ),
+        'desc' => __( 'Add custom url to jump', 'root' ),
+        'id'   => $prefix . 'btnurl',
+        'type' => 'text_url',
+        // 'repeatable' => true,
+      ),
+    ),
+  );
+  return $meta_boxes;
+}
+
 /********* End of Custom MetaBoxes for Product Management ****************/
 
 
@@ -345,6 +425,7 @@ function cmb_initialize_cmb_meta_boxes() {
     require_once 'cmb/init.php';
 
 }
+
 
 
 add_filter('the_content', 'ceto_fix_shortcodes');
@@ -620,3 +701,6 @@ function lang_object_ids($ids_array, $type) {
   return $ids_array;
  }
 }
+
+
+

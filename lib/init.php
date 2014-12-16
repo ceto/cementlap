@@ -41,6 +41,12 @@ function roots_setup() {
   add_image_size('wallmedium', 1280, 9999);
   add_image_size('wallsmall', 768, 9999);
 
+  add_image_size('slide21', 1920, 860, true);
+  add_image_size('slidethumb21', 160, 80, true);
+  
+  
+
+
 
   add_image_size('medium169', 768, 432, true);
 
