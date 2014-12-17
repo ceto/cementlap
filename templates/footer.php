@@ -1,6 +1,13 @@
 <footer class="content-info" role="contentinfo">
   <div class="footer-sidebar">
-    <?php dynamic_sidebar('sidebar-footer'); ?>
+    <?php //dynamic_sidebar('sidebar-footer'); ?>
+      <nav class="nav-footer" role="navigation">
+      <?php
+        if (has_nav_menu('primary_navigation')) :
+          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav1 nav nav-pills'));
+        endif;
+      ?>
+    </nav>
     <section class="widget widget-mc">
       <h3><?php _e('Feliratkozás hírlevelünkre','root') ?></h3>
       <!-- Begin MailChimp Signup Form -->

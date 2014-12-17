@@ -613,3 +613,80 @@ a.menu-button:hover {
     }
   }
 }
+
+
+
+
+
+
+/********** Footer Sitemap ***********/
+.nav-footer {
+  @include clearfix();
+  padding:1em 0;
+  @include breakpoint($s3) {
+    padding:1em 1em;
+  }
+  ul {
+    @include clearfix();
+    margin:0;
+    padding:0;
+    width:100%;
+    li {
+      list-style: none;
+      margin:0;
+      padding:0.5em 0;
+      a {
+        font-size: 1.333em;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-bottom: 0.75em;
+        display: block;
+        //font-variant: small-caps;
+      }
+
+
+      &.notinfooter {
+        display: none;
+      }
+      &.dropdown {
+        padding:1.5em 1em;
+        li {
+          a {
+            text-transform: none;
+            font-size: 1em;
+            margin-bottom: 0;
+            display: inline;
+            //font-variant: normal;
+          }
+        }
+        @include breakpoint($s0) {
+          width:50%;
+          float:left;
+          clear:right;
+          &:nth-child(2n) {
+            clear:left;
+          }
+        }
+
+    
+        @include breakpoint($s2) {
+          width:33.333%;
+          &:nth-child(2n) {
+            clear:none;
+          }
+          &:nth-child(4n+1) {
+            clear:left;
+          }
+        }
+
+        @include breakpoint($s3) {
+          width:20%;
+          &:nth-child(4n+1) {
+            clear:none;
+          }
+        }
+      }
+    }
+  }
+
+}

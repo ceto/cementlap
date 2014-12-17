@@ -2893,6 +2893,65 @@ a.menu-button:hover {
       .product-pn li a i {
         font-size: 8em; }
 
+/********** Footer Sitemap ***********/
+.nav-footer {
+  padding: 1em 0; }
+  .nav-footer:before, .nav-footer:after {
+    content: " ";
+    display: table; }
+  .nav-footer:after {
+    clear: both; }
+  @media only screen and (min-width: 1024px) {
+    .nav-footer {
+      padding: 1em 1em; } }
+  .nav-footer ul {
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+    .nav-footer ul:before, .nav-footer ul:after {
+      content: " ";
+      display: table; }
+    .nav-footer ul:after {
+      clear: both; }
+    .nav-footer ul li {
+      list-style: none;
+      margin: 0;
+      padding: 0.5em 0; }
+      .nav-footer ul li a {
+        font-size: 1.333em;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-bottom: 0.75em;
+        display: block; }
+      .nav-footer ul li.notinfooter {
+        display: none; }
+      .nav-footer ul li.dropdown {
+        padding: 1.5em 1em; }
+        .nav-footer ul li.dropdown li a {
+          text-transform: none;
+          font-size: 1em;
+          margin-bottom: 0;
+          display: inline; }
+        @media only screen and (min-width: 320px) {
+          .nav-footer ul li.dropdown {
+            width: 50%;
+            float: left;
+            clear: right; }
+            .nav-footer ul li.dropdown:nth-child(2n) {
+              clear: left; } }
+        @media only screen and (min-width: 768px) {
+          .nav-footer ul li.dropdown {
+            width: 33.333%; }
+            .nav-footer ul li.dropdown:nth-child(2n) {
+              clear: none; }
+            .nav-footer ul li.dropdown:nth-child(4n+1) {
+              clear: left; } }
+        @media only screen and (min-width: 1024px) {
+          .nav-footer ul li.dropdown {
+            width: 20%; }
+            .nav-footer ul li.dropdown:nth-child(4n+1) {
+              clear: none; } }
+
 .content-info {
   position: relative;
   clear: both;
