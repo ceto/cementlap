@@ -1,39 +1,49 @@
-.sidebar {
-  @include clearfix();
-  //max-width: $s5;
-  margin:0 auto;
-  padding:1em 2.5em;
+.sidebar
+{
+    //max-width: $s5;
+    margin: 0 auto;
+    padding: 1em 2.5em;
+
+    @include clearfix();
 }
 
-.sidebar-topad {
-  background-image: url(../img/hero.jpg);
-  background-color: $gray-light;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color:#fff;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 1.5em;
-  line-height:1.25em;
-  
-  .widget {
-    text-shadow:1px 1px 1px #000, 2px 2px 1px $gray-dark, 3px 3px 3px $gray;
-    @include breakpoint($s2) {
-      float:left;
-      max-width: 66.666%;
-      &:last-child{
-        float:right;
-        max-width: 33.333%;
-      }
-    } 
-  }
-  
-  h3{
+.sidebar-topad
+{
     font-size: 1.5em;
-    line-height:1.25em;
-    margin:0;
     font-weight: 300;
-  }
+    line-height: 1.25em;
 
+    text-transform: uppercase;
+
+    color: #fff;
+    background-color: $gray-light;
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    .widget
+    {
+        text-shadow: 1px 1px 1px #000, 2px 2px 1px $gray-dark, 3px 3px 3px $gray;
+
+        @include breakpoint($s2)
+        {
+            float: left;
+
+            max-width: 66.666%;
+            &:last-child
+            {
+                float: right;
+
+                max-width: 33.333%;
+            }
+        }
+    }
+    h3
+    {
+        font-size: 1.5em;
+        font-weight: 300;
+        line-height: 1.25em;
+
+        margin: 0;
+    }
 }

@@ -327,7 +327,9 @@ function share_click(mi, width, height) {
     if (mi==='fb') {
       window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
     } else {
-      window.open('https://plus.google.com/share?url='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
+      if (mi==='pi') {
+        window.open('http://www.pinterest.com/pin/create/button/?url='+encodeURIComponent(u)+'&media='+encodeURIComponent(media)+'&description='+encodeURIComponent(t),'sharer', windowFeatures);
+      }
     }
     return false;
 }

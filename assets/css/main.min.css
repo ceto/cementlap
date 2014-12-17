@@ -2914,6 +2914,7 @@ a.menu-button:hover {
     .nav-footer ul:after {
       clear: both; }
     .nav-footer ul li {
+      position: relative;
       list-style: none;
       margin: 0;
       padding: 0.5em 0; }
@@ -2932,6 +2933,14 @@ a.menu-button:hover {
           font-size: 1em;
           margin-bottom: 0;
           display: inline; }
+        .nav-footer ul li.dropdown li.active:before {
+          content: '';
+          position: absolute;
+          left: -13px;
+          top: 12px;
+          width: 7px;
+          height: 7px;
+          background-color: #FF9900; }
         @media only screen and (min-width: 320px) {
           .nav-footer ul li.dropdown {
             width: 50%;
@@ -2998,8 +3007,18 @@ a.menu-button:hover {
   @media only screen and (min-width: 1024px) {
     .footer-sidebar {
       padding: 2em 0; } }
+  .footer-sidebar .widgetwrap {
+    max-width: 768px;
+    margin: 0 auto; }
+    .footer-sidebar .widgetwrap:before, .footer-sidebar .widgetwrap:after {
+      content: " ";
+      display: table; }
+    .footer-sidebar .widgetwrap:after {
+      clear: both; }
   .footer-sidebar .widget-mc label {
     display: none; }
+  .footer-sidebar .widget-social {
+    text-align: center; }
   .footer-sidebar .widget {
     padding: 1em 1em; }
     .footer-sidebar .widget:before, .footer-sidebar .widget:after {
@@ -3010,12 +3029,11 @@ a.menu-button:hover {
     @media only screen and (min-width: 480px) {
       .footer-sidebar .widget {
         padding: 2em 1em;
-        width: 33.333%;
+        width: 50%;
         float: left; } }
     @media only screen and (min-width: 768px) {
       .footer-sidebar .widget {
         padding: 2em 2em 2em 2em;
-        width: 22.222%;
         float: left; } }
     @media only screen and (min-width: 1024px) {
       .footer-sidebar .widget {
@@ -3025,8 +3043,7 @@ a.menu-button:hover {
       font-size: 1.25em;
       line-height: 1em;
       font-weight: 400;
-      text-transform: none;
-      font-variant: small-caps; }
+      text-transform: uppercase; }
       @media only screen and (min-width: 480px) {
         .footer-sidebar .widget h3 {
           margin-top: 0; } }
@@ -3053,6 +3070,19 @@ a.menu-button:hover {
   @media only screen and (min-width: 1024px) {
     .footer-copy {
       padding: 1.25em 3em; } }
+
+.socialgomb {
+  font-size: 3em;
+  line-height: 1;
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: #49494A;
+  color: white !important;
+  text-align: center;
+  padding-top: 0.2em;
+  margin-right: 0.25em;
+  text-decoration: none; }
 
 .hero {
   background-color: #2F2F2F;

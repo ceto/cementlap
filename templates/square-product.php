@@ -7,8 +7,8 @@
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
 
   if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
-    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
+    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 2, ',', ' ');
+    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 2, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
   }

@@ -1,115 +1,184 @@
-.content-info {
-  @include clearfix();
-  position: relative;
-  clear:both;
-  background-color:$gray-dark;
+.content-info
+{
+    position: relative;
 
- a{
-  color:$gray-light;
-  &:hover, &:focus{
-      color:$white;
-  }
- }
- a.tothetop{
-  position: absolute;
-  right:0.5em;
-  bottom:1em;
-  display: block;
-  width: 1.25em;
-  height: 1.25em;
-  background-color: $gray-dark;
-  color:$white;
-  font-size: 2em;
-  line-height: 1.4em;
-  text-align: center;
-  border:1px solid $gray;
-  &:hover, &:focus{
-      //background-color:$gray;
-      color:$orange;
-      border-color:$gray-light;
-  }
-  }
-}
+    clear: both;
 
-.footer-sidebar {
-  @include clearfix();
-  max-width: $s5;
-  margin: auto;
-  padding:2em 0;
-  font-size: 0.875em;
-  line-height: 1.25em;
-  font-weight: 300;
-  color:$white;
-  @include breakpoint($s3){
-    padding:2em 0;
-  }
+    background-color: $gray-dark;
 
-  .widget-mc{
-    label{
-      display:none;
-    } 
-  }
-
-  .widget{
     @include clearfix();
-    padding:1em 1em;
-    @include breakpoint($s1){
-      padding:2em 1em;
-      width:33.333%;
-      float:left;
-    }
-    @include breakpoint($s2){
-      padding:2em 2em 2em 2em;
-      width:22.222%;
-      float:left;
-    }
-    @include breakpoint($s3){
-      padding:3em 3em 3em 3em;
-    }
-    h3 {
-      margin:1em 0 1.5em;
-      font-size: 1.25em;
-      line-height: 1em;
-      font-weight: 400;
-      text-transform: none;
-      font-variant:small-caps;
-
-      @include breakpoint($s1){
-        margin-top:0;  
-      }
-    }
-    p{
-      margin-top: 0;
-    }
-  }
-
-  .widget {
-    ul {
-      margin:0;
-      padding:0;
-      li {
-        list-style: none;
-        margin:0;
-        padding:0.5em 0;
-        a {
-          text-transform: uppercase;
+    a
+    {
+        color: $gray-light;
+        &:hover,
+        &:focus
+        {
+            color: $white;
         }
-      }
     }
-  }
-  
+    a.tothetop
+    {
+        font-size: 2em;
+        line-height: 1.4em;
+
+        position: absolute;
+        right: .5em;
+        bottom: 1em;
+
+        display: block;
+
+        width: 1.25em;
+        height: 1.25em;
+
+        text-align: center;
+
+        color: $white;
+        border: 1px solid $gray;
+        background-color: $gray-dark;
+        &:hover,
+        &:focus
+        {
+            //background-color:$gray;
+            color: $orange;
+            border-color: $gray-light;
+        }
+    }
+}
+
+.footer-sidebar
+{
+    font-size: .875em;
+    font-weight: 300;
+    line-height: 1.25em;
+
+    max-width: $s5;
+    margin: auto;
+    padding: 2em 0;
+
+    color: $white;
+    background-color: @include breakpoint($s3)
+    {
+        padding: 2em 0;
+    }
+
+    @include clearfix();
+    .widgetwrap
+    {
+        max-width: $s2;
+        margin: 0 auto;
+
+        @include clearfix();
+    }
+    .widget-mc
+    {
+        label
+        {
+            display: none;
+        }
+    }
+    .widget-social
+    {
+        text-align: center;
+    }
+    .widget
+    {
+        padding: 1em 1em;
+
+        @include clearfix();
+        @include breakpoint($s1)
+        {
+            float: left;
+
+            width: 50%;
+            padding: 2em 1em;
+        }
+        @include breakpoint($s2)
+        {
+            float: left;
+
+            padding: 2em 2em 2em 2em;
+        }
+        @include breakpoint($s3)
+        {
+            padding: 3em 3em 3em 3em;
+        }
+        h3
+        {
+            font-size: 1.25em;
+            font-weight: 400;
+            line-height: 1em;
+
+            margin: 1em 0 1.5em;
+
+            text-transform: uppercase;
+
+            @include breakpoint($s1)
+            {
+                margin-top: 0;
+            }
+        }
+        p
+        {
+            margin-top: 0;
+        }
+    }
+    .widget
+    {
+        ul
+        {
+            margin: 0;
+            padding: 0;
+            li
+            {
+                margin: 0;
+                padding: .5em 0;
+
+                list-style: none;
+                a
+                {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
 }
 
 
-.footer-copy{
-  font-size: 0.875em;
-  line-height: 1.25em;
-  font-weight: 300;
-  padding:1.25em;
-  position: relative;
-  background-color:$gray;
-  color:$gray-superlight;
-  @include breakpoint($s3){
-    padding:1.25em 3em;
-  }
+.footer-copy
+{
+    font-size: .875em;
+    font-weight: 300;
+    line-height: 1.25em;
+
+    position: relative;
+
+    padding: 1.25em;
+
+    color: $gray-superlight;
+    background-color: $gray;
+
+    @include breakpoint($s3)
+    {
+        padding: 1.25em 3em;
+    }
+}
+
+
+.socialgomb
+{
+    font-size: 3em;
+    line-height: 1;
+
+    display: inline-block;
+
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .25em;
+    padding-top: .2em;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: white !important;
+    background-color: $gray;
 }

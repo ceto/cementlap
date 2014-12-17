@@ -66,8 +66,8 @@
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
 
   if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 0, ',', ' ');
-    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 0, ',', ' ');
+    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 2, ',', ' ');
+    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 2, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
   }
@@ -181,6 +181,9 @@
           </div><!-- /.stock-block -->
 
           <div class="gombsor">
+<!--           <a onClick="return share_click('pi', 400, 300)" href="http://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(get_the_permalink()); ?>&media=<?php echo urlencode($imci[0]); ?>&description=<?php echo urlencode(get_the_title()); ?>" data-media="<?php echo urlencode($imci[0]); ?>">
+              <i class="ion ion-social-pinterest"></i><br /><span><?php _e('Pinterest','roots'); ?></span>
+            </a> -->
             <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span><?php _e('Megosztom','root'); ?></span></a>
             <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
             <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span><?php _e('Felhasználás','roots'); ?></span></a>
