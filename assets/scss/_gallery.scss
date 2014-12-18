@@ -43,7 +43,8 @@
     img {
       
 
-      width: 100%;
+      width: auto;
+      max-width: 100%;
       max-height: 100vh;
 
       @include breakpoint($s3) {

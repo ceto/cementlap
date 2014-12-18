@@ -4808,7 +4808,8 @@ input[type="text"], input[type="email"], textarea {
     .slidegallery .slide-item.active {
       filter: brightness(1) blur(0); }
     .slidegallery .slide-item img {
-      width: 100%;
+      width: auto;
+      max-width: 100%;
       max-height: 100vh; }
       @media only screen and (min-width: 1024px) {
         .slidegallery .slide-item img {
