@@ -20,7 +20,13 @@
       margin:0;
       padding:0;
       list-style-type: none;
-      display: inline-block;
+      display: block;
+      text-align: center;
+
+      @include breakpoint($s3) {
+        display: inline-block;        
+      }
+
     }
   }
 
@@ -31,27 +37,29 @@
     -moz-transition: -moz-filter .2s ease;
     -ms-transition: -ms-filter .2s ease;
     max-width: 100%;
+    @include breakpoint($s3){
+      .js &{
+        filter: brightness(0.125) blur(3px);
+      }
+      &.active {
+        filter: brightness(1) blur(0);
 
-    .js &{
-      filter: brightness(0.125) blur(3px);
+      }
     }
-    &.active {
-      filter: brightness(1) blur(0);
-
-    }
-    
     img {
       
 
       width: auto;
       max-width: 100%;
       max-height: 100vh;
+      margin: 0 0 2em 0;
 
       @include breakpoint($s3) {
         width:auto;
         max-height:calc(100vh - 90px);
         min-height: 700px;
         max-width: none;
+        margin: 0 0;
       }
     
     }
@@ -59,10 +67,11 @@
     .caption {
       white-space: wrap;
       position: absolute;
+      left:0;
+      width:100%;
       padding:0 0.25em;
       display: inline-block;
-      top:1em;
-      left:1em;
+
       padding:0.25em 0.25em 0.25em;
       background-color: rgba($gray-dark,0.75);
       color:#fff;
@@ -71,11 +80,17 @@
       font-weight: 400;
       font-style: italic;
       text-align: center;
+      @include breakpoint($s3) {
+       top:1em;
+       left:1em;
+       width:auto;      
+      }
     }
 
 
   }
   .slidecontroll{
+    display: none;
     position: absolute;
     left:0;right:0;
     top:calc(50% - 2em);
@@ -100,5 +115,10 @@
         float:right;
       }
     }
+    @include breakpoint($s3) {
+      display: block;
+    }
+
+
   }
 }

@@ -171,12 +171,12 @@
 
     
     .repulotoggle{
-     
+      
       position:absolute;
       right:0;
       top:1em;
       z-index: 1;
-      display: block;
+      display: none;
       background-color: rgba($gray,0.75);
       color:$white;
       height:1em;
@@ -187,8 +187,6 @@
       &:hover, &:focus{
         background-color: rgba($orange,0.75);
         color:#fff;
-
-
       }
       &.hidden{
         i:before{
@@ -197,6 +195,10 @@
         @include breakpoint($s2){
           right:-1em;
         }
+      }
+
+      @include breakpoint($s3){
+        display: block;
       } 
     }
     .repulo{
@@ -206,17 +208,18 @@
       //overflow: hidden;
       //background-color: rgba($gray-dark,0.75);
       color:#fff;
-      padding:1em;
+      padding:1em 1em;
+      text-align: center;
       transition: margin .4s linear;
-
+      
+      @include breakpoint($s1){
+        padding:1em 3em;
+      }
       @include breakpoint($s2){
-        // float:left;
-        // width:280px;
-        // &.hide{
-        //   margin-left: -280px;
-        // }
+        padding:1em 7em;
       }
       @include breakpoint($s3){
+        text-align: left;
         float:left;
         width:320px;
         min-height: 700px;
