@@ -1,186 +1,202 @@
 .content-info
 {
-    position: relative;
+  position: relative;
 
-    clear: both;
+  clear: both;
 
+  background-color: $gray-dark;
+
+  @include clearfix();
+  a
+  {
+    color: $gray-light;
+    &:hover,
+    &:focus
+    {
+      color: $white;
+    }
+  }
+  a.tothetop
+  {
+    font-size: 2em;
+    line-height: 1.4em;
+
+    position: absolute;
+    right: .5em;
+    bottom: 1em;
+
+    display: block;
+
+    width: 1.25em;
+    height: 1.25em;
+
+    text-align: center;
+
+    color: $white;
+    border: 1px solid $gray;
     background-color: $gray-dark;
-
-    @include clearfix();
-    a
+    &:hover,
+    &:focus
     {
-        color: $gray-light;
-        &:hover,
-        &:focus
-        {
-            color: $white;
-        }
+      //background-color:$gray;
+      color: $orange;
+      border-color: $gray-light;
     }
-    a.tothetop
-    {
-        font-size: 2em;
-        line-height: 1.4em;
-
-        position: absolute;
-        right: .5em;
-        bottom: 1em;
-
-        display: block;
-
-        width: 1.25em;
-        height: 1.25em;
-
-        text-align: center;
-
-        color: $white;
-        border: 1px solid $gray;
-        background-color: $gray-dark;
-        &:hover,
-        &:focus
-        {
-            //background-color:$gray;
-            color: $orange;
-            border-color: $gray-light;
-        }
-    }
+  }
 }
 
 .footer-sidebar
 {
-    font-size: .875em;
-    font-weight: 300;
-    line-height: 1.25em;
+  font-size: .875em;
+  font-weight: 300;
+  line-height: 1.25em;
 
-    max-width: $s5;
-    margin: auto;
+  max-width: $s5;
+  margin: auto;
+  padding: 2em 0;
+
+  color: $white;
+  background-color: $gray-dark;
+
+  @include breakpoint($s3)
+  {
     padding: 2em 0;
-
-    color: $white;
-    background-color: $gray-dark;
-
-    @include breakpoint($s3)
-    {
-        padding: 2em 0;
-    }
+  }
+  @include clearfix();
+  .widgetwrap
+  {
+    max-width: $s2;
+    margin: 0 auto;
 
     @include clearfix();
-    .widgetwrap
+  }
+  .widget-mc
+  {
+    form
     {
-        max-width: $s2;
-        margin: 0 auto;
-
-        @include clearfix();
+      position: relative;
     }
-    .widget-mc
+    label
     {
-        label
-        {
-            display: none;
-        }
+      display: none;
     }
-    .widget-social
+    input[type="email"]
     {
-        text-align: center;
+      height:2.5em;
     }
-    .widget
+    .button
     {
-        padding: 1em 1em;
-
-        @include clearfix();
-        @include breakpoint($s1)
-        {
-            float: left;
-
-            width: 50%;
-            padding: 2em 1em;
-        }
-        @include breakpoint($s2)
-        {
-            float: left;
-
-            padding: 2em 2em 2em 2em;
-        }
-        @include breakpoint($s3)
-        {
-            padding: 3em 3em 3em 3em;
-        }
-        h3
-        {
-            font-size: 1.25em;
-            font-weight: 400;
-            line-height: 1em;
-
-            margin: 1em 0 1.5em;
-
-            text-transform: uppercase;
-
-            @include breakpoint($s1)
-            {
-                margin-top: 0;
-            }
-        }
-        p
-        {
-            margin-top: 0;
-        }
+      position: absolute;
+      top:1px;
+      right:1px;
+      height:2.875em;
+      padding:0 0.75em;
     }
-    .widget
+  }
+  .widget-social
+  {
+    text-align: center;
+  }
+  .widget
+  {
+    padding: 1em 1em;
+
+    @include clearfix();
+    @include breakpoint($s1)
     {
-        ul
-        {
-            margin: 0;
-            padding: 0;
-            li
-            {
-                margin: 0;
-                padding: .5em 0;
+      float: left;
 
-                list-style: none;
-                a
-                {
-                    text-transform: uppercase;
-                }
-            }
-        }
+      width: 50%;
+      padding: 2em 1em;
     }
+    @include breakpoint($s2)
+    {
+      float: left;
+
+      padding: 2em 2em 2em 2em;
+    }
+    @include breakpoint($s3)
+    {
+      padding: 3em 3em 3em 3em;
+    }
+    h3
+    {
+      font-size: 1.25em;
+      font-weight: 400;
+      line-height: 1em;
+      text-align: center;
+
+      margin: 1em 0 1.5em;
+
+      text-transform: uppercase;
+
+      @include breakpoint($s1)
+      {
+        margin-top: 0;
+      }
+    }
+    p
+    {
+      margin-top: 0;
+    }
+  }
+  .widget
+  {
+    ul
+    {
+      margin: 0;
+      padding: 0;
+      li
+      {
+        margin: 0;
+        padding: .5em 0;
+
+        list-style: none;
+        a
+        {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 
 .footer-copy
 {
-    font-size: .875em;
-    font-weight: 300;
-    line-height: 1.25em;
+  font-size: .875em;
+  font-weight: 300;
+  line-height: 1.25em;
 
-    position: relative;
+  position: relative;
 
-    padding: 1.25em;
+  padding: 1.25em;
 
-    color: $gray-superlight;
-    background-color: $gray;
+  color: $gray-superlight;
+  background-color: $gray;
 
-    @include breakpoint($s3)
-    {
-        padding: 1.25em 3em;
-    }
+  @include breakpoint($s3)
+  {
+    padding: 1.25em 3em;
+  }
 }
 
 
 .socialgomb
 {
-    font-size: 3em;
-    line-height: 1;
+  font-size: 2.333em;
+  line-height: 1;
 
-    display: inline-block;
+  display: inline-block;
 
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: .25em;
-    padding-top: .2em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: .25em;
+  padding-top: .2em;
 
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 
-    color: white !important;
-    background-color: $gray;
+  color: white !important;
+  background-color: $gray;
 }

@@ -17,11 +17,11 @@
         <form action="http://marrakeshcementlap.us5.list-manage1.com/subscribe/post?u=f75f449c913cf58fb513b4418&amp;id=7fa0ff2925" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div class="mc-field-group">
           <label for="mce-EMAIL"><?php _e('Email cím','root') ?></label>
-          <input type="email" value="" placeholder="johndoe@example.com" name="EMAIL" class="required email" id="mce-EMAIL">
+          <input type="email" value="" placeholder="E-mail cím" name="EMAIL" class="required email" id="mce-EMAIL">
         </div>
             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
             <div style="position: absolute; left: -5000px;"><input type="text" name="b_f75f449c913cf58fb513b4418_7fa0ff2925" value=""></div>
-          <div class="clear"><input type="submit" value="<?php _e('Feliratkozás','root'); ?>" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          <div class="clear"><input type="submit" value="<?php _e('OK','root'); ?>" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
           <div id="mce-responses" class="clear">
             <div class="response" id="mce-error-response" style="display:none"></div>
             <div class="response" id="mce-success-response" style="display:none"></div>

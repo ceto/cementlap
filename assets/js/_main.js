@@ -315,7 +315,7 @@ $(window).bind( 'hashchange', function( event ){
 //   jQuery(window).load(function(){jQuery('body').width(jQuery('body').width()+1).width('auto');});
 // }
 
-function share_click(mi, width, height) {
+function share_click(mi, width, height, media) {
     var leftPosition, topPosition;
     //Allow for borders.
     leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
@@ -328,7 +328,7 @@ function share_click(mi, width, height) {
       window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
     } else {
       if (mi==='pi') {
-        window.open('http://www.pinterest.com/pin/create/button/?url='+encodeURIComponent(u)+'&media='+encodeURIComponent(media)+'&description='+encodeURIComponent(t),'sharer', windowFeatures);
+        window.open('http://www.pinterest.com/pin/create/button/?url='+encodeURIComponent(u)+'&media='+media+'&description='+encodeURIComponent(t),'sharer', windowFeatures);
       }
     }
     return false;
