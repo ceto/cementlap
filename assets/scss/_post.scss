@@ -210,14 +210,18 @@
       transition: margin .4s linear;
 
       @include breakpoint($s2){
-        float:left;
-        width:280px;
-        &.hide{
-          margin-left: -280px;
-        }
+        // float:left;
+        // width:280px;
+        // &.hide{
+        //   margin-left: -280px;
+        // }
       }
       @include breakpoint($s3){
+        float:left;
         width:320px;
+        min-height: 700px;
+        min-height:calc(100vh - 90px);
+        
         padding:2em;
         &.hide{
           margin-left: -320px;
@@ -253,11 +257,12 @@
 
     .addcont{
       transition: width .4s linear;
-      @include breakpoint($s2){
-        float:left;
-        width:calc(100% - 280px);
-      }
+      // @include breakpoint($s2){
+      //   float:left;
+      //   width:calc(100% - 280px);
+      // }
       @include breakpoint($s3){
+        float:left;
         width:calc(100% - 320px);
       }
       @include breakpoint($s4){

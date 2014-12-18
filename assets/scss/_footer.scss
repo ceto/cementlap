@@ -56,7 +56,9 @@
     padding: 2em 0;
 
     color: $white;
-    background-color: @include breakpoint($s3)
+    background-color: $gray-dark;
+
+    @include breakpoint($s3)
     {
         padding: 2em 0;
     }
