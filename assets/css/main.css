@@ -2193,8 +2193,14 @@ html, body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: #2F2F2F;
-  background-color: #FEFEFF;
+  background-color: #2F2F2F;
   height: 100%; }
+  @media only screen and (min-width: 1024px) {
+    html, body {
+      background-color: #FEFEFF; } }
+
+.mindenmas {
+  background-color: #FEFEFF; }
 
 a {
   color: #0066FF;
@@ -2358,7 +2364,6 @@ blockquote {
 
 .banner {
   position: relative;
-  min-height: 100%;
   padding: 0;
   background-color: #2F2F2F; }
   .banner:before, .banner:after {
@@ -2366,16 +2371,38 @@ blockquote {
     display: table; }
   .banner:after {
     clear: both; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .banner {
       max-width: 1600px;
       min-height: 0;
+      height: auto;
       margin: 0 auto;
       padding: .75em 1em .5em;
       background-color: #FEFEFF; } }
   @media only screen and (min-width: 1024px) {
     .banner {
-      padding: .75em 2em .5em; } }
+      padding: .75em 2em .5em; }
+      .banner.scrolled {
+        position: fixed;
+        z-index: 9999999;
+        height: 89px;
+        top: -89px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 0 3px 0 #b4b4b4; }
+        .banner.scrolled:hover, .banner.scrolled.ison {
+          top: 0; } }
+  @media only screen and (min-width: 1600px) {
+    .banner.scrolled {
+      left: calc(50% - 800px);
+      box-shadow: 0 2em 3px -2em #b4b4b4; } }
+  .active-nav .banner .abanner__inner {
+    position: fixed;
+    left: 0;
+    top: 0em;
+    width: 80%;
+    overflow: auto;
+    height: 100vh; }
 
 .brand {
   display: block;
@@ -2392,7 +2419,7 @@ blockquote {
   text-shadow: none;
   background-color: transparent;
   border: 0; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .brand {
       display: block; } }
   .brand:hover, .brand:focus {
@@ -2427,13 +2454,14 @@ blockquote {
   font-size: 1.25em;
   font-weight: 300;
   line-height: 1.5em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-top: .75em; }
   .nav-main:before, .nav-main:after {
     content: " ";
     display: table; }
   .nav-main:after {
     clear: both; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .nav-main {
       margin-top: .25em; } }
 
@@ -2441,14 +2469,14 @@ blockquote {
   margin: 2em 0;
   padding: 0;
   list-style: none; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .nav-main .nav {
       margin: 0 0; } }
   .nav-main .nav > li {
     margin: 0 0;
-    padding: 0 0;
+    padding: .5em 0;
     list-style-type: none; }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       .nav-main .nav > li {
         display: inline-block;
         padding: 0 .25em; }
@@ -2456,7 +2484,7 @@ blockquote {
           padding-left: 0; }
         .nav-main .nav > li:last-child {
           padding-right: 0; } }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       .nav-main .nav > li.dropdown:hover ul {
         height: auto;
         padding: 20px 0;
@@ -2467,7 +2495,7 @@ blockquote {
       margin: 0;
       padding: 0 0 12px;
       transition: opacity .4s ease; }
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 1024px) {
         .nav-main .nav > li ul {
           position: absolute;
           z-index: 4;
@@ -2486,7 +2514,7 @@ blockquote {
         .nav-main .nav > li ul li a {
           padding: 10px 20px 10px 32px;
           text-transform: none; }
-          @media only screen and (min-width: 768px) {
+          @media only screen and (min-width: 1024px) {
             .nav-main .nav > li ul li a {
               min-width: 12em;
               padding: 6px 20px;
@@ -2497,7 +2525,7 @@ blockquote {
     display: block;
     padding: 6px 20px;
     color: #FEFEFF; }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       .nav-main .nav a {
         display: inline-block;
         padding: 0;
@@ -2506,14 +2534,14 @@ blockquote {
       text-decoration: none;
       color: #FEFEFF;
       background-color: #49494A; }
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 1024px) {
         .nav-main .nav a:hover, .nav-main .nav a:focus {
           text-decoration: none;
           color: #49494A;
           background-color: transparent; } }
   .nav-main .nav .active a {
     color: #fff; }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       .nav-main .nav .active a {
         color: #49494A; } }
   .nav-main .nav li.telcsi a {
@@ -2530,13 +2558,13 @@ blockquote {
     .nav-main .nav li.telcsi a:before {
       content: '\f2d2'; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .nav1 {
     display: inline-block;
     float: left;
     margin-left: 1em; } }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .nav2 {
     display: inline-block;
     float: right;
@@ -2546,7 +2574,7 @@ blockquote {
 .nav3 {
   font-size: .75em;
   line-height: 1.75em; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .nav3 {
       position: absolute;
       top: 1.75em;
@@ -2560,7 +2588,7 @@ blockquote {
   padding: 2em 0;
   text-align: center;
   text-transform: none; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     .headcontact {
       position: absolute;
       top: 1.333em;
@@ -2634,7 +2662,7 @@ a.menu-button:hover {
 .active-nav .mindenmas {
   margin-right: -100%; }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 1024px) {
   .off-canvas-navigation {
     display: none; }
   .js .banner {
@@ -2647,12 +2675,18 @@ a.menu-button:hover {
 
 /********* Subnavigation **********/
 @media only screen and (min-width: 768px) {
-  .nav-sub + .main {
-    float: left;
+  .has_subnav .main {
+    float: right;
     width: calc(100% - 290px); } }
 @media only screen and (min-width: 1024px) {
-  .nav-sub + .main {
-    width: calc(100% - 580px); } }
+  .has_subnav .main {
+    padding-right: 120px; } }
+@media only screen and (min-width: 1280px) {
+  .has_subnav .main {
+    padding-right: 270px; } }
+@media only screen and (min-width: 1600px) {
+  .has_subnav .main {
+    padding-right: 400px; } }
 
 .nav-sub {
   font-family: 'Alegreya Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -2686,6 +2720,17 @@ a.menu-button:hover {
     margin: 2em 0 1em;
     text-transform: none;
     color: #49494A; }
+  @media only screen and (min-width: 480px) {
+    .nav-sub .snavitem {
+      width: 50%;
+      float: left; }
+      .nav-sub .snavitem:nth-of-type(2n+1) {
+        clear: left; } }
+  @media only screen and (min-width: 768px) {
+    .nav-sub .snavitem {
+      width: auto;
+      float: none;
+      clear: none; } }
 
 .nav-sub .nav {
   margin: 0 0 3em;

@@ -1,4 +1,5 @@
 <header class="banner" role="banner">
+<div class="banner__inner">
   <div class="hbg"></div>
   <a class="brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
   <?php do_action('icl_language_selector'); ?>
@@ -25,4 +26,5 @@
       </ul>
     </div>
   </nav>
+</div>
 </header>

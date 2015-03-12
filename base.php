@@ -14,11 +14,12 @@
       <a class="brandi" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </nav>
     <?php get_template_part('templates/section','top'); ?>
-    <div class="document" role="document">
-      <?php get_template_part('templates/subnavigation'); ?>
+    <div class="document <?php if (is_page() && !is_front_page() && ($post->post_parent!=0) ) {echo has_subnav;}; ?>" role="document">
+      
       <main class="main <?php echo roots_main_class(); ?>" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
+      <?php get_template_part('templates/subnavigation'); ?>
      
       <?php /* if (roots_display_sidebar()) : ?>
         <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">

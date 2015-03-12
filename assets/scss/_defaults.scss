@@ -23,9 +23,15 @@ html, body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: $gray-dark;
-  background-color: $white;
+  background-color: $gray-dark;
   height: 100%;
+  @include breakpoint($s3) {
+    background-color: $white;
+  }
   
+}
+.mindenmas {
+  background-color: $white;
 }
 
 a {

@@ -51,6 +51,48 @@ var UTIL = {
 $(document).ready(UTIL.loadEvents);
 
 
+//********** Scroll Direction Check *************//
+var felcsoki=0;
+var lecsoki=0;
+var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"; //FF doesn't recognize mousewheel as of FF3.x
+$(document).bind(mousewheelevt, function(e) {
+        var evt = window.event || e; //equalize event object     
+        evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible               
+        var delta = evt.detail ? evt.detail*(-40) : evt.wheelDelta; //check for detail first, because it is used by Opera and FF
+        if(delta > 0)
+            {
+            //console.log('Felfele');
+            if (felcsoki++ >= 4 ) {
+              lecsoki=0;
+              $('.banner').addClass('ison');
+            }
+            }
+        else
+            {
+            //console.log('Lefele');
+            if (lecsoki++ > 2 ) {
+              felcsoki=0;
+              $('.banner').removeClass('ison');
+            }
+            }
+    }
+);
+
+/************* Main header Fixing ***********/
+// var htop = $('.banner').offset().top - parseFloat($('.banner').css('marginTop').replace(/auto/, 0));
+var htop=0;
+$(window).scroll(function (event) {
+  var y = $(this).scrollTop();
+  if (y-40 >= htop) {
+    $('.banner').addClass('scrolled');
+  } else {
+    $('.banner').removeClass('scrolled');
+  }
+  //$('body').attr('data-offset' ,  $('.banner').height() );
+});
+
+
+
 var resizeHero = function() {
   var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
   if (off_canvas_nav_display === 'block') {

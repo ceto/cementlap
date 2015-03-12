@@ -2,26 +2,75 @@
 {
     position: relative;
 
-    min-height: 100%;
+    //min-height: 100%;
+    //width:280px;
+    //height: 100vh;
+    //overflow: auto;
     //overflow: hidden;
     padding: 0;
 
     background-color: $gray-dark;
 
     @include clearfix();
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         max-width: $s5;
         min-height: 0;
+        height: auto;
         margin: 0 auto;
         padding: .75em 1em .5em;
 
         background-color: $white;
         //filter:invert(1);
+        
+
+
+
+
     }
     @include breakpoint($s3)
     {
         padding: .75em 2em .5em;
+        
+        &.scrolled {
+        position:fixed;
+        z-index: 9999999;
+        //max-width: none;
+          height:89px;
+          top:-89px;
+          left:0;
+          width:100%;
+          //width:100%;
+          box-shadow: 0 0 3px 0 lighten($gray-light,10%);
+          &:hover, &.ison {
+            top:0;
+
+          }
+
+        }
+
+
+        
+
+    }
+
+    @include breakpoint($s5) {
+        &.scrolled {    
+           left:calc(50% - 800px );
+           box-shadow: 0 2em 3px -2em lighten($gray-light,10%);  
+       }
+    }
+    .banner__inner {
+    }
+    .active-nav & .abanner__inner {
+        position: fixed;
+        left:0;
+        top:0em;
+        width:80%;
+
+        overflow: auto;
+        height: 100vh;
+        //background-color: red;
     }
 }
 
@@ -43,7 +92,7 @@
     background-size: 100% auto;
 
     @include text-hide();
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         display: block;
     }
@@ -100,9 +149,10 @@
     line-height: 1.5em;
 
     text-transform: uppercase;
+    margin-top: .75em;
 
     @include clearfix();
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         margin-top: .25em;
     }
@@ -118,18 +168,18 @@
 
     list-style: none;
 
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         margin: 0 0;
     }
     > li
     {
         margin: 0 0;
-        padding: 0 0;
+        padding: .5em 0;
 
         list-style-type: none;
 
-        @include breakpoint($s2)
+        @include breakpoint($s3)
         {
             display: inline-block;
 
@@ -149,7 +199,7 @@
             {
                 ul
                 {
-                    @include breakpoint($s2)
+                    @include breakpoint($s3)
                     {
                         height: auto;
                         padding: 20px 0;
@@ -169,7 +219,7 @@
 
             transition: opacity .4s ease;
 
-            @include breakpoint($s2)
+            @include breakpoint($s3)
             {
                 position: absolute;
                 z-index: 4;
@@ -198,7 +248,7 @@
 
                     text-transform: none;
 
-                    @include breakpoint($s2)
+                    @include breakpoint($s3)
                     {
                         min-width: 12em;
                         padding: 6px 20px;
@@ -222,7 +272,7 @@
 
         color: $white;
 
-        @include breakpoint($s2)
+        @include breakpoint($s3)
         {
             display: inline-block;
 
@@ -238,7 +288,7 @@
             color: $white;
             background-color: $gray;
 
-            @include breakpoint($s2)
+            @include breakpoint($s3)
             {
                 text-decoration: none;
 
@@ -251,7 +301,7 @@
     {
         color: #fff;
 
-        @include breakpoint($s2)
+        @include breakpoint($s3)
         {
             color: $gray;
         }
@@ -284,7 +334,7 @@
 
 .nav1
 {
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         display: inline-block;
         float: left;
@@ -295,7 +345,7 @@
 
 .nav2
 {
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         display: inline-block;
         float: right;
@@ -310,7 +360,7 @@
     font-size: .75em;
     line-height: 1.75em;
 
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         position: absolute;
         top: 1.75em;
@@ -331,7 +381,7 @@
     text-align: center;
     text-transform: none;
 
-    @include breakpoint($s2)
+    @include breakpoint($s3)
     {
         position: absolute;
         top: 1.333em;
@@ -448,6 +498,7 @@ a.menu-button:hover
 }
 
 
+
 .active-nav .banner
 {
     width: 80%;
@@ -459,7 +510,7 @@ a.menu-button:hover
 }
 
 
-@media all and (min-width: $s2)
+@media all and (min-width: $s3)
 {
     .off-canvas-navigation
     {
@@ -485,17 +536,26 @@ a.menu-button:hover
 
 
 /********* Subnavigation **********/
-.nav-sub + .main
+.has_subnav .main
 {
     @include breakpoint($s2)
     {
-        float: left;
+        float: right;
 
         width: calc(100% - 290px);
     }
-    @include breakpoint($s3)
+    @include breakpoint($s3) {
+        padding-right: 120px;
+    }
+    @include breakpoint($s4)
     {
-        width: calc(100% - 580px);
+        //width: calc(100% - 580px);
+        padding-right: 270px;
+    }
+    @include breakpoint($s5)
+    {
+        //width: calc(100% - 580px);
+        padding-right: 400px;
     }
 }
 .nav-sub
@@ -542,6 +602,21 @@ a.menu-button:hover
         text-transform: none;
 
         color: $gray;
+    }
+    .snavitem {
+      @include breakpoint($s1) {
+        width:50%;
+        float:left;
+        &:nth-of-type(2n+1) {
+            clear:left;
+        }
+      }
+
+      @include breakpoint($s2) {
+        width:auto;
+        float:none;
+        clear: none;
+      }
     }
 }
 
