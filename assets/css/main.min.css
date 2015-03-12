@@ -2940,19 +2940,19 @@ a.menu-button:hover {
             float: left;
             clear: right;
             width: 50%; }
-            .nav-footer ul li.dropdown:nth-of-type(2n) {
+            .nav-footer ul li.dropdown:nth-of-type(2n+1) {
               clear: left; } }
         @media only screen and (min-width: 768px) {
           .nav-footer ul li.dropdown {
             width: 33.333%; }
-            .nav-footer ul li.dropdown:nth-of-type(2n) {
+            .nav-footer ul li.dropdown:nth-of-type(2n+1) {
               clear: none; }
-            .nav-footer ul li.dropdown:nth-of-type(4n+1) {
+            .nav-footer ul li.dropdown:nth-of-type(3n+1) {
               clear: left; } }
         @media only screen and (min-width: 1024px) {
           .nav-footer ul li.dropdown {
             width: 20%; }
-            .nav-footer ul li.dropdown:nth-of-type(4n+1) {
+            .nav-footer ul li.dropdown:nth-of-type(3n+1) {
               clear: none; } }
         .nav-footer ul li.dropdown li a {
           font-size: 1em;
