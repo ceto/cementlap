@@ -41,16 +41,21 @@
         width:1600,    // slider standard width
         height:800,   // slider standard height
         space:0,
-        preload:3,
+        preload:2,
+        overPause:false,
+        loop:true,
         autoplay:true,
         fullwidth:true,
         autoHeight:true,
-        view:"fade"
+        view:"fade",
+        //grabCursor:true,
+        //mouse:true,
+        //swipe:false
         
         // more slider options goes here...
       });
       // adds Arrows navigation control to the slider.
-      slider.control('bullets');
+      slider.control('arrows');
       slider.control('thumblist', { 
         autohide:false,
         inset:false,
@@ -62,7 +67,5 @@
 
     </script>
   <?php endif; ?>
-  <!-- Please call pinit.js only once per page -->
-<!-- <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script> -->
 </body>
 </html>

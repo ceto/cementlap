@@ -215,7 +215,7 @@ blockquote{
   text-transform: uppercase;
   background-color: $gray-superlight;
   color:$gray;
-  padding:0.75em 0.75em 0.75em 2.75em;
+  padding:0.75em 0.75em 0.75em .75em;
   margin:1em 0;
   @include breakpoint($s2) {
 
@@ -225,18 +225,15 @@ blockquote{
     margin:0;
   }
 
-  &:before {
-    position: absolute;
-    display: block;
-    content:'';
-    left:0;top:0;
-    height:100%;
-    width:2em;
+  // &:before {
+  //   position: absolute;
+  //   display: block;
+  //   content:'';
+  //   left:0;top:0;
+  //   height:100%;
+  //   width:1px;
 
-    background-color: $gray-dark;
-    background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat;
-    background-position: left center;
-  }
+  //   background-color: $gray-light;
+  // }
 
 }

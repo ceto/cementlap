@@ -5,12 +5,13 @@
   $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
   $univaluta='Ft';
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
-
+  $dateformat='Y. m. d.';
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 2, ',', ' ');
     $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 2, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
+    $dateformat='d/m/y';
   }
 ?>
 
@@ -51,7 +52,7 @@
         <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
           <i class="ion-plane"></i>
           <?php _e('Érkezik:','root') ?>
-          <span class="prod-ntd"><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span>
+          <span class="prod-ntd"><?php echo date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true))); ?></span>
           <?php else : ?>
           <i class="ion-alert-circled"></i>
           <?php _e('Rendelésre gyártjuk','root') ?>
@@ -60,7 +61,8 @@
 
       <span class="prod-price">
         <?php echo $uniprice; ?>
-        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+ÁFA','root'); ?></span>
       </span>
+      <span class="prod-morebtn"><i class="ion ion-android-search"></i></span>
     </div>
   </a><!-- /#product-## -->

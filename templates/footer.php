@@ -43,7 +43,7 @@
       </div>
   </div>
   <div class="footer-copy">
-    © 2014 Marrakesh Bt. | Design & Site by <a href="http://hydrogene.hu">HYDROGENE</a>
+    © 2014 Marrakesh Bt. | Design & Site by <a href="http://hydrogene.hu/referencia/termek-bongeszo-es-foto-galeria/">HYDROGENE</a>
   </div>
   <a href="#" class="tothetop"><i class="ion-ios7-arrow-thin-up"></i></a>
 </footer>

@@ -62,14 +62,18 @@
 <?php 
   $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
+  $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
+  
   $univaluta='Ft';
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
-
+  $dateformat='Y. m. d.';
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 2, ',', ' ');
     $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 2, ',', ' ');
+    $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 2, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
+    $dateformat='d/m/y';
   }
 ?>
 
@@ -88,13 +92,14 @@
               <div class="origprice">
                 <?php _e('Eredeti ár','root'); ?>: 
                 <span class="szam"><?php echo $uniorigprice; ?>
-                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+ÁFA','root'); ?></span></span>
                 </span>
               </div>
             <?php endif; ?>
 
             <?php echo $uniprice; ?>
-            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+ÁFA','root'); ?></span></span>
+            <span class="brutto"><?php _e('bruttó:','roots'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -157,9 +162,9 @@
                 </span>
               </div>
             <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
-              <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo get_post_meta($post->ID, '_meta_arrive', true); ?></span></div>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true))); ?></span></div>
             <?php else: ?>
-              <div class="date-status"><i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?php echo $copt['ntd']; ?></span>  </div>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?php echo date($dateformat,strtotime($copt['ntd'])); ?></span>  </div>
             <?php endif; ?>
 
             <div class="product-more">

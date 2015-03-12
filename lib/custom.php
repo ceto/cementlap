@@ -551,6 +551,14 @@ class CementlapSettingsPage
             array( $this, 'change_callback' ), // Callback
             'cementlap-setting-admin', // Page
             'setting_section_id' // Section           
+        );
+
+        add_settings_field(
+            'vat', // ID
+            'ÁFA', // Title 
+            array( $this, 'vat_callback' ), // Callback
+            'cementlap-setting-admin', // Page
+            'setting_section_id' // Section           
         );       
 
    
@@ -579,6 +587,9 @@ class CementlapSettingsPage
 
         if( isset( $input['change'] ) )
             $new_input['change'] = sanitize_text_field( $input['change'] );
+
+        if( isset( $input['vat'] ) )
+            $new_input['vat'] = sanitize_text_field( $input['vat'] );
 
         return $new_input;
     }
@@ -631,6 +642,14 @@ class CementlapSettingsPage
         printf(
             '<input type="text" id="change" name="cementlap_option_name[change]" value="%s" />',
             isset( $this->options['change'] ) ? esc_attr( $this->options['change']) : ''
+        );
+    }
+
+    public function vat_callback()
+    {
+        printf(
+            '<input type="text" id="vat" name="cementlap_option_name[vat]" value="%s" />',
+            isset( $this->options['vat'] ) ? esc_attr( $this->options['vat']) : ''
         );
     }
 }
