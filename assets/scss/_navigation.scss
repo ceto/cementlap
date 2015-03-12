@@ -927,7 +927,7 @@ a.menu-button:hover
                     clear: right;
 
                     width: 50%;
-                    &:nth-child(2n)
+                    &:nth-of-type(2n)
                     {
                         clear: left;
                     }
@@ -935,11 +935,11 @@ a.menu-button:hover
                 @include breakpoint($s2)
                 {
                     width: 33.333%;
-                    &:nth-child(2n)
+                    &:nth-of-type(2n)
                     {
                         clear: none;
                     }
-                    &:nth-child(4n+1)
+                    &:nth-of-type(4n+1)
                     {
                         clear: left;
                     }
@@ -947,7 +947,7 @@ a.menu-button:hover
                 @include breakpoint($s3)
                 {
                     width: 20%;
-                    &:nth-child(4n+1)
+                    &:nth-of-type(4n+1)
                     {
                         clear: none;
                     }
