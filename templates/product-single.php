@@ -68,9 +68,9 @@
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
   $dateformat='Y. m. d.';
   if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 2, ',', ' ');
-    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 2, ',', ' ');
-    $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 2, ',', ' ');
+    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
+    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 1, ',', ' ');
+    $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';

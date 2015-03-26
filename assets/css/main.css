@@ -2427,6 +2427,9 @@ blockquote {
   html[lang='en-US'] .brand {
     width: 352px;
     background-image: url('../img/logo_en.png'); }
+  html[lang='pl-PL'] .brand {
+    width: 443px;
+    background-image: url('../img/logo_pl.png'); }
 
 .brandi {
   display: block;
@@ -2446,6 +2449,9 @@ blockquote {
   html[lang='en-US'] .brandi {
     width: 264px;
     background-image: url('../img/logo_en.png'); }
+  html[lang='en-US'] .brandi {
+    width: 300px;
+    background-image: url('../img/logo_pl.png'); }
   .brandi:hover, .brandi:focus {
     opacity: .85; }
 

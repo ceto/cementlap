@@ -107,6 +107,12 @@
 
         background-image: url('../img/logo_en.png');
     }
+    html[lang='pl-PL'] &
+    {
+        width: 443px;
+
+        background-image: url('../img/logo_pl.png');
+    }
 }
 
 .brandi
@@ -133,6 +139,12 @@
         width: 264px;
 
         background-image: url('../img/logo_en.png');
+    }
+    html[lang='en-US'] &
+    {
+        width: 300px;
+
+        background-image: url('../img/logo_pl.png');
     }
     &:hover,
     &:focus
