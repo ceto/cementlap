@@ -25,7 +25,13 @@
     $termik = array();
     
     $termlist=get_the_terms( $post->ID, 'product-category' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+    foreach ( $termlist as $term ) { 
+      
+      $termik[] = $term->slug;
+    }
+
+    $mastercat=get_term_top_most_parent($term->term_id, 'product-category');
+    $mastercat_id=$mastercat->term_id;
     
     $termlist=get_the_terms( $post->ID, 'product-color' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
@@ -85,7 +91,8 @@
     </figure>
     <div class="uszo">
         <header class="product-head">
-          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', icl_object_id(5,'product-category',true),'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php _e('Cementlapok','root'); ?></a>
+        <?php // var_dump( $mastercat ); ?>
+          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php echo $mastercat->name; ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
@@ -127,17 +134,9 @@
             </div>
         </div>
         <div class="back">
-           <div class="product-content">
-            <p>
-              <?php _e('Egyszínű vagy bordűr lapokkal kombinálva izgalmas egyedi kombinációk is megvalósíthatóak. Modern lakások vagy klasszikus polgári otthonok hidegburkolataként egyaránt remekül felhasználható.','root'); ?>
-            </p>
-            <p>
-              <?php _e('Padlófűtéssel kombinálható, de konyhapultokhoz vagy fürdőszobák falburkolatként is alkalmazható.','root'); ?>
-            </p>
-            <p>
-              <?php _e('Vásárlás előtt feltétlenül tájékozódj a <a href="http://marrakeshcementlap.hu/cementlapok-lerakasa/">lerakásról</a> és a <a href="http://marrakeshcementlap.hu/vasarlasi-informaciok/technikai-parameterek/">technikai paraméterekről.</a>','root'); ?>
-            </p>
-        </div>
+          <div class="product-content">
+             <?php echo wpautop($mastercat->description); ?>
+          </div>
         </div><!-- /.back -->
         </div>
         </div>
