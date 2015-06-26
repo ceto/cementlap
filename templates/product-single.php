@@ -91,7 +91,6 @@
     </figure>
     <div class="uszo">
         <header class="product-head">
-        <?php // var_dump( $mastercat ); ?>
           <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php echo $mastercat->name; ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
