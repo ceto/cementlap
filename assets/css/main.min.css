@@ -2582,6 +2582,16 @@ blockquote {
 .nav-main .nav > li.inverted > a {
   background-color: #FF9900;
   color: #fff; }
+  @media only screen and (min-width: 1024px) {
+    .nav-main .nav > li.inverted > a {
+      padding: 0 .25em; } }
+
+.nav-main .nav > li.invertedgray > a {
+  background-color: #2F2F2F;
+  color: #fff; }
+  @media only screen and (min-width: 1024px) {
+    .nav-main .nav > li.invertedgray > a {
+      padding: 0 .25em; } }
 
 @media only screen and (min-width: 1024px) {
   .nav1 {
