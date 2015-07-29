@@ -2564,6 +2564,10 @@ blockquote {
     .nav-main .nav li.telcsi a:before {
       content: '\f2d2'; }
 
+.nav-main .nav > li.inverted > a {
+  background-color: #FF9900;
+  color: #fff; }
+
 @media only screen and (min-width: 1024px) {
   .nav1 {
     display: inline-block;
