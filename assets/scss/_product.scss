@@ -201,6 +201,7 @@ article.product {
   
 }
 .product-figure {
+  text-align: center;
   height: 240px;
 
   background-repeat: no-repeat;
@@ -217,6 +218,34 @@ article.product {
 
   img {
     display:none;
+  }
+}
+
+
+.product-figure--mustshow {
+  height: auto;
+  @include breakpoint($s1){
+    height: auto;
+  }
+  @include breakpoint($s2){
+    display:block;
+    position: absolute;
+    left:52%;
+    top:13em;
+    width:48%;
+    text-align: left;
+    padding:0 1em;
+
+  }
+
+  @include breakpoint($s3){
+    left:50%;
+    width:50%;
+    top:9em;
+  }
+
+  img {
+    display: inline-block;
   }
 }
 .uszo{

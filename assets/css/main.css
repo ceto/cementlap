@@ -4006,6 +4006,7 @@ article.product {
       max-height: 1000px; } }
 
 .product-figure {
+  text-align: center;
   height: 240px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -4018,6 +4019,28 @@ article.product {
       display: none; } }
   .product-figure img {
     display: none; }
+
+.product-figure--mustshow {
+  height: auto; }
+  @media only screen and (min-width: 480px) {
+    .product-figure--mustshow {
+      height: auto; } }
+  @media only screen and (min-width: 768px) {
+    .product-figure--mustshow {
+      display: block;
+      position: absolute;
+      left: 52%;
+      top: 13em;
+      width: 48%;
+      text-align: left;
+      padding: 0 1em; } }
+  @media only screen and (min-width: 1024px) {
+    .product-figure--mustshow {
+      left: 50%;
+      width: 50%;
+      top: 9em; } }
+  .product-figure--mustshow img {
+    display: inline-block; }
 
 .uszo {
   background-color: rgba(255, 255, 255, 0.92);

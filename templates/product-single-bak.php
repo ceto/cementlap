@@ -19,11 +19,6 @@
   $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
   $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
-
-  if (get_post_meta( $post->ID, '_meta_wallimg', true )=='' ) {
-    $imcimedium['0'] = $imcigreat['0'] = $imci['0'] = $imcismall['0'] = get_stylesheet_directory_uri().'/asstes/img/blank.gif';
-
-  }
   
 ?>
   <?php
@@ -78,13 +73,6 @@
   $univaluta='Ft';
   $uniunit=get_post_meta($post->ID, '_meta_unit', true);
   $dateformat='Y. m. d.';
-
-  if (get_post_meta($post->ID, '_meta_arrive', true) !='') {
-    $transport=date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true)));
-  } else {
-    $transport=date($dateformat,strtotime($copt['ntd']));
-  }
-
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
     $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 1, ',', ' ');
@@ -92,24 +80,15 @@
     $univaluta='EUR';
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
-
-
-
   }
 ?>
 
 
 
   <article <?php post_class($termes); ?> >
-    <?php if ( get_post_meta( $post->ID, '_meta_wallimg', true )=='' ) : ?>
-      <figure class="product-figure product-figure--mustshow">
-        <?php the_post_thumbnail( 'small11' ); ?>
-      </figure>
-    <?php else : ?>
-      <figure class="product-figure" style="background-image:url('<?php echo $imcismall['0']; ?>');">
-        <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
-      </figure>
-    <?php endif; ?>
+    <figure class="product-figure" style="background-image:url('<?php echo $imcismall['0']; ?>');">
+      <img src="<?php echo $imcismall['0']; ?>" alt="<?php the_title(); ?>">
+    </figure>
     <div class="uszo">
         <header class="product-head">
           <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php echo $mastercat->name; ?></a>
@@ -163,50 +142,28 @@
         <footer class="product-footer">
           <div class="stock-block">
             <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
-              <div class="stock-status">
-                <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
-                  <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
-                <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
-                   <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
-                <?php else: ?>
-                  <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
-                <?php endif; ?>
-              </div>
-              
+            <div class="stock-status">
               <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
-                <div class="stock-amount">
-                  <i class="ion-ios7-cart"></i> <?php _e('Raktáron van','root') ?>:
-                  <span>
-                    <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
-                  </span>
-                </div>
+                <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
+              <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
+                 <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
+              <?php else: ?>
+                <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
               <?php endif; ?>
-
-              <?php if (has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock')) : ?>
-
-                <div class="date-status">
-                    <i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: 
-                    <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
-                      <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> - 
-                        <span><?= $transport; ?></span>
-
-                    <?php else: ?>
-                      <span><?= $transport; ?></span>
-                    <?php endif; ?>
-
-                  </div>
-                
-              <?php endif; ?>
-
-              <?php if ( !(has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') || has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') ) ): ?>
-                <div class="date-status">
-                  <i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?= $transport; ?></span>
-                </div>
-
-              <?php endif; ?>
-
-
-
+            </div>
+            
+            <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
+              <div class="stock-amount">
+                <i class="ion-ios7-cart"></i> <?php _e('Raktáron van','root') ?>:
+                <span>
+                  <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+                </span>
+              </div>
+            <?php elseif ( get_post_meta($post->ID, '_meta_arrive', true) !=''): ?>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: <span><?php echo date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true))); ?></span></div>
+            <?php else: ?>
+              <div class="date-status"><i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?php echo date($dateformat,strtotime($copt['ntd'])); ?></span>  </div>
+            <?php endif; ?>
 
             <div class="product-more">
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
