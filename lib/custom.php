@@ -140,12 +140,32 @@ function cmb_product( array $meta_boxes ) {
         'type' => 'text_small',
       ),
       array(
+        'name'    => __( 'Background position', 'root' ),
+        'desc'    => __( 'Hogyan viselkedik a Fullscreen background', 'root' ),
+        'id'      => $prefix . 'bgpos',
+        'type'    => 'radio_inline',
+        'options' => array(
+          array( 'name' => 'Kifeszített', 'value' => 'fs', ),
+          array( 'name' => 'Úsztatott', 'value' => 'float', ),
+        ),
+      ),
+      array(
         'name' => __( 'Fullscreen wallpaper', 'root' ),
         'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
         'id'   => $prefix . 'wallimg',
         'type' => 'file',
         'save_id' => true, // save ID using true
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+      array(
+        'name'    => __( 'Single image', 'root' ),
+        'desc'    => __( 'Kell e jobb alsó sarokba kiskép', 'root' ),
+        'id'      => $prefix . 'spos',
+        'type'    => 'radio_inline',
+        'options' => array(
+          array( 'name' => 'Van', 'value' => 'van', ),
+          array( 'name' => 'Nincs', 'value' => 'nincs', ),
+        ),
       ),
       array(
         'name' => __( 'Single Cement Tile', 'root' ),
