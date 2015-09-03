@@ -1,4 +1,5 @@
 <?php while (have_posts()) : the_post(); ?>
+
 <?php
   // $actual=$post->ID;
   // $group_terms = wp_get_object_terms($actual, 'product-category', array (
