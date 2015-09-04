@@ -19,12 +19,6 @@
   $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
   $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
-
-  if (get_post_meta( $post->ID, '_meta_wallimg', true )=='' ) {
-    $imcimedium['0'] = $imcigreat['0'] = $imci['0'] = $imcismall['0'] = get_stylesheet_directory_uri().'/asstes/img/blank.gif';
-
-  }
-  
 ?>
   <?php
     $termik = array();
@@ -49,6 +43,9 @@
     
     $termes = join(" ", $termik );
   ?>
+
+
+<?php   if (get_post_meta( $post->ID, '_meta_bgpos', true )!='float' ) : ?>
 <style type="text/css">
   article.product {
     background-image:none;
@@ -69,6 +66,10 @@
     }
   }
 </style>
+
+<?php endif; ?>
+
+
 
 <?php 
   $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
@@ -101,9 +102,9 @@
 
 
   <article <?php post_class($termes); ?> >
-    <?php if ( get_post_meta( $post->ID, '_meta_wallimg', true )=='' ) : ?>
+    <?php if ( get_post_meta( $post->ID, '_meta_bgpos', true )=='float' ) : ?>
       <figure class="product-figure product-figure--mustshow">
-        <?php the_post_thumbnail( 'small11' ); ?>
+        <img src="<?php echo $imcimedium['0']; ?>" alt="<?php the_title(); ?>">
       </figure>
     <?php else : ?>
       <figure class="product-figure" style="background-image:url('<?php echo $imcismall['0']; ?>');">
@@ -112,7 +113,7 @@
     <?php endif; ?>
     <div class="uszo">
         <header class="product-head">
-          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios7-undo"></i><?php echo $mastercat->name; ?></a>
+          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios-undo"></i><?php echo $mastercat->name; ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
@@ -145,7 +146,7 @@
               <?php endif; ?>
               <?php if (get_post_meta($post->ID, '_meta_kit', true)!='') : ?>
                 <div class="data-kiszer">
-                    <i class="ion-ios7-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_kit', true); ?></span>
+                    <i class="ion-ios-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_kit', true); ?></span>
                 </div>
               <?php endif; ?>
               </div><!-- /.data-block -->
@@ -167,7 +168,7 @@
                 <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
                   <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
                 <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
-                   <i class="ion-plane"></i> <?php _e('Szállítás alatt','root') ?>
+                   <i class="ion-android-train"></i> <?php _e('Szállítás alatt','root') ?>
                 <?php else: ?>
                   <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
                 <?php endif; ?>
@@ -175,7 +176,7 @@
               
               <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
                 <div class="stock-amount">
-                  <i class="ion-ios7-cart"></i> <?php _e('Raktáron van','root') ?>:
+                  <i class="ion-ios-cart"></i> <?php _e('Raktáron van','root') ?>:
                   <span>
                     <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                   </span>
@@ -218,7 +219,7 @@
                   <p><?php _e('<strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási idővel érdemes számolni, hívj fel minket és egyeztetünk. ','root'); ?></p>
                   <p><em><?php _e('Minden rendelés és foglalás 30% előleg befizetésével érvényes! ','root'); ?></em></p>
                   <a class="show-less" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                    <i class="ion-ios7-close-empty"></i>
+                    <i class="ion-ios-close-empty"></i>
                   </a>
                 </div>
 
@@ -240,11 +241,11 @@
      <nav class="product-pn">
           <ul>
             <!-- 
-              <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
-              <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
+              <li><?php previous_post_link( '%link', '<i class="ion-ios-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
+              <li><?php next_post_link( '%link', '<i class="ion-ios-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
             -->
-            <li><?php previous_post_link_plus( array('in_same_tax' => true, 'format' => '%link', 'link' => '<i class="ion-ios7-arrow-back"></i>', 'order_by' => 'post_title' )); ?></li>
-            <li><?php next_post_link_plus( array('in_same_tax' => true,'format' => '%link', 'link' => '<i class="ion-ios7-arrow-forward"></i>', 'order_by' => 'post_title' )); ?></li>
+            <li><?php previous_post_link_plus( array('in_same_tax' => true, 'format' => '%link', 'link' => '<i class="ion-ios-arrow-back"></i>', 'order_by' => 'post_title' )); ?></li>
+            <li><?php next_post_link_plus( array('in_same_tax' => true,'format' => '%link', 'link' => '<i class="ion-ios-arrow-forward"></i>', 'order_by' => 'post_title' )); ?></li>
           </ul>
       </nav> 
   </article>

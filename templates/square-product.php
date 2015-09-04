@@ -13,6 +13,12 @@
     $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
   }
+
+  if (get_post_meta($post->ID, '_meta_arrive', true) !='') {
+    $transport=date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true)));
+  } else {
+    $transport=date($dateformat,strtotime($copt['ntd']));
+  }
 ?>
 
 <?php
@@ -38,7 +44,9 @@
         $ima = get_post_meta( $post->ID, '_meta_singleimg_id', true );
         $imci = wp_get_attachment_image_src( $ima, 'petit11');
       ?>
-    <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="" class="prod-sthumb">
+      <?php   if (get_post_meta( $post->ID, '_meta_spos', true )!='nincs' ) : ?>
+        <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="" class="prod-sthumb">
+      <?php endif; ?>
     </figure>
     <div class="prod-desc">
       <h3 class="prod-title"><?php the_title(); ?></h3>
@@ -50,9 +58,15 @@
             <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
           </span>
         <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
-          <i class="ion-plane"></i>
+          <i class="ion-android-train"></i>
           <?php _e('Érkezik:','root') ?>
-          <span class="prod-ntd"><?php echo date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true))); ?></span>
+            <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
+              <span class="prod-ntd">
+                <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> &middot; <?= $transport; ?>
+              </span>
+            <?php else: ?>
+              <span class="prod-ntd"><?= $transport ?></span>
+            <?php endif; ?>
           <?php else : ?>
           <i class="ion-alert-circled"></i>
           <?php _e('Rendelésre gyártjuk','root') ?>

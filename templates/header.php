@@ -21,7 +21,7 @@
     */ ?>
     <div class="headcontact">
       <ul>
-        <li class="tel"><a href="tel:3623950282"><i class="ion ion-iphone"></i> (+36) 23 950 282</a></li>
+        <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+36) 23 950 282</a></li>
         <li class="email"><a href="mailto:info@marrakesh.hu"><i class="ion ion-email"></i> info@marrakesh.hu</a></li>
       </ul>
     </div>

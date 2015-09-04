@@ -115,7 +115,7 @@
   transition:opacity .4s linear;
   color:$gray;
   text-align: center;
-  padding:1em 1em 0.25em;
+  padding:1em .25em .25em;
 
   .prod-morebtn {
     position: absolute;
@@ -233,15 +233,22 @@ article.product {
     left:52%;
     top:13em;
     width:48%;
-    text-align: left;
+    //text-align: left;
     padding:0 1em;
 
   }
 
   @include breakpoint($s3){
-    left:50%;
-    width:50%;
+    left:45%;
+    width:55%;
+    top:13em;
+  }
+
+  @include breakpoint($s4){
+    left:40%;
+    width:60%;
     top:9em;
+    padding:0 4em;
   }
 
   img {

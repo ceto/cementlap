@@ -158,7 +158,7 @@ function cmb_product( array $meta_boxes ) {
         'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
       ),
       array(
-        'name'    => __( 'Single image', 'root' ),
+        'name'    => __( 'Kiskocka?', 'root' ),
         'desc'    => __( 'Kell e jobb alsó sarokba kiskép', 'root' ),
         'id'      => $prefix . 'spos',
         'type'    => 'radio_inline',
