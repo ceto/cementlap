@@ -217,7 +217,7 @@
                   <p><?php _e('<strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető. Ha nem tudsz eljönni érte, érdemes lefoglalni.','root'); ?></p>
                   <p><?php _e('<strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. A érkező mennyiséggel kapcsolatban hívj fel bennünket.','root'); ?></p>
                   <p><?php _e('<strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási idővel érdemes számolni, hívj fel minket és egyeztetünk.','root'); ?></p>
-                  <p><em><?php _e('Minden rendelés és foglalás 30% előleg befizetésével érvényes!','root'); ?></em></p>
+                  <p><em><?php _e('Important! Orders and reservations are valid  with 30% downpayment only.','root'); ?></em></p>
                   <a class="show-less" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                     <i class="ion-ios-close-empty"></i>
                   </a>
