@@ -32,7 +32,7 @@
   <article <?php post_class(); ?>>
 
     <div class="repulo">
-      <a href="#" class="repulotoggle"><i class="ion-ios7-close-empty"></i></a>
+      <a href="#" class="repulotoggle"><i class="ion-ios-close-empty"></i></a>
       <header>
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php get_template_part('templates/entry-meta'); ?>
@@ -43,8 +43,8 @@
       <footer>
         <nav class="post-pn">
           <ul>
-            <li><?php previous_post_link( '%link', '<i class="ion-ios7-arrow-back"></i><br>%title', TRUE, ' ', 'post_format' ); ?> </li>
-            <li><?php next_post_link( '%link', '<i class="ion-ios7-arrow-forward"></i><br>%title', TRUE, ' ', 'post_format' ); ?></li>
+            <li><?php previous_post_link( '%link', '<i class="ion-ios-arrow-back"></i><br>%title', TRUE, ' ', 'post_format' ); ?> </li>
+            <li><?php next_post_link( '%link', '<i class="ion-ios-arrow-forward"></i><br>%title', TRUE, ' ', 'post_format' ); ?></li>
           </ul>
         </nav> 
 
