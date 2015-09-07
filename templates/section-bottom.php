@@ -2,8 +2,8 @@
   <?php $reference_ID = $post->ID; ?>
   <aside class="related-products">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#egyes" data-toggle="tab"><?php _e('Színvariációk','root') ?></a></li>
-      <li><a href="#kettes" data-toggle="tab"><?php _e('Hasonló lapok','root') ?></a></li>
+      <li class="active"><a href="#egyes" data-toggle="tab"><?php _e('Color varations','cementlap') ?></a></li>
+      <li><a href="#kettes" data-toggle="tab"><?php _e('Similar products','cementlap') ?></a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active fade in" id="egyes">

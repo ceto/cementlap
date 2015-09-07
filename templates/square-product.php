@@ -53,13 +53,13 @@
       <div class="prod-stock-status">
         <?php if ( has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') ) : ?>
           <i class="ion-ios7-cart"></i>
-          <?php _e('Raktáron van','root') ?>:
+          <?php _e('In stock','cementlap') ?>:
           <span class="prod-amount">
             <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
           </span>
         <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
           <i class="ion-android-train"></i>
-          <?php _e('Érkezik:','root') ?>
+          <?php _e('Arrival','cementlap') ?>:
             <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
               <span class="prod-ntd">
                 <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> &middot; <?= $transport; ?>
@@ -69,13 +69,13 @@
             <?php endif; ?>
           <?php else : ?>
           <i class="ion-alert-circled"></i>
-          <?php _e('Rendelésre gyártjuk','root') ?>
+          <?php _e('Production on order only','cementlap') ?>
         <?php endif; ?>
       </div>
 
       <span class="prod-price">
         <?php echo $uniprice; ?>
-        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+ÁFA','root'); ?></span>
+        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
       </span>
       <span class="prod-morebtn"><i class="ion ion-android-search"></i></span>
     </div>
