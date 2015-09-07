@@ -211,12 +211,12 @@
 
             <div class="product-more">
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                  <?php _e('Hogyan foglaljam/rendeljem meg','root'); ?>
+                  <?php _e('How to Order/Buy','cementlap'); ?>
                 </a>
                 <div id="morepanel" class="panel-collapse morepanel collapse">
-                  <p><?php _e('<strong>Ha van RAKTÁRON elegendő mennyiség</strong> előrendelés nélkül, Törökbálinton azonnal átvehető és elvihető. Ha nem tudsz eljönni érte, érdemes lefoglalni.','root'); ?></p>
-                  <p><?php _e('<strong>Ha kevés van, vagy nincs raktáron, de SZÁLLÍTÁS ALATT van:</strong> A lapokat már gyártjuk és/vagy már szállítás alatt van, és a jelzett időpontban érkeznek meg. A érkező mennyiséggel kapcsolatban hívj fel bennünket.','root'); ?></p>
-                  <p><?php _e('<strong>Ha csak RENDELÉSRE gyártjuk:</strong> Nincs gyártásban, kb. 2 hónapos átfutási idővel érdemes számolni, hívj fel minket és egyeztetünk.','root'); ?></p>
+                  <p><?php _e('<strong>If you find the selected tile IN STOCK</strong> no need to order, it is available and ready for pick up in warehouse Törökbálint. If you can not come immediaetly, we reccomend  you make a reservation.','cementlap'); ?></p>
+                  <p><?php _e('<strong>If the quantity in stock is not enough or out of stock, but it is indicated that it will COMING SOON:</strong> The tiles are already in production or its way to Budapest, and will arrive on the date indicated  Please contact us about the available quantity','cementlap'); ?></p>
+                  <p><?php _e('<strong>If the tiles are produced on ORDER only:</strong>It is not in production at the moment, delivery date will be appr. 2 months if ordered. Contact us for further details','cementlap'); ?></p>
                   <p><em><?php _e('Important! Orders and reservations are valid  with 30% downpayment only.','cementlap'); ?></em></p>
                   <a class="show-less" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                     <i class="ion-ios-close-empty"></i>
