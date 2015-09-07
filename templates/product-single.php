@@ -118,16 +118,16 @@
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
               <div class="origprice">
-                <?php _e('Eredeti ár','root'); ?>: 
+                <?php _e('Original price','cementlap'); ?>: 
                 <span class="szam"><?php echo $uniorigprice; ?>
-                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+ÁFA','root'); ?></span></span>
+                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
                 </span>
               </div>
             <?php endif; ?>
 
             <?php echo $uniprice; ?>
-            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+ÁFA','root'); ?></span></span>
-            <span class="brutto"><?php _e('bruttó:','roots'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
+            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+            <span class="brutto"><?php _e('incl. vat:','cementlap'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -136,17 +136,17 @@
             <div class="data-block">
               <?php if ( get_post_meta($post->ID, '_meta_size', true) !='') : ?>
                 <div class="data-size">
-                    <i class="ion-arrow-resize"></i> <?php _e('Méret','root'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_size', true); ?></span>
+                    <i class="ion-arrow-resize"></i> <?php _e('Size','cementlap'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_size', true); ?></span>
                 </div>
               <?php endif; ?>
               <?php if (get_post_meta($post->ID, '_meta_weight', true)!='') : ?>
                 <div class="data-weight">
-                    <i class="ion-speedometer"></i> <?php _e('Súly','root'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_weight', true); ?></span>
+                    <i class="ion-speedometer"></i> <?php _e('Weight','cementlap'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_weight', true); ?></span>
                 </div>
               <?php endif; ?>
               <?php if (get_post_meta($post->ID, '_meta_kit', true)!='') : ?>
                 <div class="data-kiszer">
-                    <i class="ion-ios-box-outline"></i> <?php _e('Kiszerelés','root'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_kit', true); ?></span>
+                    <i class="ion-ios-box-outline"></i> <?php _e('Packing','cementlap'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_kit', true); ?></span>
                 </div>
               <?php endif; ?>
               </div><!-- /.data-block -->
@@ -163,20 +163,20 @@
         </div>
         <footer class="product-footer">
           <div class="stock-block">
-            <h3><?php _e('Készlet információ, szállítás','root'); ?></h3>
+            <h3><?php _e('Stock information, transport','cementlap'); ?></h3>
               <div class="stock-status">
                 <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
-                  <i class="ion-checkmark"></i> <?php _e('Azonnal szállítható','root') ?>
+                  <i class="ion-checkmark"></i> <?php _e('In stock','cementlap') ?>
                 <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
-                   <i class="ion-android-train"></i> <?php _e('Szállítás alatt','root') ?>
+                   <i class="ion-android-train"></i> <?php _e('Coming soon','cementlap') ?>
                 <?php else: ?>
-                  <i class="ion-alert-circled"></i> <?php _e('Rendelésre gyártjuk','root') ?>
+                  <i class="ion-alert-circled"></i> <?php _e('Production on order only','cementlap') ?>
                 <?php endif; ?>
               </div>
               
               <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
                 <div class="stock-amount">
-                  <i class="ion-ios-cart"></i> <?php _e('Raktáron van','root') ?>:
+                  <i class="ion-ios-cart"></i> <?php _e('Available','cementlap') ?>:
                   <span>
                     <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                   </span>
@@ -186,7 +186,7 @@
               <?php if (has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock')) : ?>
 
                 <div class="date-status">
-                    <i class="ion-clock"></i> <?php _e('Érkezik','root') ?>: 
+                    <i class="ion-clock"></i> <?php _e('Arrival','cementlap') ?>: 
                     <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
                       <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> - 
                         <span><?= $transport; ?></span>
@@ -201,7 +201,7 @@
 
               <?php if ( !(has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') || has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') ) ): ?>
                 <div class="date-status">
-                  <i class="ion-clock"></i> <?php _e('Rendelés esetén érkezik','root') ?>: <span><?= $transport; ?></span>
+                  <i class="ion-clock"></i> <?php _e('Arrival date when ordered','cementlap') ?>: <span><?= $transport; ?></span>
                 </div>
 
               <?php endif; ?>
@@ -229,11 +229,11 @@
 
           <div class="gombsor">
             <a onClick="return share_click('pi', 700, 300, '<?php echo $imci[0]; ?>')" href="http://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(get_the_permalink()); ?>&media=<?php echo urlencode($imci[0]); ?>&description=<?php echo urlencode(get_the_title()); ?>" data-media="<?php echo urlencode($imci[0]); ?>">
-              <i class="ion ion-social-pinterest"></i><br /><span><?php _e('Pinterest','roots'); ?></span>
+              <i class="ion ion-social-pinterest"></i><br /><span><?php _e('Pinterest','cementlap'); ?></span>
             </a>
-<!--             <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span><?php _e('Megosztom','root'); ?></span></a> -->
+<!--             <a onClick="return share_click('fb', 400, 300)" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="share-face"><i class="ion-social-facebook"></i><br /><span><?php _e('Share','cementlap'); ?></span></a> -->
             <a href="tel:+36209734344" class="call-phone"><i class="ion-iphone"></i><br /><span>+36.20.973.4344</span></a>
-            <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span><?php _e('Felhasználás','roots'); ?></span></a>
+            <a href="#" class="share-info"><i class="ion-information-circled"></i><br /><span><?php _e('Area of use','cementlap'); ?></span></a>
           </div>
           <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
         </footer>
