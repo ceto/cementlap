@@ -1,10 +1,10 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php
-  // $actual=$post->ID;
+  // $actual=$post_id;
   // $group_terms = wp_get_object_terms($actual, 'product-category', array (
   //    'orderby' => 'date',
   //    'order' => 'ASC',
-  //    'fields' => 'all' 
+  //    'fields' => 'all'
   //   )
   // );
   // $group_id=$group_terms[0]->term_id;
@@ -12,8 +12,9 @@
   // $group=$group_terms[0];
 ?>
 <?php
+  $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
   $copt=get_option('cementlap_option_name');
-  $ima = get_post_meta( $post->ID, '_meta_wallimg_id', true );
+  $ima = get_post_meta( $orig_id, '_meta_wallimg_id', true );
 
   $imci = wp_get_attachment_image_src( $ima, 'wallfree');
   $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
@@ -22,30 +23,30 @@
 ?>
   <?php
     $termik = array();
-    
+
     $termlist=get_the_terms( $post->ID, 'product-category' );
-    foreach ( $termlist as $term ) { 
-      
+    foreach ( $termlist as $term ) {
+
       $termik[] = $term->slug;
     }
 
     $mastercat=get_term_top_most_parent($term->term_id, 'product-category');
     $mastercat_id=$mastercat->term_id;
-    
+
     $termlist=get_the_terms( $post->ID, 'product-color' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    
+
     $termlist=get_the_terms( $post->ID, 'product-design' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    
+
     $termlist=get_the_terms( $post->ID, 'product-stock' );
     foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-    
+
     $termes = join(" ", $termik );
   ?>
 
 
-<?php   if (get_post_meta( $post->ID, '_meta_bgpos', true )!='float' ) : ?>
+<?php   if (get_post_meta( $orig_id, '_meta_bgpos', true )!='float' ) : ?>
 <style type="text/css">
   article.product {
     background-image:none;
@@ -71,27 +72,27 @@
 
 
 
-<?php 
-  $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
-  $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
-  $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
-  
+<?php
+  $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
+  $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
+  $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
+
   $univaluta='Ft';
-  $uniunit=get_post_meta($post->ID, '_meta_unit', true);
+  $uniunit=get_post_meta($orig_id, '_meta_unit', true);
   $dateformat='Y. m. d.';
 
-  if (get_post_meta($post->ID, '_meta_arrive', true) !='') {
-    $transport=date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true)));
+  if (get_post_meta($orig_id, '_meta_arrive', true) !='') {
+    $transport=date($dateformat,strtotime(get_post_meta($orig_id, '_meta_arrive', true)));
   } else {
     $transport=date($dateformat,strtotime($copt['ntd']));
   }
 
   if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
-    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 1, ',', ' ');
-    $brprice=number_format(get_post_meta($post->ID, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
+    $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
+    $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
+    $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
     $univaluta='EUR';
-    $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
+    $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
 
 
@@ -102,7 +103,7 @@
 
 
   <article <?php post_class($termes); ?> >
-    <?php if ( get_post_meta( $post->ID, '_meta_bgpos', true )=='float' ) : ?>
+    <?php if ( get_post_meta( $orig_id, '_meta_bgpos', true )=='float' ) : ?>
       <figure class="product-figure product-figure--mustshow">
         <img src="<?php echo $imcimedium['0']; ?>" alt="<?php the_title(); ?>">
       </figure>
@@ -118,25 +119,25 @@
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
               <div class="origprice">
-                <?php _e('Original price','cementlap'); ?>: 
+                <?php _e('Original price','cementlap'); ?>:
                 <span class="szam"><?php echo $uniorigprice; ?>
-                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
                 </span>
               </div>
             <?php endif; ?>
 
             <?php echo $uniprice; ?>
-            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
-            <span class="brutto"><?php _e('incl. vat:','cementlap'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
+            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+            <span class="brutto"><?php _e('incl. vat:','cementlap'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
         <div class="front">
             <div class="data-block">
-              <?php if ( get_post_meta($post->ID, '_meta_size', true) !='') : ?>
+              <?php if ( get_post_meta($orig_id, '_meta_size', true) !='') : ?>
                 <div class="data-size">
-                    <i class="ion-arrow-resize"></i> <?php _e('Size','cementlap'); ?>: <span><?php echo get_post_meta($post->ID, '_meta_size', true); ?></span>
+                    <i class="ion-arrow-resize"></i> <?php _e('Size','cementlap'); ?>: <span><?php echo get_post_meta($orig_id, '_meta_size', true); ?></span>
                 </div>
               <?php endif; ?>
               <?php if (get_post_meta($post->ID, '_meta_weight', true)!='') : ?>
@@ -151,7 +152,15 @@
               <?php endif; ?>
               </div><!-- /.data-block -->
             <div class="product-content">
-              <?php the_content(); ?>  
+              <?php the_content(); ?>
+              <?php if ( get_post_meta($orig_id, '_meta_refgal', true) ) :?>
+                <div class="product__gallery">
+                  <?php _e('Reference', 'cementlap') ?>:
+                  <a href="<?= get_the_permalink(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
+                     <?= get_the_title( get_post_meta($orig_id, '_meta_refgal', true) ); ?>
+                  </a>
+                </div>
+              <?php endif; ?>
             </div>
         </div>
         <div class="back">
@@ -173,12 +182,12 @@
                   <i class="ion-alert-circled"></i> <?php _e('Production on order only','cementlap') ?>
                 <?php endif; ?>
               </div>
-              
+
               <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
                 <div class="stock-amount">
                   <i class="ion-ios-cart"></i> <?php _e('Available','cementlap') ?>:
                   <span>
-                    <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+                    <?php echo get_post_meta($orig_id, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                   </span>
                 </div>
               <?php endif; ?>
@@ -186,9 +195,9 @@
               <?php if (has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock')) : ?>
 
                 <div class="date-status">
-                    <i class="ion-clock"></i> <?php _e('Arrival','cementlap') ?>: 
-                    <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
-                      <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> - 
+                    <i class="ion-clock"></i> <?php _e('Arrival','cementlap') ?>:
+                    <?php if ( get_post_meta($orig_id, '_meta_amountmarr', true) !='') : ?>
+                      <?php echo get_post_meta($orig_id, '_meta_amountmarr', true); ?><?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> -
                         <span><?= $transport; ?></span>
 
                     <?php else: ?>
@@ -196,7 +205,7 @@
                     <?php endif; ?>
 
                   </div>
-                
+
               <?php endif; ?>
 
               <?php if ( !(has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') || has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') ) ): ?>
@@ -240,13 +249,13 @@
     </div><!-- /.uszo -->
      <nav class="product-pn">
           <ul>
-            <!-- 
+            <!--
               <li><?php previous_post_link( '%link', '<i class="ion-ios-arrow-back"></i>', TRUE, ' ', 'product-category' ); ?> </li>
               <li><?php next_post_link( '%link', '<i class="ion-ios-arrow-forward"></i>', TRUE, ' ', 'product-category' ); ?></li>
             -->
             <li><?php previous_post_link_plus( array('in_same_tax' => true, 'format' => '%link', 'link' => '<i class="ion-ios-arrow-back"></i>', 'order_by' => 'post_title' )); ?></li>
             <li><?php next_post_link_plus( array('in_same_tax' => true,'format' => '%link', 'link' => '<i class="ion-ios-arrow-forward"></i>', 'order_by' => 'post_title' )); ?></li>
           </ul>
-      </nav> 
+      </nav>
   </article>
 <?php endwhile; ?>

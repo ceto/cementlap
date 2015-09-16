@@ -24,7 +24,7 @@
     "grunt-contrib-uglify": "~0.8.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-wp-version": "~0.1.0",
-    "grunt-sass": "~0.18.1",
-    "grunt-autoprefixer": "~2.2.0"
+    "grunt-sass": "~1.0.0",
+    "grunt-autoprefixer": "~3.0.3"
   }
 }

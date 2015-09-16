@@ -1,21 +1,21 @@
 <?php
-  $copt=get_option('cementlap_option_name'); 
-  
-  $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true), 0, ',', ' ');
-  $uniprice=number_format(get_post_meta($post->ID, '_meta_price', true), 0, ',', ' ');
+  $copt=get_option('cementlap_option_name');
+  $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
+  $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
+  $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
   $univaluta='Ft';
-  $uniunit=get_post_meta($post->ID, '_meta_unit', true);
+  $uniunit=get_post_meta($orig_id, '_meta_unit', true);
   $dateformat='Y. m. d.';
   if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($post->ID, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
-    $uniprice=number_format( get_post_meta($post->ID, '_meta_price', true) / $copt['change'], 1, ',', ' ');
+    $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
+    $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
     $univaluta='EUR';
-    $uniunit= ( get_post_meta($post->ID, '_meta_unit', true) == 'db')?'pcs':'db';
+    $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
   }
 
-  if (get_post_meta($post->ID, '_meta_arrive', true) !='') {
-    $transport=date($dateformat,strtotime(get_post_meta($post->ID, '_meta_arrive', true)));
+  if (get_post_meta($orig_id, '_meta_arrive', true) !='') {
+    $transport=date($dateformat,strtotime(get_post_meta($orig_id, '_meta_arrive', true)));
   } else {
     $transport=date($dateformat,strtotime($copt['ntd']));
   }
@@ -39,12 +39,12 @@
     data-name="<?php the_title(); ?>"
   >
     <figure class="prod-thumb">
-      <?php the_post_thumbnail('tiny11');  ?>
+      <?= get_the_post_thumbnail($orig_id, 'tiny11');  ?>
       <?php
-        $ima = get_post_meta( $post->ID, '_meta_singleimg_id', true );
+        $ima = get_post_meta( $orig_id, '_meta_singleimg_id', true );
         $imci = wp_get_attachment_image_src( $ima, 'petit11');
       ?>
-      <?php   if (get_post_meta( $post->ID, '_meta_spos', true )!='nincs' ) : ?>
+      <?php   if (get_post_meta( $orig_id, '_meta_spos', true )!='nincs' ) : ?>
         <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="" class="prod-sthumb">
       <?php endif; ?>
     </figure>
@@ -55,14 +55,14 @@
           <i class="ion-ios7-cart"></i>
           <?php _e('In stock','cementlap') ?>:
           <span class="prod-amount">
-            <?php echo get_post_meta($post->ID, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
+            <?php echo get_post_meta($orig_id , '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($orig_id , '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
           </span>
         <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
           <i class="ion-android-train"></i>
           <?php _e('Arrival','cementlap') ?>:
-            <?php if ( get_post_meta($post->ID, '_meta_amountmarr', true) !='') : ?> 
+            <?php if ( get_post_meta($orig_id , '_meta_amountmarr', true) !='') : ?>
               <span class="prod-ntd">
-                <?php echo get_post_meta($post->ID, '_meta_amountmarr', true); ?><?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> &middot; <?= $transport; ?>
+                <?php echo get_post_meta($orig_id , '_meta_amountmarr', true); ?><?php echo (get_post_meta($orig_id , '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> &middot; <?= $transport; ?>
               </span>
             <?php else: ?>
               <span class="prod-ntd"><?= $transport ?></span>
@@ -75,7 +75,7 @@
 
       <span class="prod-price">
         <?php echo $uniprice; ?>
-        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($post->ID, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
+        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
       </span>
       <span class="prod-morebtn"><i class="ion ion-android-search"></i></span>
     </div>

@@ -11,7 +11,7 @@ define('ICL_DONT_LOAD_LANGUAGES_JS', TRUE);
 // function icl_load_jquery_dialog() {
 //         wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery'), false, true );
 // }
-  
+
 // add_action( 'admin_enqueue_scripts', 'icl_load_jquery_dialog' );
 
 /**
@@ -29,7 +29,7 @@ function create_product() {
     'view_item' => 'View Product',
     'search_items' => 'Search Products',
     'not_found' =>  'No Products found',
-    'not_found_in_trash' => 'No Products found in Trash', 
+    'not_found_in_trash' => 'No Products found in Trash',
     'parent_item_colon' => '',
     'menu_name' => 'Products'
   );
@@ -38,164 +38,26 @@ function create_product() {
     'labels' => $labels,
     'public' => true,
     'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
+    'show_ui' => true,
+    'show_in_menu' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'product' ),
     'capability_type' => 'post',
-    'has_archive' => true, 
+    'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => null,
     'yarpp_support' => true,
     'supports' => array( 'title', 'editor', 'thumbnail' )
-  ); 
+  );
 
   register_post_type( 'product', $args );
 }
-add_action( 'init', 'create_product' ); 
+add_action( 'init', 'create_product' );
 
 /********* END OF Custom Post Types for Product Management ****************/
 
 
-/********* Custom MetaBoxes for Product Management ****************/
 
-/**
- * Product Metaboxes
-*/
-add_filter( 'cmb_meta_boxes', 'cmb_product' );
-function cmb_product( array $meta_boxes ) {
-  $prefix = '_meta_';
-
-  $meta_boxes[] = array(
-    'id'         => 'rmeta',
-    'title'      => 'Additional product details',
-    'pages'      => array( 'product'), // Post type
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'show_names' => true, // Show field names on the left
-    'fields'     => array(
-      array(
-        'name'   => __( 'Price', 'root' ),
-        'desc'   => __( 'Unit price. (only numbers allowed)', 'root' ),
-        'id'     => $prefix . 'price',
-        'type'   => 'text_money',
-        'before' => 'Ft', // override '$' symbol if needed
-        // 'repeatable' => true,
-      ),
-      array(
-        'name'   => __( 'Original Price', 'root' ),
-        'desc'   => __( 'Original price. (if special)', 'root' ),
-        'id'     => $prefix . 'origprice',
-        'type'   => 'text_money',
-        'before' => 'Ft', // override '$' symbol if needed
-        // 'repeatable' => true,
-      ),
-
-      array(
-        'name' => __( 'On Stock', 'root' ),
-        'desc' => __( 'Amount of unit on Törökbálint', 'root' ),
-        'id'   => $prefix . 'amount',
-        'type' => 'text_small',
-        // 'repeatable' => true,
-      ),
-      array(
-        'name'    => __( 'Unit', 'root' ),
-        'desc'    => __( 'Please select a unit', 'root' ),
-        'id'      => $prefix . 'unit',
-        'type'    => 'radio_inline',
-        'options' => array(
-          array( 'name' => __( 'm<sup>2</sup>', 'root' ), 'value' => 'm2', ),
-          array( 'name' => __( 'kg', 'root' ), 'value' => 'kg', ),
-          array( 'name' => __( 'db', 'root' ), 'value' => 'db', ),
-        ),
-      ),
-      array(
-        'name' => __( 'On Stock in Marrakesh', 'root' ),
-        'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
-        'id'   => $prefix . 'amountmarr',
-        'type' => 'text_small',
-      ),
-      array(
-        'name' => __( 'Next transport date', 'root' ),
-        'desc' => __( 'field description (optional)', 'root' ),
-        'id'   => $prefix . 'arrive',
-        'type' => 'text_date',
-      ),
-      array(
-        'name' => __( 'Size', 'root' ),
-        'desc' => __( 'eg:  20 × 20 × 1,6 cm', 'root' ),
-        'id'   => $prefix . 'size',
-        'type' => 'text_small',
-      ),
-      array(
-        'name' => __( 'Weight', 'root' ),
-        'desc' => __( 'eg:  34 kg/m<sup>2</sup> | 1,35 kg / lap', 'root' ),
-        'id'   => $prefix . 'weight',
-        'type' => 'text_small',
-      ),
-      array(
-        'name' => __( 'Kit', 'root' ),
-        'desc' => __( 'eg:  dobozban (13 lap ≈ 0,52 m<sup>2</sup>)', 'root' ),
-        'id'   => $prefix . 'kit',
-        'type' => 'text_small',
-      ),
-      array(
-        'name'    => __( 'Background position', 'root' ),
-        'desc'    => __( 'Hogyan viselkedik a Fullscreen background', 'root' ),
-        'id'      => $prefix . 'bgpos',
-        'type'    => 'radio_inline',
-        'options' => array(
-          array( 'name' => 'Kifeszített', 'value' => 'fs', ),
-          array( 'name' => 'Úsztatott', 'value' => 'float', ),
-        ),
-      ),
-      array(
-        'name' => __( 'Fullscreen wallpaper', 'root' ),
-        'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
-        'id'   => $prefix . 'wallimg',
-        'type' => 'file',
-        'save_id' => true, // save ID using true
-        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-      ),
-      array(
-        'name'    => __( 'Kiskocka?', 'root' ),
-        'desc'    => __( 'Kell e jobb alsó sarokba kiskép', 'root' ),
-        'id'      => $prefix . 'spos',
-        'type'    => 'radio_inline',
-        'options' => array(
-          array( 'name' => 'Van', 'value' => 'van', ),
-          array( 'name' => 'Nincs', 'value' => 'nincs', ),
-        ),
-      ),
-      array(
-        'name' => __( 'Single Cement Tile', 'root' ),
-        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
-        'id'   => $prefix . 'singleimg',
-        'type' => 'file',
-        'save_id' => true, // save ID using true
-        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
-      ),
-      array(
-        'name'    => __( 'Additional content', 'root' ),
-        'desc'    => __( 'Add your own gallery or additional content', 'root' ),
-        'id'      => $prefix . 'addcont',
-        'type'    => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
-      ),
-
-      // array(
-      //   'name'    => __( 'Additional content', 'root' ),
-      //   'desc'    => __( 'Add your own gallery or additional content', 'root' ),
-      //   'id'      => $prefix . 'addcont',
-      //   'type'    => 'wysiwyg',
-      //   'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
-      // ),
-    ),
-  );
-  return $meta_boxes;
-}
-
-/********* End of Custom MetaBoxes for Product Management ****************/
 
 /************* Custom Category for Product Management *********/
 
@@ -320,14 +182,224 @@ function create_stock_tag() {
 /**
  * Product Metaboxes
 */
-add_filter( 'cmb_meta_boxes', 'cmb_ppp' );
-function cmb_ppp( array $meta_boxes ) {
+add_filter( 'cmb2_metaboxes', 'cmb_ppp' );
+
+
+/**
+ * Home Slider Post Type Definition
+*/
+function create_slider() {
+  $labels = array(
+    'name' => 'Slides',
+    'singular_name' => 'Slide',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Slide',
+    'edit_item' => 'Edit Slide',
+    'new_item' => 'New Slide',
+    'all_items' => 'All Slides',
+    'view_item' => 'View Slide',
+    'search_items' => 'Search Slides',
+    'not_found' =>  'No Slides found',
+    'not_found_in_trash' => 'No Slides found in Trash',
+    'parent_item_colon' => '',
+    'menu_name' => 'Slider'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'slides' ),
+    'capability_type' => 'post',
+    'has_archive' => false,
+    'hierarchical' => false,
+    'menu_position' => null,
+    'yarpp_support' => true,
+    'supports' => array( 'title', 'thumbnail' )
+  );
+
+  register_post_type( 'slide', $args );
+}
+add_action( 'init', 'create_slider' );
+
+/********* END OF Slider Post Types ****************/
+
+
+
+/***** Create list of galleries ******/
+function cement_show_refgal( $field ) {
+  $the_refs = new WP_Query(array (
+      'post_type' => 'post',
+      'posts_per_page' => -1,
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'post_format',
+          'field'    => 'slug',
+          'terms'    => array( 'post-format-gallery' ),
+        ),
+      ),
+    )
+  );
+
+  $reflist = array();
+  $reflist[0] = 'Nincs csatolt galéria';
+  while ($the_refs->have_posts()) : $the_refs->the_post();
+    $reflist[get_the_ID()] = get_the_title();
+  endwhile;
+
+  return $reflist;
+}
+
+/********* Custom MetaBoxes ****************/
+
+if ( file_exists(  __DIR__ .'/CMB2/init.php' ) ) { require_once  __DIR__ .'/CMB2/init.php';};
+
+add_action( 'cmb2_init', 'cementes_metaboxes' );
+
+function cementes_metaboxes( ) {
   $prefix = '_meta_';
 
-  $meta_boxes[] = array(
+  /****** Product Boxes ******/
+  $cmb_product = new_cmb2_box( array(
+    'id'         => 'rmeta',
+    'title'      => 'Additional product details',
+    'object_types'  => array( 'product'), // Post type
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'show_names' => true, // Show field names on the left
+    'fields'     => array(
+      array(
+        'name'   => __( 'Price', 'root' ),
+        'desc'   => __( 'Unit price. (only numbers allowed)', 'root' ),
+        'id'     => $prefix . 'price',
+        'type'   => 'text_small',
+        'before' => 'Ft', // override '$' symbol if needed
+        // 'repeatable' => true,
+      ),
+      array(
+        'name'   => __( 'Original Price', 'root' ),
+        'desc'   => __( 'Original price. (if special)', 'root' ),
+        'id'     => $prefix . 'origprice',
+        'type'   => 'text_small',
+        'before' => 'Ft', // override '$' symbol if needed
+        // 'repeatable' => true,
+      ),
+
+      array(
+        'name' => __( 'On Stock', 'root' ),
+        'desc' => __( 'Amount of unit on Törökbálint', 'root' ),
+        'id'   => $prefix . 'amount',
+        'type' => 'text_small',
+        // 'repeatable' => true,
+      ),
+      array(
+        'name'    => __( 'Unit', 'root' ),
+        'desc'    => __( 'Please select a unit', 'root' ),
+        'id'      => $prefix . 'unit',
+        'type'    => 'radio_inline',
+        'options' => array(
+          'm2' => __( 'm<sup>2</sup>', 'root' ),
+          'kg' => __( 'kg', 'root' ),
+          'db' => __( 'db', 'root' ),
+        ),
+      ),
+      array(
+        'name' => __( 'On Stock in Marrakesh', 'root' ),
+        'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
+        'id'   => $prefix . 'amountmarr',
+        'type' => 'text_small',
+      ),
+      array(
+        'name' => __( 'Next transport date', 'root' ),
+        'desc' => __( 'field description (optional)', 'root' ),
+        'id'   => $prefix . 'arrive',
+        'type' => 'text_date',
+      ),
+      array(
+        'name' => __( 'Size', 'root' ),
+        'desc' => __( 'eg:  20 × 20 × 1,6 cm', 'root' ),
+        'id'   => $prefix . 'size',
+        'type' => 'text_small',
+      ),
+      array(
+        'name' => __( 'Weight', 'root' ),
+        'desc' => __( 'eg:  34 kg/m<sup>2</sup> | 1,35 kg / lap', 'root' ),
+        'id'   => $prefix . 'weight',
+        'type' => 'text_small',
+      ),
+      array(
+        'name' => __( 'Kit', 'root' ),
+        'desc' => __( 'eg:  dobozban (13 lap ≈ 0,52 m<sup>2</sup>)', 'root' ),
+        'id'   => $prefix . 'kit',
+        'type' => 'text_small',
+      ),
+      array(
+        'name'    => __( 'Background position', 'root' ),
+        'desc'    => __( 'Hogyan viselkedik a Fullscreen background', 'root' ),
+        'id'      => $prefix . 'bgpos',
+        'type'    => 'radio_inline',
+        'options' => array(
+          'fs' => 'Kifeszített',
+          'float' => 'Úsztatott',
+        ),
+      ),
+      array(
+        'name' => __( 'Fullscreen wallpaper', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (min: 1920×1280px)', 'root' ),
+        'id'   => $prefix . 'wallimg',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+      array(
+        'name'    => __( 'Kiskocka?', 'root' ),
+        'desc'    => __( 'Kell e jobb alsó sarokba kiskép', 'root' ),
+        'id'      => $prefix . 'spos',
+        'type'    => 'radio_inline',
+        'options' => array(
+          'van' => 'Van',
+          'nincs' => 'Nincs',
+        ),
+      ),
+      array(
+        'name' => __( 'Single Cement Tile', 'root' ),
+        'desc' => __( 'Upload an image or enter a URL. (optional, min: 500×500px)', 'root' ),
+        'id'   => $prefix . 'singleimg',
+        'type' => 'file',
+        'save_id' => true, // save ID using true
+        'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+      ),
+
+      array(
+          'name'             => 'Csatolt galéria',
+          'desc'             => 'Válassz egy galériát',
+          'id'               => $prefix . 'refgal',
+          'type'             => 'select',
+          'show_option_none' => false,
+          'default'          => '0',
+          'options'          =>  'cement_show_refgal'
+      ),
+
+     array(
+        'name'    => __( 'Additional content', 'root' ),
+        'desc'    => __( 'Add your own gallery or additional content', 'root' ),
+        'id'      => $prefix . 'addcont',
+        'type'    => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
+      ),
+
+    ),
+    )
+  );
+
+  /****** Post Boxes ******/
+  $cmb_posts = new_cmb2_box( array(
     'id'         => 'pppmeta',
     'title'      => 'Additional details',
-    'pages'      => array( 'post'), // Post type
+    'object_types'      => array( 'post'), // Post type
     'context'    => 'normal',
     'priority'   => 'high',
     'show_names' => true, // Show field names on the left
@@ -347,68 +419,15 @@ function cmb_ppp( array $meta_boxes ) {
         'type'    => 'wysiwyg',
         'options' => array( 'textarea_rows' => 15, 'wpautop' => true ),
       ),
-    ),
-  );
-  return $meta_boxes;
-}
-
-
-/**
- * Home Slider Post Type Definition
-*/
-function create_slider() {
-  $labels = array(
-    'name' => 'Slides',
-    'singular_name' => 'Slide',
-    'add_new' => 'Add New',
-    'add_new_item' => 'Add New Slide',
-    'edit_item' => 'Edit Slide',
-    'new_item' => 'New Slide',
-    'all_items' => 'All Slides',
-    'view_item' => 'View Slide',
-    'search_items' => 'Search Slides',
-    'not_found' =>  'No Slides found',
-    'not_found_in_trash' => 'No Slides found in Trash', 
-    'parent_item_colon' => '',
-    'menu_name' => 'Slider'
+    )
+    )
   );
 
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'slides' ),
-    'capability_type' => 'post',
-    'has_archive' => false, 
-    'hierarchical' => false,
-    'menu_position' => null,
-    'yarpp_support' => true,
-    'supports' => array( 'title', 'thumbnail' )
-  ); 
-
-  register_post_type( 'slide', $args );
-}
-add_action( 'init', 'create_slider' ); 
-
-/********* END OF Slider Post Types ****************/
-
-
-/********* Custom MetaBoxes for Slider Management ****************/
-
-/**
- * Slider Metaboxes
-*/
-add_filter( 'cmb_meta_boxes', 'cmb_slide' );
-function cmb_slide( array $meta_boxes ) {
-  $prefix = '_meta_';
-
-  $meta_boxes[] = array(
+  /****** Slider Boxes ******/
+  $cmb_slider = new_cmb2_box( array(
     'id'         => 'slidemeta',
     'title'      => 'Slide details',
-    'pages'      => array( 'slide'), // Post type
+    'object_types'      => array( 'slide'), // Post type
     'context'    => 'normal',
     'priority'   => 'high',
     'show_names' => true, // Show field names on the left
@@ -428,32 +447,22 @@ function cmb_slide( array $meta_boxes ) {
         // 'repeatable' => true,
       ),
     ),
+    )
   );
-  return $meta_boxes;
-}
-
-/********* End of Custom MetaBoxes for Product Management ****************/
-
-
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
-/**
- * Initialize the metabox class.
- */
-function cmb_initialize_cmb_meta_boxes() {
-
-  if ( ! class_exists( 'cmb_Meta_Box' ) )
-    require_once 'cmb/init.php';
 
 }
+
+/********* End of Custom MetaBoxes ****************/
+
 
 
 
 add_filter('the_content', 'ceto_fix_shortcodes');
 // Intelligently remove extra P and BR tags around shortcodes that WordPress likes to add
-function ceto_fix_shortcodes($content){   
+function ceto_fix_shortcodes($content){
     $array = array (
-        '<p>[' => '[', 
-        ']</p>' => ']', 
+        '<p>[' => '[',
+        ']</p>' => ']',
         ']<br />' => ']'
     );
     $content = strtr($content, $array);
@@ -485,10 +494,10 @@ class CementlapSettingsPage
     {
         // This page will be under "Settings"
         add_options_page(
-            'Settings Admin', 
-            'Cementlap Settings', 
-            'manage_options', 
-            'cementlap-setting-admin', 
+            'Settings Admin',
+            'Cementlap Settings',
+            'manage_options',
+            'cementlap-setting-admin',
             array( $this, 'create_admin_page' )
         );
     }
@@ -503,13 +512,13 @@ class CementlapSettingsPage
         ?>
         <div class="wrap">
             <?php screen_icon(); ?>
-            <h2>Cementlap Settings</h2>           
+            <h2>Cementlap Settings</h2>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
-                settings_fields( 'cementlap_option_group' );   
+                settings_fields( 'cementlap_option_group' );
                 do_settings_sections( 'cementlap-setting-admin' );
-                submit_button(); 
+                submit_button();
             ?>
             </form>
         </div>
@@ -520,7 +529,7 @@ class CementlapSettingsPage
      * Register and add settings
      */
     public function page_init()
-    {        
+    {
         register_setting(
             'cementlap_option_group', // Option group
             'cementlap_option_name', // Option name
@@ -532,56 +541,56 @@ class CementlapSettingsPage
             'Cementlap Custom Settings', // Title
             array( $this, 'print_section_info' ), // Callback
             'cementlap-setting-admin' // Page
-        );  
+        );
 
         add_settings_field(
-            'ntd', 
-            'Next Transport Date', 
-            array( $this, 'ntd_callback' ), 
-            'cementlap-setting-admin', 
+            'ntd',
+            'Next Transport Date',
+            array( $this, 'ntd_callback' ),
+            'cementlap-setting-admin',
             'setting_section_id'
         );
         add_settings_field(
-            'subtitle', 
-            'Advert Sub Title', 
-            array( $this, 'subtitle_callback' ), 
-            'cementlap-setting-admin', 
+            'subtitle',
+            'Advert Sub Title',
+            array( $this, 'subtitle_callback' ),
+            'cementlap-setting-admin',
             'setting_section_id'
-        );    
+        );
 
         add_settings_field(
             'button_text', // ID
-            'Advert button text', // Title 
+            'Advert button text', // Title
             array( $this, 'button_text_callback' ), // Callback
             'cementlap-setting-admin', // Page
-            'setting_section_id' // Section           
+            'setting_section_id' // Section
         );
 
         add_settings_field(
             'button_url', // ID
-            'Button url', // Title 
+            'Button url', // Title
             array( $this, 'button_url_callback' ), // Callback
             'cementlap-setting-admin', // Page
-            'setting_section_id' // Section           
+            'setting_section_id' // Section
         );
 
         add_settings_field(
             'change', // ID
-            'Euro arfolyam', // Title 
+            'Euro arfolyam', // Title
             array( $this, 'change_callback' ), // Callback
             'cementlap-setting-admin', // Page
-            'setting_section_id' // Section           
+            'setting_section_id' // Section
         );
 
         add_settings_field(
             'vat', // ID
-            'ÁFA', // Title 
+            'ÁFA', // Title
             array( $this, 'vat_callback' ), // Callback
             'cementlap-setting-admin', // Page
-            'setting_section_id' // Section           
-        );       
+            'setting_section_id' // Section
+        );
 
-   
+
     }
 
     /**
@@ -592,7 +601,7 @@ class CementlapSettingsPage
     public function sanitize( $input )
     {
         $new_input = array();
-        
+
         if( isset( $input['ntd'] ) )
             $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
 
@@ -614,7 +623,7 @@ class CementlapSettingsPage
         return $new_input;
     }
 
-    /** 
+    /**
      * Print the Section text
      */
     public function print_section_info()
@@ -622,7 +631,7 @@ class CementlapSettingsPage
         print "Don't use long sentences below!";
     }
 
-    /** 
+    /**
      * Get the settings option array and print one of its values
      */
     public function ntd_callback()
@@ -690,11 +699,11 @@ function cementlap_modify_num_products($query)
         $query->set('order', 'ASC');
       }
 
-      
+
     }
 
 }
- 
+
 add_action('pre_get_posts', 'cementlap_modify_num_products');
 
 
@@ -709,7 +718,7 @@ add_action('wp_footer', 'cement_DequeueYarppStyle');
 
 # WPSS Styles Remove
 function cement_remove_wpss_styles() {
-  if(!is_admin()){ 
+  if(!is_admin()){
     //wp_deregister_style( 'wpss-style' );
     //wp_deregister_style( 'wpss-custom-db-style' );
   }
@@ -718,7 +727,7 @@ add_action( 'wp_print_styles', 'cement_remove_wpss_styles', 100 );
 
 # Deregister scripts file
 function cement_remove_scripts () {
-  if(!is_admin()){ 
+  if(!is_admin()){
     //wp_deregister_script('bootstrap-shortcodes-tooltip');
     //wp_deregister_script('bootstrap-shortcodes-popover');
 
@@ -728,6 +737,7 @@ add_action('wp_print_scripts', 'cement_remove_scripts', 11);
 
 
 
+/***** Gallery Posts Option list *****/
 
 
 
