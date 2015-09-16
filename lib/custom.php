@@ -179,10 +179,6 @@ function create_stock_tag() {
 
 /********* Custom MetaBoxes for Product Management ****************/
 
-/**
- * Product Metaboxes
-*/
-add_filter( 'cmb2_metaboxes', 'cmb_ppp' );
 
 
 /**
