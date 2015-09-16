@@ -8,9 +8,9 @@ Template Name: Product Category List
   $aktermterm_id = term_exists( get_query_var( 'term' ) );
   $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
   $parent_term = ($term->parent==0)?$term:get_term($term->parent, get_query_var('taxonomy') );
-  
+
   //$child_terms = get_term_children( $parent_term->term_id, 'product-category' );
-  
+
   $child_terms = get_terms( 'product-category', array( 'child_of' => $parent_term->term_id ) );
   $copt=get_option('cementlap_option_name');
 
@@ -30,7 +30,7 @@ Template Name: Product Category List
       <?php foreach ( $child_terms as $child ) { ?>
         <?php if (!in_array($child, array('9')  ) ): ?>
         <li class="<?php echo ($child==$aktermterm_id)?'active':''; ?>">
-          <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">          
+          <a href="<?php echo get_term_link( $child, 'product-category' ); ?>">
             <?php
               $teri = get_term($child, 'product-category' );
               echo $teri->name;
@@ -123,7 +123,7 @@ Template Name: Product Category List
         <?php } ?>
       </ul>
     </div>
-    
+
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-design">
         <span class="filt-placeholder-text"><?php _e('Style','cementlap') ?></span>
@@ -170,11 +170,11 @@ Template Name: Product Category List
 
 
   </div><!-- /#filt-wrap -->
-  
 
-  
+
+
 </section>
-<div class="loader loading"><i class="ion-loading-a"></i></div>
+<div class="loader loading"><i class="ion-load-a"></i></div>
 <div class="product-list loading">
   <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('templates/square','product' ); ?>
