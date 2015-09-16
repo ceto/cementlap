@@ -11,6 +11,7 @@
   // $group_name=$group_terms[0]->name;
   // $group=$group_terms[0];
 ?>
+
 <?php
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
   $copt=get_option('cementlap_option_name');
