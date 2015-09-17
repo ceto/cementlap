@@ -26,10 +26,10 @@
     height:0;
     width:100%;
   }
-  
+
   opacity:1;
   transform:scale(1);
-  
+
   &.loading {
     opacity:0;
     transform:scale(0.9);
@@ -59,7 +59,7 @@
     //overflow: show;
     .prod-desc {
       //opacity:1;
-      
+
     }
     .prod-sthumb {
       //transform:scale(1.1)
@@ -186,7 +186,7 @@
 
 /******* Single Product Page *******/
 .single-product .main{
-  
+
 }
 article.product {
   @include clearfix();
@@ -198,7 +198,7 @@ article.product {
     min-height: calc(100vh - 90px);
     max-height: 1000px;
   }
-  
+
 }
 .product-figure {
   text-align: center;
@@ -273,14 +273,34 @@ article.product {
   }
   @include breakpoint($s4){
     width: 400px;
-    
+
   }
 }
 .product-head {
 
 }
 .product-content{
-   margin-bottom:15em;
+   //margin-bottom:15em;
+    .show-more {
+    display: inline-block;
+    line-height: 1em;
+    padding:0.25em 0.25em 0.25em;
+    text-align: center;
+    color:#fff;
+    background-color: $gray;
+    font-size: .875em;
+    line-height: 1;
+    //margin-bottom: 0.5em;
+    margin-top:0.5em;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color:$gray-light;
+    }
+    i {
+      //float:right;
+      display: none;
+    }
+  }
 }
 .product-back{
   font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
@@ -331,6 +351,41 @@ article.product {
   line-height: 1.4em;
 
 }
+
+
+.product__gallery {
+  position:static;
+  bottom:7.75em;
+  left:0;right:0;
+  z-index: 3;
+  padding:1em 0;
+
+  @include breakpoint($s2){
+      position:absolute;
+      padding:1em;
+     //z-index: 1;
+  }
+}
+
+#owl-refgal {
+ .item {
+    margin: 3px;
+    display: block;
+    padding: 3px;
+    border:1px solid $gray-light;
+    &:hover, &:focus {
+      border-color:$orange;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  //padding-bottom: .5em;
+  //border-bottom: 1px solid $gray-light;
+}
+
 .product-addcont{
   text-align: left;
   padding:0 1em;
@@ -347,7 +402,7 @@ article.product {
 
 .product-footer{
   @include clearfix();
-  position:relative;
+  position:static;
   bottom:0;
   left:0;right:0;
   z-index: 3;
@@ -371,10 +426,11 @@ article.product {
   border:1px solid $gray-light;
   background-color: $gray-superlight;
   padding:0.875em 0.875em;
-  margin:1em 0 1em 0;
+  margin:0;
   color:$gray;
   font-size: 1.125em;
   line-height:1.25em;
+  min-height: 6.333em;
   h3 {
     font-weight: 400;
     margin:0;
@@ -483,11 +539,12 @@ article.product {
         display: inline-block;
       }
     }
-   
+
   }
 }
 
 .gombsor{
+  display: none;
   font-size: 0;
   a {
     font-size: 16px;
@@ -510,7 +567,7 @@ article.product {
       font-weight: 700;
       text-transform: uppercase;
       font-size: 0.75em;
-    } 
+    }
   }
 }
 

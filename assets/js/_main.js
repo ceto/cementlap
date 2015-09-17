@@ -56,8 +56,8 @@ var felcsoki=0;
 var lecsoki=0;
 var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"; //FF doesn't recognize mousewheel as of FF3.x
 $(document).bind(mousewheelevt, function(e) {
-        var evt = window.event || e; //equalize event object     
-        evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible               
+        var evt = window.event || e; //equalize event object
+        evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
         var delta = evt.detail ? evt.detail*(-40) : evt.wheelDelta; //check for detail first, because it is used by Opera and FF
         if(delta > 0)
             {
@@ -97,7 +97,7 @@ var resizeHero = function() {
   var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
   if (off_canvas_nav_display === 'block') {
       //$('.single-product .main .product').height($(window).height()-($('.off-canvas-navigation').offset().top + $('.off-canvas-navigation').height()));
-  
+
   } else {
     //$('.single-product .main .product').height($(window).height()-($('.banner').offset().top + $('.banner').height()));
 
@@ -106,10 +106,10 @@ var resizeHero = function() {
     // } else {
     //   $('.single-product .main .product').css('min-height', $('.uszo').height()*1.25 );
     // }
-    
+
     //$('.single-post .main .post').css('min-height', $(window).height() - $('.main').offset().top );
 
-    
+
     if ($(window).height() > 700) {
       // $('.single-post .main .post .repulo').css('min-height', $(window).height() - $('.main').offset().top );
       // $('.single-post .main .post .addcont').css('min-height', $(window).height() - $('.main').offset().top );
@@ -164,7 +164,7 @@ jQuery(document).ready(function($) {
 
   /************* Slide Gallery Controls ***********/
 
-  
+
 
   function prevclick(){
     $('.slidecontroll .prev').off('click', prevclick);
@@ -188,9 +188,9 @@ jQuery(document).ready(function($) {
   }
 
   function nextclick(){
-    
+
     $('.slidecontroll .next').off('click', nextclick);
-    
+
     if ($aktslide < ($('.slide-item').length -1) ) {
       $('.slidegallery ul').css({marginLeft: function(index, value) {
         $margit=parseFloat(value) - $('.slide-item').eq($aktslide).width();
@@ -216,7 +216,7 @@ jQuery(document).ready(function($) {
   var $aktslide=0;
   $('.slide-item').eq($aktslide).toggleClass('active');
   var $margit=0;
-  
+
   $('.slidecontroll .prev').on('click',prevclick);
   $('.slidecontroll .next').on('click',nextclick);
 
@@ -225,14 +225,14 @@ jQuery(document).ready(function($) {
     $(this).toggleClass('hidden');
     $('.repulo').toggleClass('hide');
     $('.addcont').toggleClass('full');
-    
+
     $('.slidegallery ul').css({marginLeft: '0'});
     $('.slidegallery ul').css({marginRight: '0'});
     $('.slide-item').eq($aktslide).removeClass('active');
     $aktslide=0;
     $('.slide-item').eq($aktslide).addClass('active');
     $margit=0;
-      
+
     return false;
   });
 
@@ -242,7 +242,7 @@ jQuery(document).ready(function($) {
 
 
 
-  
+
 
 
   var $container = $('.main .product-list'),
@@ -264,9 +264,9 @@ $(window).load(function(){
       queue: false
     }
    });
-  
 
-  
+
+
 
 
   // filter buttons
@@ -275,15 +275,15 @@ $(window).load(function(){
     $(this).parent().parent().parent().find('.filt-placeholder').toggleClass('selected');
 
     var $optionSet = $(this).parents('.filt-item');
- 
+
     var group = $optionSet.attr('data-filter-group');
-    
+
     $optionSet.find('.selected').each(function(){
       $(this).removeClass('selected');
     });
 
     $(this).toggleClass('selected');
-    
+
     if ( $(this).hasClass('selected') ) {
       $(this).parent().parent().parent().find('.filt-placeholder em').remove();
       if ( $(this).attr('data-filter-value')!=='*') {
@@ -295,7 +295,7 @@ $(window).load(function(){
         filters[ group ] = [];
       }
     }
-     
+
     // convert object into array
     var isoFilters = [];
     for ( var prop in filters ) {
@@ -321,7 +321,7 @@ $(window).load(function(){
     $('.filt-item-input[data-filter-value=".*"]').trigger('click');
   }
 
-  
+
   //window.alert('Pina'+$.bbq.getState('filter'));
 
   /*********------------- Hashing -----------********/
@@ -384,11 +384,44 @@ jQuery(document).ready(function($){
     $(this).toggleClass('selected');
     $($(this).attr('data-filter-name')).toggleClass('hide');
   });
-  
+
   $('.product-list').removeClass('loading');
   $('.loader').removeClass('loading');
   $('.share-info').click(function(){
     $('.flip-container').toggleClass('hover');
     return false;
   });
+
+  $("#owl-refgal").owlCarousel({
+      autoPlay: 6000, //Set AutoPlay to 3 seconds
+      items : 5,
+      pagination:false,
+      itemsMobile : [480, 5],
+      itemsTablet : [768,7],
+      itemsDesktop : false,
+      itemsDesktopSmall : false
+  });
+
+
+  $('.popup-gallery').magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    tLoading: 'Loading image #%curr%...',
+    mainClass: 'mfp-img-mobile',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    },
+    image: {
+      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+      titleSrc: function(item) {
+        return item.el.attr('title') + '<small>&copy; Marrakesh Cementlap</small>';
+      }
+    }
+  });
+
+
+
+
 });

@@ -154,15 +154,11 @@
               </div><!-- /.data-block -->
             <div class="product-content">
               <?php the_content(); ?>
-              <?php if ( get_post_meta($orig_id, '_meta_refgal', true) ) :?>
-                <div class="product__gallery">
-                  <?php _e('Reference', 'cementlap') ?>:
-                  <a href="<?= get_the_permalink(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
-                     <?= get_the_title( get_post_meta($orig_id, '_meta_refgal', true) ); ?>
-                  </a>
-                </div>
-              <?php endif; ?>
+                <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
+                  <?php _e('How to Order/Buy','cementlap'); ?>
+                </a>
             </div>
+
         </div>
         <div class="back">
           <div class="product-content">
@@ -171,7 +167,35 @@
         </div><!-- /.back -->
         </div>
         </div>
+
+
+        <?php if ( get_post_meta($orig_id, '_meta_refgal', true) ) :?>
+                <div class="product__gallery">
+                  <div id="owl-refgal" class="popup-gallery">
+                    <?php
+                      $attachments = get_posts( array(
+                        'post_type' => 'attachment',
+                        'posts_per_page' => -1,
+                        'post_parent' => get_post_meta($orig_id, '_meta_refgal', true),
+                        'exclude'     => get_post_thumbnail_id()
+                      ) );
+
+                      if ( $attachments ) {
+                        foreach ( $attachments as $attachment ) {
+                          $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
+                          $thumbimg = wp_get_attachment_image_src( $attachment->ID, 'tiny11', false );
+                          $fullimage = wp_get_attachment_image_src( $attachment->ID, 'wallfree', false );
+                          $imagedata = wp_get_attachment_image( $attachment->ID, 'wallfree', false )
+                          ?>
+                          <a class="item" href="<?= $fullimage[0]; ?>" title="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
+                            <img src="<?=$thumbimg[0]; ?>" alt="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>"></a>
+                        <?php } } ?>
+                    </div>
+                </div>
+              <?php endif; ?>
+
         <footer class="product-footer">
+
           <div class="stock-block">
             <h3><?php _e('Stock information, transport','cementlap'); ?></h3>
               <div class="stock-status">
@@ -220,9 +244,7 @@
 
 
             <div class="product-more">
-                <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
-                  <?php _e('How to Order/Buy','cementlap'); ?>
-                </a>
+
                 <div id="morepanel" class="panel-collapse morepanel collapse">
                   <p><?php _e('<strong>If you find the selected tile IN STOCK</strong> no need to order, it is available and ready for pick up in warehouse Törökbálint. If you can not come immediaetly, we reccomend  you make a reservation.','cementlap'); ?></p>
                   <p><?php _e('<strong>If the quantity in stock is not enough or out of stock, but it is indicated that it will COMING SOON:</strong> The tiles are already in production or its way to Budapest, and will arrive on the date indicated  Please contact us about the available quantity','cementlap'); ?></p>

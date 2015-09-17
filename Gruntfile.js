@@ -21,6 +21,7 @@ module.exports = function(grunt) {
         },
         files: {
           'assets/js/scripts.min.js': [
+            'bower_components/OwlCarousel/owl-carousel/owl.carousel.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]

@@ -1,0 +1,16 @@
+{
+  "name": "cementlap",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ceto/cementlap",
+  "authors": [
+    "Gabor Szabo <szabogabi@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "OwlCarousel": "https://github.com/OwlFonk/OwlCarousel.git#~1.3.2"
+  }
+
+}
