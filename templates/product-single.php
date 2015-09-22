@@ -174,7 +174,7 @@
             $contentwithgallery= get_post_meta( get_post_meta($orig_id, '_meta_refgal', true), '_meta_addcont', true );
             $imagelist=array();
             $imagelist=get_gallery_attachments($contentwithgallery);
-            if ($imagelist) :
+            if (strpos($contentwithgallery,'gallery')>0) :
           ?>
             <div class="product__gallery">
               <div id="owl-refgal" class="popup-gallery">
