@@ -761,3 +761,12 @@ function get_term_top_most_parent( $term_id, $taxonomy ) {
     return $parent;
 }
 
+
+function get_gallery_attachments($contentblock){
+
+  preg_match('/\[gallery.*ids=.(.*).\]/', $contentblock, $ids);
+  $images_id = explode(",", $ids[1]);
+
+  return $images_id;
+}
+

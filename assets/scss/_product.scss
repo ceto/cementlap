@@ -515,12 +515,29 @@ article.product {
 
   .morepanel{
     position: relative;
+    font-size: .875em;
+    line-height: 1.375;
+    //padding-bottom: 1em;
+
+    a {
+      //color:$orange;
+      //color:#000;
+
+      // color:inherit;
+      // &:hover, &:focus {
+      //   color:$orange;
+      // }
+    }
+    span {
+      font-variant: small-caps;
+      font-weight: 700;
+    }
 
     .show-less{
       position: absolute;
-      bottom:-25px;
-      right:46%;
-      font-size: 2em;
+      bottom:-1em;
+      right:49%;
+      font-size: 1.5em;
       line-height: 1;
       color:$white;
       display: none;

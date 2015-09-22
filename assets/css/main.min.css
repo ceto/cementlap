@@ -5148,12 +5148,17 @@ article.product {
     .product-more .show-more i {
       display: none; }
   .product-more .morepanel {
-    position: relative; }
+    position: relative;
+    font-size: .875em;
+    line-height: 1.375; }
+    .product-more .morepanel span {
+      font-variant: small-caps;
+      font-weight: 700; }
     .product-more .morepanel .show-less {
       position: absolute;
-      bottom: -25px;
-      right: 46%;
-      font-size: 2em;
+      bottom: -1em;
+      right: 49%;
+      font-size: 1.5em;
       line-height: 1;
       color: #FEFEFF;
       display: none;

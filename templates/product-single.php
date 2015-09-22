@@ -169,30 +169,29 @@
         </div>
 
 
-        <?php if ( get_post_meta($orig_id, '_meta_refgal', true) ) :?>
-                <div class="product__gallery">
-                  <div id="owl-refgal" class="popup-gallery">
-                    <?php
-                      $attachments = get_posts( array(
-                        'post_type' => 'attachment',
-                        'posts_per_page' => -1,
-                        'post_parent' => get_post_meta($orig_id, '_meta_refgal', true),
-                        'exclude'     => get_post_thumbnail_id()
-                      ) );
-
-                      if ( $attachments ) {
-                        foreach ( $attachments as $attachment ) {
-                          $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
-                          $thumbimg = wp_get_attachment_image_src( $attachment->ID, 'tiny11', false );
-                          $fullimage = wp_get_attachment_image_src( $attachment->ID, 'wallfree', false );
-                          $imagedata = wp_get_attachment_image( $attachment->ID, 'wallfree', false )
-                          ?>
-                          <a class="item" href="<?= $fullimage[0]; ?>" title="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
-                            <img src="<?=$thumbimg[0]; ?>" alt="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>"></a>
-                        <?php } } ?>
-                    </div>
+        <?php if ( get_post_meta($orig_id, '_meta_refgal', true) ):?>
+          <?php
+            $contentwithgallery= get_post_meta( get_post_meta($orig_id, '_meta_refgal', true), '_meta_addcont', true );
+            $imagelist=get_gallery_attachments($contentwithgallery);
+            if (!empty($imagelist)) :
+          ?>
+            <div class="product__gallery">
+              <div id="owl-refgal" class="popup-gallery">
+                <?php
+                  foreach ( $imagelist as $image_id ) {
+                    $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
+                    $thumbimg = wp_get_attachment_image_src( $image_id, 'tiny11', false );
+                    $fullimage = wp_get_attachment_image_src( $image_id, 'wallfree', false );
+                    $imagedata = wp_get_attachment_image( $image_id, 'wallfree', false )
+                  ?>
+                    <a class="item" href="<?= $fullimage[0]; ?>" title="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
+                      <img src="<?=$thumbimg[0]; ?>" alt="<?= get_the_title(get_post_meta($orig_id, '_meta_refgal', true)); ?>">
+                    </a>
+                  <?php } ?>
                 </div>
-              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+        <?php endif; ?>
 
         <footer class="product-footer">
 
@@ -204,7 +203,7 @@
                 <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
                    <i class="ion-android-train"></i> <?php _e('Coming soon','cementlap') ?>
                 <?php else: ?>
-                  <i class="ion-alert-circled"></i> <?php _e('Production on order only','cementlap') ?>
+                  <i class="ion-alert-circled"></i> <?php _e('Produced on order only','cementlap') ?>
                 <?php endif; ?>
               </div>
 
@@ -246,10 +245,10 @@
             <div class="product-more">
 
                 <div id="morepanel" class="panel-collapse morepanel collapse">
-                  <p><?php _e('<strong>If you find the selected tile IN STOCK</strong> no need to order, it is available and ready for pick up in warehouse Törökbálint. If you can not come immediaetly, we reccomend  you make a reservation.','cementlap'); ?></p>
-                  <p><?php _e('<strong>If the quantity in stock is not enough or out of stock, but it is indicated that it will COMING SOON:</strong> The tiles are already in production or its way to Budapest, and will arrive on the date indicated  Please contact us about the available quantity','cementlap'); ?></p>
-                  <p><?php _e('<strong>If the tiles are produced on ORDER only:</strong>It is not in production at the moment, delivery date will be appr. 2 months if ordered. Contact us for further details','cementlap'); ?></p>
-                  <p><em><?php _e('Important! Orders and reservations are valid  with 30% downpayment only.','cementlap'); ?></em></p>
+                  <p><?php _e('<strong>If you find the selected tile <span>In Stock:</span></strong> no need to order, it is available and ready for pick up in warehouse Törökbálint. If you can not come immediaetly, we reccomend you make a reservation.','cementlap'); ?></p>
+                  <p><?php _e('<strong>If the quantity in stock is not enough or out of stock, but it is indicated that it will <span>Coming Soon:</span></strong> The tiles are already in production or its way to Budapest, you may check the estimated date of arrival in our <a href="http://marrakeshcementlap.hu/en/vasarlasi-informaciok-en/shippment-schedule/">shipment schedule.</a> Regarding the available quantity please contact us by email.','cementlap'); ?></p>
+                  <p><?php _e('<strong>If the tiles are <span>Produced on Order Only:</span></strong> It is not in production at the moment, you may check the estimated date of arrival in our <a href="http://marrakeshcementlap.hu/en/vasarlasi-informaciok-en/shippment-schedule/">shipment schedule.</a>','cementlap'); ?></p>
+                  <p><?php _e('Important! Orders and reservations are valid  with 30% downpayment only.','cementlap'); ?> <?php _e('You may find all necessary information at the <a href="http://marrakeshcementlap.hu/en/vasarlasi-informaciok-en/keszletinformaciok-hataridok/">how to buy</a> menu.','cementlap'); ?></p>
                   <a class="show-less" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                     <i class="ion-ios-close-empty"></i>
                   </a>
