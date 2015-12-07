@@ -1,0 +1,169 @@
+.productstyle-list {
+  margin:0 0;
+}
+.sqstyle {
+  background-color: black;
+  position: relative;
+  border:.5em solid white;
+  overflow: hidden;
+
+
+  @include breakpoint($s1) {
+    width:50%;
+    float:left;
+  }
+
+  @include breakpoint($s2) {
+    width:33.333%;
+  }
+  @include breakpoint($s3) {
+      border:1em solid white;
+  }
+  @include breakpoint($s4) {
+      border:1.125em solid white;
+  }
+  @include breakpoint($s5) {
+    width:25%;
+ }
+  // @include breakpoint($s6) {
+  //   width:20%;
+  // }
+}
+
+
+.sqstyle__fulllink {
+
+  &:hover, &:focus {
+    .sqstyle__img {
+      opacity: 1;
+      filter:grayscale(0);
+      transform: scale(1.125);
+    }
+    .sqstyle__name {
+      //opacity: 1;
+    }
+
+    .sqstyle__sablon {
+      //opacity: 0;
+    }
+
+  }
+}
+.sqstyle__img {
+  opacity: .75;
+  display: block;
+  transition:all .4s ease;
+  filter:grayscale(1);
+}
+
+.sqstyle__name {
+  background-color: white;
+  position: absolute;
+  //opacity: 0;
+  transition:all .4s ease;
+  //width:25%;
+  //height:2.5em;
+  //width:25%;
+  left:0;
+  top:0;
+  border-right:.5em solid white;
+  border-left:.5em solid white;
+  border-bottom:.25em solid white;
+
+  //border-left:.5em solid white;
+  //width:25%;
+  margin:0;
+  //padding:.5em 0;
+  color:$gray;
+  //text-align: right;
+  //text-shadow: 1px 1px black;
+  font-weight: 900;
+  font-size: .875em;
+  line-height: 1;
+  i {
+    display: none;
+  }
+}
+
+
+.sqstyle__sablon {
+  position: absolute;
+  width:20%;
+  height:38%;
+  right:0;
+  bottom:0;
+  border-top:.333em solid white;
+  border-left:.333em solid white;
+  transition:all .4s ease;
+
+}
+
+
+
+
+.stheader {
+  //background-color: red;
+  margin:1.125em 0 2em;
+  @include breakpoint($s2) {
+    width:33.333%;
+    float:left;
+  }
+  @include breakpoint($s4) {
+    width:25%;
+  }
+}
+
+.stheader__title {
+  font-size: 2.5em;
+  line-height: 1;
+  font-weight: 100;
+  margin: 1em 0 0 0;
+}
+
+.stlist {
+  @include breakpoint($s2) {
+    width:65.666%;
+    float:right;
+    margin-left: 1%;
+  }
+  @include breakpoint($s4) {
+    width:73.5%;
+    margin-left: 1.5%;
+  }
+}
+
+.stheader__fig {
+  max-width: 400px;
+  margin:0 auto;
+}
+
+.st__gallery {
+  position: static;
+  padding:0 0;
+}
+
+
+.stlist .prod-mini {
+
+  @include breakpoint(240px){
+    width:calc(50% - 1px);
+  }
+  @include breakpoint($s1){
+    width:calc(33.3333333333% - 1px);
+  }
+  @include breakpoint($s2){
+    width:calc(33.333% - 1px);
+  }
+  @include breakpoint($s3){
+    width:calc(33.333% - 1px);
+  }
+  @include breakpoint($s4){
+    width:calc(25% - 1px);
+  }
+  @include breakpoint($s5){
+    width:calc(20% - 1px);
+  }
+}
+
+
+
