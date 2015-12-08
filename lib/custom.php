@@ -688,7 +688,7 @@ if( is_admin() ) {
 
 function cementlap_modify_num_products($query)
 {
-    if ( ($query->is_main_query()) && ($query->is_tax('product-category') || $query->is_category() ) && (!is_admin()) ) {
+    if ( ($query->is_main_query()) && ($query->is_tax('product-category') || $query->is_tax('product-style') || $query->is_category() ) && (!is_admin()) ) {
       $query->set('posts_per_page', -1);
       if ( !($query->is_category() ) ) {
         $query->set('orderby', 'title');
@@ -770,3 +770,48 @@ function get_gallery_attachments($contentblock){
   return $images_id;
 }
 
+
+
+/*** Product Style Meta Data ***/
+
+if (is_admin()){
+  /*
+   * prefix of meta keys, optional
+   */
+  $prefix = 'ps_';
+  /*
+   * configure your meta box
+   */
+  $config = array(
+    'id' => 'demo_meta_box',          // meta box id, unique per meta box
+    'title' => 'Additional data',          // meta box title
+    'pages' => array('product-style'),        // taxonomy name, accept categories, post_tag and custom taxonomies
+    'context' => 'normal',            // where the meta box appear: normal (default), advanced, side; optional
+    'fields' => array(),            // list of meta fields (can be added by field arrays)
+    'local_images' => false,          // Use local or hosted images (meta box images for add/remove)
+    'use_with_theme' => get_stylesheet_directory_uri().'/lib/Tax-Meta-Class/Tax-meta-class/',          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
+  );
+
+
+  /*
+   * Initiate your meta box
+   */
+  $my_meta =  new Tax_Meta_Class($config);
+
+  /*
+   * Add fields to your meta box
+   */
+
+  $my_meta->addSelect($prefix.'gallery_id',cement_show_refgal(),array('name'=> __('Attached gallery ','tax-meta'), 'std'=> array('0')));
+
+  $my_meta->addImage($prefix.'image_id',array('name'=> __('Featured Image (min. 768x432) ','tax-meta')));
+  $my_meta->addImage($prefix.'sablon_id',array('name'=> __('Sablon Image (min. 768x768) egy két svg-t is kipróbálhatsz ','tax-meta')));
+  $my_meta->addImage($prefix.'border_id',array('name'=> __('Border Image ','tax-meta')));
+
+
+  /*
+   * Don't Forget to Close up the meta box decleration
+   */
+  //Finish Meta Box Decleration
+  $my_meta->Finish();
+}

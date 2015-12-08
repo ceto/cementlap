@@ -89,13 +89,12 @@
 .sqstyle__sablon {
   position: absolute;
   width:20%;
-  height:38%;
+  height:35.51666%;
   right:0;
   bottom:0;
   border-top:.333em solid white;
   border-left:.333em solid white;
   transition:all .4s ease;
-
 }
 
 
@@ -103,6 +102,7 @@
 
 .stheader {
   //background-color: red;
+  position: relative;
   margin:1.125em 0 2em;
   @include breakpoint($s2) {
     width:33.333%;
@@ -113,29 +113,62 @@
   }
 }
 
+.stcont {
+  @include clearfix();
+  position: relative;
+  @include breakpoint($s2) {
+    width:66.666%;
+    float:right;
+  }
+  @include breakpoint($s4) {
+    width:75%;
+  }
+}
+
+
+.stheader__back {
+  font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
+  text-transform: uppercase;
+  color:#000;
+  font-size: 0.75em;
+  line-height: 1em;
+  margin-top: 1rem;
+  display: block;
+
+}
+
 .stheader__title {
   font-size: 2.5em;
   line-height: 1;
   font-weight: 100;
-  margin: 1em 0 0 0;
+  margin: 1rem 0 0 0;
+  //border-top: 1px solid $gray;
 }
 
 .stlist {
   @include breakpoint($s2) {
-    width:65.666%;
-    float:right;
     margin-left: 1%;
   }
   @include breakpoint($s4) {
-    width:73.5%;
     margin-left: 1.5%;
   }
 }
 
 .stheader__fig {
-  max-width: 400px;
+  max-width: 25rem;
   margin:0 auto;
 }
+
+.stheader__bordur {
+  position: absolute;
+  transform: translateY(-100%);
+  right:0;
+  display: block;
+  width:33.333%;
+  border-top:.333em solid white;
+  border-left:.333em solid white;
+}
+
 
 .st__gallery {
   position: static;

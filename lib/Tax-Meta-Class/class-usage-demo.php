@@ -3,7 +3,7 @@
 Plugin Name: Demo Tax meta class
 Plugin URI: http://en.bainternet.info
 Description: Tax meta class usage demo
-Version: 1.9.9
+Version: 2.0.2
 Author: Bainternet, Ohad Raz
 Author URI: http://en.bainternet.info
 */
@@ -39,7 +39,7 @@ if (is_admin()){
    */
   
   //text field
-  $my_meta->addText($prefix.'text_field_id',array('name'=> __('My Text ','tax-meta')));
+  $my_meta->addText($prefix.'text_field_id',array('name'=> __('My Text ','tax-meta'),'desc' => 'this is a field desription'));
   //textarea field
   $my_meta->addTextarea($prefix.'textarea_field_id',array('name'=> __('My Textarea ','tax-meta')));
   //checkbox field

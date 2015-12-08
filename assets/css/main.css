@@ -5442,7 +5442,7 @@ article.product {
 .sqstyle__sablon {
   position: absolute;
   width: 20%;
-  height: 38%;
+  height: 35.51666%;
   right: 0;
   bottom: 0;
   border-top: .333em solid white;
@@ -5450,6 +5450,7 @@ article.product {
   transition: all 0.4s ease; }
 
 .stheader {
+  position: relative;
   margin: 1.125em 0 2em; }
   @media only screen and (min-width: 768px) {
     .stheader {
@@ -5459,26 +5460,57 @@ article.product {
     .stheader {
       width: 25%; } }
 
+.stcont {
+  position: relative; }
+  .stcont:before,
+  .stcont:after {
+    content: " ";
+    display: table; }
+  .stcont:after {
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .stcont {
+      width: 66.666%;
+      float: right; } }
+  @media only screen and (min-width: 1280px) {
+    .stcont {
+      width: 75%; } }
+
+.stheader__back {
+  font-family: 'Lucida Grande', Tahoma, Verdana, "HelveticaNeueLTStd", Arial, sans-serif;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 0.75em;
+  line-height: 1em;
+  margin-top: 1rem;
+  display: block; }
+
 .stheader__title {
   font-size: 2.5em;
   line-height: 1;
   font-weight: 100;
-  margin: 1em 0 0 0; }
+  margin: 1rem 0 0 0; }
 
 @media only screen and (min-width: 768px) {
   .stlist {
-    width: 65.666%;
-    float: right;
     margin-left: 1%; } }
 
 @media only screen and (min-width: 1280px) {
   .stlist {
-    width: 73.5%;
     margin-left: 1.5%; } }
 
 .stheader__fig {
-  max-width: 400px;
+  max-width: 25rem;
   margin: 0 auto; }
+
+.stheader__bordur {
+  position: absolute;
+  transform: translateY(-100%);
+  right: 0;
+  display: block;
+  width: 33.333%;
+  border-top: .333em solid white;
+  border-left: .333em solid white; }
 
 .st__gallery {
   position: static;

@@ -42,7 +42,7 @@
       <?= get_the_post_thumbnail($orig_id, 'tiny11');  ?>
       <?php
         $ima = get_post_meta( $orig_id, '_meta_singleimg_id', true );
-        $imci = wp_get_attachment_image_src( $ima, 'petit11');
+        $imci = wp_get_attachment_image_src( $ima, 'tiny11');
       ?>
       <?php   if (get_post_meta( $orig_id, '_meta_spos', true )!='nincs' ) : ?>
         <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="" class="prod-sthumb">
