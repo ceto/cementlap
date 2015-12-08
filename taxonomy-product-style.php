@@ -37,7 +37,11 @@
   <h1 class="stheader__title"><?= $term->name; ?></h1>
   <p class="stheader__descr"><?= $term->description; ?> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt.</p>
   <?php
-    $contentwithgallery= get_post_meta( get_post_meta(6971, '_meta_refgal', true), '_meta_addcont', true );
+    if (get_tax_meta( $aktermterm_id, 'ps_gallery_id') ) {
+      $contentwithgallery= get_post_meta( get_tax_meta( $aktermterm_id, 'ps_gallery_id'), '_meta_addcont', true );
+    } else {
+      $contentwithgallery= get_post_meta( get_post_meta(6971, '_meta_refgal', true), '_meta_addcont', true );
+    }
     $imagelist=array();
     $imagelist=get_gallery_attachments($contentwithgallery);
   ?>
