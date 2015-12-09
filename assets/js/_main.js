@@ -392,13 +392,23 @@ jQuery(document).ready(function($){
     return false;
   });
 
-  $("#owl-refgal").owlCarousel({
+  $(".uszo #owl-refgal").owlCarousel({
       autoPlay: 6000, //Set AutoPlay to 3 seconds
       items : 5,
       pagination:false,
       itemsMobile : [480, 5],
       itemsTablet : [768,7],
       itemsDesktop : false,
+      itemsDesktopSmall : false
+  });
+
+  $(".stheader #owl-refgal").owlCarousel({
+      autoPlay: 6000, //Set AutoPlay to 3 seconds
+      items : 4,
+      pagination:false,
+      itemsMobile : [480, 3],
+      itemsTablet : [768,5],
+      itemsDesktop : [1024,3],
       itemsDesktopSmall : false
   });
 

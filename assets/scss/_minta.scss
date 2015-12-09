@@ -6,6 +6,7 @@
   position: relative;
   border:.5em solid white;
   overflow: hidden;
+  backface-visibility: hidden;
 
 
   @include breakpoint($s1) {
@@ -32,12 +33,17 @@
 
 
 .sqstyle__fulllink {
-
+  display: block;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  //border:1px solid black;
   &:hover, &:focus {
     .sqstyle__img {
       opacity: 1;
-      filter:grayscale(0);
       transform: scale(1.125);
+      -ms-filter: grayscale(0%);
+      filter:grayscale(0%);
     }
     .sqstyle__name {
       //opacity: 1;
@@ -53,7 +59,8 @@
   opacity: .75;
   display: block;
   transition:all .4s ease;
-  filter:grayscale(1);
+  -ms-filter: grayscale(100%);
+  filter:grayscale(100%);
 }
 
 .sqstyle__name {
@@ -70,14 +77,12 @@
   border-left:.5em solid white;
   border-bottom:.25em solid white;
 
-  //border-left:.5em solid white;
   //width:25%;
   margin:0;
-  //padding:.5em 0;
-  color:$gray;
+  color:black;
   //text-align: right;
   //text-shadow: 1px 1px black;
-  font-weight: 900;
+  font-weight: 300;
   font-size: .875em;
   line-height: 1;
   i {
@@ -173,6 +178,7 @@
 .st__gallery {
   position: static;
   padding:0 0;
+  margin-top: .875rem;
 }
 
 

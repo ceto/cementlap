@@ -5399,7 +5399,9 @@ article.product {
   background-color: black;
   position: relative;
   border: .5em solid white;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
   @media only screen and (min-width: 480px) {
     .sqstyle {
       width: 50%;
@@ -5417,21 +5419,29 @@ article.product {
     .sqstyle {
       width: 25%; } }
 
-.sqstyle__fulllink:hover .sqstyle__img, .sqstyle__fulllink:focus .sqstyle__img {
-  opacity: 1;
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
-  -webkit-transform: scale(1.125);
-      -ms-transform: scale(1.125);
-          transform: scale(1.125); }
+.sqstyle__fulllink {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+  .sqstyle__fulllink:hover .sqstyle__img, .sqstyle__fulllink:focus .sqstyle__img {
+    opacity: 1;
+    -webkit-transform: scale(1.125);
+        -ms-transform: scale(1.125);
+            transform: scale(1.125);
+    -ms-filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+            filter: grayscale(0%); }
 
 .sqstyle__img {
   opacity: .75;
   display: block;
   -webkit-transition: all 0.4s ease;
           transition: all 0.4s ease;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1); }
+  -ms-filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%); }
 
 .sqstyle__name {
   background-color: white;
@@ -5444,8 +5454,8 @@ article.product {
   border-left: .5em solid white;
   border-bottom: .25em solid white;
   margin: 0;
-  color: #49494A;
-  font-weight: 900;
+  color: black;
+  font-weight: 300;
   font-size: .875em;
   line-height: 1; }
   .sqstyle__name i {
@@ -5529,7 +5539,8 @@ article.product {
 
 .st__gallery {
   position: static;
-  padding: 0 0; }
+  padding: 0 0;
+  margin-top: .875rem; }
 
 @media only screen and (min-width: 240px) {
   .stlist .prod-mini {
