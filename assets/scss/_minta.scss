@@ -44,6 +44,9 @@
       transform: scale(1.125);
       -ms-filter: grayscale(0%);
       filter:grayscale(0%);
+      .stheader & {
+        transform: scale(1);
+      }
     }
     .sqstyle__name {
       //opacity: 1;
@@ -61,6 +64,12 @@
   transition:all .4s ease;
   -ms-filter: grayscale(100%);
   filter:grayscale(100%);
+  .stheader & {
+    opacity: 1;
+    transform: scale(1);
+    -ms-filter: grayscale(0%);
+    filter:grayscale(0%);
+  }
 }
 
 .sqstyle__name {
@@ -181,7 +190,32 @@
   margin-top: .875rem;
 }
 
+.st__doit {
+  @include clearfix();
+  margin:1rem 0;
+  position: relative;
+  background-color: $gray;
+  &:hover, &:focus {
+    background-color: $orange;
+  }
 
+  img {
+    width: 20%;
+    display:block;
+    float:left;
+  }
+  .button {
+    width:80%;
+    display: block;
+    float:right;
+    height:50%;
+    text-align: left;
+    &:hover, &:focus {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
 .stlist .prod-mini {
 
   @include breakpoint(240px){

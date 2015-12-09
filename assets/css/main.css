@@ -5422,6 +5422,8 @@ article.product {
     transform: scale(1.125);
     -ms-filter: grayscale(0%);
     filter: grayscale(0%); }
+    .stheader .sqstyle__fulllink:hover .sqstyle__img, .stheader .sqstyle__fulllink:focus .sqstyle__img {
+      transform: scale(1); }
 
 .sqstyle__img {
   opacity: .75;
@@ -5429,6 +5431,11 @@ article.product {
   transition: all 0.4s ease;
   -ms-filter: grayscale(100%);
   filter: grayscale(100%); }
+  .stheader .sqstyle__img {
+    opacity: 1;
+    transform: scale(1);
+    -ms-filter: grayscale(0%);
+    filter: grayscale(0%); }
 
 .sqstyle__name {
   background-color: white;
@@ -5524,6 +5531,32 @@ article.product {
   position: static;
   padding: 0 0;
   margin-top: .875rem; }
+
+.st__doit {
+  margin: 1rem 0;
+  position: relative;
+  background-color: #49494A; }
+  .st__doit:before,
+  .st__doit:after {
+    content: " ";
+    display: table; }
+  .st__doit:after {
+    clear: both; }
+  .st__doit:hover, .st__doit:focus {
+    background-color: #FF9900; }
+  .st__doit img {
+    width: 20%;
+    display: block;
+    float: left; }
+  .st__doit .button {
+    width: 80%;
+    display: block;
+    float: right;
+    height: 50%;
+    text-align: left; }
+    .st__doit .button:hover, .st__doit .button:focus {
+      background-color: transparent;
+      border-color: transparent; }
 
 @media only screen and (min-width: 240px) {
   .stlist .prod-mini {
