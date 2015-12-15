@@ -3997,18 +3997,32 @@ a {
 
 .hero--blurred {
   overflow: hidden;
-  background-repeat: repeat;
-  background-size: 4rem;
-  filter: brightness(0.5); }
+  background-image: none;
+  min-height: 0; }
   @media only screen and (min-width: 1024px) {
     .hero--blurred {
       min-height: 0; } }
-  @media only screen and (min-width: 768px) {
-    .hero--blurred .hero-content {
-      margin: 1em auto; } }
+  .hero--blurred .hero-content {
+    margin: 1em auto 0; }
+    @media only screen and (min-width: 768px) {
+      .hero--blurred .hero-content {
+        margin: 1em auto 0; } }
   .hero--blurred .hero-text {
-    filter: brightness(2);
+    position: relative;
     margin: 0 auto; }
+    .hero--blurred .hero-text .headback {
+      position: absolute;
+      left: 8%;
+      top: -1em;
+      display: block;
+      font-size: 12px;
+      line-height: 1;
+      color: #FEFEFF;
+      font-weight: 400; }
+    .hero--blurred .hero-text img {
+      width: 1em;
+      transform: translate(-0.25em, -0.25em);
+      margin-right: -.125em; }
 
 .hero-content {
   text-align: left;

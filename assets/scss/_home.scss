@@ -19,10 +19,8 @@
 
 .hero--blurred {
   overflow: hidden;
-  //background-image: none;
-  background-repeat: repeat;
-  background-size: 4rem;
-  filter:brightness(.5);
+  background-image: none;
+  min-height: 0;
   //background-color: $white;
   // border-top:1px solid $gray-light;
   // border-bottom:1px solid $gray-light;
@@ -31,15 +29,32 @@
     min-height: 0
   }
   .hero-content {
+    margin:1em auto 0;
     @include breakpoint($s2){
-      margin:1em auto;
+      margin:1em auto 0;
     }
   }
   .hero-text {
-    filter:brightness(2);
+    position: relative;
     margin:0 auto;
     //color:$gray;
     //text-shadow: 1px 1px 3px $gray-dark;
+    .headback {
+      position: absolute;
+      left:8%;
+      top:-1em;
+      display: block;
+      font-size: 12px;
+      line-height: 1;
+      color:$white;
+      font-weight: 400;
+
+    }
+    img {
+      width:1em;
+      transform:translate(-.25em, -.25em);
+      margin-right: -.125em;
+    }
   }
 }
 .hero-content {

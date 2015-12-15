@@ -138,15 +138,11 @@
       $sabci = wp_get_attachment_image_src( $saba['id'], 'wallsmall');
     ?>
 
-    <style type="text/css">
-     .hero--blurred {
-        background-image:url('<?php echo $sabci['0']; ?>');
-      }
-    </style>
-
     <section class="hero hero--blurred" role="banner">
       <div class="hero-content">
         <h1 class="hero-text">
+          <a class="headback" href="javascript:history.back();">Cementlap minták</a>
+          <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>">
             <?= $term->name;  ?>
         </h1>
       </div>
