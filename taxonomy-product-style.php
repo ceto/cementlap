@@ -102,7 +102,7 @@
     <?php while (have_posts()) : the_post(); ?>
       <?php get_template_part('templates/square','product' ); ?>
     <?php endwhile; ?>
-    <a id="product-<?php echo $post->ID; ?>" <?php post_class( join(" ", $termik ).' prod-mini' ); ?>
+<!--     <a id="product-<?php echo $post->ID; ?>" <?php post_class( join(" ", $termik ).' prod-mini' ); ?>
     href="#"
     data-url="<?php the_permalink(); ?>"
     data-name="<?php the_title(); ?>"
@@ -115,6 +115,6 @@
         <span class="button button--small">Tervezd meg</span>
       </div>
     </div>
-  </a><!-- /#product-## -->
+  </a> -->
   </div>
 </section>
