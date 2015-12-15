@@ -13,8 +13,7 @@
 
 
 <header class="stheader">
-  <figure class="stheader__fig">
-    <?php
+      <?php
         $ima = get_tax_meta( $aktermterm_id, 'ps_image_id');
         $imci = wp_get_attachment_image_src( $ima['id'], 'medium169');
 
@@ -23,6 +22,17 @@
         $borda = get_tax_meta( $aktermterm_id, 'ps_border_id');
         $borci = wp_get_attachment_image_src( $borda['id'], 'small11');
     ?>
+
+    <?php if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
+      <img src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $term->name.__('Sablon', 'cementlap');?>">
+    <?php else : ?>
+      <img src="http://placehold.it/640/cecece/333333/?text=Minta+helye">
+    <?php endif;  ?>
+    <br> <br>
+
+
+  <figure class="stheader__fig">
+
 
      <?php  /*
     <?php   if (get_tax_meta( $aktermterm_id, 'ps_border_id') ) : ?>
@@ -37,13 +47,12 @@
         <img class="sqstyle__img" src="http://lorempixel.com/<?= 640 + $i*16; ?>/<?= 360 + $i * 9; ?>" alt="<?= $child->name;?>">
       <?php endif; ?>
 
-      <?php  /* if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
+      <?php  if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
         <img src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $child->name.__('Sablon', 'cementlap');?>" class="sqstyle__sablon">
       <?php else : ?>
         <img class="sqstyle__sablon" src="http://placehold.it/320/cecece/333333/?text=Sablon" class="sqstyle__sablon">
-      <?php endif; */ ?>
+      <?php endif; ?>
     </a>
-
 
 
   </figure>
@@ -73,20 +82,13 @@
       </div>
     </div>
 
-    <figure class="st__doit">
-    <?php if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
-      <img src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $term->name.__('Sablon', 'cementlap');?>">
-    <?php else : ?>
-      <img src="http://placehold.it/640/cecece/333333/?text=Minta+helye">
-    <?php endif;  ?>
-    <a href="#" class="button">Tervezd meg és terítsd le egyediben</a>
-    </figure>
 
-  <h1 class="stheader__title"><?= $term->name; ?></h1>
+
+<!--   <h1 class="stheader__title"><?= $term->name; ?></h1> -->
   <p class="stheader__descr"><?= $term->description; ?> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt.</p>
 
 
-    <a class="stheader__back" href="javascript:history.back();"><i class="ion-ios-undo"></i> Vissza a mintákhoz</a>
+    <!-- <a class="stheader__back" href="javascript:history.back();"><i class="ion-ios-undo"></i> Vissza a mintákhoz</a> -->
 
 
 

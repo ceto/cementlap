@@ -141,10 +141,14 @@
     <section class="hero hero--blurred" role="banner">
       <div class="hero-content">
         <h1 class="hero-text">
-          <a class="headback" href="javascript:history.back();">Cementlap minták</a>
-          <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>">
+          <a class="headback" href="javascript:history.back();"><!-- <i class="ion-ios-undo"></i>&nbsp; -->Cementlap minták</a>
+<!--           <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>"> -->
             <?= $term->name;  ?>
         </h1>
+        <div class="hero__action">
+          <span class="instr">Szinezd és terítsd le egyediben</span>
+          <a href="#" class="button">Szimulátor indítása</a>
+        </div>
       </div>
     </section>
   <?php else : ?>

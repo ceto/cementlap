@@ -4018,6 +4018,7 @@ a {
     .hero--blurred {
       min-height: 0; } }
   .hero--blurred .hero-content {
+    position: relative;
     margin: 1em auto 0; }
     @media only screen and (min-width: 768px) {
       .hero--blurred .hero-content {
@@ -4026,9 +4027,6 @@ a {
     position: relative;
     margin: 0 auto; }
     .hero--blurred .hero-text .headback {
-      position: absolute;
-      left: 8%;
-      top: -1em;
       display: block;
       font-size: 12px;
       line-height: 1;
@@ -4040,6 +4038,27 @@ a {
           -ms-transform: translate(-0.25em, -0.25em);
               transform: translate(-0.25em, -0.25em);
       margin-right: -.125em; }
+  .hero--blurred .hero__action {
+    padding: 1em 0; }
+    @media only screen and (min-width: 768px) {
+      .hero--blurred .hero__action {
+        text-align: right;
+        width: 50%;
+        position: absolute;
+        right: 3em;
+        top: 1em; } }
+    .hero--blurred .hero__action .instr {
+      margin: 0;
+      color: #FEFEFF;
+      font-size: 1.125em;
+      font-weight: 300;
+      margin-bottom: .25em;
+      padding-right: 1em;
+      display: block; }
+    .hero--blurred .hero__action .button {
+      background-color: #FF9900;
+      font-size: 1.125em;
+      font-weight: 300; }
 
 .hero-content {
   text-align: left;

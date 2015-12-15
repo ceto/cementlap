@@ -29,6 +29,7 @@
     min-height: 0
   }
   .hero-content {
+    position: relative;
     margin:1em auto 0;
     @include breakpoint($s2){
       margin:1em auto 0;
@@ -40,9 +41,9 @@
     //color:$gray;
     //text-shadow: 1px 1px 3px $gray-dark;
     .headback {
-      position: absolute;
-      left:8%;
-      top:-1em;
+      //position: absolute;
+      //left:8%;
+      //top:-1em;
       display: block;
       font-size: 12px;
       line-height: 1;
@@ -55,6 +56,37 @@
       transform:translate(-.25em, -.25em);
       margin-right: -.125em;
     }
+  }
+
+  .hero__action {
+    padding:1em 0;
+
+    @include breakpoint($s2){
+      text-align: right;
+      width:50%;
+      //border: 1px solid $orange;
+      position:absolute;
+      right:3em;
+      top:1em;
+    }
+    @include breakpoint($s3){
+    }
+    .instr {
+      margin:0;
+      color:$white;
+      font-size: 1.125em;
+      font-weight: 300;
+      margin-bottom: .25em;
+      //text-transform: uppercase;
+      padding-right: 1em;
+      display: block;
+    }
+    .button {
+      background-color: $orange;
+      font-size: 1.125em;
+      font-weight: 300;
+    }
+
   }
 }
 .hero-content {
