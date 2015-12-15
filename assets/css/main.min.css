@@ -4010,6 +4010,23 @@ a {
       .hero.feles {
         min-height: 0px; } }
 
+.hero--blurred {
+  overflow: hidden;
+  background-repeat: repeat;
+  background-size: 4rem;
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5); }
+  @media only screen and (min-width: 1024px) {
+    .hero--blurred {
+      min-height: 0; } }
+  @media only screen and (min-width: 768px) {
+    .hero--blurred .hero-content {
+      margin: 1em auto; } }
+  .hero--blurred .hero-text {
+    -webkit-filter: brightness(2);
+            filter: brightness(2);
+    margin: 0 auto; }
+
 .hero-content {
   text-align: left;
   max-width: 1600px;

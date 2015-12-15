@@ -9,11 +9,37 @@
   width:100%;
   min-height: 250px;
   @include breakpoint($s3){
-    min-height: 500px; 
+    min-height: 500px;
     &.feles {
       min-height: 0px;
     }
 
+  }
+}
+
+.hero--blurred {
+  overflow: hidden;
+  //background-image: none;
+  background-repeat: repeat;
+  background-size: 4rem;
+  filter:brightness(.5);
+  //background-color: $white;
+  // border-top:1px solid $gray-light;
+  // border-bottom:1px solid $gray-light;
+
+  @include breakpoint($s3){
+    min-height: 0
+  }
+  .hero-content {
+    @include breakpoint($s2){
+      margin:1em auto;
+    }
+  }
+  .hero-text {
+    filter:brightness(2);
+    margin:0 auto;
+    //color:$gray;
+    //text-shadow: 1px 1px 3px $gray-dark;
   }
 }
 .hero-content {
@@ -51,7 +77,7 @@
   color:#fff;
   text-shadow: 1px 1px 3px $gray-dark;
   display:block;
-  
+
   @include breakpoint($s1){
     font-size: 3em;
     line-height: 1.125em;
@@ -62,6 +88,6 @@
     .feles & {
       margin:0 auto;
     }
-  } 
+  }
 }
 

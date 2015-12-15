@@ -9,7 +9,7 @@
   </div>
 </section> -->
 
-  <?php 
+  <?php
     $sl_args = array(
       'post_type'   => array('slide'),
       'ignore_sticky_posts' => true,
@@ -23,7 +23,7 @@
     <div class="wrapper wrapper-fullwidth">
         <div class="master-slider ms-skin-default" id="masterslider">
           <?php while ( $the_slides->have_posts() ) : $the_slides->the_post(); ?>
-            <?php 
+            <?php
               if (has_post_thumbnail() ) {
                 $image_id = get_post_thumbnail_id();
                 $thumb_url_array = wp_get_attachment_image_src($image_id, 'slidethumb21', true);
@@ -35,11 +35,11 @@
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/vendor/masterslider/blank.gif" data-src="<?php echo $image_url; ?>" alt="<?php the_title(); ?>"/>
                 <img src="<?php echo $thumb_url; ?>" width="160" height="80" alt="<?php the_title(); ?>" class="ms-thumb"/>
                 <div class="ms-info">
-                  <span class="bazi"><?php the_title(); ?></span> 
+                  <span class="bazi"><?php the_title(); ?></span>
                   <a href="<?php echo get_post_meta($post->ID,'_meta_btnurl',true); ?>" class="btn btn-light-line"><?php echo get_post_meta($post->ID,'_meta_btntxt',true); ?></a>
                 </div>
             </div>
-          <?php  } endwhile; ?> 
+          <?php  } endwhile; ?>
         </div>
     </div>
   </section>
@@ -48,10 +48,10 @@
 <?php elseif ( ( is_singular('post') &&  (get_post_format( $post->ID ) != 'gallery') )   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
-    // $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' ); 
-    // $imcismall = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallsmall' ); 
-    // $imcimedium = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallmedium' ); 
-    // $imcigreat = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallgreat' ); 
+    // $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
+    // $imcismall = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallsmall' );
+    // $imcimedium = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallmedium' );
+    // $imcigreat = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallgreat' );
 
     $ima = get_post_meta( $post->ID, '_meta_wallimg_id', true );
 
@@ -59,7 +59,7 @@
     $imcismall = wp_get_attachment_image_src( $ima, 'wallsmall');
     $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
     $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
-    
+
   ?>
   <style type="text/css">
     .hero {
@@ -80,21 +80,21 @@
         background-image:url('<?php echo $imci['0']; ?>');
       }
     }
-  </style>  
+  </style>
   <section class="hero" role="banner">
     <!--div class="hero-content">
       <h1 class="hero-text">
           <?php the_title();  ?>
       </h1>
     </div-->
-  </section> 
+  </section>
 <?php elseif ( ( is_page()  )   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
-    $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' ); 
-    $imcismall = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallsmall' ); 
-    $imcimedium = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallmedium' ); 
-    $imcigreat = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallgreat' ); 
+    $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
+    $imcismall = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallsmall' );
+    $imcimedium = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallmedium' );
+    $imcigreat = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallgreat' );
   ?>
   <style type="text/css">
     .hero {
@@ -115,20 +115,47 @@
         background-image:url('<?php echo $imci['0']; ?>');
       }
     }
-  </style>  
+  </style>
   <section class="hero feles" role="banner">
     <div class="hero-content">
       <h1 class="hero-text">
           <?php the_title();  ?>
       </h1>
     </div>
-  </section> 
+  </section>
 <?php endif; ?>
 
 <?php if (is_archive()) : ?>
-  <aside class="sidebar sidebar-topad" role="complementary">
-    <?php dynamic_sidebar('sidebar-topad'); ?>
-  </aside><!-- /.sidebar -->
+
+  <?php if (is_tax('product-style')) : ?>
+
+
+    <?php
+      $aktermterm_id = term_exists( get_query_var( 'term' ) );
+      $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+
+      $saba = get_tax_meta( $aktermterm_id, 'ps_sablon_id');
+      $sabci = wp_get_attachment_image_src( $saba['id'], 'wallsmall');
+    ?>
+
+    <style type="text/css">
+     .hero--blurred {
+        background-image:url('<?php echo $sabci['0']; ?>');
+      }
+    </style>
+
+    <section class="hero hero--blurred" role="banner">
+      <div class="hero-content">
+        <h1 class="hero-text">
+            <?= $term->name;  ?>
+        </h1>
+      </div>
+    </section>
+  <?php else : ?>
+    <aside class="sidebar sidebar-topad" role="complementary">
+      <?php dynamic_sidebar('sidebar-topad'); ?>
+    </aside><!-- /.sidebar -->
+  <?php endif; ?>
 <?php endif; ?>
 
 
