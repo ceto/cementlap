@@ -141,13 +141,20 @@
     <section class="hero hero--blurred" role="banner">
       <div class="hero-content">
         <h1 class="hero-text">
-          <a class="headback" href="javascript:history.back();"><!-- <i class="ion-ios-undo"></i>&nbsp; -->Cementlap minták</a>
-<!--           <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>"> -->
+          <a class="headback" href="javascript:history.back();"><i class="ion-ios-undo"></i>&nbsp; Cementlap minták</a>
+
             <?= $term->name;  ?>
         </h1>
+
+        <style type="text/css">
+          .hero__action {
+            background-image:url('<?php echo $sabci['0']; ?>') !important;
+          }
+        </style>
         <div class="hero__action">
+          <!-- <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>"> -->
           <span class="instr">Szinezd és terítsd le egyediben</span>
-          <a href="#" class="button">Szimulátor indítása</a>
+          <a href="#" class="button">Tervezőprogram indítása</a>
         </div>
       </div>
     </section>

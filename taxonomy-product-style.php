@@ -24,13 +24,10 @@
     ?>
 
     <?php if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
-      <img src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $term->name.__('Sablon', 'cementlap');?>">
+      <img class="stheader__sablon " src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $term->name.__('Sablon', 'cementlap');?>">
     <?php else : ?>
-      <img src="http://placehold.it/640/cecece/333333/?text=Minta+helye">
+      <img class="stheader__sablon " src="http://placehold.it/640/cecece/333333/?text=Minta+helye">
     <?php endif;  ?>
-    <br> <br>
-
-
   <figure class="stheader__fig">
 
 
@@ -85,7 +82,7 @@
 
 
 <!--   <h1 class="stheader__title"><?= $term->name; ?></h1> -->
-  <p class="stheader__descr"><?= $term->description; ?> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt.</p>
+<!--   <p class="stheader__descr"><?= $term->description; ?> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt.</p> -->
 
 
     <!-- <a class="stheader__back" href="javascript:history.back();"><i class="ion-ios-undo"></i> Vissza a mintákhoz</a> -->

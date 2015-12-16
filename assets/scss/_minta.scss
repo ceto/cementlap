@@ -173,6 +173,14 @@
   margin:0 auto;
 }
 
+.stheader__sablon {
+  padding:.75em;
+  display: block;
+  border:1px solid $gray-light;
+  margin-bottom: 1.5em;
+  background-color: rgba($gray-light,.125);
+}
+
 .stheader__bordur {
   position: absolute;
   transform: translateY(-100%);

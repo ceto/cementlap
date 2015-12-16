@@ -4039,26 +4039,37 @@ a {
               transform: translate(-0.25em, -0.25em);
       margin-right: -.125em; }
   .hero--blurred .hero__action {
-    padding: 1em 0; }
+    margin-top: 1em;
+    background-image: -webkit-linear-gradient(left, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
+    background-image: linear-gradient(to right, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
+    background-repeat: no-repeat;
+    background-position: 0.75em 0.75em;
+    background-size: auto 3.666em;
+    padding: 0.75em 0.75em 0.75em 5.25em;
+    border: 1px solid rgba(154, 154, 155, 0.25); }
     @media only screen and (min-width: 768px) {
       .hero--blurred .hero__action {
-        text-align: right;
-        width: 50%;
+        margin-top: 0;
+        max-width: 50%;
         position: absolute;
         right: 3em;
-        top: 1em; } }
+        top: 1.5em; } }
     .hero--blurred .hero__action .instr {
       margin: 0;
-      color: #FEFEFF;
-      font-size: 1.125em;
+      color: #9A9A9B;
+      font-size: 1em;
+      line-height: 1;
       font-weight: 300;
       margin-bottom: .25em;
-      padding-right: 1em;
+      text-transform: uppercase;
       display: block; }
     .hero--blurred .hero__action .button {
-      background-color: #FF9900;
       font-size: 1.125em;
-      font-weight: 300; }
+      font-weight: 300;
+      padding-right: .75em;
+      padding-left: .75em; }
+      .hero--blurred .hero__action .button:hover, .hero--blurred .hero__action .button:focus {
+        background-color: #FF9900; }
 
 .hero-content {
   text-align: left;
@@ -5587,6 +5598,13 @@ article.product {
 .stheader__fig {
   max-width: 25rem;
   margin: 0 auto; }
+
+.stheader__sablon {
+  padding: .75em;
+  display: block;
+  border: 1px solid #9A9A9B;
+  margin-bottom: 1.5em;
+  background-color: rgba(154, 154, 155, 0.125); }
 
 .stheader__bordur {
   position: absolute;

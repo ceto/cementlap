@@ -59,32 +59,48 @@
   }
 
   .hero__action {
-    padding:1em 0;
-
+    margin-top: 1em;
+    background-image:linear-gradient(to right, $gray-light, $gray-light 3.666em, transparent 3.666em);
+    background-repeat: no-repeat;
+    background-position: .75em .75em;
+    background-size: auto 3.666em;
+    padding:.75em .75em .75em 5.25em;
+    border:1px solid rgba($gray-light,.25);
+    //background-color: rgba($gray-light,1);
     @include breakpoint($s2){
-      text-align: right;
-      width:50%;
+      //text-align: left;
+      margin-top: 0;
+      max-width:50%;
+
+      //padding:1em 1em ;
       //border: 1px solid $orange;
       position:absolute;
       right:3em;
-      top:1em;
+      top:1.5em;
     }
     @include breakpoint($s3){
     }
     .instr {
       margin:0;
-      color:$white;
-      font-size: 1.125em;
+      color:$gray-light;
+      font-size: 1em;
+      line-height: 1;
       font-weight: 300;
       margin-bottom: .25em;
-      //text-transform: uppercase;
-      padding-right: 1em;
+      text-transform: uppercase;
+      //padding-right: 1em;
       display: block;
     }
     .button {
-      background-color: $orange;
+      //background-color: transparent;
+
       font-size: 1.125em;
       font-weight: 300;
+      padding-right: .75em;
+      padding-left: .75em;
+      &:hover, &:focus {
+        background-color: $orange;
+      }
     }
 
   }
