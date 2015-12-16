@@ -45,7 +45,9 @@
       -ms-filter: grayscale(0%);
       filter:grayscale(0%);
       .stheader & {
-        transform: scale(1);
+        cursor: -moz-zoom-in;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
       }
     }
     .sqstyle__name {
@@ -66,7 +68,7 @@
   filter:grayscale(100%);
   .stheader & {
     opacity: 1;
-    transform: scale(1);
+    //transform: scale(1);
     -ms-filter: grayscale(0%);
     filter:grayscale(0%);
   }
@@ -91,7 +93,8 @@
   color:black;
   //text-align: right;
   //text-shadow: 1px 1px black;
-  font-weight: 300;
+  color:$gray;
+  font-weight: 900;
   font-size: .875em;
   line-height: 1;
   i {
@@ -199,32 +202,7 @@
   margin-top: .875rem;
 }
 
-.st__doit {
-  @include clearfix();
-  margin:1rem 0;
-  position: relative;
-  background-color: $gray;
-  &:hover, &:focus {
-    background-color: $orange;
-  }
 
-  img {
-    width: 20%;
-    display:block;
-    float:left;
-  }
-  .button {
-    width:80%;
-    display: block;
-    float:right;
-    height:50%;
-    text-align: left;
-    &:hover, &:focus {
-      background-color: transparent;
-      border-color: transparent;
-    }
-  }
-}
 .stlist .prod-mini {
 
   @include breakpoint(240px){

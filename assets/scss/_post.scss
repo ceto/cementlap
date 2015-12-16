@@ -14,14 +14,14 @@
 }
 
 .post-thumb a {
-  
+
   img {
     //transition:filter .8s linear;
     filter:brightness(0.5);
-    
+
 
   }
-  
+
   &:hover, &:focus{
     img {
       //filter:brightness(0.25);
@@ -82,7 +82,7 @@
     }
 
   }
-  
+
   .page-header {
     display:none;
   }
@@ -112,7 +112,7 @@
   @include clearfix();
   max-width: $s5;
   margin:0 auto;
-  
+
   @include breakpoint($s2){
     padding:1em 5em;
   }
@@ -160,7 +160,7 @@
 
 .single-format-gallery {
 
-  
+
   .post {
     background-color: $gray-dark;
     background-position: center center;
@@ -169,9 +169,9 @@
     position: relative;
     overflow:hidden;
 
-    
+
     .repulotoggle{
-      
+
       position:absolute;
       right:0;
       top:1em;
@@ -199,7 +199,7 @@
 
       @include breakpoint($s3){
         display: block;
-      } 
+      }
     }
     .repulo{
       @include clearfix();
@@ -211,7 +211,7 @@
       padding:1em 1em;
       text-align: center;
       transition: margin .4s linear;
-      
+
       @include breakpoint($s1){
         padding:1em 3em;
       }
@@ -224,7 +224,7 @@
         width:320px;
         min-height: 700px;
         min-height:calc(100vh - 90px);
-        
+
         padding:2em;
         &.hide{
           margin-left: -320px;
@@ -240,9 +240,9 @@
       a{
         color:$orange;
       }
-    
+
     }
-    
+
     header, .entry-content{
       font-size: 1em;
       line-height: 1.4em;
@@ -251,11 +251,12 @@
     footer {
       min-height: 133px;
     }
-    
+
     h1 {
       font-size: 2.5em;
       line-height: 1.125em;
       font-weight: 100;
+      margin:3rem 0 0;
     }
 
     .addcont{
@@ -281,7 +282,7 @@
 
 .single-format-standard {
 
-  
+
   .post {
     header, .entry-content, .entry-footer, .addcont{
       @include clearfix();
@@ -295,7 +296,7 @@
     }
     header {
       background-color: $white;
-      
+
       @include breakpoint($s2){
         margin-top:-7em;
         //padding:0 0;
@@ -305,7 +306,7 @@
         //padding:0 0;
       }
     }
-    
+
     .entry-title {
       font-weight: 100;
       font-size: 3em;
@@ -329,7 +330,7 @@
 
       }
     }
-    
+
 .entry-meta{
   @include clearfix();
   text-align: center;

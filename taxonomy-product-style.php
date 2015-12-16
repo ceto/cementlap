@@ -37,17 +37,11 @@
     <?php else : ?>
       <img src="http://placehold.it/220/cecece/333333/?text=Bordűr+helye" class="stheader__bordur">
     <?php endif; */?>
-    <a class="sqstyle__fulllink" href="#">
+    <a class="sqstyle__fulllink startpopup" href="#">
       <?php   if (get_tax_meta( $aktermterm_id, 'ps_image_id') ) : ?>
         <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="<?= $child->name;?>" class="sqstyle__img">
       <?php else : ?>
         <img class="sqstyle__img" src="http://lorempixel.com/<?= 640 + $i*16; ?>/<?= 360 + $i * 9; ?>" alt="<?= $child->name;?>">
-      <?php endif; ?>
-
-      <?php  if (get_tax_meta( $aktermterm_id, 'ps_sablon_id') ) : ?>
-        <img src="<?php echo $sabci[0]; ?>" width="<?php echo $sabci[1]; ?>" height="<?php echo $sabci[2]; ?>" alt="<?= $child->name.__('Sablon', 'cementlap');?>" class="sqstyle__sablon">
-      <?php else : ?>
-        <img class="sqstyle__sablon" src="http://placehold.it/320/cecece/333333/?text=Sablon" class="sqstyle__sablon">
       <?php endif; ?>
     </a>
 

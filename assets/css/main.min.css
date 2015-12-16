@@ -5097,7 +5097,9 @@ article.product {
   padding: 3px;
   border: 1px solid #9A9A9B; }
   #owl-refgal .item:hover, #owl-refgal .item:focus {
-    border-color: #FF9900; }
+    border-color: #FF9900;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in; }
   #owl-refgal .item img {
     display: block;
     width: 100%;
@@ -5495,9 +5497,8 @@ article.product {
     -webkit-filter: grayscale(0%);
             filter: grayscale(0%); }
     .stheader .sqstyle__fulllink:hover .sqstyle__img, .stheader .sqstyle__fulllink:focus .sqstyle__img {
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1); }
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in; }
 
 .sqstyle__img {
   opacity: .75;
@@ -5509,9 +5510,6 @@ article.product {
           filter: grayscale(100%); }
   .stheader .sqstyle__img {
     opacity: 1;
-    -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-            transform: scale(1);
     -ms-filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
             filter: grayscale(0%); }
@@ -5528,7 +5526,8 @@ article.product {
   border-bottom: .25em solid white;
   margin: 0;
   color: black;
-  font-weight: 300;
+  color: #49494A;
+  font-weight: 900;
   font-size: .875em;
   line-height: 1; }
   .sqstyle__name i {
@@ -5621,32 +5620,6 @@ article.product {
   position: static;
   padding: 0 0;
   margin-top: .875rem; }
-
-.st__doit {
-  margin: 1rem 0;
-  position: relative;
-  background-color: #49494A; }
-  .st__doit:before,
-  .st__doit:after {
-    content: " ";
-    display: table; }
-  .st__doit:after {
-    clear: both; }
-  .st__doit:hover, .st__doit:focus {
-    background-color: #FF9900; }
-  .st__doit img {
-    width: 20%;
-    display: block;
-    float: left; }
-  .st__doit .button {
-    width: 80%;
-    display: block;
-    float: right;
-    height: 50%;
-    text-align: left; }
-    .st__doit .button:hover, .st__doit .button:focus {
-      background-color: transparent;
-      border-color: transparent; }
 
 @media only screen and (min-width: 240px) {
   .stlist .prod-mini {
@@ -5875,7 +5848,8 @@ article.product {
   .single-format-gallery .post h1 {
     font-size: 2.5em;
     line-height: 1.125em;
-    font-weight: 100; }
+    font-weight: 100;
+    margin: 3rem 0 0; }
   .single-format-gallery .post .addcont {
     -webkit-transition: width 0.4s linear;
             transition: width 0.4s linear; }

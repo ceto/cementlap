@@ -145,14 +145,14 @@
 
             <?= $term->name;  ?>
         </h1>
-
-        <style type="text/css">
+        <?php if (get_tax_meta( $aktermterm_id, 'ps_sablon_id')) : ?>
+                 <style type="text/css">
           .hero__action {
             background-image:url('<?php echo $sabci['0']; ?>') !important;
           }
         </style>
+        <? endif; ?>
         <div class="hero__action">
-          <!-- <img src="<?php echo $sabci['0']; ?>" alt="<?= $term->name;  ?>"> -->
           <span class="instr">Szinezd és terítsd le egyediben</span>
           <a href="#" class="button">Tervezőprogram indítása</a>
         </div>

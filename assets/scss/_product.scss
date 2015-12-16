@@ -375,6 +375,9 @@ article.product {
     border:1px solid $gray-light;
     &:hover, &:focus {
       border-color:$orange;
+      cursor: -moz-zoom-in;
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in;
     }
     img {
       display: block;

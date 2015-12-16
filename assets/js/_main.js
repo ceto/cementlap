@@ -413,7 +413,7 @@ jQuery(document).ready(function($){
   });
 
 
-  $('.popup-gallery').magnificPopup({
+  var thegal = $('.popup-gallery').magnificPopup({
     delegate: 'a',
     type: 'image',
     tLoading: 'Loading image #%curr%...',
@@ -431,6 +431,11 @@ jQuery(document).ready(function($){
     }
   });
 
+
+  $('.startpopup').click(function(e) {
+    e.preventDefault();
+    thegal.magnificPopup('open');
+  });
 
 
 
