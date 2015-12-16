@@ -5604,7 +5604,7 @@ article.product {
   display: block;
   border: 1px solid #9A9A9B;
   margin-bottom: 1.5em;
-  background-color: rgba(154, 154, 155, 0.125); }
+  opacity: .875; }
 
 .stheader__bordur {
   position: absolute;

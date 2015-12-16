@@ -178,7 +178,8 @@
   display: block;
   border:1px solid $gray-light;
   margin-bottom: 1.5em;
-  background-color: rgba($gray-light,.125);
+  //background-color: rgba($gray-light,.125);
+  opacity:.875;
 }
 
 .stheader__bordur {
