@@ -59,6 +59,7 @@
   }
 
   .hero__action {
+    display: none;
     margin-top: 1em;
     background-image:linear-gradient(to right, $gray-light, $gray-light 3.666em, transparent 3.666em);
     background-repeat: no-repeat;
@@ -98,8 +99,9 @@
       font-weight: 300;
       padding-right: .75em;
       padding-left: .75em;
+      background-color: $orange;
       &:hover, &:focus {
-        background-color: $orange;
+        background-color: black;
       }
     }
 

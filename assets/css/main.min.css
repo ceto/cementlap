@@ -4039,6 +4039,7 @@ a {
               transform: translate(-0.25em, -0.25em);
       margin-right: -.125em; }
   .hero--blurred .hero__action {
+    display: none;
     margin-top: 1em;
     background-image: -webkit-linear-gradient(left, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
     background-image: linear-gradient(to right, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
@@ -4067,9 +4068,10 @@ a {
       font-size: 1.125em;
       font-weight: 300;
       padding-right: .75em;
-      padding-left: .75em; }
+      padding-left: .75em;
+      background-color: #FF9900; }
       .hero--blurred .hero__action .button:hover, .hero--blurred .hero__action .button:focus {
-        background-color: #FF9900; }
+        background-color: black; }
 
 .hero-content {
   text-align: left;
