@@ -136,12 +136,15 @@
 
       $saba = get_tax_meta( $aktermterm_id, 'ps_sablon_id');
       $sabci = wp_get_attachment_image_src( $saba['id'], 'wallsmall');
+
+      $catpagelink_hu=get_the_permalink( icl_object_id(8023,'page','true' ) );
+
     ?>
 
     <section class="hero hero--blurred" role="banner">
       <div class="hero-content">
         <h1 class="hero-text">
-          <a class="headback" href="javascript:history.back();"><i class="ion-ios-undo"></i>&nbsp; Cementlap minták</a>
+          <a class="headback" href="<?= $catpagelink_hu; ?>"><i class="ion-ios-undo"></i>&nbsp; Cementlap minták</a>
 
             <?= $term->name;  ?>
         </h1>
