@@ -5782,10 +5782,10 @@ article.product {
   overflow: hidden; }
   .single-format-gallery .post .repulotoggle {
     position: absolute;
-    right: 0;
-    top: 1em;
+    right: 46%;
+    top: .5em;
     z-index: 1;
-    display: none;
+    display: block;
     background-color: rgba(73, 73, 74, 0.75);
     color: #FEFEFF;
     height: 1em;
@@ -5803,7 +5803,9 @@ article.product {
         right: -1em; } }
     @media only screen and (min-width: 1024px) {
       .single-format-gallery .post .repulotoggle {
-        display: block; } }
+        display: block;
+        right: 0;
+        top: 1em; } }
   .single-format-gallery .post .repulo {
     position: relative;
     z-index: 1;

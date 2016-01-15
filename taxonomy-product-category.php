@@ -58,51 +58,17 @@ Template Name: Product Category List
         </li>
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
-        <li id="filter-<?php echo $term->slug; ?>">
-          <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-          <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
-        </li>
+          <?php if ($term->slug!='hamarosan-erkezik' && $term->slug!='coming-soon') : ?>
+            <li id="filter-<?php echo $term->slug; ?>">
+              <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
+              <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
+            </li>
+          <?php endif; ?>
+
         <?php } ?>
       </ul>
     </div>
 
-
-<!--     <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name=".filt-stock">
-        <span class="filt-placeholder-text"><?php _e('Stock','cementlap') ?></span>
-        <i class="ion-chevron-down"></i>
-      </div>
-      <ul data-filter-group="stock" class="filt-item filt-stock hide">
-        <li id="filter-stockall">
-          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="stock-all"><?php _e('Show all','cementlap'); ?> <i class="ion-checkmark"></i></a>
-        </li>
-        <?php $filtlist=get_terms('product-stock' ); ?>
-        <?php foreach ( $filtlist as $term ) {  ?>
-        <li id="filter-<?php echo $term->slug; ?>">
-          <a href="#filter=.<?php echo $term->slug; ?>" class="filt-item-input" id="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></a>
-        </li>
-        <?php } ?>
-      </ul>
-    </div>
-
-    <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name=".filt-color">
-        <span class="filt-placeholder-text"><?php _e('Colors','cementlap') ?></span>
-        <i class="ion-chevron-down"></i>
-      </div>
-      <ul data-filter-group="color" class="filt-item filt-color hide">
-        <li id="filter-colorall">
-          <a href="#filter=*" data-filter-value="*" class="filt-item-input" id="color-all"><?php _e('Show all','cementlap'); ?> <i class="ion-checkmark"></i></a>
-        </li>
-        <?php $filtlist=get_terms('product-color' ); ?>
-        <?php foreach ( $filtlist as $term ) {  ?>
-        <li id="filter-<?php echo $term->slug; ?>">
-          <a href="#filter=.<?php echo $term->slug; ?>" class="filt-item-input" id="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></a>
-        </li>
-        <?php } ?>
-      </ul>
-    </div>
- -->
 
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-color">

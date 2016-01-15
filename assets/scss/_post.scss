@@ -173,10 +173,10 @@
     .repulotoggle{
 
       position:absolute;
-      right:0;
-      top:1em;
+      right:46%;
+      top:.5em;
       z-index: 1;
-      display: none;
+      display: block;
       background-color: rgba($gray,0.75);
       color:$white;
       height:1em;
@@ -199,6 +199,8 @@
 
       @include breakpoint($s3){
         display: block;
+        right:0;
+        top:1em;
       }
     }
     .repulo{

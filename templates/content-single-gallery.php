@@ -9,30 +9,11 @@
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
 
 ?>
-<!--style type="text/css">
-  article.post {
-    background-image:none;
-  }
-  @media only screen and (min-width: 768px) {
-    article.post {
-      background-image:url('<?php echo $imcimedium['0']; ?>');
-    }
-  }
-  @media only screen and (min-width: 1280px) {
-    article.post {
-      background-image:url('<?php echo $imcigreat['0']; ?>');
-    }
-  }
-  @media only screen and (min-width: 1600px) {
-    article.post {
-      background-image:url('<?php echo $imci['0']; ?>');
-    }
-  }
-</style-->
+
   <article <?php post_class(); ?>>
 
     <div class="repulo">
-      <a href="#" class="repulotoggle"><i class="ion ion-arrow-expand"></i></a>
+      <a href="javascript:history.back();" class="repulotoggle"><i class="ion ion-ios-close-empty"></i></a>
       <header>
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <div class="entry-meta">
