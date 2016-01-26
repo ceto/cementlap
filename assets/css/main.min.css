@@ -2998,6 +2998,9 @@ img {
     @media only screen and (min-width: 768px) {
       .page .main {
         padding: 1em 1em; } }
+  @media only screen and (min-width: 768px) {
+    .page-template-tmpl-widepage.page .main {
+      padding: 1em 2em; } }
   .tax-product-category .main {
     padding: 1em 0; }
     @media only screen and (min-width: 480px) {

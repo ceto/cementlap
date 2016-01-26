@@ -28,7 +28,7 @@ html, body {
   @include breakpoint($s3) {
     background-color: $white;
   }
-  
+
 }
 .mindenmas {
   background-color: $white;
@@ -104,7 +104,7 @@ img {
 }
 .wp-caption {
   max-width: 100%;
-  
+
   .caption{
     font-size: 0.75em;
     line-height: 1.125em;
@@ -159,6 +159,13 @@ img {
       padding: 1em 1em;
     }
   }
+
+  .page-template-tmpl-widepage.page & {
+    @include breakpoint($s2){
+      padding: 1em 2em;
+    }
+  }
+
   .tax-product-category & {
     padding:1em 0;
     @include breakpoint($s1){
@@ -177,7 +184,7 @@ img {
   border:0;
   display: inline-block;
   background-color: $gray;
-  border:1px solid $gray; 
+  border:1px solid $gray;
   text-align: center;
   color:#fff;
   text-transform: uppercase;
@@ -194,7 +201,7 @@ img {
 
   &:hover, &:focus {
     background-color: $gray-dark;
-    border:1px solid $gray; 
+    border:1px solid $gray;
     text-decoration: none;
   }
 }
