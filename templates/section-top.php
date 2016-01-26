@@ -88,7 +88,7 @@
       </h1>
     </div-->
   </section>
-<?php elseif ( ( is_page() && !is_page_template('tmpl-widepage.php') )   ) :?>
+<?php elseif ( ( is_page() )   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
     $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
