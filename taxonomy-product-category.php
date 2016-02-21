@@ -44,6 +44,11 @@ Template Name: Product Category List
     </ul>
   </nav>
 
+  <?php
+    $df='Y. m. d.';
+    if (ICL_LANGUAGE_CODE!='hu') {$dateformat='d/m/y';}
+  ?>
+
   <div id="filt-wrap" class="filt-wrap">
 
     <div class="filt-select-con">
@@ -56,6 +61,30 @@ Template Name: Product Category List
           <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="<?php _e('Show all','cementlap'); ?>">
           <label class="filt-item-label" for="stock-all"><?php _e('Show all','cementlap'); ?> <i class="ion-checkmark"></i></label>
         </li>
+
+        <li id="filter-1455235200">
+          <input data-filter-value=".cs_1455235200" class="filt-item-input" type="checkbox" id="cs_1455235200" value="cs_1455235200">
+          <label class="filt-item-label" for="cs_1455235200">Érkezik: 2014-12-21 <i class="ion-checkmark"></i></label>
+        </li>
+
+        <li id="filter-<?=  strtotime($copt['kont1']) ?>">
+          <input data-filter-value=".cs_<?=  strtotime($copt['kont1']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont1']) ?>" value="cs_<?=  strtotime($copt['kont1']) ?>">
+          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont1']) ?>">Érkezik: <?= date($df, strtotime($copt['kont1'])) ?> <i class="ion-checkmark"></i></label>
+        </li>
+        <li id="filter-<?=  strtotime($copt['kont2']) ?>">
+          <input data-filter-value=".cs_<?=  strtotime($copt['kont2']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont2']) ?>" value="cs_<?=  strtotime($copt['kont2']) ?>">
+          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont2']) ?>">Érkezik: <?= date($df, strtotime($copt['kont2'])) ?> <i class="ion-checkmark"></i></label>
+        </li>
+        <li id="filter-<?=  strtotime($copt['kont3']) ?>">
+          <input data-filter-value=".cs_<?=  strtotime($copt['kont3']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont3']) ?>" value="cs_<?=  strtotime($copt['kont3']) ?>">
+          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont3']) ?>">Érkezik: <?= date($df, strtotime($copt['kont3'])) ?> <i class="ion-checkmark"></i></label>
+        </li>
+        <li id="filter-<?=  strtotime($copt['kont4']) ?>">
+          <input data-filter-value=".cs_<?=  strtotime($copt['kont4']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont4']) ?>" value="cs_<?=  strtotime($copt['kont4']) ?>">
+          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont4']) ?>">Érkezik: <?= date($df, strtotime($copt['kont4'])) ?> <i class="ion-checkmark"></i></label>
+        </li>
+
+
         <?php $filtlist=get_terms('product-stock' ); ?>
         <?php foreach ( $filtlist as $term ) {  ?>
           <?php if ($term->slug!='hamarosan-erkezik' && $term->slug!='coming-soon') : ?>

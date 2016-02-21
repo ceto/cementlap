@@ -304,35 +304,35 @@ function cementes_metaboxes( ) {
           'db' => __( 'db', 'root' ),
         ),
       ),
-      array(
-        'name' => __( 'On Stock in Marrakesh', 'root' ),
-        'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
-        'id'   => $prefix . 'amountmarr',
-        'type' => 'text_small',
-      ),
-      array(
-        'name' => __( 'Next transport date', 'root' ),
-        'desc' => __( 'field description (optional)', 'root' ),
-        'id'   => $prefix . 'arrive',
-        'type' => 'text_date',
-      ),
+      // array(
+      //   'name' => __( 'On Stock in Marrakesh', 'root' ),
+      //   'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
+      //   'id'   => $prefix . 'amountmarr',
+      //   'type' => 'text_small',
+      // ),
+      // array(
+      //   'name' => __( 'Next transport date', 'root' ),
+      //   'desc' => __( 'field description (optional)', 'root' ),
+      //   'id'   => $prefix . 'arrive',
+      //   'type' => 'text_date',
+      // ),
       array(
         'name' => __( 'Size', 'root' ),
         'desc' => __( 'eg:  20 × 20 × 1,6 cm', 'root' ),
         'id'   => $prefix . 'size',
-        'type' => 'text_small',
+        'type' => 'text_medium',
       ),
       array(
         'name' => __( 'Weight', 'root' ),
         'desc' => __( 'eg:  34 kg/m<sup>2</sup> | 1,35 kg / lap', 'root' ),
         'id'   => $prefix . 'weight',
-        'type' => 'text_small',
+        'type' => 'text_medium',
       ),
       array(
         'name' => __( 'Kit', 'root' ),
         'desc' => __( 'eg:  dobozban (13 lap ≈ 0,52 m<sup>2</sup>)', 'root' ),
         'id'   => $prefix . 'kit',
-        'type' => 'text_small',
+        'type' => 'text_medium',
       ),
       array(
         'name'    => __( 'Background position', 'root' ),
@@ -392,6 +392,39 @@ function cementes_metaboxes( ) {
     ),
     )
   );
+
+  $cmb_product2 = new_cmb2_box( array(
+    'id'         => 'r2meta',
+    'title'      => 'Konténerek kezelése',
+    'object_types'  => array( 'product'), // Post type
+    'context'    => 'side',
+    'priority'   => 'high',
+    'show_names' => true,
+    'closed'     => true
+  ));
+
+  $prodgroup_field_id = $cmb_product2->add_field( array(
+    'id'          => 'prod_coming_group',
+    'type'        => 'group',
+    'description' => __( 'Érkező mennyiségek', 'cmb2' ),
+    'options'     => array(
+        'group_title'   => __( 'Konténer {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+        'add_button'    => __( 'Új konténer hozzáadása', 'cmb2' ),
+        'remove_button' => __( 'Konténer törlése', 'cmb2' ),
+        'sortable'      => false, // beta
+    ),
+  ) );
+  $cmb_product2->add_group_field( $prodgroup_field_id, array(
+    'id' => 'prc_date',
+    'name' => 'Érkezik ekkor',
+    'type' => 'text_date_timestamp',
+  ) );
+  $cmb_product2->add_group_field( $prodgroup_field_id, array(
+    'id' => 'prc_quant',
+    'name' => 'Érkező mennyiség',
+    'type' => 'text_small',
+  ) );
+
 
   /****** Post Boxes ******/
   $cmb_posts = new_cmb2_box( array(
@@ -541,6 +574,40 @@ class CementlapSettingsPage
             'cementlap-setting-admin' // Page
         );
 
+
+        /**** Konténerkezelés ****/
+        add_settings_field(
+            'kont1',
+            'Konténer érkezik I.:',
+            array( $this, 'kont1_callback' ),
+            'cementlap-setting-admin',
+            'setting_section_id'
+        );
+        add_settings_field(
+            'kont2',
+            'Konténer érkezik II.:',
+            array( $this, 'kont2_callback' ),
+            'cementlap-setting-admin',
+            'setting_section_id'
+        );
+        add_settings_field(
+            'kont3',
+            'Konténer érkezik III.:',
+            array( $this, 'kont3_callback' ),
+            'cementlap-setting-admin',
+            'setting_section_id'
+        );
+        add_settings_field(
+            'kont4',
+            'Konténer érkezik IV.:',
+            array( $this, 'kont4_callback' ),
+            'cementlap-setting-admin',
+            'setting_section_id'
+        );
+
+
+        /***** Konténer vége ******/
+
         add_settings_field(
             'ntd',
             'Next Transport Date',
@@ -600,6 +667,15 @@ class CementlapSettingsPage
     {
         $new_input = array();
 
+        if( isset( $input['kont1'] ) )
+            $new_input['kont1'] = sanitize_text_field( $input['kont1'] );
+        if( isset( $input['kont2'] ) )
+            $new_input['kont2'] = sanitize_text_field( $input['kont2'] );
+        if( isset( $input['kont3'] ) )
+            $new_input['kont3'] = sanitize_text_field( $input['kont3'] );
+        if( isset( $input['kont4'] ) )
+            $new_input['kont4'] = sanitize_text_field( $input['kont4'] );
+
         if( isset( $input['ntd'] ) )
             $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
 
@@ -632,6 +708,42 @@ class CementlapSettingsPage
     /**
      * Get the settings option array and print one of its values
      */
+
+    public function kont1_callback()
+    {
+        printf(
+            '<input type="text" id="kont1" name="cementlap_option_name[kont1]" value="%s" />',
+            isset( $this->options['kont1'] ) ? esc_attr( $this->options['kont1']) : ''
+        );
+    }
+    public function kont2_callback()
+    {
+        printf(
+            '<input type="text" id="kont2" name="cementlap_option_name[kont2]" value="%s" />',
+            isset( $this->options['kont2'] ) ? esc_attr( $this->options['kont2']) : ''
+        );
+    }
+
+    public function kont3_callback()
+    {
+        printf(
+            '<input type="text" id="kont3" name="cementlap_option_name[kont3]" value="%s" />',
+            isset( $this->options['kont3'] ) ? esc_attr( $this->options['kont3']) : ''
+        );
+    }
+
+    public function kont4_callback()
+    {
+        printf(
+            '<input type="text" id="kont4" name="cementlap_option_name[kont4]" value="%s" />',
+            isset( $this->options['kont4'] ) ? esc_attr( $this->options['kont4']) : ''
+        );
+    }
+
+
+
+
+
     public function ntd_callback()
     {
         printf(
