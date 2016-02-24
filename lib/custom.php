@@ -475,6 +475,7 @@ function cementes_metaboxes( ) {
         'sortable'      => true, // beta
     ),
   ) );
+
   $cmb_product2->add_group_field( $prodgroup_field_id, array(
     'id' => 'prc_kontno',
     'name' => 'Konténer',
