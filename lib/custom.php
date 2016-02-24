@@ -17,6 +17,48 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 // add_action( 'admin_enqueue_scripts', 'icl_load_jquery_dialog' );
 
 /**
+ * Product Konténer Custom Post Type Definition
+*/
+function create_kontener() {
+  $labels = array(
+    'name' => 'Konténer',
+    'singular_name' => 'Konténer',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Konténer',
+    'edit_item' => 'Edit Konténer',
+    'new_item' => 'New Konténer',
+    'all_items' => 'Konténerek',
+    'view_item' => 'View Konténer',
+    'search_items' => 'Search Konténer',
+    'not_found' =>  'No Konténer found',
+    'not_found_in_trash' => 'No Konténer found in Trash',
+    'parent_item_colon' => '',
+    'menu_name' => 'Konténer'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'show_in_menu' => 'edit.php?post_type=product',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'kontener' ),
+    'capability_type' => 'post',
+    'has_archive' => true,
+    'hierarchical' => false,
+    'menu_position' => null,
+    'yarpp_support' => true,
+    'supports' => array( 'title' )
+  );
+
+  register_post_type( 'kontener', $args );
+}
+add_action( 'init', 'create_kontener' );
+
+/********* END OF Custom Post Types for Konténer Management ****************/
+
+/**
  * Product Custom Post Type Definition
 */
 function create_product() {
@@ -251,6 +293,23 @@ function cement_show_refgal( $field ) {
   return $reflist;
 }
 
+/***** Create list of konteners ******/
+function cement_show_kontener( $field ) {
+  $the_konts = new WP_Query(array (
+      'post_type' => 'kontener',
+      'posts_per_page' => -1,
+    )
+  );
+
+  $kontlist = array();
+  $kontlist[0] = 'Nincs csatolt konténer';
+  while ($the_konts->have_posts()) : $the_konts->the_post();
+    $kontlist[get_the_ID()] = get_the_title().' - '. date('Y.m.d.', get_post_meta( get_the_ID(), '_meta_cardate', true ));
+  endwhile;
+
+  return $kontlist;
+}
+
 /********* Custom MetaBoxes ****************/
 
 if ( file_exists(  __DIR__ .'/CMB2/init.php' ) ) { require_once  __DIR__ .'/CMB2/init.php';};
@@ -395,7 +454,7 @@ function cementes_metaboxes( ) {
 
   $cmb_product2 = new_cmb2_box( array(
     'id'         => 'r2meta',
-    'title'      => 'Konténerek kezelése',
+    'title'      => 'Szállítási infók',
     'object_types'  => array( 'product'), // Post type
     'context'    => 'side',
     'priority'   => 'high',
@@ -408,22 +467,55 @@ function cementes_metaboxes( ) {
     'type'        => 'group',
     'description' => __( 'Érkező mennyiségek', 'cmb2' ),
     'options'     => array(
-        'group_title'   => __( 'Konténer {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
-        'add_button'    => __( 'Új konténer hozzáadása', 'cmb2' ),
-        'remove_button' => __( 'Konténer törlése', 'cmb2' ),
-        'sortable'      => false, // beta
+        'group_title'   => __( 'Szállítmány {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+        'add_button'    => __( 'Új szállítmány hozzáadása', 'cmb2' ),
+        'remove_button' => __( 'Szállítmány törlése', 'cmb2' ),
+        'sortable'      => true, // beta
     ),
   ) );
   $cmb_product2->add_group_field( $prodgroup_field_id, array(
-    'id' => 'prc_date',
-    'name' => 'Érkezik ekkor',
-    'type' => 'text_date_timestamp',
+    'id' => 'prc_kontno',
+    'name' => 'Konténer',
+    'type' => 'select',
+    'show_option_none' => false,
+    'default'          => '0',
+    'options'          =>  'cement_show_kontener'
   ) );
+
+
+  // $cmb_product2->add_group_field( $prodgroup_field_id, array(
+  //   'id' => 'prc_date',
+  //   'name' => 'Érkezik ekkor',
+  //   'type' => 'text_date_timestamp',
+  // ) );
   $cmb_product2->add_group_field( $prodgroup_field_id, array(
     'id' => 'prc_quant',
     'name' => 'Érkező mennyiség',
     'type' => 'text_small',
   ) );
+
+
+  /****** Konténer Boxes ******/
+  $cmb_kontener = new_cmb2_box( array(
+    'id'         => 'kontenermeta',
+    'title'      => 'Konténer részletek',
+    'object_types'      => array( 'kontener'), // Post type
+    'context'    => 'side',
+    'priority'   => 'high',
+    'show_names' => true, // Show field names on the left
+  ));
+  $cmb_kontener->add_field( array(
+        'name' => __( 'Érkezési dátuma', 'root' ),
+        'id'   => $prefix . 'cardate',
+        'type' => 'text_date_timestamp'
+  ));
+
+  // $cmb_kontener->add_field( array(
+  //       'name' => __( 'Engedélyezés', 'root' ),
+  //       'desc' => __( 'Jelenjen meg szűrőben ', 'root' ),
+  //       'id'   => $prefix . 'carstate',
+  //       'type' => 'checkbox',
+  // ));
 
 
   /****** Post Boxes ******/
@@ -575,46 +667,16 @@ class CementlapSettingsPage
         );
 
 
-        /**** Konténerkezelés ****/
-        add_settings_field(
-            'kont1',
-            'Konténer érkezik I.:',
-            array( $this, 'kont1_callback' ),
-            'cementlap-setting-admin',
-            'setting_section_id'
-        );
-        add_settings_field(
-            'kont2',
-            'Konténer érkezik II.:',
-            array( $this, 'kont2_callback' ),
-            'cementlap-setting-admin',
-            'setting_section_id'
-        );
-        add_settings_field(
-            'kont3',
-            'Konténer érkezik III.:',
-            array( $this, 'kont3_callback' ),
-            'cementlap-setting-admin',
-            'setting_section_id'
-        );
-        add_settings_field(
-            'kont4',
-            'Konténer érkezik IV.:',
-            array( $this, 'kont4_callback' ),
-            'cementlap-setting-admin',
-            'setting_section_id'
-        );
-
 
         /***** Konténer vége ******/
 
-        add_settings_field(
-            'ntd',
-            'Next Transport Date',
-            array( $this, 'ntd_callback' ),
-            'cementlap-setting-admin',
-            'setting_section_id'
-        );
+        // add_settings_field(
+        //     'ntd',
+        //     'Next Transport Date',
+        //     array( $this, 'ntd_callback' ),
+        //     'cementlap-setting-admin',
+        //     'setting_section_id'
+        // );
         add_settings_field(
             'subtitle',
             'Advert Sub Title',
@@ -667,17 +729,9 @@ class CementlapSettingsPage
     {
         $new_input = array();
 
-        if( isset( $input['kont1'] ) )
-            $new_input['kont1'] = sanitize_text_field( $input['kont1'] );
-        if( isset( $input['kont2'] ) )
-            $new_input['kont2'] = sanitize_text_field( $input['kont2'] );
-        if( isset( $input['kont3'] ) )
-            $new_input['kont3'] = sanitize_text_field( $input['kont3'] );
-        if( isset( $input['kont4'] ) )
-            $new_input['kont4'] = sanitize_text_field( $input['kont4'] );
 
-        if( isset( $input['ntd'] ) )
-            $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
+        // if( isset( $input['ntd'] ) )
+        //     $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
 
         if( isset( $input['subtitle'] ) )
             $new_input['subtitle'] = sanitize_text_field( $input['subtitle'] );
@@ -709,48 +763,14 @@ class CementlapSettingsPage
      * Get the settings option array and print one of its values
      */
 
-    public function kont1_callback()
-    {
-        printf(
-            '<input type="text" id="kont1" name="cementlap_option_name[kont1]" value="%s" />',
-            isset( $this->options['kont1'] ) ? esc_attr( $this->options['kont1']) : ''
-        );
-    }
-    public function kont2_callback()
-    {
-        printf(
-            '<input type="text" id="kont2" name="cementlap_option_name[kont2]" value="%s" />',
-            isset( $this->options['kont2'] ) ? esc_attr( $this->options['kont2']) : ''
-        );
-    }
 
-    public function kont3_callback()
-    {
-        printf(
-            '<input type="text" id="kont3" name="cementlap_option_name[kont3]" value="%s" />',
-            isset( $this->options['kont3'] ) ? esc_attr( $this->options['kont3']) : ''
-        );
-    }
-
-    public function kont4_callback()
-    {
-        printf(
-            '<input type="text" id="kont4" name="cementlap_option_name[kont4]" value="%s" />',
-            isset( $this->options['kont4'] ) ? esc_attr( $this->options['kont4']) : ''
-        );
-    }
-
-
-
-
-
-    public function ntd_callback()
-    {
-        printf(
-            '<input type="text" id="ntd" name="cementlap_option_name[ntd]" value="%s" />',
-            isset( $this->options['ntd'] ) ? esc_attr( $this->options['ntd']) : ''
-        );
-    }
+    // public function ntd_callback()
+    // {
+    //     printf(
+    //         '<input type="text" id="ntd" name="cementlap_option_name[ntd]" value="%s" />',
+    //         isset( $this->options['ntd'] ) ? esc_attr( $this->options['ntd']) : ''
+    //     );
+    // }
 
     public function subtitle_callback()
     {

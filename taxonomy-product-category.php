@@ -62,27 +62,19 @@ Template Name: Product Category List
           <label class="filt-item-label" for="stock-all"><?php _e('Show all','cementlap'); ?> <i class="ion-checkmark"></i></label>
         </li>
 
-        <li id="filter-1455235200">
-          <input data-filter-value=".cs_1455235200" class="filt-item-input" type="checkbox" id="cs_1455235200" value="cs_1455235200">
-          <label class="filt-item-label" for="cs_1455235200">Érkezik: 2014-12-21 <i class="ion-checkmark"></i></label>
-        </li>
 
-        <li id="filter-<?=  strtotime($copt['kont1']) ?>">
-          <input data-filter-value=".cs_<?=  strtotime($copt['kont1']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont1']) ?>" value="cs_<?=  strtotime($copt['kont1']) ?>">
-          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont1']) ?>">Érkezik: <?= date($df, strtotime($copt['kont1'])) ?> <i class="ion-checkmark"></i></label>
-        </li>
-        <li id="filter-<?=  strtotime($copt['kont2']) ?>">
-          <input data-filter-value=".cs_<?=  strtotime($copt['kont2']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont2']) ?>" value="cs_<?=  strtotime($copt['kont2']) ?>">
-          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont2']) ?>">Érkezik: <?= date($df, strtotime($copt['kont2'])) ?> <i class="ion-checkmark"></i></label>
-        </li>
-        <li id="filter-<?=  strtotime($copt['kont3']) ?>">
-          <input data-filter-value=".cs_<?=  strtotime($copt['kont3']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont3']) ?>" value="cs_<?=  strtotime($copt['kont3']) ?>">
-          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont3']) ?>">Érkezik: <?= date($df, strtotime($copt['kont3'])) ?> <i class="ion-checkmark"></i></label>
-        </li>
-        <li id="filter-<?=  strtotime($copt['kont4']) ?>">
-          <input data-filter-value=".cs_<?=  strtotime($copt['kont4']) ?>" class="filt-item-input" type="checkbox" id="cs_<?=  strtotime($copt['kont4']) ?>" value="cs_<?=  strtotime($copt['kont4']) ?>">
-          <label class="filt-item-label" for="cs_<?=  strtotime($copt['kont4']) ?>">Érkezik: <?= date($df, strtotime($copt['kont4'])) ?> <i class="ion-checkmark"></i></label>
-        </li>
+        <?php
+          $the_konts = new WP_Query(array (
+              'post_type' => 'kontener',
+              'posts_per_page' => -1,
+            )
+          );
+          while ($the_konts->have_posts()) : $the_konts->the_post(); $aktkont=get_the_ID();?>
+            <li id="filter-<?= 'akont_'.$aktkont ?>">
+              <input data-filter-value=".kont_<?=  $aktkont ?>" class="filt-item-input" type="checkbox" id="kont_<?=  $aktkont ?>" value="kont_<?=  $aktkont ?>">
+              <label class="filt-item-label" for="kont_<?= $aktkont ?>">Érkezik: <?= date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
+            </li>
+          <?php endwhile;?>
 
 
         <?php $filtlist=get_terms('product-stock' ); ?>

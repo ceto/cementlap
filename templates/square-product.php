@@ -36,6 +36,9 @@
     foreach ( (array) $csdates as $key => $entry ) {
       if ( isset( $entry['prc_date'] ) ) {$termik[] = 'cs_'.$entry['prc_date'];}
     }
+    foreach ( (array) $csdates as $key => $entry ) {
+      if ( isset( $entry['prc_kontno'] ) ) {$termik[] = 'kont_'.$entry['prc_kontno'];}
+    }
 
   ?>
   <a id="product-<?php echo $post->ID; ?>" <?php post_class( join(" ", $termik ).' prod-mini' ); ?>
