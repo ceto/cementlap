@@ -294,7 +294,7 @@ function cement_show_refgal( $field ) {
 }
 
 /***** Create list of konteners ******/
-function cement_show_kontener( $field ) {
+function cement_show_kontener() {
   $the_konts = new WP_Query(array (
       'post_type' => 'kontener',
       'posts_per_page' => -1,
@@ -452,6 +452,8 @@ function cementes_metaboxes( ) {
     )
   );
 
+  $kontlista=cement_show_kontener();
+
   $cmb_product2 = new_cmb2_box( array(
     'id'         => 'r2meta',
     'title'      => 'Szállítási infók',
@@ -479,7 +481,7 @@ function cementes_metaboxes( ) {
     'type' => 'select',
     'show_option_none' => false,
     'default'          => '0',
-    'options'          =>  'cement_show_kontener'
+    'options'          =>  $kontlista
   ) );
 
 
@@ -509,13 +511,6 @@ function cementes_metaboxes( ) {
         'id'   => $prefix . 'cardate',
         'type' => 'text_date_timestamp'
   ));
-
-  // $cmb_kontener->add_field( array(
-  //       'name' => __( 'Engedélyezés', 'root' ),
-  //       'desc' => __( 'Jelenjen meg szűrőben ', 'root' ),
-  //       'id'   => $prefix . 'carstate',
-  //       'type' => 'checkbox',
-  // ));
 
 
   /****** Post Boxes ******/
