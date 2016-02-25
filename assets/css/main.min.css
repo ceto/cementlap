@@ -4925,6 +4925,11 @@ a {
   .prod-stock-status i {
     color: #9A9A9B; }
 
+.trtocome {
+  padding-top: .125em; }
+  .trtocome strong {
+    font-weight: 900; }
+
 .prod-ntd {
   font-size: 0.875em;
   font-weight: 300; }

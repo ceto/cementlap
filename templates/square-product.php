@@ -14,31 +14,32 @@
     $dateformat='d/m/y';
   }
 
-  if (get_post_meta($orig_id, '_meta_arrive', true) !='') {
-    $transport=date($dateformat,strtotime(get_post_meta($orig_id, '_meta_arrive', true)));
-  } else {
-    $transport=date($dateformat,strtotime($copt['ntd']));
-  }
 ?>
 
 <?php
+    $darab = get_post_meta($orig_id , '_meta_amount', true);
     $termik = array();
     $ures = array();
+    $transporttocome = array();
     $nagytermlist=array_merge(
       get_the_terms( $post->ID, 'product-category' )?get_the_terms( $post->ID, 'product-category' ):$ures,
       get_the_terms( $post->ID, 'product-color' )?get_the_terms( $post->ID, 'product-color' ):$ures,
       get_the_terms( $post->ID, 'product-design' )?get_the_terms( $post->ID, 'product-design' ):$ures,
-      get_the_terms( $post->ID, 'product-stock' )?get_the_terms( $post->ID, 'product-stock' ):$ures,
       get_the_terms( $post->ID, 'product-style' )?get_the_terms( $post->ID, 'product-style' ):$ures
     );
     foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
     $csdates = get_post_meta( get_the_ID(), 'prod_coming_group', true );
+    $jonmajd=FALSE;
     foreach ( (array) $csdates as $key => $entry ) {
-      if ( isset( $entry['prc_date'] ) ) {$termik[] = 'cs_'.$entry['prc_date'];}
+      if ( isset( $entry['prc_quant']) && isset( $entry['prc_kontno'] ) ) {
+        $termik[] = 'kont_'.$entry['prc_kontno'].'_db_'.$entry['prc_quant'];
+        $termik[] = 'kont_'.$entry['prc_kontno'];
+        $transporttocome[ get_post_meta($entry['prc_kontno'],'_meta_cardate','true') ]=$entry['prc_quant'];
+        $jonmajd=TRUE;
+      }
     }
-    foreach ( (array) $csdates as $key => $entry ) {
-      if ( isset( $entry['prc_kontno'] ) ) {$termik[] = 'kont_'.$entry['prc_kontno'];}
-    }
+    $termik[]= ($darab>0)?'in-stock':'not-in-stock';
+    $termik[]= ($jonmajd)?'coming-soon':'not-coming-soon';
 
   ?>
   <a id="product-<?php echo $post->ID; ?>" <?php post_class( join(" ", $termik ).' prod-mini' ); ?>
@@ -58,28 +59,34 @@
     </figure>
     <div class="prod-desc">
       <h3 class="prod-title"><?php the_title(); ?></h3>
-      <div class="prod-stock-status">
-        <?php if ( has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') ) : ?>
+      <?php if ( $darab > 0 ) : ?>
+        <div class="prod-stock-status">
           <i class="ion-ios7-cart"></i>
           <?php _e('In stock','cementlap') ?>:
           <span class="prod-amount">
-            <?php echo get_post_meta($orig_id , '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($orig_id , '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
+            <?php echo $darab; ?><span class="prod-unit"><?php echo (get_post_meta($orig_id , '_meta_unit', true)=='m2')?' m<sup>2</sup>':$uniunit; ?></span>
           </span>
-        <?php elseif ( has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') )  : ?>
-          <i class="ion-android-train"></i>
-          <?php _e('Arrival','cementlap') ?>:
-            <?php if ( get_post_meta($orig_id , '_meta_amountmarr', true) !='') : ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($jonmajd) : ?>
+        <div class="prod-stock-status">
+          <?php foreach ( (array) $transporttocome as $date => $quant ) : ?>
+            <div class="trtocome">
+              <i class="ion-android-train"></i><?php _e('Arrival','cementlap') ?>:
               <span class="prod-ntd">
-                <?php echo get_post_meta($orig_id , '_meta_amountmarr', true); ?><?php echo (get_post_meta($orig_id , '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> &middot; <?= $transport; ?>
+                <?= date($dateformat,$date); ?> &middot; <strong><?= $quant; ?> <?= (get_post_meta($orig_id , '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></strong>
               </span>
-            <?php else: ?>
-              <span class="prod-ntd"><?= $transport ?></span>
-            <?php endif; ?>
-          <?php else : ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if (!$jonmajd && ($darab<1) ) : ?>
+      <div class="prod-stock-status">
           <i class="ion-alert-circled"></i>
           <?php _e('Production on order only','cementlap') ?>
-        <?php endif; ?>
       </div>
+      <?php endif; ?>
 
       <span class="prod-price">
         <?php echo $uniprice; ?>
