@@ -5178,6 +5178,12 @@ article.product {
     font-weight: 300; }
     .stock-block .date-status span {
       font-weight: 900; }
+  .stock-block .date-status--lister .date-status--lister__item {
+    font-weight: 300; }
+    .stock-block .date-status--lister .date-status--lister__item strong {
+      font-weight: 900; }
+    .stock-block .date-status--lister .date-status--lister__item:not(:last-child):after {
+      content: '|'; }
 
 .data-block {
   padding: 0.5em 0 0.5em 0;

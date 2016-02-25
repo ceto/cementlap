@@ -48,7 +48,7 @@ function create_kontener() {
     'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => null,
-    'yarpp_support' => true,
+    'yarpp_support' => false,
     'supports' => array( 'title' )
   );
 
@@ -666,13 +666,13 @@ class CementlapSettingsPage
 
         /***** Konténer vége ******/
 
-        // add_settings_field(
-        //     'ntd',
-        //     'Next Transport Date',
-        //     array( $this, 'ntd_callback' ),
-        //     'cementlap-setting-admin',
-        //     'setting_section_id'
-        // );
+        add_settings_field(
+            'ntd',
+            'Gyártandó termékek ekkor érkezhetnek legkorábban',
+            array( $this, 'ntd_callback' ),
+            'cementlap-setting-admin',
+            'setting_section_id'
+        );
         add_settings_field(
             'subtitle',
             'Advert Sub Title',
@@ -726,8 +726,8 @@ class CementlapSettingsPage
         $new_input = array();
 
 
-        // if( isset( $input['ntd'] ) )
-        //     $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
+        if( isset( $input['ntd'] ) )
+            $new_input['ntd'] = sanitize_text_field( $input['ntd'] );
 
         if( isset( $input['subtitle'] ) )
             $new_input['subtitle'] = sanitize_text_field( $input['subtitle'] );
@@ -760,13 +760,13 @@ class CementlapSettingsPage
      */
 
 
-    // public function ntd_callback()
-    // {
-    //     printf(
-    //         '<input type="text" id="ntd" name="cementlap_option_name[ntd]" value="%s" />',
-    //         isset( $this->options['ntd'] ) ? esc_attr( $this->options['ntd']) : ''
-    //     );
-    // }
+    public function ntd_callback()
+    {
+        printf(
+            '<input type="text" id="ntd" name="cementlap_option_name[ntd]" value="%s" />',
+            isset( $this->options['ntd'] ) ? esc_attr( $this->options['ntd']) : ''
+        );
+    }
 
     public function subtitle_callback()
     {

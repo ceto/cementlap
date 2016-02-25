@@ -470,6 +470,18 @@ article.product {
       //color:$gray-light;
     }
   }
+
+  .date-status--lister {
+    .date-status--lister__item {
+      font-weight: 300;
+      strong {
+        font-weight: 900;
+      }
+      &:not(:last-child):after {
+        content: '|';
+      }
+    }
+  }
 }
 
 

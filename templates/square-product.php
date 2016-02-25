@@ -13,6 +13,7 @@
     $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
   }
+  //$transport=date($dateformat,strtotime($copt['ntd']));
 
 ?>
 

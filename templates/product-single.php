@@ -1,16 +1,4 @@
 <?php while (have_posts()) : the_post(); ?>
-<?php
-  // $actual=$post_id;
-  // $group_terms = wp_get_object_terms($actual, 'product-category', array (
-  //    'orderby' => 'date',
-  //    'order' => 'ASC',
-  //    'fields' => 'all'
-  //   )
-  // );
-  // $group_id=$group_terms[0]->term_id;
-  // $group_name=$group_terms[0]->name;
-  // $group=$group_terms[0];
-?>
 
 <?php
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
@@ -22,29 +10,62 @@
   $imcimedium = wp_get_attachment_image_src( $ima, 'wallmedium');
   $imcigreat = wp_get_attachment_image_src( $ima, 'wallgreat');
 ?>
-  <?php
-    $termik = array();
+<?php
+  $termik = array();
 
-    $termlist=get_the_terms( $post->ID, 'product-category' );
-    foreach ( $termlist as $term ) {
+  $termlist=get_the_terms( $post->ID, 'product-category' );
+  foreach ( $termlist as $term ) {$termik[] = $term->slug;}
 
-      $termik[] = $term->slug;
+  $mastercat=get_term_top_most_parent($term->term_id, 'product-category');
+  $mastercat_id=$mastercat->term_id;
+
+  $termlist=get_the_terms( $post->ID, 'product-color' );
+  foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+
+  $termlist=get_the_terms( $post->ID, 'product-design' );
+  foreach ( $termlist as $term ) { $termik[] = $term->slug; }
+
+?>
+
+<?php
+  $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
+  $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
+  $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
+
+  $univaluta='Ft';
+  $uniunit=get_post_meta($orig_id, '_meta_unit', true);
+  $dateformat='Y. m. d.';
+
+  if (ICL_LANGUAGE_CODE!='hu') {
+    $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
+    $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
+    $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
+    $univaluta='EUR';
+    $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
+    $dateformat='d/m/y';
+  }
+
+
+  $transport=date($dateformat,strtotime($copt['ntd']));
+
+  $darab = get_post_meta($orig_id , '_meta_amount', true);
+  $transporttocome = array();
+  $csdates = get_post_meta( get_the_ID(), 'prod_coming_group', true );
+  $jonmajd=FALSE;
+  foreach ( (array) $csdates as $key => $entry ) {
+    if ( isset( $entry['prc_quant']) && isset( $entry['prc_kontno'] ) ) {
+      $termik[] = 'kont_'.$entry['prc_kontno'].'_db_'.$entry['prc_quant'];
+      $termik[] = 'kont_'.$entry['prc_kontno'];
+      $transporttocome[ get_post_meta($entry['prc_kontno'],'_meta_cardate','true') ]=$entry['prc_quant'];
+      $jonmajd=TRUE;
     }
+  }
 
-    $mastercat=get_term_top_most_parent($term->term_id, 'product-category');
-    $mastercat_id=$mastercat->term_id;
+  $termik[]= ($darab>0)?'in-stock':'not-in-stock';
+  $termik[]= ($jonmajd)?'coming-soon':'not-coming-soon';
 
-    $termlist=get_the_terms( $post->ID, 'product-color' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-
-    $termlist=get_the_terms( $post->ID, 'product-design' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-
-    $termlist=get_the_terms( $post->ID, 'product-stock' );
-    foreach ( $termlist as $term ) { $termik[] = $term->slug; }
-
-    $termes = join(" ", $termik );
-  ?>
+  $termes = join(" ", $termik );
+?>
 
 
 <?php   if (get_post_meta( $orig_id, '_meta_bgpos', true )!='float' ) : ?>
@@ -73,33 +94,7 @@
 
 
 
-<?php
-  $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
-  $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
-  $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
 
-  $univaluta='Ft';
-  $uniunit=get_post_meta($orig_id, '_meta_unit', true);
-  $dateformat='Y. m. d.';
-
-  if (get_post_meta($orig_id, '_meta_arrive', true) !='') {
-    $transport=date($dateformat,strtotime(get_post_meta($orig_id, '_meta_arrive', true)));
-  } else {
-    $transport=date($dateformat,strtotime($copt['ntd']));
-  }
-
-  if (ICL_LANGUAGE_CODE!='hu') {
-    $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
-    $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
-    $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
-    $univaluta='EUR';
-    $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
-    $dateformat='d/m/y';
-
-
-
-  }
-?>
 
 
 
@@ -177,7 +172,7 @@
             if (strpos($contentwithgallery,'gallery')>0) :
           ?>
             <div class="product__gallery">
-              <div id="owl-refgal" class="popup-gallery">
+              <div id="owl-refgal" class="owl-carousel popup-gallery">
                 <?php
                   foreach ( $imagelist as $image_id ) {
                     $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
@@ -199,41 +194,42 @@
           <div class="stock-block">
             <h3><?php _e('Stock information, transport','cementlap'); ?></h3>
               <div class="stock-status">
-                <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
+                <?php if ($darab>0) : ?>
                   <i class="ion-checkmark"></i> <?php _e('In stock','cementlap') ?>
-                <?php elseif ( has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock') ): ?>
+                <?php elseif ( $jonmajd ): ?>
                    <i class="ion-android-train"></i> <?php _e('Coming soon','cementlap') ?>
                 <?php else: ?>
                   <i class="ion-alert-circled"></i> <?php _e('Produced on order only','cementlap') ?>
                 <?php endif; ?>
               </div>
 
-              <?php if (has_term('raktarrol-azonnal','product-stock')|| has_term('in-stock','product-stock')) : ?>
+              <?php if ($darab>0) : ?>
                 <div class="stock-amount">
                   <i class="ion-ios-cart"></i> <?php _e('Available','cementlap') ?>:
                   <span>
-                    <?php echo get_post_meta($orig_id, '_meta_amount', true); ?><span class="prod-unit"><?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+                    <?= $darab ?><span class="prod-unit"><?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
                   </span>
                 </div>
               <?php endif; ?>
 
-              <?php if (has_term('hamarosan-erkezik','product-stock')|| has_term('coming-soon','product-stock')) : ?>
+              <?php if ( $jonmajd ) : ?>
 
-                <div class="date-status">
-                    <i class="ion-clock"></i> <?php _e('Arrival','cementlap') ?>:
-                    <?php if ( get_post_meta($orig_id, '_meta_amountmarr', true) !='') : ?>
-                      <?php echo get_post_meta($orig_id, '_meta_amountmarr', true); ?><?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> -
-                        <span><?= $transport; ?></span>
+                <div class="date-status date-status--lister">
+                  <i class="ion-clock"></i> <?php _e('Arrival','cementlap') ?>:
+                  <?php foreach ( (array) $transporttocome as $date => $quant ) : ?>
+                    <span class="date-status--lister__item">
+                      <?= date($dateformat,$date); ?> - <strong><?= $quant; ?> <?= (get_post_meta($orig_id , '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></strong>
+                    </span>
+                  <?php endforeach; ?>
 
-                    <?php else: ?>
-                      <span><?= $transport; ?></span>
-                    <?php endif; ?>
+
+
 
                   </div>
 
               <?php endif; ?>
 
-              <?php if ( !(has_term('raktarrol-azonnal','product-stock') || has_term('in-stock','product-stock') || has_term('hamarosan-erkezik','product-stock') || has_term('coming-soon','product-stock') ) ): ?>
+              <?php if ( ($darab<1) && !$jonmajd ): ?>
                 <div class="date-status">
                   <i class="ion-clock"></i> <?php _e('Arrival date when ordered','cementlap') ?>: <span><?= $transport; ?></span>
                 </div>
