@@ -22,7 +22,7 @@
 
         background-color: $white;
         //filter:invert(1);
-        
+
 
 
 
@@ -31,7 +31,7 @@
     @include breakpoint($s3)
     {
         padding: .75em 2em .5em;
-        
+
         &.scrolled {
         position:fixed;
         z-index: 9999999;
@@ -50,14 +50,14 @@
         }
 
 
-        
+
 
     }
 
     @include breakpoint($s5) {
-        &.scrolled {    
+        &.scrolled {
            left:calc(50% - 800px );
-           box-shadow: 0 2em 3px -2em lighten($gray-light,10%);  
+           box-shadow: 0 2em 3px -2em lighten($gray-light,10%);
        }
     }
     .banner__inner {
@@ -82,14 +82,15 @@
     display: none;
     //background-color: gray;
 
-    width: 342px;
+    width: 363px;
     max-width: calc(100% - 75px);
-    height: 34px;
+    height: 38px;
 
     background-image: url('../img/logo.png');
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 100% auto;
+    transform:translateY(-3px);
 
     @include text-hide();
     @include breakpoint($s3)
@@ -103,13 +104,13 @@
     }
     html[lang='en-US'] &
     {
-        width: 352px;
+        width: 374px;
 
         background-image: url('../img/logo_en.png');
     }
     html[lang='pl-PL'] &
     {
-        width: 443px;
+        width: 470px;
 
         background-image: url('../img/logo_pl.png');
     }
@@ -347,14 +348,14 @@
     background-color: $orange;
     color:#fff;
     @include breakpoint($s3) {
-        padding:0 .25em; 
+        padding:0 .25em;
     }
 }
 .nav-main .nav > li.invertedgray > a {
     background-color: $gray-dark;
     color:#fff;
     @include breakpoint($s3) {
-        padding:0 .25em; 
+        padding:0 .25em;
     }
 }
 

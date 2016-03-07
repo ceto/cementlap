@@ -3108,13 +3108,16 @@ blockquote {
 .brand {
   display: block;
   display: none;
-  width: 342px;
+  width: 363px;
   max-width: calc(100% - 75px);
-  height: 34px;
+  height: 38px;
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 100% auto;
+  -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -3127,10 +3130,10 @@ blockquote {
   .brand:focus {
     opacity: .85; }
   html[lang='en-US'] .brand {
-    width: 352px;
+    width: 374px;
     background-image: url("../img/logo_en.png"); }
   html[lang='pl-PL'] .brand {
-    width: 443px;
+    width: 470px;
     background-image: url("../img/logo_pl.png"); }
 
 .brandi {

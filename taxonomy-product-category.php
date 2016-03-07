@@ -68,12 +68,15 @@ Template Name: Product Category List
           $the_konts = new WP_Query(array (
               'post_type' => 'kontener',
               'posts_per_page' => -1,
+               'meta_key' => '_meta_cardate',
+               'order_by' => '_meta_cardate',
+               'order' => 'ASC'
             )
           );
           while ($the_konts->have_posts()) : $the_konts->the_post(); $aktkont=get_the_ID();?>
             <li id="filter-<?= 'kont_'.$aktkont ?>">
               <input data-filter-value=".kont_<?=  $aktkont ?>" class="filt-item-input" type="checkbox" id="kont_<?=  $aktkont ?>" value="kont_<?=  $aktkont ?>">
-              <label class="filt-item-label" for="kont_<?= $aktkont ?>">Érkezik: <?= date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
+              <label class="filt-item-label" for="kont_<?= $aktkont ?>">Érkezik: <?= get_the_title().' / ', date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
             </li>
           <?php endwhile;?>
 
