@@ -14,7 +14,10 @@
     $dateformat='d/m/y';
   }
   //$transport=date($dateformat,strtotime($copt['ntd']));
-
+   if (ICL_LANGUAGE_CODE=='de') {
+    $uniprice='-';
+    $uniorigprice='-';
+  }
 ?>
 
 <?php
