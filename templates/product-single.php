@@ -153,9 +153,12 @@
               </div><!-- /.data-block -->
             <div class="product-content">
               <?php the_content(); ?>
+                <?php if (ICL_LANGUAGE_CODE!='de') { ?>
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                   <?php _e('How to Order/Buy','cementlap'); ?>
                 </a>
+                <?php } ?>
+
             </div>
 
         </div>
@@ -241,7 +244,7 @@
               <?php endif; ?>
 
 
-
+            <?php if (ICL_LANGUAGE_CODE!='de') { ?>
 
             <div class="product-more">
 
@@ -256,6 +259,8 @@
                 </div>
 
             </div>
+
+            <?php } ?>
 
           </div><!-- /.stock-block -->
 
