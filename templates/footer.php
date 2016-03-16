@@ -25,7 +25,7 @@
           <div id="mce-responses" class="clear">
             <div class="response" id="mce-error-response" style="display:none"></div>
             <div class="response" id="mce-success-response" style="display:none"></div>
-          </div>    
+          </div>
         </form>
           </div>
         </section>
@@ -45,6 +45,6 @@
   <div class="footer-copy">
     © 2014 Marrakesh Bt. | Design & Site by <a href="http://hydrogene.hu/referencia/termek-bongeszo-es-foto-galeria/">HYDROGENE</a>
   </div>
-  <a href="#" class="tothetop"><i class="ion-ios7-arrow-thin-up"></i></a>
+  <a href="#" class="tothetop"><i class="ion-ios-arrow-thin-up"></i></a>
 </footer>
 <?php wp_footer(); ?>

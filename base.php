@@ -33,7 +33,12 @@
       <?php endif; */?>
     </div><!-- /.wrap -->
     <?php get_template_part('templates/section','bottom'); ?>
-    <?php get_template_part('templates/footer'); ?>
+    <?php  if (ICL_LANGUAGE_CODE=='de') { ?>
+      <?php get_template_part('templates/footer','de'); ?>
+    <?php } else { ?>
+      <?php get_template_part('templates/footer'); ?>
+    <?php } ?>
+
   </div><!-- /.mindenmas -->
 
 
