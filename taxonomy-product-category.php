@@ -76,7 +76,7 @@ Template Name: Product Category List
           while ($the_konts->have_posts()) : $the_konts->the_post(); $aktkont=get_the_ID();?>
             <li id="filter-<?= 'kont_'.$aktkont ?>">
               <input data-filter-value=".kont_<?=  $aktkont ?>" class="filt-item-input" type="checkbox" id="kont_<?=  $aktkont ?>" value="kont_<?=  $aktkont ?>">
-              <label class="filt-item-label" for="kont_<?= $aktkont ?>">Érkezik: <?= get_the_title().' / ', date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
+              <label class="filt-item-label" for="kont_<?= $aktkont ?>"><?= __('Arrive','cementlap') ?>: <?= get_the_title().' / ', date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
             </li>
           <?php endwhile;?>
 

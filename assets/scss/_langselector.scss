@@ -39,6 +39,9 @@
     &:last-child:after{
       content:"";
     }
+    &.icl-de {
+      display: none;
+    }
   }
 
 

@@ -3135,6 +3135,9 @@ blockquote {
   html[lang='pl-PL'] .brand {
     width: 470px;
     background-image: url("../img/logo_pl.png"); }
+  html[lang='de-AT'] .brand {
+    width: 409px;
+    background-image: url("../img/logo_de.png"); }
 
 .brandi {
   display: block;
@@ -5082,10 +5085,14 @@ article.product {
     font-weight: 100;
     color: #2F2F2F;
     font-size: .75em; }
+    html[lang='de-AT'] .product-price .unit__vat {
+      display: none; }
   .product-price .brutto {
     display: block;
     font-weight: 300;
     font-size: .666em; }
+    html[lang='en-US'] .product-price .brutto {
+      display: none; }
 
 .product-content {
   color: #2F2F2F;
@@ -6259,6 +6266,8 @@ input[type="text"], input[type="email"], textarea {
       content: " | "; }
     #lang_sel_list li:last-child:after, #lang_sel li:last-child:after {
       content: ""; }
+    #lang_sel_list li.icl-de, #lang_sel li.icl-de {
+      display: none; }
 
 /*
  *  Core Owl Carousel CSS File

@@ -152,12 +152,13 @@
               <?php endif; ?>
               </div><!-- /.data-block -->
             <div class="product-content">
-              <?php the_content(); ?>
-                <?php if (ICL_LANGUAGE_CODE!='de') { ?>
+
+              <?php if (ICL_LANGUAGE_CODE!='de') { ?>
+                <?php the_content(); ?>
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                   <?php _e('How to Order/Buy','cementlap'); ?>
                 </a>
-                <?php } ?>
+              <?php } ?>
 
             </div>
 
