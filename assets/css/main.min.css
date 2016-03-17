@@ -5091,7 +5091,7 @@ article.product {
     display: block;
     font-weight: 300;
     font-size: .666em; }
-    html[lang='en-US'] .product-price .brutto {
+    html[lang='de-AT'] .product-price .brutto {
       display: none; }
 
 .product-content {
