@@ -604,6 +604,11 @@ a.menu-button:hover
     text-transform: uppercase;
 
     @include clearfix();
+
+    // html[lang='de-AT'] & {
+    //   display: none;
+    // }
+
     @include breakpoint($s2)
     {
         float: left;
