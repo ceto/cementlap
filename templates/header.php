@@ -18,7 +18,7 @@
         <li class="email"><a href="mailto:info@marrakesh.hu"><i class="ion ion-email"></i> info@marrakesh.hu</a></li>
       <?php } else { ?>
         <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+43) 660 822 2329</a></li>
-        <li class="email"><a href="mailto:ambrus.gabor@ymail.com"><i class="ion ion-email"></i> ambrus.gabor@ymail.com</a></li>
+        <li class="email"><a href="mailto:info@marrakeshzementfliesen.at"><i class="ion ion-email"></i> info@marrakeshzementfliesen.at</a></li>
       <?php } ?>
       </ul>
 
