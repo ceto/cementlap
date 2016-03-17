@@ -5389,6 +5389,9 @@ article.product {
   @media only screen and (min-width: 768px) {
     .filt-select-con {
       width: 167px; } }
+  @media only screen and (min-width: 1024px) {
+    .filt-select-con {
+      width: 178px; } }
 
 .filt-placeholder {
   display: block;
@@ -5439,6 +5442,9 @@ article.product {
   @media only screen and (min-width: 768px) {
     .filt-item {
       width: 167px; } }
+  @media only screen and (min-width: 1024px) {
+    .filt-item {
+      width: 178px; } }
   .filt-item.hide {
     display: none; }
   .filt-item > li {
@@ -5454,15 +5460,18 @@ article.product {
     .filt-item > li:hover, .filt-item > li:focus {
       background-color: white;
       color: #2F2F2F; }
-  .filt-item label i {
-    position: absolute;
-    right: 0.875em;
-    top: 0.875em;
-    color: #9A9A9B;
-    display: none; }
-    .filt-item label i:hover, .filt-item label i:focus {
-      color: #2F2F2F;
-      cursor: pointer; }
+  .filt-item label {
+    line-height: 1;
+    display: block; }
+    .filt-item label i {
+      position: absolute;
+      right: 0.875em;
+      top: 0;
+      color: #9A9A9B;
+      display: none; }
+      .filt-item label i:hover, .filt-item label i:focus {
+        color: #2F2F2F;
+        cursor: pointer; }
   .filt-item input {
     opacity: 0;
     background-color: red;

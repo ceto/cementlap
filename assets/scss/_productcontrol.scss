@@ -36,7 +36,7 @@
     font-size: 0.875em;
     line-height: 1em;
   }
-  
+
 
 }
 .filt-wrap{
@@ -60,6 +60,9 @@
   line-height: 1em;
   @include breakpoint($s2){
     width:167px;
+  }
+  @include breakpoint($s3){
+    width:178px;
   }
 }
 
@@ -99,7 +102,7 @@
       display: none;
     }
   }
-  
+
   .active &{
     span {
       display:none;
@@ -114,7 +117,7 @@
   @include breakpoint($s2){
     width:260px;
   }
-  
+
   > li{
     //display: inline-block;
     float:left;
@@ -130,6 +133,10 @@
   background-color: rgba(255,255,255,.95);
   @include breakpoint($s2){
     width:167px;
+  }
+
+  @include breakpoint($s3){
+    width:178px;
   }
 
   &.hide {
@@ -150,15 +157,17 @@
       background-color: rgba(255,255,255,1);
       color:$gray-dark;
     }
-  
+
   }
 
   label {
+    line-height: 1;
+    display: block;
 
     i{
       position: absolute;
       right: 0.875em;
-      top:0.875em;
+      top:0;
       color:$gray-light;
       display: none;
       &:hover, &:focus{
