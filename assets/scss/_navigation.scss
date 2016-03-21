@@ -153,6 +153,12 @@
 
         background-image: url('../img/logo_pl.png');
     }
+    html[lang='de-AT'] &
+    {
+        width: 280px;
+
+        background-image: url('../img/logo_de.png');
+    }
     &:hover,
     &:focus
     {

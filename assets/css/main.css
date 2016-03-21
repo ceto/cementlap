@@ -3145,6 +3145,9 @@ blockquote {
   html[lang='pl-PL'] .brandi {
     width: 320px;
     background-image: url("../img/logo_pl.png"); }
+  html[lang='de-AT'] .brandi {
+    width: 280px;
+    background-image: url("../img/logo_de.png"); }
   .brandi:hover,
   .brandi:focus {
     opacity: .85; }
