@@ -54,7 +54,7 @@
 
   $darab = get_post_meta($orig_id , '_meta_amount', true);
   $transporttocome = array();
-  $csdates = get_post_meta( get_the_ID(), 'prod_coming_group', true );
+  $csdates = get_post_meta( $orig_id, 'prod_coming_group', true );
   $jonmajd=FALSE;
   foreach ( (array) $csdates as $key => $entry ) {
     if ( isset( $entry['prc_quant']) && isset( $entry['prc_kontno'] ) ) {
