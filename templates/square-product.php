@@ -32,7 +32,7 @@
       get_the_terms( $post->ID, 'product-style' )?get_the_terms( $post->ID, 'product-style' ):$ures
     );
     foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
-    $csdates = get_post_meta( get_the_ID(), 'prod_coming_group', true );
+    $csdates = get_post_meta( $orig_id, 'prod_coming_group', true );
     $jonmajd=FALSE;
     foreach ( (array) $csdates as $key => $entry ) {
       if ( isset( $entry['prc_quant']) && isset( $entry['prc_kontno'] ) ) {
