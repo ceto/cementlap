@@ -1,4 +1,5 @@
 <?php
+
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
   $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
