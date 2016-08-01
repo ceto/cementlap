@@ -3,7 +3,12 @@
   float:left;
 }
 .footer-right {
-  float:right;
+  float:left;
+}
+
+.footer-right .socialgomb {
+  font-size:2.1875em;
+  margin-left: 1px;
 }
 </style>
 <footer class="content-info" role="contentinfo">
