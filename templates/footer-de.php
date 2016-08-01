@@ -11,7 +11,7 @@
     © 2016 Marrakesh Zementfliesen | Design & Site by <a href="http://hydrogene.hu/referencia/termek-bongeszo-es-foto-galeria/">HYDROGENE</a>
   </div>
   <div class="footer-right">
-    <a href="https://www.facebook.com/MarrakeshLakberendezes" class="socialgomb" target="_blank">
+    <a href="https://www.facebook.com/marrakeshzementfliesen.at" class="socialgomb" target="_blank">
       <i class="ion ion-social-facebook"></i>
     </a>
   </div>
