@@ -3049,6 +3049,11 @@ blockquote {
   blockquote > * {
     margin: 0; }
 
+hr {
+  border: none;
+  height: 1px;
+  background-color: #efefef; }
+
 .banner {
   position: relative;
   padding: 0;
@@ -4032,7 +4037,6 @@ a {
       transform: translate(-0.25em, -0.25em);
       margin-right: -.125em; }
   .hero--blurred .hero__action {
-    display: none;
     margin-top: 1em;
     background-image: linear-gradient(to right, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
     background-repeat: no-repeat;

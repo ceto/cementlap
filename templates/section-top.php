@@ -156,8 +156,8 @@
         </style>
         <? endif; ?>
         <div class="hero__action">
-          <span class="instr">Szinezd és terítsd le egyediben</span>
-          <a href="#" class="button">Tervezőprogram indítása</a>
+          <span class="instr"><?php _e('Szinezd és terítsd le egyediben','cementlap'); ?></span>
+          <a href="<?php _e('http://designer.marrakeshcementlap.hu','cementlap'); ?>" target="_blank" class="button"><?php _e('Tervezőprogram indítása','cementlap'); ?></a>
         </div>
       </div>
     </section>
