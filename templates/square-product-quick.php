@@ -1,4 +1,5 @@
 <?php global $nagydurva; ?>
+
 <?php
     $termik = array();
     $nagytermlist=array_merge(
@@ -8,9 +9,9 @@
       get_the_terms( $post->ID, 'product-stock' )
     );
     foreach ( $nagytermlist as $term ) { $termik[] = $term->slug; }
-  
+
 
   ?>
-  <?php 
+  <?php
   $nagydurva.='';
-?> 
+?>
