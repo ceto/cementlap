@@ -144,7 +144,7 @@
     <section class="hero hero--blurred" role="banner">
       <div class="hero-content">
         <h1 class="hero-text">
-          <a class="headback" href="<?= $catpagelink_hu; ?>"><i class="ion-ios-undo"></i>&nbsp; Cementlap minták</a>
+          <a class="headback" href="<?= $catpagelink_hu; ?>"><i class="ion-ios-undo"></i>&nbsp; <?php _e('Cementlap minták','cementlap'); ?></a>
 
             <?= $term->name;  ?>
         </h1>
