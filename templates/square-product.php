@@ -2,6 +2,8 @@
 
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
+  if ((ICL_LANGUAGE_CODE=='hu') || ($orig_id !== $post->ID)) {
+
   $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
   $univaluta='Ft';
@@ -100,3 +102,5 @@
       <span class="prod-morebtn"><i class="ion ion-android-search"></i></span>
     </div>
   </a><!-- /#product-## -->
+
+<?php } //  if ((ICL_LANGUAGE_CODE=='hu') || ($orig_id !== $post->ID))  ?>
