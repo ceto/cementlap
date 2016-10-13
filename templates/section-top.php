@@ -23,9 +23,11 @@
     <div class="wrapper wrapper-fullwidth">
         <div class="master-slider ms-skin-default" id="masterslider">
           <?php while ( $the_slides->have_posts() ) : $the_slides->the_post(); ?>
+
             <?php
-              if (has_post_thumbnail() ) {
-                $image_id = get_post_thumbnail_id();
+              $orig_id=icl_object_id($post->ID, 'slide', true, 'hu');
+              if (has_post_thumbnail($orig_id) ) {
+                $image_id = get_post_thumbnail_id($orig_id);
                 $thumb_url_array = wp_get_attachment_image_src($image_id, 'slidethumb21', true);
                 $image_url_array = wp_get_attachment_image_src($image_id, 'slide21', true);
                 $thumb_url = $thumb_url_array[0];
