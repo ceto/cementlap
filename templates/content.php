@@ -1,7 +1,8 @@
 <article id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+  <?php $o_id=icl_object_id($post->ID, 'post', true, 'hu'); ?>
   <figure class="post-thumb">
     <a href="<?php the_permalink(); ?>">
-      <?php the_post_thumbnail('small34');  ?>
+      <?= get_the_post_thumbnail($o_id, 'small34');  ?>
     </a>
   </figure>
   <div class="post-desc">

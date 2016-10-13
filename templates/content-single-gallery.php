@@ -1,6 +1,8 @@
 <?php while (have_posts()) : the_post(); ?>
+<?php $o_id=icl_object_id($post->ID, 'post', true, 'hu'); ?>
 <?php
   $copt=get_option('cementlap_option_name');
+
   $ima = get_post_meta( $post->ID, '_meta_wallimg_id', true );
 
   $imci = wp_get_attachment_image_src( $ima, 'wallimg');
@@ -41,7 +43,7 @@
       <?php // comments_template('/templates/comments.php'); ?>
     </div>
     <aside class="addcont">
-      <?php echo do_shortcode(get_post_meta( $post->ID, '_meta_addcont', true )); ?>
+      <?php echo do_shortcode(get_post_meta( $o_id, '_meta_addcont', true )); ?>
     </aside>
   </article>
 <?php endwhile; ?>
