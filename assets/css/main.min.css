@@ -3116,7 +3116,7 @@ hr {
   width: 363px;
   max-width: calc(100% - 75px);
   height: 38px;
-  background-image: url("../img/logo.png");
+  background-image: url("../img/logo_hu.png");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 100% auto;
@@ -3143,6 +3143,12 @@ hr {
   html[lang='de-AT'] .brand {
     width: 409px;
     background-image: url("../img/logo_de.png"); }
+  html[lang='fr-FR'] .brand {
+    width: 500px;
+    background-image: url("../img/logo_fr.png"); }
+  html[lang='nl-NL'] .brand {
+    width: 396px;
+    background-image: url("../img/logo_nl.png"); }
 
 .brandi {
   display: block;
@@ -3150,7 +3156,7 @@ hr {
   width: 258px;
   height: 50px;
   margin-right: 12px;
-  background-image: url("../img/logo.png");
+  background-image: url("../img/logo_hu.png");
   background-repeat: no-repeat;
   background-position: right 9px;
   background-size: auto 25px;
@@ -3168,6 +3174,12 @@ hr {
   html[lang='de-AT'] .brandi {
     width: 280px;
     background-image: url("../img/logo_de.png"); }
+  html[lang='fr-FR'] .brandi {
+    width: 330px;
+    background-image: url("../img/logo_fr.png"); }
+  html[lang='nl-NL'] .brandi {
+    width: 258px;
+    background-image: url("../img/logo_nl.png"); }
   .brandi:hover,
   .brandi:focus {
     opacity: .85; }

@@ -86,7 +86,7 @@
     max-width: calc(100% - 75px);
     height: 38px;
 
-    background-image: url('../img/logo.png');
+    background-image: url('../img/logo_hu.png');
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 100% auto;
@@ -120,6 +120,19 @@
 
         background-image: url('../img/logo_de.png');
     }
+    html[lang='fr-FR'] &
+    {
+        width: 500px;
+
+        background-image: url('../img/logo_fr.png');
+    }
+    html[lang='nl-NL'] &
+    {
+        width: 396px;
+
+        background-image: url('../img/logo_nl.png');
+    }
+
 }
 
 .brandi
@@ -132,7 +145,7 @@
     margin-right: 12px;
     //float:left;
 
-    background-image: url('../img/logo.png');
+    background-image: url('../img/logo_hu.png');
     background-repeat: no-repeat;
     background-position: right 9px;
     background-size: auto 25px;
@@ -158,6 +171,19 @@
         width: 280px;
 
         background-image: url('../img/logo_de.png');
+    }
+
+    html[lang='fr-FR'] &
+    {
+        width: 330px;
+
+        background-image: url('../img/logo_fr.png');
+    }
+    html[lang='nl-NL'] &
+    {
+        width: 258px;
+
+        background-image: url('../img/logo_nl.png');
     }
     &:hover,
     &:focus
