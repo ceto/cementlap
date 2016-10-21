@@ -1,5 +1,4 @@
 <?php
-
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
   if ((ICL_LANGUAGE_CODE=='hu') || ($orig_id !== $post->ID)) {
