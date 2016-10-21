@@ -45,7 +45,7 @@
     $dateformat='d/m/y';
   }
 
-  if (ICL_LANGUAGE_CODE=='de') {
+  if ( (ICL_LANGUAGE_CODE=='de') || (ICL_LANGUAGE_CODE=='fr') || (ICL_LANGUAGE_CODE=='nl') )  {
     $uniprice='-';
     $uniorigprice='-';
   }
@@ -153,7 +153,7 @@
               </div><!-- /.data-block -->
             <div class="product-content">
 
-              <?php if (ICL_LANGUAGE_CODE!='de') { ?>
+              <?php if ( (ICL_LANGUAGE_CODE!='de') && (ICL_LANGUAGE_CODE!='fr') && (ICL_LANGUAGE_CODE!='nl') ) { ?>
                 <?php the_content(); ?>
                 <a class="show-more" data-toggle="collapse" data-parent=".product-more" href="#morepanel">
                   <?php _e('How to Order/Buy','cementlap'); ?>
@@ -245,7 +245,7 @@
               <?php endif; ?>
 
 
-            <?php if (ICL_LANGUAGE_CODE!='de') { ?>
+            <?php if ( (ICL_LANGUAGE_CODE!='de') && (ICL_LANGUAGE_CODE!='fr') && (ICL_LANGUAGE_CODE!='nl') ) { ?>
 
             <div class="product-more">
 

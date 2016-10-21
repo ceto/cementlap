@@ -17,7 +17,7 @@
     $dateformat='d/m/y';
   }
   //$transport=date($dateformat,strtotime($copt['ntd']));
-   if (ICL_LANGUAGE_CODE=='de') {
+   if ( (ICL_LANGUAGE_CODE=='de') || (ICL_LANGUAGE_CODE=='fr') || (ICL_LANGUAGE_CODE=='nl') ) {
     $uniprice='-';
     $uniorigprice='-';
   }
