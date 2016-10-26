@@ -39,10 +39,32 @@
     &:last-child:after{
       content:"";
     }
-    &.icl-de {
-      display: none;
+    // &.icl-de {
+    //   display: none;
+    // }
+  }
+}
+
+
+
+// some lang selectro hack
+
+#lang_sel_list, #lang_sel {
+  ul li {
+    html[lang="hu-HU"] &, html[lang="en-US"] &, html[lang="pl-PL"] &  {
+      &.icl-de, &.icl-fr, &.icl-nl {
+        display: none;
+      }
+    }
+    html[lang="de-AT"] & {
+      &.icl-hu, &.icl-en, &.icl-pl, &.icl-fr, &.icl-nl {
+        display: none;
+      }
+    }
+    html[lang="fr-FR"] &, html[lang="nl-NL"] & {
+      &.icl-hu, &.icl-en, &.icl-pl, &.icl-de {
+        display: none;
+      }
     }
   }
-
-
 }

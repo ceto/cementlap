@@ -6294,8 +6294,15 @@ input[type="text"], input[type="email"], textarea {
       content: " | "; }
     #lang_sel_list li:last-child:after, #lang_sel li:last-child:after {
       content: ""; }
-    #lang_sel_list li.icl-de, #lang_sel li.icl-de {
-      display: none; }
+
+html[lang="hu-HU"] #lang_sel_list ul li.icl-de, html[lang="hu-HU"] #lang_sel_list ul li.icl-fr, html[lang="hu-HU"] #lang_sel_list ul li.icl-nl, html[lang="en-US"] #lang_sel_list ul li.icl-de, html[lang="en-US"] #lang_sel_list ul li.icl-fr, html[lang="en-US"] #lang_sel_list ul li.icl-nl, html[lang="pl-PL"] #lang_sel_list ul li.icl-de, html[lang="pl-PL"] #lang_sel_list ul li.icl-fr, html[lang="pl-PL"] #lang_sel_list ul li.icl-nl, html[lang="hu-HU"] #lang_sel ul li.icl-de, html[lang="hu-HU"] #lang_sel ul li.icl-fr, html[lang="hu-HU"] #lang_sel ul li.icl-nl, html[lang="en-US"] #lang_sel ul li.icl-de, html[lang="en-US"] #lang_sel ul li.icl-fr, html[lang="en-US"] #lang_sel ul li.icl-nl, html[lang="pl-PL"] #lang_sel ul li.icl-de, html[lang="pl-PL"] #lang_sel ul li.icl-fr, html[lang="pl-PL"] #lang_sel ul li.icl-nl {
+  display: none; }
+
+html[lang="de-AT"] #lang_sel_list ul li.icl-hu, html[lang="de-AT"] #lang_sel_list ul li.icl-en, html[lang="de-AT"] #lang_sel_list ul li.icl-pl, html[lang="de-AT"] #lang_sel_list ul li.icl-fr, html[lang="de-AT"] #lang_sel_list ul li.icl-nl, html[lang="de-AT"] #lang_sel ul li.icl-hu, html[lang="de-AT"] #lang_sel ul li.icl-en, html[lang="de-AT"] #lang_sel ul li.icl-pl, html[lang="de-AT"] #lang_sel ul li.icl-fr, html[lang="de-AT"] #lang_sel ul li.icl-nl {
+  display: none; }
+
+html[lang="fr-FR"] #lang_sel_list ul li.icl-hu, html[lang="fr-FR"] #lang_sel_list ul li.icl-en, html[lang="fr-FR"] #lang_sel_list ul li.icl-pl, html[lang="fr-FR"] #lang_sel_list ul li.icl-de, html[lang="nl-NL"] #lang_sel_list ul li.icl-hu, html[lang="nl-NL"] #lang_sel_list ul li.icl-en, html[lang="nl-NL"] #lang_sel_list ul li.icl-pl, html[lang="nl-NL"] #lang_sel_list ul li.icl-de, html[lang="fr-FR"] #lang_sel ul li.icl-hu, html[lang="fr-FR"] #lang_sel ul li.icl-en, html[lang="fr-FR"] #lang_sel ul li.icl-pl, html[lang="fr-FR"] #lang_sel ul li.icl-de, html[lang="nl-NL"] #lang_sel ul li.icl-hu, html[lang="nl-NL"] #lang_sel ul li.icl-en, html[lang="nl-NL"] #lang_sel ul li.icl-pl, html[lang="nl-NL"] #lang_sel ul li.icl-de {
+  display: none; }
 
 /*
  *  Core Owl Carousel CSS File

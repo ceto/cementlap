@@ -13,13 +13,24 @@
     ?>
     <div class="headcontact">
       <ul>
-      <?php if (ICL_LANGUAGE_CODE!='de') { ?>
-        <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+36) 23 950 282</a></li>
-        <li class="email"><a href="mailto:info@marrakesh.hu"><i class="ion ion-email"></i> info@marrakesh.hu</a></li>
-      <?php } else { ?>
-        <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+43) 660 822 2329</a></li>
-        <li class="email"><a href="mailto:info@marrakeshzementfliesen.at"><i class="ion ion-email"></i> info@marrakeshzementfliesen.at</a></li>
-      <?php } ?>
+      <?php
+        switch (ICL_LANGUAGE_CODE) {
+          case 'de': ?>
+            <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+43) 660 822 2329</a></li>
+            <li class="email"><a href="mailto:info@marrakeshzementfliesen.at"><i class="ion ion-email"></i> info@marrakeshzementfliesen.at</a></li>
+          <? break;
+          /* case 'fr': ?>
+          # code...
+          <? break;
+          case 'nl': ?>
+          # code...
+          <? break; */
+          default: ?>
+            <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+36) 23 950 282</a></li>
+            <li class="email"><a href="mailto:info@marrakesh.hu"><i class="ion ion-email"></i> info@marrakesh.hu</a></li>
+          <? break;
+        }
+      ?>
       </ul>
 
 
