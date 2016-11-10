@@ -35,11 +35,8 @@
       <?php endif; */?>
     </div><!-- /.wrap -->
     <?php get_template_part('templates/section','bottom'); ?>
-    <?php  if (ICL_LANGUAGE_CODE=='de') { ?>
-      <?php get_template_part('templates/footer','de'); ?>
-    <?php } else { ?>
-      <?php get_template_part('templates/footer'); ?>
-    <?php } ?>
+
+    <?php get_template_part('templates/footer', ICL_LANGUAGE_CODE); ?>
 
   </div><!-- /.mindenmas -->
 

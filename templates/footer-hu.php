@@ -30,7 +30,7 @@
           </div>
         </section>
         <section class="widget widget-social">
-          <h3><?php _e('Folow Us for Inspiration','cementlap') ?></h3>
+          <h3><?php _e('Follow Us for Inspiration','cementlap') ?></h3>
           <p>
             <a href="https://www.facebook.com/MarrakeshLakberendezes" class="socialgomb" target="_blank">
               <i class="ion ion-social-facebook"></i>
