@@ -47,6 +47,7 @@
 
   if ( (ICL_LANGUAGE_CODE=='de') || (ICL_LANGUAGE_CODE=='fr') || (ICL_LANGUAGE_CODE=='nl') )  {
     $uniprice='-';
+    $brprice='-';
     $uniorigprice='-';
   }
 
@@ -118,17 +119,35 @@
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>
-              <div class="origprice">
-                <?php _e('Original price','cementlap'); ?>:
-                <span class="szam"><?php echo $uniorigprice; ?>
-                <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
-                </span>
-              </div>
+              <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+                <div class="origprice">
+                  <?php _e('Original price','cementlap'); ?>:
+                  <span class="szam"><?php echo $uniorigprice; ?>
+                  <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+                  </span>
+                </div>
+              <?php else : ?>
+                <div class="origprice">
+                  <?php _e('Original price','cementlap'); ?>:
+                  <span class="szam"><?php echo $uniorigprice*(100+$copt['vat'])/100; ?>
+                  <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+                  </span>
+                </div>
+              <?php endif; ?>
             <?php endif; ?>
 
-            <?php echo $uniprice; ?>
-            <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
-            <span class="brutto"><?php _e('incl. vat:','cementlap'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
+            <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+              <?php echo $uniprice; ?>
+              <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+              <span class="brutto"><?php _e('incl. vat:','cementlap'); ?> <?php echo $brprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
+            <?php else: ?>
+              <?php echo $brprice; ?>
+              <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+              <span class="brutto"><?php _e('excl. vat:','cementlap'); ?> <?php echo $uniprice; ?> <span class="unit--mini"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span></span>
+            <?php endif; ?>
+
+
+
           </div>
         </header>
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">

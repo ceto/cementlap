@@ -5,12 +5,14 @@
 
   $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
+  $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100, 0, ',', ' ');
   $univaluta='Ft';
   $uniunit=get_post_meta($orig_id, '_meta_unit', true);
   $dateformat='Y. m. d.';
   if (ICL_LANGUAGE_CODE!='hu') {
     $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
     $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
+    $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
     $univaluta='EUR';
     $uniunit= ( get_post_meta($orig_id, '_meta_unit', true) == 'db')?'pcs':'db';
     $dateformat='d/m/y';
@@ -18,6 +20,7 @@
   //$transport=date($dateformat,strtotime($copt['ntd']));
    if ( (ICL_LANGUAGE_CODE=='de') || (ICL_LANGUAGE_CODE=='fr') || (ICL_LANGUAGE_CODE=='nl') ) {
     $uniprice='-';
+    $brprice='-';
     $uniorigprice='-';
   }
 ?>
@@ -94,10 +97,17 @@
       </div>
       <?php endif; ?>
 
-      <span class="prod-price">
-        <?php echo $uniprice; ?>
-        <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
-      </span>
+      <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+        <span class="prod-price">
+          <?php echo $uniprice; ?>
+          <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
+        </span>
+      <?php else : ?>
+        <span class="prod-price">
+          <?php echo $brprice; ?>
+          <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+        </span>
+      <?php endif; ?>
       <span class="prod-morebtn"><i class="ion ion-android-search"></i></span>
     </div>
   </a><!-- /#product-## -->
