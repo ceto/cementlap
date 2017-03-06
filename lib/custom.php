@@ -940,8 +940,8 @@ if (is_admin()){
   $my_meta->addRepeaterBlock('rec_',array('inline' => true, 'name' => 'Available in these colors','fields' => $repeater_colorfields));
   $my_meta->addRepeaterBlock('red_',array('inline' => true, 'name' => 'Design','fields' => $repeater_designfields));
 
-
-  $my_meta->addSelect($prefix.'gallery_id',cement_show_refgal(),array('name'=> __('Attached gallery ','tax-meta'), 'std'=> array('0')));
+  $semmi=0;
+  $my_meta->addSelect($prefix.'gallery_id',cement_show_refgal($semmi),array('name'=> __('Attached gallery ','tax-meta'), 'std'=> array('0')));
 
   $my_meta->addImage($prefix.'image_id',array('name'=> __('Featured Image (min. 768x432) ','tax-meta')));
   $my_meta->addImage($prefix.'sablon_id',array('name'=> __('Sablon Image (min. 768x768) egy két svg-t is kipróbálhatsz ','tax-meta')));
