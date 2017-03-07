@@ -51,20 +51,24 @@
 
 #lang_sel_list, #lang_sel {
   ul li {
-    html[lang="hu-HU"] &, html[lang="en-US"] &, html[lang="pl-PL"] &  {
+    html[lang="hu-HU"] &, html[lang="en-US"] &, html[lang="pl-PL"] &, html[lang="hu"] &, html[lang="en"] &, html[lang="pl"] & {
       &.icl-de, &.icl-fr, &.icl-nl {
         display: none;
       }
     }
-    html[lang="de-AT"] & {
+    html[lang="de-AT"] &, html[lang="de"] {
       &.icl-hu, &.icl-en, &.icl-pl, &.icl-fr, &.icl-nl {
         display: none;
       }
     }
-    html[lang="fr-FR"] &, html[lang="nl-NL"] & {
+    html[lang="fr-FR"] &, html[lang="nl-NL"] &, html[lang="fr"] &, html[lang="nl"] & {
       &.icl-hu, &.icl-en, &.icl-pl, &.icl-de {
         display: none;
       }
     }
   }
 }
+
+
+
+

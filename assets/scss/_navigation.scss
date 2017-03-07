@@ -102,31 +102,31 @@
     {
         opacity: .85;
     }
-    html[lang='en-US'] &
+    html[lang='en-US'] &, html[lang='en'] &
     {
         width: 374px;
 
         background-image: url('../img/logo_en.png');
     }
-    html[lang='pl-PL'] &
+    html[lang='pl-PL'] &, html[lang='pl'] &
     {
         width: 470px;
 
         background-image: url('../img/logo_pl.png');
     }
-    html[lang='de-AT'] &
+    html[lang='de-AT'] &, html[lang='de'] &
     {
         width: 409px;
 
         background-image: url('../img/logo_de.png');
     }
-    html[lang='fr-FR'] &
+    html[lang='fr-FR'] &, html[lang='fr'] &
     {
         width: 500px;
 
         background-image: url('../img/logo_fr.png');
     }
-    html[lang='nl-NL'] &
+    html[lang='nl-NL'] &, html[lang='nl'] &
     {
         width: 396px;
 
@@ -154,32 +154,32 @@
     //margin-top:8px;
     //margin-left:30%;
     //margin-right: 1em;
-    html[lang='en-US'] &
+    html[lang='en-US'] &, html[lang='en'] &
     {
         width: 264px;
 
         background-image: url('../img/logo_en.png');
     }
-    html[lang='pl-PL'] &
+    html[lang='pl-PL'] &, html[lang='pl'] &
     {
         width: 320px;
 
         background-image: url('../img/logo_pl.png');
     }
-    html[lang='de-AT'] &
+    html[lang='de-AT'] &, html[lang='de'] &
     {
         width: 280px;
 
         background-image: url('../img/logo_de.png');
     }
 
-    html[lang='fr-FR'] &
+    html[lang='fr-FR'] &, html[lang='fr'] &
     {
         width: 330px;
 
         background-image: url('../img/logo_fr.png');
     }
-    html[lang='nl-NL'] &
+    html[lang='nl-NL'] &, html[lang='nl'] &
     {
         width: 258px;
 
@@ -637,9 +637,6 @@ a.menu-button:hover
 
     @include clearfix();
 
-    // html[lang='de-AT'] & {
-    //   display: none;
-    // }
 
     @include breakpoint($s2)
     {
