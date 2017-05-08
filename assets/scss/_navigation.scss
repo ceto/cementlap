@@ -1036,3 +1036,39 @@ a.menu-button:hover
         }
     }
 }
+
+.pagination {
+    .screen-reader-text {
+        display: none;
+    }
+}
+
+.nav-links {
+    padding:2rem 0 4rem;
+    .page-numbers {
+        display: inline-block;
+        line-height: 1;
+        font-size: 1.125rem;
+        padding:.25em .5em;
+        margin:.25em;
+        border:1px solid $gray-light;
+        background-color: $gray-superlight;
+        color:inherit;
+        &:hover, &:focus {
+
+
+        }
+    }
+    a {
+        &:hover, &:focus {
+            background-color: $gray-light;
+            text-decoration: none;
+        }
+    }
+    .current {
+        background-color: $orange;
+        color:$white;
+    }
+}
+
+

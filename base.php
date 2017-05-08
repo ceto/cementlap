@@ -1,7 +1,8 @@
-<?php if ( is_singular('kontener')) {
-  wp_redirect(get_term_link( get_term_by('id', 5,'product-category') , 'product-category' ).'/#filter=.kont_'.get_the_id(), 301);
-  exit;
-}
+<?php
+// if ( is_singular('kontener')) {
+//   wp_redirect(get_term_link( get_term_by('id', 5,'product-category') , 'product-category' ).'/#filter=.kont_'.get_the_id(), 301);
+//   exit;
+// }
 ?>
 
 <?php get_template_part('templates/head'); ?>

@@ -166,7 +166,7 @@ img {
     }
   }
 
-  .tax-product-category & {
+  .tax-product-category &, .single-kontener & {
     padding:1em 0;
     @include breakpoint($s1){
       padding: 1em 1em;

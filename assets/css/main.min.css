@@ -2991,13 +2991,13 @@ img {
   @media only screen and (min-width: 768px) {
     .page-template-tmpl-widepage.page .main {
       padding: 1em 2em; } }
-  .tax-product-category .main {
+  .tax-product-category .main, .single-kontener .main {
     padding: 1em 0; }
     @media only screen and (min-width: 480px) {
-      .tax-product-category .main {
+      .tax-product-category .main, .single-kontener .main {
         padding: 1em 1em; } }
     @media only screen and (min-width: 1024px) {
-      .tax-product-category .main {
+      .tax-product-category .main, .single-kontener .main {
         padding: 1em 2em; } }
 
 .btn, .btn-light-line, .button {
@@ -3682,6 +3682,27 @@ a.menu-button:hover {
           height: 7px;
           content: '';
           background-color: #FF9900; }
+
+.pagination .screen-reader-text {
+  display: none; }
+
+.nav-links {
+  padding: 2rem 0 4rem; }
+  .nav-links .page-numbers {
+    display: inline-block;
+    line-height: 1;
+    font-size: 1.125rem;
+    padding: .25em .5em;
+    margin: .25em;
+    border: 1px solid #9A9A9B;
+    background-color: #efefef;
+    color: inherit; }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #9A9A9B;
+    text-decoration: none; }
+  .nav-links .current {
+    background-color: #FF9900;
+    color: #FEFEFF; }
 
 .content-info {
   position: relative;

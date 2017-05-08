@@ -65,7 +65,7 @@ Template Name: Product Category List
 
 
         <?php
-          $the_konts = new WP_Query(array (
+          /*$the_konts = new WP_Query(array (
               'post_type' => 'kontener',
               'posts_per_page' => -1,
                'meta_key' => '_meta_cardate',
@@ -78,7 +78,7 @@ Template Name: Product Category List
               <input data-filter-value=".kont_<?=  $aktkont ?>" class="filt-item-input" type="checkbox" id="kont_<?=  $aktkont ?>" value="kont_<?=  $aktkont ?>">
               <label class="filt-item-label" for="kont_<?= $aktkont ?>"><?= __('Arrive','cementlap') ?>: <?= get_the_title().' / ', date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
             </li>
-          <?php endwhile;?>
+          <?php endwhile; */ ?>
 
         <li id="filter-stockall">
           <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="<?php _e('Show all','cementlap'); ?>">
@@ -176,3 +176,13 @@ Template Name: Product Category List
     <?php get_template_part('templates/square','product' ); ?>
   <?php endwhile; ?>
 </div>
+
+<nav class="post-nav">
+    <?php
+      the_posts_pagination( array(
+  'mid_size'  => 2,
+  'prev_text' => __( '&larr; Prev', 'cementlap' ),
+  'next_text' => __( 'Next &rarr;', 'cementlap' ),
+) );
+     ?>
+  </nav>
