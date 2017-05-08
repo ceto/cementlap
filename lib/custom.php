@@ -10,6 +10,32 @@ define('ICL_DONT_LOAD_LANGUAGES_JS', TRUE);
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
+
+
+// 1. customize ACF path
+add_filter('acf/settings/path', 'cement_acf_settings_path');
+function cement_acf_settings_path( $path ) {
+    $path = get_stylesheet_directory() . '/lib/acf/';
+    return $path;
+}
+// 2. customize ACF dir
+add_filter('acf/settings/dir', 'cement_acf_settings_dir');
+function cement_acf_settings_dir( $dir ) {
+  $dir = get_stylesheet_directory_uri() . '/lib/acf/';
+  return $dir;
+}
+// 3. Hide ACF field group menu item
+//add_filter('acf/settings/show_admin', '__return_false');
+
+// 4. Include ACF
+include_once( get_stylesheet_directory() . '/lib/acf/acf.php' );
+
+//include_once( get_stylesheet_directory() . '/lib/cement-acf.php' );
+
+
+
+
+
 // function icl_load_jquery_dialog() {
 //         wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery'), false, true );
 // }
@@ -363,18 +389,6 @@ function cementes_metaboxes( ) {
           'db' => __( 'db', 'root' ),
         ),
       ),
-      // array(
-      //   'name' => __( 'On Stock in Marrakesh', 'root' ),
-      //   'desc' => __( 'Amount of unit on Marrakesh', 'root' ),
-      //   'id'   => $prefix . 'amountmarr',
-      //   'type' => 'text_small',
-      // ),
-      // array(
-      //   'name' => __( 'Next transport date', 'root' ),
-      //   'desc' => __( 'field description (optional)', 'root' ),
-      //   'id'   => $prefix . 'arrive',
-      //   'type' => 'text_date',
-      // ),
       array(
         'name' => __( 'Size', 'root' ),
         'desc' => __( 'eg:  20 × 20 × 1,6 cm', 'root' ),

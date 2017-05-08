@@ -1,0 +1,112 @@
+<?php
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+  'key' => 'group_59108a4635b06',
+  'title' => 'Galéria mezők',
+  'fields' => array (
+    array (
+      'key' => 'field_59108a5ec1abf',
+      'label' => 'Galéria',
+      'name' => 'galeria',
+      'type' => 'repeater',
+      'instructions' => '',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'collapsed' => '',
+      'min' => 0,
+      'max' => 0,
+      'layout' => 'table',
+      'button_label' => 'Elem hozzáadása',
+      'sub_fields' => array (
+        array (
+          'key' => 'field_59108ad6a398a',
+          'label' => 'Fotó',
+          'name' => 'foto',
+          'type' => 'image',
+          'instructions' => 'Nagy felbontású fasza kép',
+          'required' => 1,
+          'conditional_logic' => 0,
+          'wrapper' => array (
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'return_format' => 'array',
+          'preview_size' => 'thumbnail',
+          'library' => 'all',
+          'min_width' => 1024,
+          'min_height' => 1024,
+          'min_size' => '',
+          'max_width' => '',
+          'max_height' => '',
+          'max_size' => 1,
+          'mime_types' => '',
+        ),
+        array (
+          'key' => 'field_59108b847f5ad',
+          'label' => 'Cím',
+          'name' => 'cim',
+          'type' => 'text',
+          'instructions' => '',
+          'required' => 1,
+          'conditional_logic' => 0,
+          'wrapper' => array (
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'default_value' => '',
+          'placeholder' => '',
+          'prepend' => '',
+          'append' => '',
+          'maxlength' => '',
+        ),
+        array (
+          'key' => 'field_59108b997f5ae',
+          'label' => 'Leírás',
+          'name' => 'leiras',
+          'type' => 'wysiwyg',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array (
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'default_value' => '',
+          'tabs' => 'all',
+          'toolbar' => 'basic',
+          'media_upload' => 0,
+          'delay' => 0,
+        ),
+      ),
+    ),
+  ),
+  'location' => array (
+    array (
+      array (
+        'param' => 'post_template',
+        'operator' => '==',
+        'value' => 'tmpl-gallerypage.php',
+      ),
+    ),
+  ),
+  'menu_order' => 0,
+  'position' => 'acf_after_title',
+  'style' => 'default',
+  'label_placement' => 'top',
+  'instruction_placement' => 'label',
+  'hide_on_screen' => '',
+  'active' => 1,
+  'description' => '',
+));
+
+endif;
