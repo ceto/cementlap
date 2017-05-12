@@ -1,0 +1,29 @@
+.galleryGrid {
+    width: 100%;
+    min-height: 100vh;
+    margin:4rem auto 4rem;
+}
+
+
+
+.gallerygrid__sizer,
+.gallerygrid__item {
+    display: block;
+    width: 50%;
+    padding: 2%;
+    @include breakpoint($s2) {
+        width: 33.333%;
+    }
+    @include breakpoint($s3) {
+        width: 25%;
+    }
+    @include breakpoint($s4){
+      padding: 1.5%;
+    }
+    @include breakpoint($s5) {
+        width: 20%;
+    }
+    @include breakpoint($s6) {
+        width: 16.666%;
+    }
+}

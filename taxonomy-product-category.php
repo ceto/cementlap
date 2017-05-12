@@ -50,56 +50,6 @@ Template Name: Product Category List
   ?>
 
   <div id="filt-wrap" class="filt-wrap">
-
-    <div class="filt-select-con">
-      <div class="filt-placeholder" data-filter-name=".filt-stock">
-        <span class="filt-placeholder-text"><?php _e('Stock','cementlap') ?></span>
-        <i class="ion-chevron-down"></i>
-      </div>
-      <ul data-filter-group="stock" class="filt-item filt-stock hide">
-
-          <li id="filter-in-stock">
-            <input data-filter-value=".in-stock" class="filt-item-input" type="checkbox" id="raktar_in-stock" value="raktar_in-stock">
-            <label class="filt-item-label" for="raktar_in-stock"><?= __('In stock','cementlap') ?> <i class="ion-checkmark"></i></label>
-          </li>
-
-
-        <?php
-          /*$the_konts = new WP_Query(array (
-              'post_type' => 'kontener',
-              'posts_per_page' => -1,
-               'meta_key' => '_meta_cardate',
-               'order_by' => '_meta_cardate',
-               'order' => 'ASC'
-            )
-          );
-          while ($the_konts->have_posts()) : $the_konts->the_post(); $aktkont=get_the_ID();?>
-            <li id="filter-<?= 'kont_'.$aktkont ?>">
-              <input data-filter-value=".kont_<?=  $aktkont ?>" class="filt-item-input" type="checkbox" id="kont_<?=  $aktkont ?>" value="kont_<?=  $aktkont ?>">
-              <label class="filt-item-label" for="kont_<?= $aktkont ?>"><?= __('Arrive','cementlap') ?>: <?= get_the_title().' / ', date($df, get_post_meta( $aktkont, '_meta_cardate', true ) ) ?> <i class="ion-checkmark"></i></label>
-            </li>
-          <?php endwhile; */ ?>
-
-        <li id="filter-stockall">
-          <input data-filter-value="*" class="filt-item-input" type="checkbox" id="stock-all" value="<?php _e('Show all','cementlap'); ?>">
-          <label class="filt-item-label" for="stock-all"><?php _e('Show all','cementlap'); ?> <i class="ion-checkmark"></i></label>
-        </li>
-
-
-        <?php /*$filtlist=get_terms('product-stock' ); ?>
-        <?php foreach ( $filtlist as $term ) {  ?>
-          <?php if ($term->slug!='hamarosan-erkezik' && $term->slug!='coming-soon') : ?>
-            <li id="filter-<?php echo $term->slug; ?>">
-              <input data-filter-value=".<?php echo $term->slug; ?>" class="filt-item-input" type="checkbox" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>">
-              <label class="filt-item-label" for="<?php echo $term->slug; ?>"><?php echo $term->name; ?> <i class="ion-checkmark"></i></label>
-            </li>
-          <?php endif; ?>
-
-        <?php } */?>
-      </ul>
-    </div>
-
-
     <div class="filt-select-con">
       <div class="filt-placeholder" data-filter-name=".filt-color">
         <span class="filt-placeholder-text"><?php _e('Colors','cementlap') ?></span>

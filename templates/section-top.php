@@ -121,13 +121,13 @@
   <section class="hero feles" role="banner">
     <div class="hero-content">
       <h1 class="hero-text">
-          <?php the_title();  ?>
+          <?php the_title();  echo is_page_template('tmpl-instock.php')?' '.date(get_option( 'date_format' )):''; ?>
       </h1>
     </div>
   </section>
 <?php endif; ?>
 
-<?php if (is_archive()) : ?>
+<?php if (is_archive() || is_singular(kontener)) : ?>
 
   <?php if (is_tax('product-style')) : ?>
 

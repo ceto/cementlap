@@ -1,5 +1,4 @@
 <?php
-
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array (
@@ -41,8 +40,8 @@ acf_add_local_field_group(array (
           'return_format' => 'array',
           'preview_size' => 'thumbnail',
           'library' => 'all',
-          'min_width' => 1024,
-          'min_height' => 1024,
+          'min_width' => 768,
+          'min_height' => 768,
           'min_size' => '',
           'max_width' => '',
           'max_height' => '',
@@ -69,10 +68,10 @@ acf_add_local_field_group(array (
           'maxlength' => '',
         ),
         array (
-          'key' => 'field_59108b997f5ae',
-          'label' => 'Leírás',
-          'name' => 'leiras',
-          'type' => 'wysiwyg',
+          'key' => 'field_59109303047c3',
+          'label' => 'Termék hivatkozás',
+          'name' => 'termeklink',
+          'type' => 'post_object',
           'instructions' => '',
           'required' => 0,
           'conditional_logic' => 0,
@@ -81,11 +80,15 @@ acf_add_local_field_group(array (
             'class' => '',
             'id' => '',
           ),
-          'default_value' => '',
-          'tabs' => 'all',
-          'toolbar' => 'basic',
-          'media_upload' => 0,
-          'delay' => 0,
+          'post_type' => array (
+            0 => 'product',
+          ),
+          'taxonomy' => array (
+          ),
+          'allow_null' => 0,
+          'multiple' => 1,
+          'return_format' => 'object',
+          'ui' => 1,
         ),
       ),
     ),

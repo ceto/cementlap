@@ -8,7 +8,7 @@
     ));
   ?>
   <section class="product-control">
-  <h1><?= get_the_title().' / ';?> <?= __('Arrive','cementlap') .': ' .date($df, get_post_meta( $kontid, '_meta_cardate', true ) ) ?></h1>
+  <h1><?= __('Coming soon','cementlap') .': ' .date($df, get_post_meta( $kontid, '_meta_cardate', true ) ) ?></h1>
   </section>
 <div class="loader loading"><i class="ion-load-a"></i></div>
 <div class="product-list loading">

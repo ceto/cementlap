@@ -1,0 +1,16 @@
+.card {
+  text-align: center;
+}
+.card__illustration {
+  margin: 0 0 .75rem;
+  img {
+    display: block;
+    margin:0 auto;
+  }
+}
+.card__title {
+  font-size:.875rem;
+  margin:0;
+  padding:0 2%;
+  line-height: 1.2;
+}

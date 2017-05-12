@@ -115,7 +115,8 @@
     <?php endif; ?>
     <div class="uszo">
         <header class="product-head">
-          <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios-undo"></i><?php echo $mastercat->name; ?></a>
+<!--           <a class="product-back" href="<?php echo get_term_link( get_term_by('id', $mastercat->term_id,'product-category') , 'product-category' ); ?>"><i class="ion-ios-undo"></i><?php echo $mastercat->name; ?></a> -->
+<a class="product-back" href="javascript:history.back();"><i class="ion-ios-undo"></i><? _e('Back','cementlap') ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
             <?php if (has_term('akcios','product-stock')) : ?>

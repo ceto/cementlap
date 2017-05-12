@@ -362,6 +362,19 @@ function share_click(mi, width, height, media) {
 
 jQuery(document).ready(function($){
 
+  var $gallerygrid = $('.gallerygrid').isotope({
+    // set itemSelector so .gallerygrid__sizer is not used in layout
+    itemSelector: '.gallerygrid__item',
+    // use element for option
+    columnWidth: '.gallerygrid__sizer',
+    percentPosition: true
+  });
+
+  // layout Masonry after each image loads
+  $gallerygrid.imagesLoaded(function() {
+    $gallerygrid.isotope();
+  });
+
   $('.filt-placeholder').click(function(e){
     e.preventDefault();
     $(this).toggleClass('selected');
