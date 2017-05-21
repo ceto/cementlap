@@ -26,7 +26,7 @@
           # code...
           <? break; */
           default: ?>
-            <li class="tel"><a href="tel:003623950282"><i class="ion ion-iphone"></i> (+36) 23 950 282</a></li>
+            <li class="tel"><a href="tel:0036305822377"><i class="ion ion-iphone"></i> (+36) 30 582 2377</a></li>
             <li class="email"><a href="mailto:info@marrakesh.hu"><i class="ion ion-email"></i> info@marrakesh.hu</a></li>
           <? break;
         }
