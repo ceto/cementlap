@@ -3126,7 +3126,7 @@ hr {
   html[lang='pl-PL'] .brand, html[lang='pl'] .brand {
     width: 470px;
     background-image: url("../img/logo_pl.png"); }
-  html[lang='de-AT'] .brand, html[lang='de'] .brand {
+  html[lang='de-AT'] .brand, html[lang='de-DE'] .brand {
     width: 409px;
     background-image: url("../img/logo_de.png"); }
   html[lang='fr-FR'] .brand, html[lang='fr'] .brand {
