@@ -115,7 +115,7 @@
           bgOpacity: 1,
           shareButtons: [
               {id:'urltest', label:'Sima link teszt', url: '{{url}}'},
-              {id:'facebook', label:'Megosztás Facebookon', url:'https://www.facebook.com/dialog/share?app_id=1801231636785994&amp;href={{url}}&amp;picture={{image_url}}'},
+              {id:'facebook', label:'Megosztás Facebookon', url:'https://www.facebook.com/dialog/share?app_id=646072898740588&amp;href={{url}}&amp;picture={{image_url}}'},
               {id:'pinterest', label:'Pin it', url:'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'},
               {id:'download', label:'Kép letöltése', url:'{{raw_image_url}}', download:true}
           ],

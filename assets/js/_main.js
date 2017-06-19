@@ -1,4 +1,3 @@
-
 // Browser detection. Yes, really. Guess for which browser? Nope! Chrome.
 var b = document.documentElement;
 b.setAttribute('data-useragent',  navigator.userAgent);
