@@ -1,41 +1,41 @@
-.galleryGrid {
+.gallerygrid {
     width: 100%;
-    min-height: 100vh;
-    margin:4rem auto 4rem;
+    //min-height: 100vh;
+    margin:2rem auto 4rem;
 }
 
 
 
 .gallerygrid__sizer,
 .gallerygrid__item {
-    display: block;
-    width: 50%;
-    padding: 2%;
+    width: 49.9%;
+    padding: .5rem;
     @include breakpoint($s2) {
-        width: 33.333%;
+        width: 33.3%;
     }
     @include breakpoint($s3) {
-        width: 24.999%;
+        width: 24.9%;
     }
     @include breakpoint($s4){
-      padding: 1.5%;
+      padding: 1rem;
     }
     @include breakpoint($s5) {
-        width: 19.999%;
+        width: 19.9%;
     }
     @include breakpoint($s6) {
         //width: 16.666%;
     }
 }
 
-// .gallerygrid__item:nth-of-type(6n+1) {
-//     @include breakpoint($s2) {
-//         width: 66.666%;
-//     }
-//     @include breakpoint($s3) {
-//         width: 49.999%;
-//     }
-//     @include breakpoint($s5) {
-//         width: 39.999%;
-//     }
-// }
+.gallerygrid__item--large {
+    width: 99.9%;
+    @include breakpoint($s2) {
+        width: 66.5%;
+    }
+    @include breakpoint($s3) {
+        width: 49.8%;
+    }
+    @include breakpoint($s5) {
+        width: 39.8%;
+    }
+}

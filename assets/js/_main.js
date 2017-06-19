@@ -372,7 +372,26 @@ jQuery(document).ready(function($){
 
   // layout Masonry after each image loads
   $gallerygrid.imagesLoaded(function() {
+    $('.gallerygrid').addClass('is-imagesloaded');
     $gallerygrid.isotope();
+  });
+
+  var resizeDelay = 200;
+  var doResize = true;
+  var resizer = function () {
+  if (doResize) {
+
+      //your code that needs to be executed goes here
+      $gallerygrid.isotope();
+
+      doResize = false;
+    }
+  };
+  var resizerInterval = setInterval(resizer, resizeDelay);
+  resizer();
+
+  $(window).resize(function() {
+    doResize = true;
   });
 
   $('.filt-placeholder').click(function(e){

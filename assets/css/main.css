@@ -6028,37 +6028,48 @@ input[type="text"], input[type="email"], textarea {
       .slidegallery .slidecontroll {
         display: block; } }
 
-.galleryGrid {
+.gallerygrid {
   width: 100%;
-  min-height: 100vh;
-  margin: 4rem auto 4rem; }
+  margin: 2rem auto 4rem; }
 
 .gallerygrid__sizer,
 .gallerygrid__item {
-  display: block;
-  width: 50%;
-  padding: 2%; }
+  width: 49.9%;
+  padding: .5rem; }
   @media only screen and (min-width: 768px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 33.333%; } }
+      width: 33.3%; } }
   @media only screen and (min-width: 1024px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 24.999%; } }
+      width: 24.9%; } }
   @media only screen and (min-width: 1280px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      padding: 1.5%; } }
+      padding: 1rem; } }
   @media only screen and (min-width: 1600px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 19.999%; } }
+      width: 19.9%; } }
+
+.gallerygrid__item--large {
+  width: 99.9%; }
+  @media only screen and (min-width: 768px) {
+    .gallerygrid__item--large {
+      width: 66.5%; } }
+  @media only screen and (min-width: 1024px) {
+    .gallerygrid__item--large {
+      width: 49.8%; } }
+  @media only screen and (min-width: 1600px) {
+    .gallerygrid__item--large {
+      width: 39.8%; } }
 
 .card {
   text-align: center; }
 
 .card__illustration {
+  position: relative;
   margin: 0 0 .75rem; }
   .card__illustration img {
     display: block;
@@ -6067,6 +6078,12 @@ input[type="text"], input[type="email"], textarea {
     transition: box-shadow .4s;
     box-shadow: 0 0 0.5rem 0 transparent; }
   .card__illustration a {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     cursor: zoom-in; }
     .card__illustration a:hover img, .card__illustration a:focus img {
       box-shadow: 0 0.25rem 0.75rem -0.25rem rgba(0, 0, 0, 0.75); }
@@ -6093,6 +6110,13 @@ input[type="text"], input[type="email"], textarea {
       color: #FF9900; }
   .card .card__related > li a {
     color: inherit; }
+
+.card__leiras {
+  display: none; }
+  .card__leiras p {
+    margin: 0; }
+  .card__leiras a {
+    color: #FF9900; }
 
 #lang_sel_list, #lang_sel {
   position: absolute;
@@ -6969,6 +6993,10 @@ a.pswp__share--download:hover {
     font-size: 1.125rem;
     margin: 0;
     text-transform: none; }
+  .pswp__caption p {
+    margin: 0; }
+  .pswp__caption a {
+    color: #FF9900; }
 
 .pswp__caption small {
   font-size: 11px;

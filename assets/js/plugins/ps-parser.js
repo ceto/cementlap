@@ -43,7 +43,7 @@
             h: parseInt(size[1], 10),
             attachmentURL: gurl + '#/&gid=1&pid=' + (k+1),
             el: link,
-            title: '<h3>'+link.getAttribute('title')+'</h3><ul class="card__related">'+ $(link).parents('.card').find('.card__related').html()+'</ul>'
+            title: '<h3>'+link.getAttribute('title')+'</h3><ul class="card__related">'+ $(link).parents('.card').find('.card__related').html()+'</ul>'+$(link).parents('.card').find('.card__leiras').html()
           }
 
           galleries[i].items.push(item);
@@ -153,6 +153,7 @@
 
     //load ui + open gallery. root html lang attr must be set
     var startGallery = function(gid, pid) {
+      $('.banner').removeClass('ison');
       openGallery(gid,pid);
       return true;
     }

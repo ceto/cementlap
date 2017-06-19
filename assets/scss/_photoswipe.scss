@@ -453,7 +453,12 @@ a.pswp__share--download:hover {
     margin:0;
     text-transform: none;
   }
-
+  p {
+    margin:0;
+  }
+  a {
+    color:$orange;
+  }
 }
   .pswp__caption small {
     font-size: 11px;
