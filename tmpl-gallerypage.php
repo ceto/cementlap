@@ -5,20 +5,32 @@ Template Name: Gallery Page With Photoswipe
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <?php //the_content(); ?>
-<div class="gallerygrid">
+<div class="gallerygrid js-gallery">
     <div class="gallerygrid__sizer"></div>
     <?php while ( have_rows('galeria') ) : the_row(); ?>
         <div class="gallerygrid__item">
-            <div class="card card--simple">
-                <figure class="card__illustration ">
-                    <?php
+            <?php
                     $image = get_sub_field('foto');
-                    $targetimg = wp_get_attachment_image_src($image['id'], 'full' ); ?>
-                    <a href="<?= $targetimg[0]; ?>" title="<?php the_sub_field('cim'); ?>">
-                        <?= wp_get_attachment_image($image['id'], 'medium' ); ?>
+                    $targetimg = wp_get_attachment_image_src($image['id'], 'full' );
+                    $targetwidth =  $targetimg[1];
+                    $targetheight =  $targetimg[2];
+            ?>
+            <div id="card-<?= $image['id'] ?>" class="card card--simple">
+
+                <figure class="card__illustration"  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-itemtitle="<?php the_sub_field('cim'); ?>">
+                    <a href="<?= $targetimg[0]; ?>" title="<?php the_sub_field('cim'); ?>" itemprop="contentUrl" data-size="<?= $targetwidth.'x'.$targetheight; ?>">
+                        <?= wp_get_attachment_image($image['id'], 'medium_large', false, 'itemprop="thumbnail"' ); ?>
                     </a>
                 </figure>
                 <h4 class="card__title"><?php the_sub_field('cim'); ?></h4>
+
+                <?php if ( $relprods = get_sub_field('termeklink') ) : ?>
+                    <ul class="card__related">
+                    <?php foreach ($relprods as $key => $prod) : ?>
+                        <li><a href="<?php the_permalink($prod->ID); ?>"><?= get_the_title($prod->ID) ?></a></li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
         </div>
     <?php endwhile; ?>

@@ -15,15 +15,27 @@
         width: 33.333%;
     }
     @include breakpoint($s3) {
-        width: 25%;
+        width: 24.999%;
     }
     @include breakpoint($s4){
       padding: 1.5%;
     }
     @include breakpoint($s5) {
-        width: 20%;
+        width: 19.999%;
     }
     @include breakpoint($s6) {
-        width: 16.666%;
+        //width: 16.666%;
     }
 }
+
+// .gallerygrid__item:nth-of-type(6n+1) {
+//     @include breakpoint($s2) {
+//         width: 66.666%;
+//     }
+//     @include breakpoint($s3) {
+//         width: 49.999%;
+//     }
+//     @include breakpoint($s5) {
+//         width: 39.999%;
+//     }
+// }
