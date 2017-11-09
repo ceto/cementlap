@@ -42,6 +42,50 @@ include_once( get_stylesheet_directory() . '/lib/acf/acf.php' );
 
 // add_action( 'admin_enqueue_scripts', 'icl_load_jquery_dialog' );
 
+
+/**
+ * Product Group Custom Post Type Definition
+*/
+function create_group() {
+  $labels = array(
+    'name' => 'Group',
+    'singular_name' => 'Group',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Group',
+    'edit_item' => 'Edit Group',
+    'new_item' => 'New Group',
+    'all_items' => 'Groups',
+    'view_item' => 'View Group',
+    'search_items' => 'Search Group',
+    'not_found' =>  'No Group found',
+    'not_found_in_trash' => 'No Group found in Trash',
+    'parent_item_colon' => '',
+    'menu_name' => 'Group'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'show_in_menu' => 'edit.php?post_type=product',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'group' ),
+    'capability_type' => 'page',
+    'supports' => array('title', 'page-attributes', 'thumbnail'),
+    'has_archive' => true,
+    'hierarchical' => true,
+    'menu_position' => null,
+    'yarpp_support' => false
+  );
+
+  register_post_type( 'group', $args );
+}
+add_action( 'init', 'create_group' );
+
+/********* END OF Custom Post Types for Group Management ****************/
+
+
 /**
  * Product Konténer Custom Post Type Definition
 */
