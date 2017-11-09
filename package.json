@@ -8,12 +8,14 @@
     "url": "git://github.com/ceto/cementlap.git"
   },
   "bugs": {
-    "url" : "https://github.com/ceto/cementlap/issues"
+    "url": "https://github.com/ceto/cementlap/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://opensource.org/licenses/MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
   "engines": {
     "node": ">= 0.10.0"
   },
