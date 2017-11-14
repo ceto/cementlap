@@ -47,7 +47,7 @@
   </section>
 
 
-<?php elseif ( ( is_singular('post') &&  (get_post_format( $post->ID ) != 'gallery') )   ) :?>
+<?php elseif ( ( is_singular('post') && (get_post_format( $post->ID ) != 'gallery') )    ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
     // $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
@@ -90,7 +90,7 @@
       </h1>
     </div-->
   </section>
-<?php elseif ( ( is_page() )   ) :?>
+<?php elseif ( is_page() || is_singular('group')   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
     $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );

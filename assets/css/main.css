@@ -7216,4 +7216,13 @@ a.pswp__share--download:hover {
 .pswp--minimal--dark .pswp__top-bar {
   background: none; }
 
+.menu--group {
+  text-align: center; }
+  .menu--group > li > a {
+    font-size: 1.125em; }
+    .menu--group > li > a small {
+      font-size: .875em;
+      display: block;
+      font-weight: 400; }
+
 /*# sourceMappingURL=main.css.map */
