@@ -13,28 +13,30 @@
       array_push($child_terms, get_term_by( 'id', $style, 'product-style' ));
     endforeach;
   endif;
-
-$args = array(
-  'post_parent' => get_the_ID(),
-  'post_type'   => 'group',
-  'numberposts' => -1,
-  'order_by' => 'menu_order',
-  'order' => 'ASC'
-);
-$the_children = new Wp_Query( $args );
 ?>
-
-<nav class="nav-category">
-<ul class="menu menu--group">
-  <?php  while ($the_children->have_posts()) : $the_children->the_post(); ?>
-    <?php setup_postdata( $post ) ?>
-    <li>
-      <a href="<?php the_permalink() ?>"><?php the_title() ?><small><?php the_field('description') ?></small></a>
-    </li>
-  <?php endwhile; ?>
-</ul>
-<?php wp_reset_postdata() ?>
-</nav>
+<section class="product-control">
+  <nav class="nav-category">
+  <?php
+  $args = array(
+    'post_parent' => get_the_ID(),
+    'post_type'   => 'group',
+    'numberposts' => -1,
+    'order_by' => 'menu_order',
+    'order' => 'ASC'
+  );
+  $the_children = new Wp_Query( $args );
+  ?>
+  <ul class="menu menu--group">
+    <?php  while ($the_children->have_posts()) : $the_children->the_post(); ?>
+      <?php setup_postdata( $post ) ?>
+      <li>
+        <a href="<?php the_permalink() ?>"><?php the_title() ?><small><?php the_field('description') ?></small></a>
+      </li>
+    <?php endwhile; ?>
+  </ul>
+  <?php wp_reset_postdata() ?>
+  </nav>
+</section>
 
 <div class="loader loading"><i class="ion-load-a"></i></div>
 <div class="productstyle-list loading">

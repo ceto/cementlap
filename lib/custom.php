@@ -81,7 +81,7 @@ function create_group() {
 
   register_post_type( 'group', $args );
 }
-add_action( 'init', 'create_group' );
+//add_action( 'init', 'create_group' );
 
 /********* END OF Custom Post Types for Group Management ****************/
 
@@ -170,6 +170,30 @@ add_action( 'init', 'create_product' );
 
 /********* END OF Custom Post Types for Product Management ****************/
 
+
+
+/************* Custom Category for Product Management *********/
+
+add_action( 'init', 'create_style_group', 0 );
+
+function create_style_group() {
+  $labels = array(
+    'name'              => __('Style Group', 'root'),
+    'singular_name'     => __('Style Group', 'root'),
+    'menu_name'         => __('Style Group', 'root'),
+  );
+
+  $args = array(
+    'hierarchical'      => true,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'style-group' ),
+  );
+
+  register_taxonomy( 'style-group', array('product'), $args );
+}
 
 
 
@@ -1012,3 +1036,19 @@ if (is_admin()){
   //Finish Meta Box Decleration
   $my_meta->Finish();
 }
+
+
+  function styleisingroup($style,$group) {
+    $r=false;
+    //var_dump($style->term_id);
+    $terms = get_field('grouping', $style );
+    //var_dump($group);
+    //echo "<hr>";
+    foreach ($terms as $key => $value) {
+      if (in_array($value, $group) ) {
+        $r = true;
+        break;
+      }
+    }
+    return $r;
+  }

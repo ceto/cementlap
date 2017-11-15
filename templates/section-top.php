@@ -90,7 +90,7 @@
       </h1>
     </div-->
   </section>
-<?php elseif ( is_page() || is_singular('group')   ) :?>
+<?php elseif ( is_page()   ) :?>
   <?php
     $copt=get_option('cementlap_option_name');
     $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
@@ -125,13 +125,47 @@
       </h1>
     </div>
   </section>
+<?php elseif ( is_singular('group')   ) :?>
+  <?php
+    $copt=get_option('cementlap_option_name');
+    $imci = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallimg' );
+    $imcismall = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallsmall' );
+    $imcimedium = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallmedium' );
+    $imcigreat = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'wallgreat' );
+  ?>
+  <style type="text/css">
+    .hero {
+      background-image:none;
+    }
+    @media only screen and (min-width: 768px) {
+      .hero {
+        background-image:url('<?php echo $imcimedium['0']; ?>');
+      }
+    }
+    @media only screen and (min-width: 1280px) {
+      .hero {
+        background-image:url('<?php echo $imcigreat['0']; ?>');
+      }
+    }
+    @media only screen and (min-width: 1600px) {
+      .hero {
+        background-image:url('<?php echo $imci['0']; ?>');
+      }
+    }
+  </style>
+  <section class="hero hero--blurred" role="banner">
+    <div class="hero-content">
+      <h1 class="hero-text">
+          <a class="headback" href="<?= get_the_permalink(wp_get_post_parent_id(get_the_ID())); ?>"><i class="ion-ios-undo"></i>&nbsp; <?= get_the_title(wp_get_post_parent_id(get_the_ID())); ?></a>
+            <?php the_title(); ?>
+        </h1>
+    </div>
+  </section>
 <?php endif; ?>
 
 <?php if (is_archive() || is_singular(kontener)) : ?>
 
   <?php if (is_tax('product-style')) : ?>
-
-
     <?php
       $aktermterm_id = term_exists( get_query_var( 'term' ) );
       $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
@@ -163,6 +197,37 @@
         </div>
       </div>
     </section>
+    <?php elseif (is_tax('style-group')) : ?>
+    <?php
+      $aktermterm_id = term_exists( get_query_var( 'term' ) );
+      $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+
+      $parenttermid = $term->parent;
+      $brelems = array();
+      while ($parenttermid!==0) {
+        $theparent=get_term_by( 'id', $parenttermid, 'style-group' );
+        array_push($brelems,$theparent);
+        $parenttermid=$theparent->parent;
+      }
+      $brelems=array_reverse($brelems);
+    ?>
+    <section class="hero hero--blurred" role="banner">
+      <div class="hero-content">
+        <?php if ($brelems): ?>
+          <ul class="breadcrumb breadcrumb--grupi">
+            <?php foreach ($brelems as $key => $value) : ?>
+               <li><a href="<?= get_term_link( $value , 'style-group') ?>"><?= $value->name ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif ?>
+
+        <h1 class="hero-text">
+            <?= $term->name;  ?><?php if ($term->description): ?><small> (<?= $term->description ?>)</small><?php endif; ?>
+        </h1>
+      </div>
+    </section>
+
+
   <?php else : ?>
     <aside class="sidebar sidebar-topad" role="complementary">
       <?php dynamic_sidebar('sidebar-topad'); ?>

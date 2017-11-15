@@ -1,5 +1,27 @@
+.breadcrumb {
+    margin:0;
+    padding:0;
+    list-style:none;
+    color:white;
+    text-transform: uppercase;
+    font-size: .875rem;
+    > li {
+        padding:0;
+        margin:0;
+        display: inline-block;
+        a {
+            color:inherit;
+        }
+        &:not(:last-child):after {
+            content: '\00bb';
+            display: inline-block;
+            padding:0 .125em 0 .333em;
+        }
+    }
+}
+
 .menu--group {
-    text-align: center;
+    //text-align: center;
     > li {
         > a {
             font-size: 1.125em;
@@ -7,6 +29,7 @@
                 font-size: .875em;
                 display: block;
                 font-weight: 400;
+                text-transform: none;
             }
         }
     }

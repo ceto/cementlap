@@ -3954,6 +3954,9 @@ a.menu-button:hover {
       line-height: 1em; }
       .feles .hero-text {
         margin: 0 auto; } }
+  .hero-text small {
+    font-size: .666em;
+    text-transform: none; }
 
 /** 
  *  Master Slider
@@ -7134,12 +7137,29 @@ a.pswp__share--download:hover {
 .pswp--minimal--dark .pswp__top-bar {
   background: none; }
 
-.menu--group {
-  text-align: center; }
-  .menu--group > li > a {
-    font-size: 1.125em; }
-    .menu--group > li > a small {
-      font-size: .875em;
-      display: block;
-      font-weight: 400; }
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: .875rem; }
+  .breadcrumb > li {
+    padding: 0;
+    margin: 0;
+    display: inline-block; }
+    .breadcrumb > li a {
+      color: inherit; }
+    .breadcrumb > li:not(:last-child):after {
+      content: '\00bb';
+      display: inline-block;
+      padding: 0 .125em 0 .333em; }
+
+.menu--group > li > a {
+  font-size: 1.125em; }
+  .menu--group > li > a small {
+    font-size: .875em;
+    display: block;
+    font-weight: 400;
+    text-transform: none; }
 /*# sourceMappingURL=main.min.css.map */
