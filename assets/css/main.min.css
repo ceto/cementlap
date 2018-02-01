@@ -7173,8 +7173,7 @@ a.pswp__share--download:hover {
 
 .prsmnav {
   padding: 2rem 0;
-  margin: 0 0;
-  max-width: 40rem; }
+  margin: 0 0; }
   @media only screen and (min-width: 768px) {
     .prsmnav {
       max-width: 60rem; } }
@@ -7184,7 +7183,7 @@ a.pswp__share--download:hover {
   text-align: left;
   margin: 0 0;
   padding: 0;
-  font-size: 1em;
+  font-size: 1.125em;
   font-weight: 700;
   line-height: 1em;
   color: #49494A; }
@@ -7198,7 +7197,7 @@ a.pswp__share--download:hover {
     padding: 0 1rem 1rem;
     display: block;
     float: left;
-    width: 50%; }
+    max-width: 50%; }
     .prsmnav > ul > li > a {
       display: inline-block;
       text-transform: uppercase;
@@ -7207,16 +7206,11 @@ a.pswp__share--download:hover {
       clear: left; }
     @media only screen and (min-width: 480px) {
       .prsmnav > ul > li {
-        width: 33.333%; }
+        max-width: 33.333%; }
         .prsmnav > ul > li:nth-child(2n+1) {
           clear: none; }
         .prsmnav > ul > li:nth-child(3n+1) {
           clear: left; } }
-    @media only screen and (min-width: 768px) {
-      .prsmnav > ul > li {
-        width: 20%; }
-        .prsmnav > ul > li:nth-child(3n+1) {
-          clear: none; } }
 
 .prsmnav > ul ul {
   font-size: .875em;
@@ -7233,6 +7227,23 @@ a.pswp__share--download:hover {
       background-color: #9A9A9B;
       margin: 0 .5em 0 0; }
     .prsmnav > ul ul > li > a {
+      text-transform: none;
+      color: inherit; }
+
+.prsmnav > ul ul ul {
+  font-size: 1em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 300; }
+  .prsmnav > ul ul ul > li {
+    display: inline-block;
+    margin: 0 0; }
+    .prsmnav > ul ul ul > li:before {
+      display: none; }
+    .prsmnav > ul ul ul > li:not(:last-child):after {
+      content: ' | '; }
+    .prsmnav > ul ul ul > li > a {
       text-transform: none;
       color: inherit; }
 /*# sourceMappingURL=main.min.css.map */
