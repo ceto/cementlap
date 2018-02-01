@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         },
         files: {
           'assets/js/scripts.min.js': [
-            'bower_components/OwlCarousel/owl-carousel/owl.carousel.js',
+            'bower_components/owlcarousel/owl-carousel/owl.carousel.js',
             'bower_components/photoswipe/dist/photoswipe.js',
             'bower_components/photoswipe/dist/photoswipe-ui-default.js',
             'assets/js/plugins/*.js',
