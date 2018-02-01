@@ -19,7 +19,17 @@ Template Name: Product Category List
 
 
 <section class="product-control">
+
   <h1><?php echo $parent_term->name; ?></h1>
+
+  <?php if (has_nav_menu('prodsitemap_navigation')) : ?>
+  <section class="prsmwrap">
+    <nav class="prsmnav">
+      <?php wp_nav_menu(array('theme_location' => 'prodsitemap_navigation', 'menu_class' => 'prsmmenu')); ?>
+    </nav>
+  </section>
+  <?php endif; ?>
+
   <nav class="nav-category">
     <ul>
       <li class="<?php echo ($parent_term->term_id==$aktermterm_id)?'active':''; ?>">

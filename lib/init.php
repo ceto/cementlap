@@ -33,11 +33,15 @@ function roots_setup() {
     'kapcsinfo_navigation' => __('Kapcsolati adatok', 'roots'),
   ));
 
+  register_nav_menus(array(
+    'prodsitemap_navigation' => __('Termék sitemap', 'roots'),
+  ));
+
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');
   // set_post_thumbnail_size(150, 150, false);
   // add_image_size('category-thumb', 300, 9999); // 300px wide (and unlimited height)
-  
+
   add_image_size('wallfree', 1920, 9999);
   add_image_size('wallgreat', 1600, 9999);
   add_image_size('wallmedium', 1280, 9999);
@@ -45,8 +49,8 @@ function roots_setup() {
 
   add_image_size('slide21', 1920, 860, true);
   add_image_size('slidethumb21', 160, 80, true);
-  
-  
+
+
 
 
 
@@ -55,10 +59,10 @@ function roots_setup() {
 
   add_image_size('small34', 480, 740, true);
   add_image_size('slidefree', 9999, 1000, false);
-    
-  
+
+
   add_image_size('tiny11', 220, 220, true);
-  
+
   add_image_size('petit11', 120, 120, true);
 
 
@@ -66,7 +70,7 @@ function roots_setup() {
 
   // Add post formats (http://codex.wordpress.org/Post_Formats)
   // add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
-  
+
   add_theme_support('post-formats', array('aside', 'gallery'));
 
 

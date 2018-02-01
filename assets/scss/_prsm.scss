@@ -1,0 +1,102 @@
+.filt-wrap, .nav-category {
+    //display: none;
+}
+
+.prsmwrap {
+    //border:1px solid $gray-light;
+    //margin-top: -1em;
+    //border-top: none;
+    //background-color: rgba(#fff,.98);
+    //position: absolute;
+    z-index: 1;
+    left:0;
+    top:0;
+    width:100%;
+    //box-shadow: 0 0 .5rem 0 rgba(#000,.25);
+    //display: none;
+}
+.prsmnav {
+    //border:1px solid $gray-light;
+    padding: 2rem 0;
+    margin:0 0;
+    max-width: 40rem;
+    @include breakpoint($s2){
+        max-width: 60rem;
+    }
+}
+.prsmnav > ul {
+    @include clearfix();
+    list-style: none;
+    text-align: left;
+    margin:0 0;
+    padding:0;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1em;
+    color: $gray;
+
+     > li {
+        margin:0;
+        padding:0 1rem 1rem;
+        display: block;
+        float:left;
+        width:50%;
+        //min-width: 12em;
+         > a {
+            display: inline-block;
+            text-transform: uppercase;
+            color: inherit;
+        }
+        &:nth-child(2n+1) {
+            clear:left;
+        }
+
+        @include breakpoint($s1){
+            width:33.333%;
+            &:nth-child(2n+1) {
+                clear:none;
+            }
+            &:nth-child(3n+1) {
+                clear:left;
+            }
+        }
+        @include breakpoint($s2){
+            //width:25%;
+        }
+        @include breakpoint($s2){
+           width:20%;
+           &:nth-child(3n+1) {
+                clear:none;
+            }
+           //width: 14rem;
+        }
+        // @include breakpoint($s4){
+        //    width:16.666%;
+        // }
+    }
+
+}
+
+
+.prsmnav > ul ul {
+    font-size: .875em;
+    list-style: none;
+    margin:0;
+    padding:0;
+    > li {
+        &:before {
+            content:'';
+            display: inline-block;
+            width:.666em;
+            height: .666em;
+            background-color: $gray-light;
+            margin:0 .5em 0 0;
+        }
+        margin: .5em 0;
+        > a {
+            text-transform: none;
+            color:inherit;
+
+        }
+    }
+}
