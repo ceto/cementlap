@@ -5,10 +5,15 @@
   <?php if (ICL_LANGUAGE_CODE!='de') { ?>
     <?php do_action('icl_language_selector'); ?>
   <?php } ?>
+
+
+
+  <?php get_template_part('templates/prsm'); ?>
+
   <nav class="nav-main" role="navigation">
     <?php
       if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav1 nav nav-pills'));
+        wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav1 nav nav-pills', 'items_wrap' => '<ul id="%1$s" class="%2$s"><li class="menu-products modalmenutrigger"><a data-target="prsmmodal" href="#prsmmodal">'.__('Products','cementlap').'</a></li>%3$s</ul>'));
       endif;
     ?>
     <div class="headcontact">
@@ -32,9 +37,9 @@
         }
       ?>
       </ul>
-
-
     </div>
   </nav>
+
+
 </div>
 </header>

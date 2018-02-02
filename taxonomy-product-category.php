@@ -20,14 +20,7 @@ Template Name: Product Category List
 
 <section class="product-control">
 
-
-  <?php if (has_nav_menu('prodsitemap_navigation')) : ?>
-  <section class="prsmwrap">
-    <nav class="prsmnav">
-      <?php wp_nav_menu(array('theme_location' => 'prodsitemap_navigation', 'menu_class' => 'prsmmenu')); ?>
-    </nav>
-  </section>
-  <?php endif; ?>
+  <?php //get_template_part('templates/prsm'); ?>
 
 
   <h1><?php echo $parent_term->name; ?></h1>
@@ -121,12 +114,6 @@ Template Name: Product Category List
         <?php } ?>
       </ul>
     </div>
-
-
-
-
-
-
   </div><!-- /#filt-wrap -->
 
 

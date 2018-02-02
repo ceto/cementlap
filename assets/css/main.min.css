@@ -7165,18 +7165,31 @@ a.pswp__share--download:hover {
     font-weight: 400;
     text-transform: none; }
 
+.modalmenutrigger {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .modalmenutrigger {
+      display: inline-block; } }
+
 .prsmwrap {
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%; }
+  background-color: #FEFEFF; }
+  @media only screen and (min-width: 1024px) {
+    .prsmwrap {
+      border: 1px solid #efefef;
+      background-color: #FEFEFF;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.25);
+      display: none; }
+      .prsmwrap.is-open {
+        display: block; } }
 
 .prsmnav {
-  padding: 2rem 0;
+  padding: 3rem 1rem 2rem 1em;
   margin: 0 0; }
-  @media only screen and (min-width: 768px) {
-    .prsmnav {
-      max-width: 60rem; } }
 
 .prsmnav > ul {
   list-style: none;
@@ -7194,23 +7207,29 @@ a.pswp__share--download:hover {
     clear: both; }
   .prsmnav > ul > li {
     margin: 0;
-    padding: 0 1rem 1rem;
-    display: block;
-    float: left;
-    max-width: 50%; }
+    padding: 0 1rem 2rem;
+    display: block; }
     .prsmnav > ul > li > a {
       display: inline-block;
       text-transform: uppercase;
       color: inherit; }
-    .prsmnav > ul > li:nth-child(2n+1) {
-      clear: left; }
     @media only screen and (min-width: 480px) {
       .prsmnav > ul > li {
-        max-width: 33.333%; }
+        width: 50%;
+        float: left; }
+        .prsmnav > ul > li:nth-child(2n+1) {
+          clear: left; } }
+    @media only screen and (min-width: 1024px) {
+      .prsmnav > ul > li {
+        width: auto;
+        max-width: 25%; }
         .prsmnav > ul > li:nth-child(2n+1) {
           clear: none; }
-        .prsmnav > ul > li:nth-child(3n+1) {
+        .prsmnav > ul > li:nth-child(4n+1) {
           clear: left; } }
+    @media only screen and (min-width: 1600px) {
+      .prsmnav > ul > li {
+        padding-right: 5%; } }
 
 .prsmnav > ul ul {
   font-size: .875em;

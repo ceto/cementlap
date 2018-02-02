@@ -1,27 +1,39 @@
 .filt-wrap, .nav-category {
     //display: none;
 }
+.modalmenutrigger {
+    display: none;
+    @include breakpoint($s3){
+        display: inline-block;
+    }
+}
 
 .prsmwrap {
-    //border:1px solid $gray-light;
-    //margin-top: -1em;
-    //border-top: none;
-    //background-color: rgba(#fff,.98);
-    //position: absolute;
-    z-index: 1;
-    left:0;
-    top:0;
-    width:100%;
-    //box-shadow: 0 0 .5rem 0 rgba(#000,.25);
-    //display: none;
+    background-color: $white;
+    @include breakpoint($s3){
+        border:1px solid $gray-superlight;
+        background-color: $white;
+        position: absolute;
+        z-index: 1;
+        left:0;
+        top:100%;
+        width:100%;
+
+        box-shadow: 0 5rem 5rem 0 rgba(#000,.25);
+        display: none;
+        &.is-open {
+            display: block;
+        }
+
+    }
 }
 .prsmnav {
     //border:1px solid $gray-light;
-    padding: 2rem 0;
+    padding: 3rem 1rem 2rem 1em;
     margin:0 0;
     //max-width: 40rem;
     @include breakpoint($s2){
-        max-width: 60rem;
+        //max-width: 60rem;
     }
 }
 .prsmnav > ul {
@@ -37,31 +49,37 @@
 
      > li {
         margin:0;
-        padding:0 1rem 1rem;
+        padding:0 1rem 2rem;
         display: block;
-        float:left;
-        max-width:50%;
         //min-width: 12em;
          > a {
             display: inline-block;
             text-transform: uppercase;
             color: inherit;
         }
-        &:nth-child(2n+1) {
-            clear:left;
-        }
+
 
         @include breakpoint($s1){
-            max-width:33.333%;
+            width:50%;
+            float: left;
             &:nth-child(2n+1) {
-                clear:none;
-            }
-            &:nth-child(3n+1) {
                 clear:left;
             }
         }
-        @include breakpoint($s2){
-            //width:25%;
+
+        @include breakpoint($s3){
+            width:auto;
+            max-width:25%;
+            //padding-right: 8%;
+            &:nth-child(2n+1) {
+                clear:none;
+            }
+            &:nth-child(4n+1) {
+                clear:left;
+            }
+        }
+        @include breakpoint($s5){
+            padding-right: 5%;
         }
         // @include breakpoint($s2){
         //    width:20%;
@@ -83,6 +101,7 @@
     margin:0;
     padding:0;
     > li {
+        //padding:0;
         &:before {
             content:'';
             display: inline-block;
