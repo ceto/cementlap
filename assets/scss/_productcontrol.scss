@@ -1,14 +1,6 @@
 .product-control{
   @include clearfix();
-  h1 {
-    text-transform: uppercase;
-    color:$gray-dark;
-    font-weight: 300;
-    font-size: 1.25em;
-    line-height: 1em;
-    margin-top:2em;
-  }
-  text-align: center;
+
 }
 
 .nav-category {
@@ -41,12 +33,48 @@
 }
 .filt-wrap{
   background-color: $white;
-  padding-top: 10px;
+  text-align: right;
+  //border-bottom:1px solid $gray-superlight;
+
   &.fixed {
     position: fixed;
-    top:0;
+    top:0px;
     left:0;right:0;
+    width:100%;
     z-index:1;
+    padding: 10px 0 10px;
+    border-bottom:1px solid $gray-superlight;
+    box-shadow: 0 0 1rem 0 rgba(#000,.25);
+    text-align: center;
+  }
+
+}
+.filt-wrap__inner {
+  @include clearfix();
+  padding: 5px 1rem 0;
+  max-width: $s5;
+  margin:0 auto;
+}
+
+.filt-title {
+  display: inline-block;
+  margin:0 5px 0 0;
+  text-transform: uppercase;
+  color:$gray-dark;
+  font-weight: 700;
+  font-size: 1.25em;
+  line-height: 32px;
+  //height:32px;
+  display: none;
+  @include breakpoint($s2){
+    float:left;
+    max-width:167px;
+  }
+
+}
+.filt-selectors {
+  @include breakpoint($s2){
+    //float:right;
   }
 }
 .filt-select-con {
@@ -56,7 +84,7 @@
   text-align: left;
   color:$gray;
   font-weight: 300;
-  font-size: 0.875em;
+  font-size: .875em;
   line-height: 1em;
   @include breakpoint($s2){
     width:167px;
@@ -64,6 +92,24 @@
   @include breakpoint($s3){
     width:178px;
   }
+}
+
+.filt-select-con--color {
+    .tax-product-color & {
+        display: none;
+    }
+
+}
+.filt-select-con--style {
+    .tax-product-design & {
+        display: none;
+    }
+}
+.filt-select-con--design {
+    .tax-product-design & {
+        display: none;
+    }
+
 }
 
 .filt-placeholder {

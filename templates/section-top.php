@@ -226,6 +226,27 @@
         </h1>
       </div>
     </section>
+    <?php elseif (is_tax('product-category') || is_tax('product-color') || is_tax('product-design')) : ?>
+       <?php
+      $aktermterm_id = term_exists( get_query_var( 'term' ) );
+      $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+      $parenttermid = $term->parent;
+    ?>
+    <section class="hero hero--blurred" role="banner">
+      <div class="hero-content">
+        <h1 class="hero-text">
+          <?php if (is_tax('product-category')): ?>
+            <span class="hero-text__taxdesc"><?= __('Termékkategória','cementlap') ?></span>
+          <?php elseif (is_tax('product-design')) : ?>
+            <span class="hero-text__taxdesc"><?= __('Stílus','cementlap') ?></span>
+          <?php elseif (is_tax('product-color')) : ?>
+            <span class="hero-text__taxdesc"><?= __('Szín','cementlap') ?></span>
+          <?php endif; ?>
+          <?= $term->name;  ?>
+        </h1>
+      </div>
+    </section>
+
 
 
   <?php else : ?>

@@ -1,77 +1,45 @@
-.banner
-{
-    position: relative;
-
-    //min-height: 100%;
-    //width:280px;
-    //height: 100vh;
-    //overflow: auto;
-    //overflow: hidden;
-    padding: 0;
-
-    background-color: $gray-dark;
-
+.banner {
     @include clearfix();
-    @include breakpoint($s3)
-    {
-        max-width: $s5;
-        min-height: 0;
-        height: auto;
-        margin: 0 auto;
-        padding: .75em 1em .5em;
 
+    position: relative;
+    padding: 0;
+    //background-color: $gray-dark;
+
+    @include breakpoint($s3){
         background-color: $white;
-        //filter:invert(1);
-
-
-
-
-
-    }
-    @include breakpoint($s3)
-    {
-        padding: .75em 2em .5em;
 
         &.scrolled {
         position:fixed;
         z-index: 9999999;
-        //max-width: none;
           height:89px;
           top:-89px;
           left:0;
           width:100%;
-          //width:100%;
-          box-shadow: 0 0 3px 0 lighten($gray-light,10%);
+
+
           &:hover, &.ison {
             top:0;
+            box-shadow: 0 0 .5rem 0  rgba(#000,.25);
 
           }
 
         }
 
-
-
-
     }
 
-    @include breakpoint($s5) {
-        &.scrolled {
-           left:calc(50% - 800px );
-           box-shadow: 0 2em 3px -2em lighten($gray-light,10%);
-       }
-    }
-    .banner__inner {
-    }
-    .active-nav & .abanner__inner {
-        position: fixed;
-        left:0;
-        top:0em;
-        width:80%;
 
-        overflow: auto;
-        height: 100vh;
-        //background-color: red;
+}
+
+.banner__inner {
+
+    @include breakpoint($s3) {
+        max-width: $s5;
+        min-height: 0;
+        height: auto;
+        margin: 0 auto;
+        padding: .75em 2em .5em;
     }
+
 }
 
 
