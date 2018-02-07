@@ -6,27 +6,26 @@
 
 ?>
 
+<?php
+  $allstylegroups = get_terms(array(
+    'taxonomy' => 'style-group',
+    'hide_empty' => false,
+  ));
+?>
+
 <section class="product-control">
   <nav class="nav-category">
-  <ul class="menu menu--group">
-      <?php if ($term->parent!==0) :?>
-      <li>
-        <a class="" href="<?= get_term_link( $term->parent ) ?>"><i class="ion-ios-undo"></i><small><?php _e('Vissza','cementlap'); ?></small></a>
-      </li>
-    <?php endif; ?>
-
-    <?php  foreach( $stylegroups as $stylegroupid ):
-      $the_term = get_term_by( 'id', $stylegroupid, 'style-group' );
-      if ($the_term->parent == $aktermterm_id) : ?>
+    <ul class="menu menu--group">
+<!--       <li>
+        <a class="" href="#"><i class="ion-ios-undo"></i><small><?php _e('Mutasd mindet','cementlap'); ?></small></a>
+      </li> -->
+      <?php foreach( $allstylegroups as $sgelem ): ?>
         <li>
-          <a href="<?= get_term_link( $the_term ) ?>"><?= $the_term->name ?><?php if ($the_term->description): ?><small><?= $the_term->description ?></small><?php endif; ?></a>
+          <a class="<?= ($aktermterm_id==$sgelem->term_id)?'is-selected':'' ?>" href="<?= get_term_link( $sgelem ) ?>"><?= $sgelem->name ?><?php if ($sgelem->description): ?><small><?= $sgelem->description ?></small><?php endif; ?></a>
         </li>
-      <?php endif ?>
-    <?php endforeach; ?>
-  </ul>
+      <?php endforeach; ?>
+    </ul>
   </nav>
-
-
 </section>
 
 <?php

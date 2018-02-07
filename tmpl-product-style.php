@@ -5,8 +5,24 @@ Template Name: Product Style List
 ?>
 
 <?php
-  $child_terms = get_terms( 'product-style', array(/*'child_of' => $parent_term->term_id */) );
+  $allstylegroups = get_terms(array(
+    'taxonomy' => 'style-group',
+    'hide_empty' => false,
+  ));
 ?>
+<section class="product-control">
+  <nav class="nav-category">
+    <ul class="menu menu--group">
+      <?php  foreach( $allstylegroups as $sgelem ): ?>
+        <li>
+          <a href="<?= get_term_link( $sgelem ) ?>"><?= $sgelem->name ?><?php if ($sgelem->description): ?><small><?= $sgelem->description ?></small><?php endif; ?></a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </nav>
+</section>
+
+<?php $child_terms = get_terms( 'product-style', array(/*'child_of' => $parent_term->term_id */) ); ?>
 
 <div class="loader loading"><i class="ion-load-a"></i></div>
 <div class="productstyle-list loading">
@@ -28,7 +44,7 @@ Template Name: Product Style List
       <?php   if (get_tax_meta( $childtermid_hu, 'ps_image_id') ) : ?>
         <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="<?= $child->name;?>" class="sqstyle__img">
       <?php else : ?>
-        <img class="sqstyle__img" src="http://lorempixel.com/<?= 640 + $i*16; ?>/<?= 360 + $i * 9; ?>" alt="<?= $child->name;?>">
+        <img class="sqstyle__img" src="http://placehold.it/640x360/cecece/333333/?text=<?= $child->name;?>" alt="<?= $child->name;?>">
       <?php endif; ?>
 
       <h2 class="sqstyle__name"><?= $child->name;?> <i class="ion ion-ios-arrow-thin-right"></i></h2>

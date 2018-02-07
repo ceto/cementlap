@@ -29,11 +29,10 @@
       <?php   if (get_tax_meta( $aktermterm_id, 'ps_image_id') ) : ?>
         <img src="<?php echo $imci[0]; ?>" width="<?php echo $imci[1]; ?>" height="<?php echo $imci[2]; ?>" alt="<?= $child->name;?>" class="sqstyle__img">
       <?php else : ?>
-        <img class="sqstyle__img" src="http://lorempixel.com/<?= 640 + $i*16; ?>/<?= 360 + $i * 9; ?>" alt="<?= $child->name;?>">
+        <img class="sqstyle__img" src="https://lorempixel.com/<?= 640 + $i*16; ?>/<?= 360 + $i * 9; ?>" alt="<?= $child->name;?>">
       <?php endif; ?>
     </a>
   </figure>
-
   <?php
     if (get_tax_meta( $aktermterm_id, 'ps_gallery_id') ) {
       $contentwithgallery= get_post_meta( get_tax_meta( $aktermterm_id, 'ps_gallery_id'), '_meta_addcont', true );

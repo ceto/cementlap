@@ -1,22 +1,25 @@
 .product-control{
   @include clearfix();
 
+
 }
 
 .nav-category {
-
+  font-size: .666rem;
+  @include breakpoint($s3){
+    font-size: .75rem;
+  }
+  @include breakpoint($s4){
+    font-size: .875rem;
+  }
   ul {
+    text-align: center;
     //margin:0;
     padding:0;
   }
   li {
     list-style-type: none;
     display: inline-block;
-    &.active {
-      a {
-        color:$gray;
-      }
-    }
   }
   a{
     display: inline-block;
@@ -27,6 +30,9 @@
     font-weight: 700;
     font-size: 0.875em;
     line-height: 1em;
+    &.is-selected {
+        color:$gray;
+    }
   }
 
 
