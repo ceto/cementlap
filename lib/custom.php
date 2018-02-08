@@ -906,8 +906,6 @@ function cementlap_modify_num_products($query)
         $query->set('orderby', 'title');
         $query->set('order', 'ASC');
       }
-
-
     }
 
 }
