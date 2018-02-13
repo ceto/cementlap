@@ -3863,11 +3863,6 @@ a.menu-button:hover {
       width: 1em;
       transform: translate(-0.25em, -0.25em);
       margin-right: -.125em; }
-  .hero--blurred .hero-text__taxdesc {
-    font-size: .875rem;
-    font-weight: 700;
-    display: block;
-    line-height: 1em; }
   .hero--blurred .hero__action {
     margin-top: 1em;
     background-image: linear-gradient(to right, #9A9A9B, #9A9A9B 3.666em, transparent 3.666em);
@@ -3900,6 +3895,12 @@ a.menu-button:hover {
       background-color: #FF9900; }
       .hero--blurred .hero__action .button:hover, .hero--blurred .hero__action .button:focus {
         background-color: black; }
+
+.hero-text__taxdesc {
+  font-size: .875rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1em; }
 
 .hero-content {
   text-align: left;

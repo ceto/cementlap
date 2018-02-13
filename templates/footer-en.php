@@ -3,9 +3,11 @@
     <?php //dynamic_sidebar('sidebar-footer'); ?>
       <nav class="nav-footer" role="navigation">
       <?php
-        if (has_nav_menu('primary_navigation')) :
+        if (has_nav_menu('footer_navigation')) {
+          wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav1 nav nav-pills'));
+        } else {
           wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav1 nav nav-pills'));
-        endif;
+        }
       ?>
     </nav>
     <div class="widgetwrap">
