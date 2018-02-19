@@ -903,8 +903,11 @@ function cementlap_modify_num_products($query)
     if ( ($query->is_main_query()) && ($query->is_tax('product-category') || $query->is_tax('product-design') || $query->is_tax('product-color') || $query->is_tax('product-style') || $query->is_category() ) && (!is_admin()) ) {
       $query->set('posts_per_page', 75);
       if ( !($query->is_category() ) ) {
-        $query->set('orderby', 'title');
-        $query->set('order', 'ASC');
+        $query->set('meta_key', '_meta_amount');
+        $query->set('orderby',  array('meta_value_num' => 'DESC',  'title' => 'ASC'  ));
+        //$query->set('order', 'ASC');
+
+
       }
     }
 
