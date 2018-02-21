@@ -6067,19 +6067,25 @@ input[type="text"], input[type="email"], textarea {
 .gallerygrid {
   width: 100%;
   margin: 2rem auto 4rem; }
+  .gallerygrid:before, .gallerygrid:after {
+    content: " ";
+    display: table; }
+  .gallerygrid:after {
+    clear: both; }
 
 .gallerygrid__sizer,
 .gallerygrid__item {
-  width: 49.9%;
+  min-height: 1px;
+  width: 49.666%;
   padding: .5rem; }
   @media only screen and (min-width: 768px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 33.3%; } }
+      width: 33.1666%; } }
   @media only screen and (min-width: 1024px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 24.9%; } }
+      width: 24.666%; } }
   @media only screen and (min-width: 1280px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
@@ -6087,19 +6093,19 @@ input[type="text"], input[type="email"], textarea {
   @media only screen and (min-width: 1600px) {
     .gallerygrid__sizer,
     .gallerygrid__item {
-      width: 19.9%; } }
+      width: 19.666%; } }
 
 .gallerygrid__item--large {
-  width: 99.9%; }
+  width: 99.333%; }
   @media only screen and (min-width: 768px) {
     .gallerygrid__item--large {
-      width: 66.5%; } }
+      width: 66.333%; } }
   @media only screen and (min-width: 1024px) {
     .gallerygrid__item--large {
-      width: 49.8%; } }
+      width: 49.2333%; } }
   @media only screen and (min-width: 1600px) {
     .gallerygrid__item--large {
-      width: 39.8%; } }
+      width: 39.2333%; } }
 
 .card {
   text-align: center; }

@@ -2,25 +2,27 @@
     width: 100%;
     //min-height: 100vh;
     margin:2rem auto 4rem;
+    @include clearfix();
 }
 
 
 
 .gallerygrid__sizer,
 .gallerygrid__item {
-    width: 49.9%;
+    min-height: 1px;
+    width: 49.666%;
     padding: .5rem;
     @include breakpoint($s2) {
-        width: 33.3%;
+        width: 33.1666%;
     }
     @include breakpoint($s3) {
-        width: 24.9%;
+        width: 24.666%;
     }
     @include breakpoint($s4){
       padding: 1rem;
     }
     @include breakpoint($s5) {
-        width: 19.9%;
+        width: 19.666%;
     }
     @include breakpoint($s6) {
         //width: 16.666%;
@@ -28,14 +30,14 @@
 }
 
 .gallerygrid__item--large {
-    width: 99.9%;
+    width: 99.333%;
     @include breakpoint($s2) {
-        width: 66.5%;
+        width: 66.333%;
     }
     @include breakpoint($s3) {
-        width: 49.8%;
+        width: 49.2333%;
     }
     @include breakpoint($s5) {
-        width: 39.8%;
+        width: 39.2333%;
     }
 }

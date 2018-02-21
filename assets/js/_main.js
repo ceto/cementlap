@@ -374,6 +374,7 @@ jQuery(document).ready(function($){
     itemSelector: '.gallerygrid__item',
     // use element for option
     columnWidth: '.gallerygrid__sizer',
+    gutter: 0,
     percentPosition: true
   });
 
