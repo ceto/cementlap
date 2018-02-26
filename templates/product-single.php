@@ -119,7 +119,7 @@
 <a class="product-back" href="javascript:history.back();"><i class="ion-ios-undo"></i><? _e('Back','cementlap') ?></a>
           <h1 class="product-title"><?php the_title(); ?></h1>
           <div class="product-price">
-            <?php if (has_term('akcios','product-stock')) : ?>
+            <?php if ($uniorigprice>0) : ?>
               <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
                 <div class="origprice">
                   <?php _e('Original price','cementlap'); ?>:

@@ -97,6 +97,29 @@
       </div>
       <?php endif; ?>
 
+      <?php if ($uniorigprice>0) : ?>
+          <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+            <div class="origprice">
+              <?php _e('Original price','cementlap'); ?>:
+              <span class="szam"><?php echo $uniorigprice; ?>
+              <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <span class="unit__vat"><?php _e('+VAT','cementlap'); ?></span></span>
+              </span>
+            </div>
+          <?php else : ?>
+            <div class="origprice">
+              <?php _e('Original price','cementlap'); ?>:
+              <span class="szam"><?php echo $uniorigprice*(100+$copt['vat'])/100; ?>
+              <span class="unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?></span>
+              </span>
+            </div>
+          <?php endif; ?>
+        <?php endif; ?>
+
+
+
+
+
+
       <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
         <span class="prod-price">
           <?php echo $uniprice; ?>

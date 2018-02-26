@@ -4794,6 +4794,8 @@ a.menu-button:hover {
   .origprice .szam {
     text-decoration: line-through;
     font-weight: 700; }
+  .prod-mini .origprice {
+    margin-top: .5em; }
 
 /******* Single Product Page *******/
 article.product {
