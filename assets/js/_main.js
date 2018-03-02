@@ -330,6 +330,44 @@ $(window).load(function(){
 });
 
 
+
+  $('.loadmoreproduct').click(function(e){
+
+    e.preventDefault();
+
+    var button = $(this),
+        data = {
+          'action': 'loadmore',
+          'query': cement_loadmore_params.posts, // that's how we get params from wp_localize_script() function
+          'page' : cement_loadmore_params.current_page
+        };
+
+    $.ajax({
+      url : cement_loadmore_params.ajaxurl, // AJAX handler
+      data : data,
+      type : 'POST',
+      beforeSend : function ( xhr ) {
+        button.text('Loading...'); // change the button text, you can also add a preloader image
+      },
+      success : function( data ){
+        if( data ) {
+          button.text( 'Load more...' ); // insert new posts
+          $container.isotope( 'insert', $(data) );
+          $container.imagesLoaded(function() {
+              $container.isotope();
+          });
+          cement_loadmore_params.current_page++;
+          if ( cement_loadmore_params.current_page === cement_loadmore_params.max_page ) { button.remove(); }// if last page, remove the button
+            // you can also fire the "post-load" event here if you use a plugin that requires it
+            // $( document.body ).trigger( 'post-load' );
+        } else {
+          button.remove(); // if no data, remove the button as well
+        }
+      }
+    });
+  });
+
+
 /******* BBQ *******/
 $(window).bind( 'hashchange', function( event ){
   // get options object from hash
@@ -410,6 +448,7 @@ jQuery(document).ready(function($){
 
   $('.product-list').removeClass('loading');
   $('.loader').removeClass('loading');
+
   $('.share-info').click(function(){
     $('.flip-container').toggleClass('hover');
     return false;
@@ -494,3 +533,5 @@ jQuery(document).ready(function($){
 
 
 });
+
+

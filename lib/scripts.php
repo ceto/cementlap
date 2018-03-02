@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '942a4c94d17b5c6da598d71ab0f53bb2');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '46faec173b4441339f419eb328182876');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -32,10 +32,25 @@ function roots_scripts() {
   }
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', array(), null, false);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'a6625b4258bae3c63c49abc8d9eef78b', true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'e7269e2b0881553cb96c39ddd83b8449', true);
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
+
+
+  if ( is_tax() ) {
+    global $wp_query;
+    wp_localize_script( 'roots_scripts', 'cement_loadmore_params', array(
+            'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
+            'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
+            'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+            'max_page' => $wp_query->max_num_pages
+    ) );
+  }
+
+
+
+
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 

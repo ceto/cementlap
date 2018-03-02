@@ -4705,6 +4705,8 @@ a.menu-button:hover {
           backface-visibility: hidden;
   position: relative;
   border: 1px solid transparent; }
+  .prod-thumb img {
+    display: block; }
 
 .prod-sthumb {
   position: absolute;

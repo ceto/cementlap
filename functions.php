@@ -19,3 +19,4 @@ require_once locate_template('/lib/scripts.php');         // Scripts and stylesh
 require_once locate_template('/lib/Tax-Meta-Class/Tax-meta-class/Tax-meta-class.php');          // TMC
 require_once locate_template('/lib/custom.php');          // Custom functions
 require_once locate_template('/lib/loadmore.php');          // Custom functions
+require_once locate_template('/lib/ajaxnav.php');          // Custom functions

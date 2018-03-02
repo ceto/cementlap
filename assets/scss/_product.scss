@@ -99,6 +99,9 @@
   backface-visibility:hidden;
   position: relative;
   border:1px solid transparent;
+  img {
+    display: block;
+  }
 }
 
 .prod-sthumb{
