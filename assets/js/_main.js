@@ -297,11 +297,11 @@ $(window).load(function(){
   });
 
 
-  $('.filt-item li input').each(function(){
-    if ( $('.product-list '+$(this).attr('data-filter-value')).length < 1)  {
-     $(this).parent().remove();
-    }
-  });
+  // $('.filt-item li input').each(function(){
+  //   if ( $('.product-list '+$(this).attr('data-filter-value')).length < 1)  {
+  //    $(this).parent().remove();
+  //   }
+  // });
 
 
   if ($.bbq.getState('filter')!==''){
@@ -353,6 +353,9 @@ $(window).load(function(){
         if( data ) {
           button.text( 'Load more...' ); // insert new posts
           $container.isotope( 'insert', $(data) );
+          // $(data).find('.cementlap').each(function(index, el) {
+          //   $container.isotope( 'insert', $(el) );
+          // });
           $container.imagesLoaded(function() {
               $container.isotope();
           });
