@@ -339,7 +339,8 @@ $(window).load(function(){
         data = {
           'action': 'loadmore',
           'query': cement_loadmore_params.posts, // that's how we get params from wp_localize_script() function
-          'page' : cement_loadmore_params.current_page
+          'page' : cement_loadmore_params.current_page,
+          'wpml_lang': cement_loadmore_params.wpml_lang
         };
 
     $.ajax({

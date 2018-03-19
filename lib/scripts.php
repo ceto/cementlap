@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '46faec173b4441339f419eb328182876');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '97771c9460b0bdfab23e3eba251630dd');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -32,7 +32,7 @@ function roots_scripts() {
   }
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', array(), null, false);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'd40ca0b4415a5ffeb2c42183fe9e4e96', true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'adf215ad358ff5e2e5f948df7693f2a4', true);
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
@@ -40,11 +40,13 @@ function roots_scripts() {
 
   if ( is_tax() ) {
     global $wp_query;
+    $my_current_lang = apply_filters( 'wpml_current_language', NULL );
     wp_localize_script( 'roots_scripts', 'cement_loadmore_params', array(
             'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
             'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
             'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-            'max_page' => $wp_query->max_num_pages
+            'max_page' => $wp_query->max_num_pages,
+            'wpml_lang' => $my_current_lang
     ) );
   }
 
