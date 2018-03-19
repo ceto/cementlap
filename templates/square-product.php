@@ -1,7 +1,10 @@
 <?php
+
+  $my_current_lang = apply_filters( 'wpml_current_language', NULL );
+
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
-  if ((ICL_LANGUAGE_CODE=='hu') || ($orig_id !== $post->ID)) {
+  if (($my_current_lang=='hu') || ($orig_id !== $post->ID)) {
 
   $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true), 0, ',', ' ');
   $uniprice=number_format(get_post_meta($orig_id, '_meta_price', true), 0, ',', ' ');
@@ -9,7 +12,7 @@
   $univaluta='Ft';
   $uniunit=get_post_meta($orig_id, '_meta_unit', true);
   $dateformat='Y. m. d.';
-  if (ICL_LANGUAGE_CODE!='hu') {
+  if ($my_current_lang!='hu') {
     $uniorigprice=number_format(get_post_meta($orig_id, '_meta_origprice', true) / $copt['change'] , 1, ',', ' ');
     $uniprice=number_format( get_post_meta($orig_id, '_meta_price', true) / $copt['change'], 1, ',', ' ');
     $brprice=number_format(get_post_meta($orig_id, '_meta_price', true)*(100+$copt['vat'])/100/$copt['change'], 1, ',', ' ');
@@ -18,7 +21,7 @@
     $dateformat='d/m/y';
   }
   //$transport=date($dateformat,strtotime($copt['ntd']));
-   if ( (ICL_LANGUAGE_CODE=='de') || (ICL_LANGUAGE_CODE=='fr') || (ICL_LANGUAGE_CODE=='nl') ) {
+   if ( ($my_current_lang=='de') || ($my_current_lang=='fr') || ($my_current_lang=='nl') ) {
     $uniprice='-';
     $brprice='-';
     $uniorigprice='-';
@@ -98,7 +101,7 @@
       <?php endif; ?>
 
       <?php if ($uniorigprice>0) : ?>
-          <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+          <?php if ($my_current_lang=='hu') : ?>
             <div class="origprice">
               <?php _e('Original price','cementlap'); ?>:
               <span class="szam"><?php echo $uniorigprice; ?>
@@ -120,7 +123,7 @@
 
 
 
-      <?php if (ICL_LANGUAGE_CODE=='hu') : ?>
+      <?php if ($my_current_lang=='hu') : ?>
         <span class="prod-price">
           <?php echo $uniprice; ?>
           <span class="prod-unit"><?php echo $univaluta; ?>/<?php echo (get_post_meta($orig_id, '_meta_unit', true)=='m2')?'m<sup>2</sup>':$uniunit; ?> <?php _e('+VAT','cementlap'); ?></span>
@@ -135,4 +138,4 @@
     </div>
   </a><!-- /#product-## -->
 
-<?php } //  if ((ICL_LANGUAGE_CODE=='hu') || ($orig_id !== $post->ID))  ?>
+<?php } //  if (($my_current_lang=='hu') || ($orig_id !== $post->ID))  ?>

@@ -6,7 +6,6 @@
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
     $args['post_status'] = 'publish';
-    global $sitepress;
 
     if ( isset( $_POST[ 'wpml_lang' ] ) ) {
         do_action( 'wpml_switch_language',  $_POST[ 'wpml_lang' ] ); // switch the content language
