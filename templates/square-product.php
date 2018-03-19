@@ -70,7 +70,7 @@
       <?php endif; ?>
     </figure>
     <div class="prod-desc">
-      <h3 class="prod-title"><?php the_title(); echo $my_current_lang; ?> </h3>
+      <h3 class="prod-title"><?php the_title(); ?> </h3>
       <?php if ( $darab > 0 ) : ?>
         <div class="prod-stock-status">
           <i class="ion-ios7-cart"></i>
