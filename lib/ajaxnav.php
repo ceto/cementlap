@@ -6,8 +6,11 @@
     $args = json_decode( stripslashes( $_POST['query'] ), true );
     $args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
     $args['post_status'] = 'publish';
+    global $sitepress;
 
-    do_action( 'wpml_switch_language',  $_POST[ 'wpml_lang' ] ); // switch the content language
+    if ( isset( $_POST[ 'wpml_lang' ] ) ) {
+        do_action( 'wpml_switch_language',  $_POST[ 'wpml_lang' ] ); // switch the content language
+    }
 
     // it is always better to use WP_Query but not here
     query_posts( $args );
