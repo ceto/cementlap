@@ -1,9 +1,6 @@
 <?php
 
   $my_current_lang = apply_filters( 'wpml_current_language', NULL );
-  if ( isset( $_POST[ 'wpml_lang' ] ) ) {
-      $my_current_lang = $_POST[ 'wpml_lang' ]; // switch the content language
-  }
 
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
@@ -73,7 +70,7 @@
       <?php endif; ?>
     </figure>
     <div class="prod-desc">
-      <h3 class="prod-title"><?php the_title(); ?></h3>
+      <h3 class="prod-title"><?php the_title(); echo $my_current_lang; ?> </h3>
       <?php if ( $darab > 0 ) : ?>
         <div class="prod-stock-status">
           <i class="ion-ios7-cart"></i>
