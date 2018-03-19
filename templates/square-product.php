@@ -1,6 +1,9 @@
 <?php
 
   $my_current_lang = apply_filters( 'wpml_current_language', NULL );
+  if ( isset( $_POST[ 'wpml_lang' ] ) ) {
+      $my_current_lang = $_POST[ 'wpml_lang' ]; // switch the content language
+  }
 
   $copt=get_option('cementlap_option_name');
   $orig_id=icl_object_id($post->ID, 'product', true, 'hu');
