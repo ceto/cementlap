@@ -43,6 +43,81 @@ include_once( get_stylesheet_directory() . '/lib/cement-acf.php' );
 // add_action( 'admin_enqueue_scripts', 'icl_load_jquery_dialog' );
 
 
+// Register Custom Post Type
+function cementlap_custom_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'References', 'Post Type General Name', 'cementlap' ),
+		'singular_name'         => _x( 'Reference', 'Post Type Singular Name', 'cementlap' ),
+		'menu_name'             => __( 'Reference', 'cementlap' ),
+		'name_admin_bar'        => __( 'Reference', 'cementlap' ),
+		'archives'              => __( 'Item Archives', 'cementlap' ),
+		'attributes'            => __( 'Item Attributes', 'cementlap' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'cementlap' ),
+		'all_items'             => __( 'All Projects', 'cementlap' ),
+		'add_new_item'          => __( 'Add New Item', 'cementlap' ),
+		'add_new'               => __( 'Add New', 'cementlap' ),
+		'new_item'              => __( 'New Item', 'cementlap' ),
+		'edit_item'             => __( 'Edit Item', 'cementlap' ),
+		'update_item'           => __( 'Update Item', 'cementlap' ),
+		'view_item'             => __( 'View Project', 'cementlap' ),
+		'view_items'            => __( 'View Projects', 'cementlap' ),
+		'search_items'          => __( 'Search Project', 'cementlap' ),
+		'not_found'             => __( 'Not found', 'cementlap' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'cementlap' ),
+		'featured_image'        => __( 'Featured Image', 'cementlap' ),
+		'set_featured_image'    => __( 'Set featured image', 'cementlap' ),
+		'remove_featured_image' => __( 'Remove featured image', 'cementlap' ),
+		'use_featured_image'    => __( 'Use as featured image', 'cementlap' ),
+		'insert_into_item'      => __( 'Insert into item', 'cementlap' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'cementlap' ),
+		'items_list'            => __( 'Items list', 'cementlap' ),
+		'items_list_navigation' => __( 'Items list navigation', 'cementlap' ),
+		'filter_items_list'     => __( 'Filter items list', 'cementlap' ),
+	);
+	$args = array(
+		'label'                 => __( 'Reference', 'cementlap' ),
+		'description'           => __( 'Post Type Description', 'cementlap' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'custom-fields', 'excerpt' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+        'menu_position'         => 21,
+        'menu_icon'             => 'dashicons-images-alt2',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'reference', $args );
+
+}
+add_action( 'init', 'cementlap_custom_post_type', 0 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Product Group Custom Post Type Definition
 */

@@ -2,12 +2,36 @@
 /*
 Template Name: Gallery Page With Photoswipe
 */
+$panci=0;
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <div class="gallerygrid js-gallery">
     <div class="gallerygrid__sizer"></div>
     <?php while ( have_rows('galeria') ) : the_row(); ?>
         <div class="gallerygrid__item <?= get_sub_field('nagy')?'gallerygrid__item--large':'' ?>">
+            <?php 
+            //Temporary reference generator goes here
+
+        //     if ( current_user_can( 'manage_options' ) ) : 
+        //         $post_arr = array(
+        //             'post_title'   => get_sub_field('cim',false,false),
+        //             'post_content' => get_sub_field('leiras',false,false),
+        //             'post_status'  => 'publish',
+        //             'post_type' => 'reference',
+        //             'menu_order' => $panci++,
+        //             'meta_input'   => array(
+        //                 '_thumbnail_id' => get_sub_field('foto',false,false),
+        //                 'linkedproducts' => get_sub_field('termeklink',false,false),
+        //                 'largethumb' =>  get_sub_field('nagy',false,false)
+        //             ),
+        //         );
+        //         wp_insert_post( $post_arr );
+        //    endif; 
+           
+           //End of Reference generator
+           ?>
+
+
             <?php
                     $image = get_sub_field('foto');
                     $targetimg = wp_get_attachment_image_src($image['id'], 'full' );
