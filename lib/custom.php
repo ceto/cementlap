@@ -979,7 +979,7 @@ function cementlap_modify_num_products($query)
       if ($query->is_tax('product-style')) {
         $query->set('posts_per_page', -1);
       } else {
-        $query->set('posts_per_page', 42);
+        $query->set('posts_per_page', 48);
       }
       if ( !($query->is_category() ) ) {
         if ( FALSE && (ICL_LANGUAGE_CODE=='hu') ) {
