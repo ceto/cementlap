@@ -3818,6 +3818,16 @@ a.menu-button:hover {
   color: white !important;
   background-color: #49494A; }
 
+.meistergomb {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  background-color: #49494A; }
+  .meistergomb img {
+    display: block; }
+
 .hero {
   background-color: #2F2F2F;
   background-image: url("../img/hero.jpg");

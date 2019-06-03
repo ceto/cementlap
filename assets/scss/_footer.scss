@@ -1,5 +1,4 @@
-.content-info
-{
+.content-info {
   position: relative;
 
   clear: both;
@@ -200,3 +199,21 @@
   color: white !important;
   background-color: $gray;
 }
+
+.meistergomb {
+
+  display: inline-block;
+
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  background-color: $gray;
+
+  img {
+    display: block;
+  }
+}
+
+
+
