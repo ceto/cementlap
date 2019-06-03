@@ -19,6 +19,9 @@
     <a href="https://www.facebook.com/marrakeshzementfliesen.at" class="socialgomb" target="_blank">
       <i class="ion ion-social-facebook"></i>
     </a>
+    <a href="https://www.meisterstrasse.com/de/marrakesh-zementfliesen" class="meistergomb" target="_blank">
+      <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/meisterstrasse" alt="MEISTERSTRASSE">
+    </a>
   </div>
   <a href="#" class="tothetop"><i class="ion-ios-arrow-thin-up"></i></a>
 </footer>

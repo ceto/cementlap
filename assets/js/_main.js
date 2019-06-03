@@ -104,7 +104,6 @@ var resizeHero = function() {
   }
 };
 
-
 var showMenu = function() {
   $('body').toggleClass("active-nav");
   $('.menu-button').toggleClass("active-button");
